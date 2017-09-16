@@ -1,0 +1,76 @@
+@import '../../components/variables.scss';
+
+.root {
+  .categories {
+    position: fixed;
+    min-width: 230px;
+
+    .category {
+      display: flex;
+      align-items: center;
+      height: 30px;
+      text-decoration: none;
+
+      .imageContainer {
+        display: flex;
+        justify-content: center;
+        width: 34px;
+
+        .image {
+          height: 15px;
+          background: black;
+        }
+      }
+
+      .name {
+        color: #000;
+        font-family: $font-rising-regular;
+      }
+    }
+
+    .category:hover {
+      text-decoration: underline;
+    }
+
+    .categoryActive {
+      .name {
+        font-family: $font-rising-demi;
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .parties {
+    padding-bottom: 40px;
+    margin-left: 230px;
+
+    .party {
+      .info {
+        display: flex;
+        align-items: center;
+        height: 50px;
+
+        .image {
+          width: 50px;
+          height: 50px;
+          object-fit: contain;
+        }
+
+        .name {
+          font-size: 1.2rem;
+          font-family: $font-rising-regular;
+          cursor: pointer;
+        }
+      }
+
+      .text {
+        font-family: $font-rising-regular;
+        margin-left: 50px;
+
+        p {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}

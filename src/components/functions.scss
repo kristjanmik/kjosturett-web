@@ -1,0 +1,127 @@
+@import './variables.scss';
+
+@function between($to, $from, $toWidth, $fromWidth) {
+  $slope: ($to - $from) / ($toWidth - $fromWidth);
+  $base: $from - $slope * $fromWidth;
+
+  @return calc(#{$base} + #{100vw * $slope});
+}
+
+@mixin responsive-property(
+  $property,
+  $fromValue,
+  $toValue,
+  $fromBp: $site-small,
+  $toBp: $site-large
+) {
+  $fromValues: ();
+  $betweenValues: ();
+  $toValues: ();
+
+  @for $i from 1 through length( $fromValue ) {
+    $fv: nth($fromValue, $i);
+    $tv: nth($toValue, $i);
+
+    $bv: $fv;
+    $bvf: false;
+    $bvt: false;
+
+    $fromValues: append($fromValues, $fv);
+    $betweenValues: append($betweenValues, $bv);
+    $toValues: append($toValues, $tv);
+
+    @if (type-of( $fv ) == 'number' and not unitless( $fv ) and unit( $fv ) != '%') {
+      $fv: if(unit($fv) != 'px',  ($fv / ($fv * 0 + 1) * 16) * 1px, $fv);
+      $bvf: $fv;
+    }
+
+    @if (type-of( $tv ) == 'number' and not unitless( $tv ) and unit( $tv ) != '%') {
+      $tv: if(unit($tv) != 'px',  ($tv / ($tv * 0 + 1) * 16) * 1px, $tv);
+      $bvt: $tv;
+    }
+
+    @if ($bvf != false and $bvt != false) {
+      $bv: between($bvf, $bvt, $fromBp, $toBp);
+    }
+  }
+
+  @media screen and (min-width: #{$fromBp}) {
+    #{$property}: $betweenValues;
+  }
+
+  @media screen and (min-width: #{$toBp}) {
+    #{$property}: $toValues;
+  }
+
+  #{$property}: $fromValues;
+}
+
+//@TODO fix duplicated logic
+@mixin responsive-property-calc(
+  $property,
+  $fromValue,
+  $toValue,
+  $fromBp,
+  $toBp
+) {
+  $fromValues: ();
+  $betweenValues: ();
+  $toValues: ();
+
+  @for $i from 1 through length( $fromValue ) {
+    $fv: nth($fromValue, $i);
+    $tv: nth($toValue, $i);
+
+    $bv: $fv;
+    $bvf: false;
+    $bvt: false;
+
+    $fromValues: append($fromValues, $fv);
+    $betweenValues: append($betweenValues, $bv);
+    $toValues: append($toValues, $tv);
+
+    @if (type-of( $fv ) == 'number' and not unitless( $fv ) and unit( $fv ) != '%') {
+      //Same as above but we are multiplying by two
+      $fv: if(unit($fv) != 'px',  ($fv / ($fv * 0 + 1) * 16) * 1px, $fv * 2);
+      $bvf: $fv;
+    }
+
+    @if (type-of( $tv ) == 'number' and not unitless( $tv ) and unit( $tv ) != '%') {
+      //Same as above but we are multiplying by two
+      $tv: if(unit($tv) != 'px',  ($tv / ($tv * 0 + 1) * 16) * 2px, $tv * 2);
+      $bvt: $tv;
+    }
+
+    @if ($bvf != false and $bvt != false) {
+      $bv: between($bvf, $bvt, $fromBp, $toBp);
+    }
+  }
+
+  @media screen and (min-width: #{$fromBp}) {
+    #{$property}: calc(100% - #{$betweenValues});
+  }
+
+  @media screen and (min-width: #{$toBp}) {
+    #{$property}: calc(100% - #{$toValues});
+  }
+
+  #{$property}: calc(100% - #{$fromValues});
+}
+
+@mixin responsive-property-width(
+  $fromValue,
+  $toValue,
+  $fromBp,
+  $toBp
+) {
+  @include responsive-property-calc('width',$fromValue,$toValue,$fromBp,$toBp);
+}
+
+@mixin responsive-property-height(
+  $fromValue,
+  $toValue,
+  $fromBp,
+  $toBp
+) {
+  @include responsive-property-calc('height',$fromValue,$toValue,$fromBp,$toBp);
+}

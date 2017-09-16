@@ -1,0 +1,46 @@
+@import '../../components/variables.scss';
+
+.root {
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 12px;
+
+    .category {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 222px;
+      height: 155px;
+      margin-left: 12px;
+      margin-bottom: 12px;
+      background: #f1f2f4;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .name {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 10px;
+      text-align: center;
+      text-decoration: none;
+      color: #000;
+      font-size: 1rem;
+      font-family: $font-rising-demi;
+    }
+
+    .image {
+      height: 90px;
+      width: 90px;
+    }
+  }
+
+  .party:hover {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.35);
+  }
+}
