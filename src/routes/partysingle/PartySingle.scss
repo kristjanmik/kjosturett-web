@@ -1,0 +1,72 @@
+@import '../../components/variables.scss';
+
+$breakpoint: $site-medium;
+
+.root {
+  display: flex;
+  flex-direction: row;
+
+  .party {
+  }
+
+  .categories {
+    margin-left: 30px;
+    padding-bottom: 40px;
+
+    .category {
+      .info {
+        display: flex;
+        align-items: center;
+        height: 35px;
+
+        @media screen and (max-width: #{$breakpoint}) {
+          height: 30px;
+        }
+
+        .image {
+          width: 25px;
+          height: 25px;
+          object-fit: contain;
+
+          @media screen and (max-width: #{$breakpoint}) {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .name {
+          font-size: 1.2rem;
+          font-family: $font-rising-regular;
+          cursor: pointer;
+          margin-left: 10px;
+
+          @media screen and (max-width: #{$breakpoint}) {
+            font-size: 1.05rem;
+          }
+        }
+      }
+
+      .text {
+        font-family: $font-rising-regular;
+        margin-left: 50px;
+
+        @media screen and (max-width: #{$breakpoint}) {
+          margin-left: 40px;
+        }
+
+        p {
+          margin-bottom: 1rem;
+
+          @media screen and (max-width: #{$breakpoint}) {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      .textNoReply {
+        font-size: 0.8125rem;
+        font-family: $font-rising-demi;
+      }
+    }
+  }
+}

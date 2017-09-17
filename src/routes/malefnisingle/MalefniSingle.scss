@@ -119,6 +119,11 @@ $breakpoint: $site-medium;
           }
         }
       }
+
+      .textNoReply {
+        font-size: 0.8125rem;
+        font-family: $font-rising-demi;
+      }
     }
   }
 }

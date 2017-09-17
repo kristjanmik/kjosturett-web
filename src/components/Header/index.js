@@ -14,8 +14,8 @@ class Header extends PureComponent {
           <img src={logo} className={s.logo} />
         </a>
         <div className={s.links}>
-          <a href="/" className={cx(page === 'forsida' ? s.active : null)}>
-            Forsíða
+          <a href="/" className={cx(page === 'flokkar' ? s.active : null)}>
+            Flokkar
           </a>
           <a
             href="/malefni/velferdarmal"

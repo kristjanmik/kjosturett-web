@@ -6,7 +6,7 @@ export default () => ({
   chunks: ['frontpage'],
   title: `Kjóstu rétt 2017`,
   component: (
-    <Layout>
+    <Layout page="flokkar">
       <Frontpage />
     </Layout>
   )

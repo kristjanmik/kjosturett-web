@@ -148,6 +148,7 @@ parties.forEach(async party => {
       console.log('got it', party, data);
       return {
         category: category.url,
+        name: category.name,
         statement: data ? marked(data) : ''
       };
     })

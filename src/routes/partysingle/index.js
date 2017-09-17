@@ -1,5 +1,5 @@
 import React from 'react';
-import MalefniSingle from './MalefniSingle';
+import PartySingle from './PartySingle';
 import Layout from '../../components/Layout';
 import parties from '../../lib/data/parties.json';
 
@@ -8,23 +8,19 @@ export default ({ params }) => {
 
   if (!party) throw Error('Not found');
 
-  let parties = [];
+  let categories = [];
   try {
-    parties = require(`../../lib/data/${params.malefni}.json`);
+    categories = require(`../../lib/data/${party.url}.json`);
   } catch (e) {
     console.error(e);
   }
 
   return {
-    chunks: ['malefnisingle'],
-    title: `${category.name} - Kjóstu Rétt`,
+    chunks: ['partysingle'],
+    title: `${party.name} - Kjóstu Rétt`,
     component: (
-      <Layout page="malefni">
-        <MalefniSingle
-          parties={parties}
-          categories={categories}
-          selectedCategory={params.malefni}
-        />
+      <Layout page="flokkar">
+        <PartySingle party={party} categories={categories} />
       </Layout>
     )
   };
