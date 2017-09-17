@@ -18,7 +18,10 @@ class FrontPage extends PureComponent {
               <span>x</span>
               {party.letter}
             </h3>
-            <img src={party.image} className={s.image} />
+            <img
+              src={`https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/${party.url}.png`}
+              className={s.image}
+            />
             <h4 className={s.name}>{party.name}</h4>
           </a>
         ))}

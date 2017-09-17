@@ -7,76 +7,52 @@ const readFile = promisify(fs.readFile);
 
 const categories = [
   {
-    name: 'Jafnréttismál',
-    url: 'jafnrettismal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/jafnrettismal.svg'
+    name: 'Velferðarmál',
+    url: 'velferdarmal'
   },
   {
     name: 'Húsnæðismál',
-    url: 'husnaedismal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/husnaedismal.svg'
+    url: 'husnaedismal'
   },
   {
     name: 'Atvinnumál',
-    url: 'atvinnumal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/atvinnumal.svg'
+    url: 'atvinnumal'
   },
   {
     name: 'Heilbrigðismál',
-    url: 'heilbrigdismal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/heilbrigdismal.svg'
+    url: 'heilbrigdismal'
   },
   {
     name: 'Skattamál',
-    url: 'skattamal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/skattamal.svg'
+    url: 'skattamal'
   },
   {
     name: 'Evrópumál',
-    url: 'evropumal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/evropumal.svg'
+    url: 'evropumal'
   },
   {
     name: 'Stjórnarskrármál',
-    url: 'stjornarskrarmal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/stjornarskrarmal.svg'
+    url: 'stjornarskrarmal'
   },
   {
     name: 'Menntamál',
-    url: 'menntamal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/menntamal.svg'
+    url: 'menntamal'
   },
   {
     name: 'Sjávarútvegsmál',
-    url: 'sjavarutvegsmal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/sjavarutvegsmal.svg'
+    url: 'sjavarutvegsmal'
   },
   {
-    name: 'Umhverfismal',
-    url: 'umhverfismal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/umhverfismal.svg'
+    name: 'Umhverfismál',
+    url: 'umhverfismal'
   },
   {
     name: 'Samgöngumál',
-    url: 'samgongumal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/samgongumal.svg'
+    url: 'samgongumal'
   },
   {
     name: 'Byggðarmál',
-    url: 'byggdarmal',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/byggdamal.svg'
+    url: 'byggdarmal'
   }
 ];
 
@@ -84,43 +60,32 @@ export const parties = [
   {
     letter: 'A',
     url: 'bjort-framtid',
-    name: 'Björt Framtíð',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/bjort-framtid.png'
+    name: 'Björt Framtíð'
   },
   {
     letter: 'B',
     url: 'framsoknarflokkurinn',
-    name: 'Framsóknarflokkurinn',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/framsoknarflokkurinn.png'
+    name: 'Framsóknarflokkurinn'
   },
   {
     letter: 'D',
     url: 'sjalfstaedisflokkurinn',
-    name: 'Sjálfstæðisflokkurinn',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/sjalfstaedisflokkurinn.png'
+    name: 'Sjálfstæðisflokkurinn'
   },
   {
     letter: 'S',
     url: 'samfylkingin',
-    name: 'Samfylkingin',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/samfylkingin.png'
+    name: 'Samfylkingin'
   },
   {
     letter: 'V',
     url: 'vinstri-graen',
-    name: 'Vinstri Græn',
-    image:
-      'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/vinstri-graen.png'
+    name: 'Vinstri Græn'
   },
   {
     letter: 'P',
     url: 'piratar',
-    name: 'Píratar',
-    image: 'https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/piratar.png'
+    name: 'Píratar'
   }
 ];
 

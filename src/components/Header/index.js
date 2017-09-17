@@ -18,7 +18,7 @@ class Header extends PureComponent {
             Forsíða
           </a>
           <a
-            href="/malefni/jafnrettismal"
+            href="/malefni/velferdarmal"
             className={cx(page === 'malefni' ? s.active : null)}
           >
             Málefnaflokkar

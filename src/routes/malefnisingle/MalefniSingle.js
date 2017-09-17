@@ -41,7 +41,10 @@ class MalefniSingle extends PureComponent {
             <div className={s.party} key={party.url}>
               <div className={s.info}>
                 <div>
-                  <img src={party.image} className={s.image} />
+                  <img
+                    src={`https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/${party.url}.png`}
+                    className={s.image}
+                  />
                 </div>
                 <h5
                   className={s.name}
