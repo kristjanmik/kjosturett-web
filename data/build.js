@@ -68,6 +68,11 @@ export const parties = [
     name: 'Framsóknarflokkurinn'
   },
   {
+    letter: 'C',
+    url: 'vidreisn',
+    name: 'Viðreisn'
+  },
+  {
     letter: 'D',
     url: 'sjalfstaedisflokkurinn',
     name: 'Sjálfstæðisflokkurinn'

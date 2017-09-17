@@ -28,6 +28,10 @@ const routes = {
       load: () =>
         import(/* webpackChunkName: 'malefnisingle' */ './malefnisingle')
     },
+    {
+      path: '/flokkur/:party',
+      load: () => import(/* webpackChunkName: 'partysingle' */ './partysingle')
+    },
 
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     {

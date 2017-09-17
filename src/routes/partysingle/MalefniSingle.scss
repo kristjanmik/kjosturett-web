@@ -1,0 +1,124 @@
+@import '../../components/variables.scss';
+
+$breakpoint: $site-medium;
+
+.root {
+  display: flex;
+  flex-direction: column;
+
+  .categories {
+    position: fixed;
+    min-width: 230px;
+
+    @media screen and (max-width: #{$breakpoint}) {
+      position: initial;
+      display: flex;
+      flex-flow: row wrap;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .category {
+      display: flex;
+      height: 30px;
+      text-decoration: none;
+
+      .imageContainer {
+        display: flex;
+        justify-content: center;
+        width: 34px;
+
+        .image {
+          height: 15px;
+
+          @media screen and (max-width: #{$breakpoint}) {
+            height: 12px;
+          }
+        }
+      }
+
+      .name {
+        color: #000;
+        font-family: $font-rising-regular;
+
+        @media screen and (max-width: #{$breakpoint}) {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .category:hover {
+      text-decoration: underline;
+    }
+
+    .categoryActive {
+      .name {
+        font-family: $font-rising-demi;
+        font-size: 1.2rem;
+
+        @media screen and (max-width: #{$breakpoint}) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .parties {
+    padding-bottom: 40px;
+    margin-left: 230px;
+
+    @media screen and (max-width: #{$breakpoint}) {
+      margin-left: 0;
+    }
+
+    .party {
+      .info {
+        display: flex;
+        align-items: center;
+        height: 50px;
+
+        @media screen and (max-width: #{$breakpoint}) {
+          height: 40px;
+        }
+
+        .image {
+          width: 50px;
+          height: 50px;
+          object-fit: contain;
+
+          @media screen and (max-width: #{$breakpoint}) {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        .name {
+          font-size: 1.2rem;
+          font-family: $font-rising-regular;
+          cursor: pointer;
+
+          @media screen and (max-width: #{$breakpoint}) {
+            font-size: 1.05rem;
+          }
+        }
+      }
+
+      .text {
+        font-family: $font-rising-regular;
+        margin-left: 50px;
+
+        @media screen and (max-width: #{$breakpoint}) {
+          margin-left: 40px;
+        }
+
+        p {
+          margin-bottom: 1rem;
+
+          @media screen and (max-width: #{$breakpoint}) {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
