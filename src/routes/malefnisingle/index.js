@@ -21,7 +21,7 @@ export default ({ params }) => {
     chunks: ['malefnisingle'],
     title: `${category.name} - Kjóstu Rétt`,
     component: (
-      <Layout>
+      <Layout page="malefni">
         <MalefniSingle
           parties={parties}
           categories={categories}

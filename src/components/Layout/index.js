@@ -5,10 +5,11 @@ import Header from '../Header';
 
 class Layout extends PureComponent {
   render() {
+    const { page, children } = this.props;
     return (
       <div className={s.root}>
-        <Header />
-        <div>{{ ...this.props.children }}</div>
+        <Header page={page} />
+        <div>{{ ...children }}</div>
       </div>
     );
   }

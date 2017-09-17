@@ -6,7 +6,7 @@ export default () => ({
   chunks: ['malefni'],
   title: `Málefnaflokkar - Kjóstu Rétt`,
   component: (
-    <Layout>
+    <Layout page="malefni">
       <Malefni />
     </Layout>
   )

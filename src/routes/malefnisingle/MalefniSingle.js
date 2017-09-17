@@ -27,7 +27,10 @@ class MalefniSingle extends PureComponent {
               href={`/malefni/${category.url}`}
             >
               <div className={s.imageContainer}>
-                <img src={category.image} className={s.image} />
+                <img
+                  src={`https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/${category.url}_black.svg`}
+                  className={s.image}
+                />
               </div>
               <h5 className={s.name}>{category.name}</h5>
             </a>
