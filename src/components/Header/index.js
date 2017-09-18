@@ -15,7 +15,7 @@ class Header extends PureComponent {
         </a>
         <div className={s.links}>
           <a href="/" className={cx(page === 'flokkar' ? s.active : null)}>
-            Flokkar
+            Stjórnmálaflokkar
           </a>
           <a
             href="/malefni/velferdarmal"
