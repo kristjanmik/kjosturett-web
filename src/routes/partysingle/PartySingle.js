@@ -21,7 +21,8 @@ class PartySingle extends PureComponent {
         <div className={s.party}>
           <h2 className={s.name}>{party.name}</h2>
           <h3 className={s.letter}>
-            <b>Listabókstafur:</b> <span>{`x${party.letter}`}</span>
+            <b>Listabókstafur:</b>
+            <span>{`x${party.letter}`}</span>
           </h3>
           <a className={s.website} href={party.website} target="_blank">
             {party.website}
