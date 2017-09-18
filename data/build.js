@@ -11,6 +11,10 @@ const categories = [
     url: 'velferdarmal'
   },
   {
+    name: 'Jafnréttismál',
+    url: 'jafnrettismal'
+  },
+  {
     name: 'Húsnæðismál',
     url: 'husnaedismal'
   },
@@ -60,37 +64,58 @@ export const parties = [
   {
     letter: 'A',
     url: 'bjort-framtid',
-    name: 'Björt Framtíð'
+    name: 'Björt Framtíð',
+    website: 'http://www.bjortframtid.is',
+    leader: 'Óttarr Proppé',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'B',
     url: 'framsoknarflokkurinn',
-    name: 'Framsóknarflokkurinn'
+    name: 'Framsóknarflokkurinn',
+    website: 'https://framsokn.is',
+    leader: 'Sigurður Ingi Jóhannsson',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'C',
     url: 'vidreisn',
-    name: 'Viðreisn'
+    name: 'Viðreisn',
+    website: 'https://www.vidreisn.is',
+    leader: 'Benedikt Jóhannesson',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'D',
     url: 'sjalfstaedisflokkurinn',
-    name: 'Sjálfstæðisflokkurinn'
+    name: 'Sjálfstæðisflokkurinn',
+    website: 'http://xd.is',
+    leader: 'Bjarni Benediktsson',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'S',
     url: 'samfylkingin',
-    name: 'Samfylkingin'
+    name: 'Samfylkingin',
+    website: 'https://xs.is',
+    leader: 'Logi Einarsson',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'V',
     url: 'vinstri-graen',
-    name: 'Vinstri Græn'
+    name: 'Vinstri Græn',
+    website: 'https://vg.is',
+    leader: 'Katrín Jakobsdóttir',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'P',
     url: 'piratar',
-    name: 'Píratar'
+    name: 'Píratar',
+    website: 'https://piratar.is',
+    leader: 'Birgitta Jónsdóttir',
+    leaderTitle: ''
   }
 ];
 

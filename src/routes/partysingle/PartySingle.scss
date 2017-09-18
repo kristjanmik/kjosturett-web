@@ -7,6 +7,36 @@ $breakpoint: $site-medium;
   flex-direction: row;
 
   .party {
+    $image-width: 160px;
+    $image-height: 240px;
+
+    .website {
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .leaderImage img {
+      max-width: $image-width;
+      width: auto;
+      max-height: $image-height;
+      height: auto;
+    }
+
+    .leaderImage img::after {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: $image-width;
+      height: $image-height;
+      background-color: #ccc;
+      color: #fff;
+      font-family: $font-rising-regular;
+      font-size: 1.3rem;
+      text-align: center;
+      content: 'Engin mynd';
+    }
   }
 
   .categories {

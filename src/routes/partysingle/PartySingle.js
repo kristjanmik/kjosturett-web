@@ -15,20 +15,26 @@ class PartySingle extends PureComponent {
   render() {
     const { open } = this.state;
     const { party, categories } = this.props;
+
+    console.log('what is party', party);
+
     return (
       <div className={s.root}>
         <div className={s.party}>
-          <h2 className={s.name}>Framsóknarflokkurinn</h2>
+          <h2 className={s.name}>{party.name}</h2>
           <h3 className={s.letter}>
-            Listabókstafur: <span>xB</span>
+            Listabókstafur: <span>{`x${party.letter}`}</span>
           </h3>
-          <h4 className={s.website}>http://xb.is</h4>
-          <img
-            src={`https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/formenn/vinstri-graen.png`}
-            className={s.leaderImage}
-          />
-          <h5 className={s.leaderName}>Sigmundur Davíð Gunnlaugsson</h5>
-          <h6 className={s.leaderTitle}>Formaður</h6>
+          <a className={s.website} href={party.website} target="_blank">
+            {party.website}
+          </a>
+          <div className={s.leaderImage}>
+            <img
+              src={`https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/formenn/${party.url}.png`}
+            />
+          </div>
+          <h5 className={s.leaderName}>{party.leader}</h5>
+          <h6 className={s.leaderTitle}>{party.leaderTitle}</h6>
         </div>
         <div className={s.categories}>
           {categories.map(category => (

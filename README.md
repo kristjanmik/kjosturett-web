@@ -10,7 +10,8 @@ run the build file
   babel-node build.js
 
 ToDo
-	Vinna lógo
+	Vinna logo
+    http://www.krakkaruv.is/profill/keppendur/althingiskosningar/bjort-framtid
 	Útlit
 	Troða gögnum niður fyrir vinstramegin á flokk
 	gmail
@@ -22,7 +23,7 @@ ToDo
 	Verkefnið síða
 	Mobile menu
 	Mobile design
-	
+
 	PR
 
 	Velferðarmál
