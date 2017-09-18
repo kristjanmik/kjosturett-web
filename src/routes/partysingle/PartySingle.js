@@ -16,14 +16,12 @@ class PartySingle extends PureComponent {
     const { open } = this.state;
     const { party, categories } = this.props;
 
-    console.log('what is party', party);
-
     return (
       <div className={s.root}>
         <div className={s.party}>
           <h2 className={s.name}>{party.name}</h2>
           <h3 className={s.letter}>
-            Listabókstafur: <span>{`x${party.letter}`}</span>
+            <b>Listabókstafur:</b> <span>{`x${party.letter}`}</span>
           </h3>
           <a className={s.website} href={party.website} target="_blank">
             {party.website}
