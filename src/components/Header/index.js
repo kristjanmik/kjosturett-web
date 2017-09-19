@@ -23,18 +23,18 @@ class Header extends PureComponent {
           >
             Málefnin
           </a>
-          <a
+          {/* <a
             href="/upplysingar"
             className={cx(page === 'upplysingar' ? s.active : null)}
           >
             Hagnýtar upplýsingar
-          </a>
-          <a
+          </a> */}
+          {/* <a
             href="/verkefnid"
             className={cx(page === 'verkefnid' ? s.active : null)}
           >
             Verkefnið
-          </a>
+          </a> */}
         </div>
         <div className={s.countdown}>
           <Countdown />
