@@ -6,7 +6,7 @@ import s from './Countdown.scss';
 const Countdown = () => {
   return (
     <CountdownNow
-      date={new Date('Saturday, November 28, 2017 8:00:00 AM')}
+      date={new Date('Saturday, October 28, 2017 8:00:00 AM')}
       renderer={({ days, hours, minutes, seconds, completed }) => {
         if (completed) {
           // Render a completed state
