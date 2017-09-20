@@ -3,55 +3,76 @@
 .parties {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.party {
+  align-items: center;
+  border: 1px solid #efefef;
+  color: #555;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-family: $font-rising-demi;
+  height: 200px;
   justify-content: center;
-  margin-right: 12px;
+  margin-bottom: 1em;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
 
-  .party {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 200px;
-    margin-left: 12px;
-    margin-bottom: 12px;
-    background: #f1f2f4;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    border-radius: 4px;
-
-    .letter {
-      position: absolute;
-      left: 15px;
-      top: 15px;
-      font-size: 1.5rem;
-      color: #666;
-      font-family: $font-rising-demi;
-
-      span {
-        font-size: 1.2rem;
-        font-family: $font-rising-demi;
-      }
-    }
-
-    .name {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 10px;
-      text-align: center;
-      text-decoration: none;
-      color: #000;
-      font-size: 1rem;
-      font-family: $font-rising-demi;
-    }
-
-    .image {
-      height: 90px;
-    }
+  @media (min-width: 500px) {
+    width: calc(50% - 0.5em);
   }
 
-  .party:hover {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.35);
+  @media (min-width: 900px) {
+    width: calc(33.3333% - 1em);
   }
+}
+
+.letter {
+  border: 1px solid #efefef;
+  border-right: 0;
+  border-top: 0;
+  color: #aaa;
+  font-family: $font-rising-demi;
+  font-size: 1rem;
+  padding: 10px 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  span {
+    font-size: 1.2rem;
+    font-family: $font-rising-demi;
+  }
+}
+
+.info {
+  width: 55%;
+}
+
+.name {
+  font-size: 1rem;
+  margin-bottom: 0.4em;
+}
+
+.leader {
+  color: #777;
+  font-size: 0.8em;
+}
+
+.imgWrap {
+  text-align: center;
+  width: 45%;
+}
+
+.image {
+  height: auto;
+  max-height: 70px;
+  max-width: 100px;
+}
+
+.party:hover {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.35);
 }
