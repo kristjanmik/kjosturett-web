@@ -9,6 +9,7 @@
 .party {
   align-items: center;
   border: 1px solid #efefef;
+  background: #fff;
   color: #555;
   cursor: pointer;
   display: flex;
@@ -19,13 +20,21 @@
   margin-bottom: 1em;
   position: relative;
   text-decoration: none;
+  transition: filter 400ms;
   width: 100%;
+
+  &:hover {
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
+    transition-duration: 250ms;
+  }
+
 
   @media (min-width: 500px) {
     width: calc(50% - 0.5em);
   }
 
   @media (min-width: 900px) {
+    margin-bottom: 1.5em;
     width: calc(33.3333% - 1em);
   }
 }
@@ -71,8 +80,4 @@
   height: auto;
   max-height: 70px;
   max-width: 100px;
-}
-
-.party:hover {
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.35);
 }
