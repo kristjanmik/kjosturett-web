@@ -2,14 +2,13 @@ import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import s from './Header.scss';
-import Countdown from '../Countdown';
 import logo from './logo_transparent.png';
 
 class Header extends PureComponent {
   render() {
     const { page } = this.props;
     return (
-      <div className={s.root}>
+      <header className={s.root}>
         <a href="/">
           <img src={logo} className={s.logo} />
         </a>
@@ -36,10 +35,7 @@ class Header extends PureComponent {
             Verkefnið
           </a> */}
         </div>
-        <div className={s.countdown}>
-          <Countdown />
-        </div>
-      </div>
+      </header>
     );
   }
 }

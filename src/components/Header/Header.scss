@@ -4,35 +4,57 @@
   display: flex;
   align-items: center;
   height: 75px;
+  justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 30px;
+}
 
-  .logo {
-    width: 80px;
+.logo {
+  width: 80px;
+}
+
+.links {
+  a {
+    display: inline-block;
+    color: inherit;
+    font-family: $font-rising-demi;
+    margin-left: 1.5em;
+    padding: 1em 0.5em;
+    position: relative;
+    text-decoration: none;
   }
 
-  .links {
-    margin-left: 10px;
-
-    a {
-      color: black;
-      text-decoration: none;
-      margin-left: 20px;
-      font-family: $font-rising-demi;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+  a::after {
+    background: #000;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transform-origin: center 0;
+    transform: scaleX(0);
+    transition: transform 250ms;
   }
 
-  .countdown {
-    display: flex;
-    justify-content: flex-end;
-    flex: 1;
+  a:not(.active) {
+    opacity: .5;
   }
 
-  .active {
-    font-size: 1.2rem;
+  a.active {
+    cursor: default;
+  }
+
+  a.active::after,
+  a:hover::after {
+    transform: none;
   }
 }
+
+.countdown {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
