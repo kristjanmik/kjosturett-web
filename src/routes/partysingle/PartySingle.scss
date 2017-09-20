@@ -3,8 +3,10 @@
 $breakpoint: $site-medium;
 
 .root {
-  display: flex;
-  flex-direction: row;
+  @media (min-width: 500px) {
+    display: flex;
+    flex-direction: row;
+  }
 
   .party {
     $image-width: 160px;

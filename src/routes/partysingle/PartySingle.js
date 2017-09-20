@@ -25,7 +25,7 @@ class PartySingle extends PureComponent {
             <span>{`x${party.letter}`}</span>
           </h3>
           <a className={s.website} href={party.website} target="_blank">
-            {party.website}
+            {party.website.replace(/^https?:\/\/(www\.)?/i, 'www.')}
           </a>
           <div className={s.leaderImage}>
             <img
