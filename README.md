@@ -13,12 +13,12 @@ ToDo
 	Vinna logo
     http://www.krakkaruv.is/profill/keppendur/althingiskosningar/bjort-framtid
 	Útlit
-	gmail
-	búa til mail til að senda á flokka
-	senda á alla flokka
 	expand all takki
 	Hagnýtar upplýsingar síða
 	Verkefnið síða
 	Mobile menu
 	Mobile design
 	PR
+
+
+Stats: http://www.visir.is/g/2017170918861/ny-konnun-sjalfstaedismenn-og-vg-jafnstor-og-atta-flokkar-inni-a-thingi
