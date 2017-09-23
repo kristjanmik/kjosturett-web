@@ -53,7 +53,7 @@ class PartySingle extends PureComponent {
                     __html:
                       category.statement !== ''
                         ? category.statement
-                        : 'Ekkert svar barst við þessum málaflokki',
+                        : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis consequuntur cumque doloremque eaque error explicabo iusto laborum magnam maiores, molestiae nihil obcaecati quia quidem quis, saepe suscipit tempora voluptatem!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis consequuntur cumque doloremque eaque error explicabo iusto laborum magnam maiores, molestiae nihil obcaecati quia quidem quis, saepe suscipit tempora voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis consequuntur cumque doloremque eaque error explicabo iusto laborum magnam maiores, molestiae nihil obcaecati quia quidem quis, saepe suscipit tempora voluptatem!',
                   }}
                   className={cx(
                     s.text,

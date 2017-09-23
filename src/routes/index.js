@@ -45,7 +45,7 @@ const routes = {
     const route = await next();
 
     // Provide default values for title, description etc.
-    route.title = route.title || 'Vegan Recipes';
+    route.title = route.title || 'Kjóstu rétt';
     route.description = route.description || '';
 
     return route;
