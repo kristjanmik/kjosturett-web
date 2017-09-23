@@ -64,7 +64,7 @@ module.exports = {
     'no-confusing-arrow': 'off',
     'react/forbid-prop-types': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
-    'no-mixed-operators': 'off'
+    'no-mixed-operators': 'off',
 
     // ESLint plugin for prettier formatting
     // https://github.com/prettier/eslint-plugin-prettier
