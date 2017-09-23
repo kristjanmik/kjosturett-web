@@ -158,16 +158,7 @@
       "/build/server.js"
     ]
   },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{css,less,scss,sss}": [
-      "stylelint --fix",
-      "git add"
-    ]
-  },
+  "lint-staged": {},
   "scripts": {
     "precommit": "lint-staged",
     "lint-js": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
