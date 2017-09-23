@@ -1,0 +1,31 @@
+.root {
+  align-items: center;
+  display: flex;
+}
+
+.imgWrap {
+  border-radius: 50%;
+  height: 42px;
+  overflow: hidden;
+  width: 42px;
+}
+
+.img {
+  height: auto;
+  width: 100%;
+}
+
+.content {
+  color: #5b5b5b;
+  padding-left: 1em;
+}
+
+.leader {
+  font-size: 1.05em;
+  font-weight: 500;
+}
+
+.leaderTitle {
+  font-size: 0.8em;
+  margin-top: 0.2em;
+}
