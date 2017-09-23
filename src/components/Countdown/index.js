@@ -17,7 +17,7 @@ const Countdown = () => {
             out = `${days} dagar í kosningar`;
           }
 
-          return <span className={s.root}>{out}</span>;
+          return <span>{out}</span>;
         }
       }}
     />

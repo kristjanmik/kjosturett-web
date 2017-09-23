@@ -39,7 +39,6 @@ $breakpoint: $site-medium;
 
       .name {
         color: #000;
-        font-family: $font-rising-regular;
 
         @media screen and (max-width: #{$breakpoint}) {
           font-size: 0.9rem;
@@ -53,7 +52,6 @@ $breakpoint: $site-medium;
 
     .categoryActive {
       .name {
-        font-family: $font-rising-demi;
         font-size: 1.2rem;
 
         @media screen and (max-width: #{$breakpoint}) {
@@ -94,7 +92,6 @@ $breakpoint: $site-medium;
 
         .name {
           font-size: 1.2rem;
-          font-family: $font-rising-regular;
           cursor: pointer;
 
           @media screen and (max-width: #{$breakpoint}) {
@@ -104,7 +101,6 @@ $breakpoint: $site-medium;
       }
 
       .text {
-        font-family: $font-rising-regular;
         margin-left: 50px;
 
         @media screen and (max-width: #{$breakpoint}) {
@@ -122,7 +118,6 @@ $breakpoint: $site-medium;
 
       .textNoReply {
         font-size: 0.8125rem;
-        font-family: $font-rising-demi;
       }
     }
   }

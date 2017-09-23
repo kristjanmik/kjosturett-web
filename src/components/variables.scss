@@ -129,36 +129,10 @@ table {
   border-spacing: 0;
 }
 
-@font-face {
-  font-family: 'RisingSunRegular';
-  src: url('https://fonts.watchboxapp.com/RisingSun-Regular.otf')
-    format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'RisingSunDemiBold';
-  src: url('https://fonts.watchboxapp.com/RisingSun-DemiBold.otf')
-    format('opentype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'RisingSunHeavy';
-  src: url('https://fonts.watchboxapp.com/RisingSun-Heavy.otf')
-    format('opentype');
-  font-weight: bold;
-  font-style: normal;
-}
-
 // $background-color: #383e43;
 $background-color: white;
-$font-body: sans-serif;
-$font-rising-regular: 'RisingSunRegular', 'HelveticaNeue-Light', sans-serif;
-$font-rising-demi: 'RisingSunDemiBold', 'HelveticaNeue-Light', sans-serif;
-$font-rising-heavy: 'RisingSunHeavy', 'HelveticaNeue-Light', sans-serif;
+$font-sans: 'Roboto', sans-serif;
+$font-serif: 'Lora', serif;
 
 $site-large: 1280px;
 $site-medium: 768px;
@@ -171,5 +145,5 @@ html {
   color: #222;
   font-weight: 100;
   font-size: 16px;
-  font-family: $font-body;
+  font-family: $font-sans;
 }

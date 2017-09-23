@@ -3,64 +3,67 @@
 $breakpoint: $site-medium;
 
 .root {
-  .categories {
-    margin-left: 30px;
-    padding-bottom: 40px;
+}
 
-    .category {
-      .info {
-        display: flex;
-        align-items: center;
-        height: 35px;
+.name {
+  font-family: $font-serif;
+  font-size: 1.05rem;
+  cursor: pointer;
 
-        @media screen and (max-width: #{$breakpoint}) {
-          height: 30px;
-        }
+  @media (min-width: #{$breakpoint}) {
+    font-size: 1.4rem;
+  }
+}
 
-        .image {
-          width: 25px;
-          height: 25px;
-          object-fit: contain;
+.categories {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 750px;
+  padding-top: 1.5em;
+}
 
-          @media screen and (max-width: #{$breakpoint}) {
-            width: 20px;
-            height: 20px;
-          }
-        }
+.category {
+  padding: 0.7em 0;
 
-        .name {
-          font-size: 1.2rem;
-          font-family: $font-rising-regular;
-          cursor: pointer;
-          margin-left: 10px;
+  &:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
+}
 
-          @media screen and (max-width: #{$breakpoint}) {
-            font-size: 1.05rem;
-          }
-        }
-      }
+.info {
+  display: flex;
+  align-items: center;
+  height: 35px;
 
-      .text {
-        font-family: $font-rising-regular;
-        margin-left: 50px;
+  @media screen and (max-width: #{$breakpoint}) {
+    height: 30px;
+  }
 
-        @media screen and (max-width: #{$breakpoint}) {
-          margin-left: 40px;
-        }
+  .image {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
 
-        p {
-          margin-bottom: 1rem;
-
-          @media screen and (max-width: #{$breakpoint}) {
-            font-size: 0.9rem;
-          }
-        }
-      }
-
-      .textNoReply {
-        font-size: 0.8125rem;
-        font-family: $font-rising-demi;
-      }
+    @media screen and (max-width: #{$breakpoint}) {
+      width: 20px;
+      height: 20px;
     }
   }
+}
+
+.text {
+  padding-bottom: 1em;
+  padding-top: 1em;
+
+  p {
+    margin-bottom: 1rem;
+
+    @media screen and (max-width: #{$breakpoint}) {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.textNoReply {
+  font-size: 0.8125rem;
 }

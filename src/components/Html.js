@@ -84,6 +84,8 @@ class Html extends React.Component {
           <meta name="twitter:title" content="Kjóstu Rétt 2017" />
           <meta name="twitter:description" content={description} />
 
+          <link href="https://fonts.googleapis.com/css?family=Lora|Roboto" rel="stylesheet" />
+
           {scripts.map(script => (
             <link key={script} rel="preload" href={script} as="script" />
           ))}
