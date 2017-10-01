@@ -9,8 +9,20 @@
   margin-bottom: 30px;
 }
 
+.leftWrap {
+  position: relative;
+}
+
 .logo {
-  width: 80px;
+  width: 120px;
+}
+
+.countdown {
+  bottom: -8px;
+  font-size: 11px;
+  opacity: .7;
+  position: absolute;
+  right: 0;
 }
 
 .links {

@@ -47,13 +47,14 @@ class PartySingle extends PureComponent {
                   {category.name}
                 </h3>
               </div>
-              <Collapse isOpened={open[category.category]}>
+              <Collapse
+                isOpened={open[category.category] === true}
+                springConfig={{ stiffness: 200, damping: 20 }}
+              >
                 <div
                   dangerouslySetInnerHTML={{
-                    __html:
-                      category.statement !== ''
-                        ? category.statement
-                        : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis consequuntur cumque doloremque eaque error explicabo iusto laborum magnam maiores, molestiae nihil obcaecati quia quidem quis, saepe suscipit tempora voluptatem!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis consequuntur cumque doloremque eaque error explicabo iusto laborum magnam maiores, molestiae nihil obcaecati quia quidem quis, saepe suscipit tempora voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis consequuntur cumque doloremque eaque error explicabo iusto laborum magnam maiores, molestiae nihil obcaecati quia quidem quis, saepe suscipit tempora voluptatem!',
+                    __html: category.statement ||
+                      `Flokkurinn hefur ekki skilað inn umfjöllun um ${category.name}.`
                   }}
                   className={cx(
                     s.text,
