@@ -1,6 +1,3 @@
-
-
-// $background-color: #383e43;
 $background-color: white;
 $font-sans: 'Roboto', sans-serif;
 $font-serif: 'Lora', serif;
@@ -10,19 +7,3 @@ $site-medium: 768px;
 $site-small: 320px;
 
 $mobile-breakpoint: 500px;
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  color: #222;
-  font-weight: 100;
-  font-size: 16px;
-  font-family: $font-sans;
-  line-height: 1.75;
-}

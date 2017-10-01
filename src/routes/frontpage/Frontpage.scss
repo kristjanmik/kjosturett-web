@@ -16,6 +16,7 @@
   font-size: 1rem;
   height: 200px;
   justify-content: center;
+  line-height: 1;
   margin-bottom: 1em;
   position: relative;
   text-decoration: none;
@@ -26,7 +27,6 @@
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
     transition-duration: 250ms;
   }
-
 
   @media (min-width: 500px) {
     width: calc(50% - 0.5em);

@@ -1,5 +1,21 @@
 @import '../../components/variables.scss';
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: #222;
+  font-weight: 100;
+  font-size: 16px;
+  font-family: $font-sans;
+  line-height: 1.75;
+}
+
 .root {
   display: flex;
   min-height: 100vh;
