@@ -94,6 +94,22 @@ export const parties = [
     leaderTitle: 'Formaður'
   },
   {
+    letter: 'F',
+    url: 'flokkur-folksins',
+    name: 'Flokkur Fólksins',
+    website: 'https://www.flokkurfolksins.is',
+    leader: 'Inga Sæland',
+    leaderTitle: 'Formaður'
+  },
+  {
+    letter: 'M',
+    url: 'midflokkurinn',
+    name: 'Miðflokkurinn',
+    website: 'http://midflokkurinn.is',
+    leader: 'Sigmundur Davíð Gunnlaugsson',
+    leaderTitle: 'Formaður'
+  },
+  {
     letter: 'S',
     url: 'samfylkingin',
     name: 'Samfylkingin',
