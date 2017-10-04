@@ -91,7 +91,7 @@ class MalefniSingle extends PureComponent {
                     __html:
                       party.statement !== ''
                         ? party.statement
-                        : 'Ekkert svar barst við þessum málaflokki'
+                        : 'Ekkert svar hefur borist við þessum málaflokki'
                   }}
                   className={cx(
                     s.text,

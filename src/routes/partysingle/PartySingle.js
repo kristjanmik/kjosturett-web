@@ -12,13 +12,13 @@ const scroll = Scroll.animateScroll;
 
 class PartySingle extends PureComponent {
   state = {
-    open: {},
+    open: {}
   };
-  toggleCategory = (category: string) => (e) => {
+  toggleCategory = (category: string) => e => {
     this.setState(state => {
-      const open = {...state.open}
-      open[category] = !Boolean(open[category])
-      return { open }
+      const open = { ...state.open };
+      open[category] = !Boolean(open[category]);
+      return { open };
     });
 
     let curtop = 0;
@@ -43,9 +43,7 @@ class PartySingle extends PureComponent {
                 className={s.info}
                 onClick={this.toggleCategory(category.category)}
               >
-                <h3 className={s.name}>
-                  {category.name}
-                </h3>
+                <h3 className={s.name}>{category.name}</h3>
               </div>
               <Collapse
                 isOpened={open[category.category] === true}
@@ -53,12 +51,13 @@ class PartySingle extends PureComponent {
               >
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: category.statement ||
-                      `Flokkurinn hefur ekki skilað inn umfjöllun um ${category.name}.`
+                    __html:
+                      category.statement ||
+                      `${party.name} hefur ekki skilað inn umfjöllun um ${category.name.toLowerCase()}.`
                   }}
                   className={cx(
                     s.text,
-                    category.statement === '' ? s.textNoReply : null,
+                    category.statement === '' ? s.textNoReply : null
                   )}
                 />
               </Collapse>
