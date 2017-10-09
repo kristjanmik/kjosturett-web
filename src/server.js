@@ -18,6 +18,7 @@ import router from './router';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import configureStore from './store/configureStore';
 import config from './config';
+import { goLive } from './lib/isOpen';
 
 const app = express();
 
@@ -37,6 +38,12 @@ app.use(bodyParser.json());
 if (__DEV__) {
   app.enable('trust proxy');
 }
+
+app.get('/open-kjosturett-2017-live', (req, res) => {
+  goLive();
+
+  res.redirect('/');
+});
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------

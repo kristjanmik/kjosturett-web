@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react'
-import Countdown from '../../components/Countdown'
-import withStyles from 'isomorphic-style-loader/lib/withStyles'
-import logo from '../../logo.svg'
-import s from './ComingSoon.scss'
+import React, { PureComponent } from 'react';
+import Countdown from '../../components/Countdown';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import logo from '../../logo.svg';
+import s from './ComingSoon.scss';
 
 class ComingSoon extends PureComponent {
   render() {
@@ -15,11 +15,12 @@ class ComingSoon extends PureComponent {
           </div>
         </div>
         <p className={s.intro}>
-          Ný síða Kjóstu Rétt opnar mánudaginn 16. Október.
+          Kjóstu Rétt mun opna mánudaginn 16. október í beinni útsendingu á Stöð
+          2 og Vísi.is
         </p>
       </div>
-    )
+    );
   }
 }
 
-export default withStyles(s)(ComingSoon)
+export default withStyles(s)(ComingSoon);
