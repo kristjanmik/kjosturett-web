@@ -1,13 +1,13 @@
-import React, { PureComponent } from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import cx from 'classnames';
-import Countdown from '../Countdown';
-import s from './Header.scss';
-import logo from './logo.svg';
+import React, { PureComponent } from 'react'
+import withStyles from 'isomorphic-style-loader/lib/withStyles'
+import cx from 'classnames'
+import Countdown from '../Countdown'
+import s from './Header.scss'
+import logo from '../../logo.svg'
 
 class Header extends PureComponent {
   render() {
-    const { page } = this.props;
+    const { page } = this.props
     return (
       <header className={s.root}>
         <div className={s.leftWrap}>
@@ -42,8 +42,8 @@ class Header extends PureComponent {
           </a> */}
         </div>
       </header>
-    );
+    )
   }
 }
 
-export default withStyles(s)(Header);
+export default withStyles(s)(Header)

@@ -16,48 +16,52 @@ const routes = {
   // Keep in mind, routes are evaluated in order
   children: [
     {
+      path: '*',
+      load: () => import(/* webpackChunkName: 'coming-soon' */ './coming-soon'),
+    },
+    {
       path: '/',
-      load: () => import(/* webpackChunkName: 'frontpage' */ './frontpage')
+      load: () => import(/* webpackChunkName: 'frontpage' */ './frontpage'),
     },
     {
       path: '/malefni',
-      load: () => import(/* webpackChunkName: 'malefni' */ './malefni')
+      load: () => import(/* webpackChunkName: 'malefni' */ './malefni'),
     },
     {
       path: '/malefni/:malefni',
       load: () =>
-        import(/* webpackChunkName: 'malefnisingle' */ './malefnisingle')
+        import(/* webpackChunkName: 'malefnisingle' */ './malefnisingle'),
     },
     {
       path: '/flokkur/:party',
-      load: () => import(/* webpackChunkName: 'partysingle' */ './partysingle')
+      load: () => import(/* webpackChunkName: 'partysingle' */ './partysingle'),
     },
 
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     {
       path: '*',
-      load: () => import(/* webpackChunkName: 'not-found' */ './not-found')
-    }
+      load: () => import(/* webpackChunkName: 'not-found' */ './not-found'),
+    },
   ],
 
   async action({ next }) {
     // Execute each child route until one of them return the result
-    const route = await next();
+    const route = await next()
 
     // Provide default values for title, description etc.
-    route.title = route.title || 'Kjóstu rétt';
-    route.description = route.description || '';
+    route.title = route.title || 'Kjóstu rétt'
+    route.description = route.description || ''
 
-    return route;
-  }
-};
+    return route
+  },
+}
 
 // The error page is available by permanent url for development mode
 if (__DEV__) {
   routes.children.unshift({
     path: '/error',
-    action: require('./error').default
-  });
+    action: require('./error').default,
+  })
 }
 
-export default routes;
+export default routes
