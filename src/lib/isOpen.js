@@ -1,5 +1,10 @@
 let isOpen = false;
 
+//he site is always open in dev mode
+if (__DEV__) {
+  isOpen = true;
+}
+
 export default () => {
   //Browser won't have access to the isOpen boolean
   //Check if clock is more than 18:50 on monday
