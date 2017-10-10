@@ -6,119 +6,25 @@ $breakpoint: $site-medium;
   display: flex;
   flex-direction: column;
 
-  .categories {
-    position: fixed;
-    min-width: 230px;
-
-    @media screen and (max-width: #{$breakpoint}) {
-      position: initial;
-      display: flex;
-      flex-flow: row wrap;
-      flex-direction: row;
-      justify-content: center;
-    }
-
-    .category {
-      display: flex;
-      height: 30px;
-      text-decoration: none;
-
-      .imageContainer {
-        display: flex;
-        justify-content: center;
-        width: 34px;
-
-        .image {
-          height: 15px;
-
-          @media screen and (max-width: #{$breakpoint}) {
-            height: 12px;
-          }
-        }
-      }
-
-      .name {
-        color: #000;
-
-        @media screen and (max-width: #{$breakpoint}) {
-          font-size: 0.9rem;
-        }
-      }
-    }
-
-    .category:hover {
-      text-decoration: underline;
-    }
-
-    .categoryActive {
-      .name {
-        font-size: 1.2rem;
-
-        @media screen and (max-width: #{$breakpoint}) {
-          font-size: 1rem;
-        }
-      }
-    }
+  @media (min-width: #{$breakpoint}) {
+    flex-direction: row;
   }
+}
 
-  .parties {
-    padding-bottom: 40px;
-    margin-left: 230px;
+.categories {
+  min-width: 200px;
+}
 
-    @media screen and (max-width: #{$breakpoint}) {
-      margin-left: 0;
-    }
+.category {
+  color: rgb(114, 114, 114);
+  font-size: 0.9rem;
+  display: flex;
+  text-decoration: none;
 
-    .party {
-      .info {
-        display: flex;
-        align-items: center;
-        height: 50px;
-
-        @media screen and (max-width: #{$breakpoint}) {
-          height: 40px;
-        }
-
-        .image {
-          width: 25px;
-          height: 25px;
-          object-fit: contain;
-
-          @media screen and (max-width: #{$breakpoint}) {
-            width: 20px;
-            height: 20px;
-          }
-        }
-
-        .name {
-          font-size: 1.2rem;
-          cursor: pointer;
-
-          @media screen and (max-width: #{$breakpoint}) {
-            font-size: 1.05rem;
-          }
-        }
-      }
-
-      .text {
-        margin-left: 50px;
-
-        @media screen and (max-width: #{$breakpoint}) {
-          margin-left: 40px;
-        }
-
-        p {
-          margin-bottom: 1rem;
-
-          @media screen and (max-width: #{$breakpoint}) {
-            font-size: 0.9rem;
-          }
-        }
-      }
-
-      .textNoReply {
-        font-size: 0.8125rem;
-      }
-    }
+  @media (max-width: #{$breakpoint}) {
   }
+}
+
+.categoryActive {
+  color: #000;
 }

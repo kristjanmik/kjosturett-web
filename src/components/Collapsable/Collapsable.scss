@@ -1,0 +1,58 @@
+@import '../../components/variables.scss';
+
+.root {
+  width: 100%;
+}
+
+.category {
+  padding: 0.7em 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 35px;
+
+  @media screen and (max-width: #{$site-medium}) {
+    height: 30px;
+  }
+}
+
+.image {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  margin-right: 20px;
+
+  @media screen and (max-width: #{$site-medium}) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.title {
+  font-family: $font-serif;
+  font-size: 1.05rem;
+  cursor: pointer;
+
+  @media (min-width: #{$site-medium}) {
+    font-size: 1.4rem;
+  }
+}
+
+.content {
+  padding-bottom: 1em;
+  padding-top: 1em;
+
+  p {
+    margin-bottom: 1rem;
+
+    @media screen and (max-width: #{$site-medium}) {
+      font-size: 0.9rem;
+    }
+  }
+}
