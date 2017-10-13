@@ -22,6 +22,28 @@ html {
   flex-direction: column;
 }
 
+.subHeader {
+  background: rgb(122, 124, 128);
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.subHeaderContent {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.altTitle,
+.altTitle a,
+.title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .main {
   flex: 1 1 auto;
 }

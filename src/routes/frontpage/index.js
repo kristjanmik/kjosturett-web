@@ -4,8 +4,6 @@ import Layout from '../../components/Layout';
 import isOpen from '../../lib/isOpen';
 
 export default ({ query }) => {
-  console.log('what is isopen', isOpen());
-
   if (!isOpen()) {
     return { redirect: '/opnum-fljotlega' };
   }
@@ -17,6 +15,6 @@ export default ({ query }) => {
       <Layout page="flokkar">
         <Frontpage />
       </Layout>
-    )
+    ),
   };
 };

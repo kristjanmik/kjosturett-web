@@ -1,2 +1,15 @@
 .root {
 }
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+}
+
+.logo {
+  height: auto;
+  max-height: 40px;
+  max-width: 40px;
+}

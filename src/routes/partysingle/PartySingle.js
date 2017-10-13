@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Collapsable from '../../components/Collapsable';
 import PartyProfile from '../../components/PartyProfile';
+import { getAssetUrl } from '../../utils';
 import s from './PartySingle.scss';
 
 class PartySingle extends PureComponent {
@@ -12,7 +13,10 @@ class PartySingle extends PureComponent {
 
     return (
       <div className={s.root}>
-        <PartyProfile {...party} />
+        <div className={s.header}>
+          <PartyProfile {...party} />
+          <img className={s.logo} src={getAssetUrl(party.url)} alt="Logo" />
+        </div>
         <Collapsable
           items={
             categories &&

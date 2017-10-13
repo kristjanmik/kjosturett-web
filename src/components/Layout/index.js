@@ -7,13 +7,23 @@ import Container from '../Container';
 
 class Layout extends PureComponent {
   render() {
-    const { page, title, children } = this.props;
+    const { page, title, altTitle, children } = this.props;
     return (
       <div className={s.root}>
         <Container>
           <Header page={page} />
         </Container>
         <main className={s.main}>
+          {title && (
+            <header className={s.subHeader}>
+              <Container>
+                <div className={s.subHeaderContent}>
+                  <h2 className={s.title}>{title}</h2>
+                  <p className={s.altTitle}>{altTitle}</p>
+                </div>
+              </Container>
+            </header>
+          )}
           <Container>{children}</Container>
         </main>
         <Footer />
