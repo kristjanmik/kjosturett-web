@@ -14,11 +14,11 @@ Go to https://kjosturett.is/opening-ceremony-live and press the button.
 The whole page should now be live.
 By default in dev mode the page is wide open
 
-
 ToDo
 - Vinna logo
     http://www.krakkaruv.is/profill/keppendur/althingiskosningar/bjort-framtid
 - Útlit
+- Generate new Open Graph image and update Facebook cache
 - expand all takki
 - Hagnýtar upplýsingar síða
 - Verkefnið síða
