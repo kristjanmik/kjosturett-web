@@ -21,13 +21,13 @@ export default ({ params }) => {
     chunks: ['malefnisingle'],
     title: `${category.name} - Kjóstu Rétt`,
     component: (
-      <Layout page="malefni">
+      <Layout page="malefni" title={category.name}>
         <MalefniSingle
           parties={parties}
           categories={categories}
           selectedCategory={params.malefni}
         />
       </Layout>
-    )
+    ),
   };
 };

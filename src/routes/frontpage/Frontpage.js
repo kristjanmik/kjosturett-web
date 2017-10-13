@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import parties from '../../lib/data/parties.json';
+import Link from '../../Link';
 import { getAssetUrl } from '../../utils';
 
 import s from './Frontpage.scss';
@@ -10,7 +11,7 @@ class FrontPage extends PureComponent {
     return (
       <section className={s.parties}>
         {parties.map(party => (
-          <a
+          <Link
             href={`/flokkur/${party.url}`}
             className={s.party}
             key={party.letter}
@@ -27,7 +28,7 @@ class FrontPage extends PureComponent {
                 {party.letter}
               </span>
             </span>
-          </a>
+          </Link>
         ))}
       </section>
     );

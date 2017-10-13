@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Collapsable from '../../components/Collapsable';
+import Link from '../../Link';
 import Scroll from 'react-scroll';
-
-let scroll = Scroll.animateScroll;
+import { getAssetUrl } from '../../utils';
 import s from './MalefniSingle.scss';
 
 class MalefniSingle extends PureComponent {
@@ -15,7 +15,7 @@ class MalefniSingle extends PureComponent {
       <div className={s.root}>
         <div className={s.categories}>
           {categories.map(category => (
-            <a
+            <Link
               key={category.url}
               className={cx(
                 s.category,
@@ -24,7 +24,7 @@ class MalefniSingle extends PureComponent {
               href={`/malefni/${category.url}`}
             >
               {category.name}
-            </a>
+            </Link>
           ))}
         </div>
         <Collapsable
@@ -36,7 +36,7 @@ class MalefniSingle extends PureComponent {
               content:
                 party.statement ||
                 'Ekkert svar hefur borist við þessum málaflokki',
-              image: `https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/${party.url}.png`,
+              image: getAssetUrl(party.url),
             }))
           }
         />

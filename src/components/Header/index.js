@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Countdown from '../Countdown';
+import Link from '../../Link';
 import s from './Header.scss';
 import logo from '../../logo.svg';
 
@@ -11,26 +12,26 @@ class Header extends PureComponent {
     return (
       <header className={s.root}>
         <div className={s.leftWrap}>
-          <a href="/">
+          <Link href="/">
             <img src={logo} className={s.logo} />
-          </a>
+          </Link>
           <div className={cx(s.countdown)}>
             <Countdown />
           </div>
         </div>
         <div className={s.links}>
-          <a
+          <Link
             href="/"
             className={cx(s.politics, page === 'flokkar' ? s.active : null)}
           >
             <span className={s.politicsPrefix}>Stjórnmála</span>flokkar
-          </a>
-          <a
+          </Link>
+          <Link
             href="/malefni/velferdarmal"
             className={cx(page === 'malefni' ? s.active : null)}
           >
             Málefnin
-          </a>
+          </Link>
         </div>
       </header>
     );
