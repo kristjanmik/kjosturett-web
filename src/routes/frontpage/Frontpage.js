@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import parties from '../../lib/data/parties.json';
+import { getAssetUrl } from '../../utils';
 
 import s from './Frontpage.scss';
 
@@ -15,10 +16,7 @@ class FrontPage extends PureComponent {
             key={party.letter}
           >
             <span className={s.imgWrap}>
-              <img
-                src={`https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/${party.url}.png`}
-                className={s.image}
-              />
+              <img src={getAssetUrl(party.url)} className={s.image} />
             </span>
             <span className={s.info}>
               <h3 className={s.name}>{party.name}</h3>
