@@ -10,6 +10,7 @@ import styles from './Collapsable.scss';
 
 class Collapsable extends React.Component {
   static propTypes = {
+    openByDefault: PropTypes.bool,
     items: PropTypes.arrayOf(
       PropTypes.shape({
         key: PropTypes.string.isRequired,
@@ -20,6 +21,7 @@ class Collapsable extends React.Component {
     ),
   };
   static defaultProps = {
+    openByDefault: false,
     items: [],
   };
   static spring = {
@@ -27,7 +29,10 @@ class Collapsable extends React.Component {
     damping: 20,
   };
   state = {
-    open: {},
+    open: this.props.items.reduce((state, item) => {
+      state[item.key] = this.props.openByDefault;
+      return state;
+    }, {}),
   };
   toggle = (key: string) => e => {
     this.setState(state => {

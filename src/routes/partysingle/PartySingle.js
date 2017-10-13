@@ -17,18 +17,21 @@ class PartySingle extends PureComponent {
           <PartyProfile {...party} />
           <img className={s.logo} src={getAssetUrl(party.url)} alt="Logo" />
         </div>
-        <Collapsable
-          items={
-            categories &&
-            categories.map(({ name, category, statement }) => ({
-              key: category,
-              title: name,
-              content:
-                statement ||
-                `${party.name} hefur ekki skilað inn umfjöllun um ${name.toLowerCase()}.`,
-            }))
-          }
-        />
+        <div className={s.topics}>
+          <Collapsable
+            openByDefault
+            items={
+              categories &&
+              categories.map(({ name, category, statement }) => ({
+                key: category,
+                title: name,
+                content:
+                  statement ||
+                  `${party.name} hefur ekki skilað inn umfjöllun um ${name.toLowerCase()}.`,
+              }))
+            }
+          />
+        </div>
       </div>
     );
   }
