@@ -34,20 +34,26 @@ class Collapsable extends React.Component {
       return state;
     }, {}),
   };
-  toggle = (key: string) => e => {
+  toggle = (key: string) => event => {
+    let target = event.target;
+
     this.setState(state => {
       const open = { ...state.open };
-      open[key] = !Boolean(open[key]);
+      const nextState = (open[key] = !open[key]);
+
+      // Scroll to collapseable only when opening.
+      if (nextState && target.offsetParent) {
+        let curtop = 0;
+
+        do {
+          curtop += target.offsetTop;
+        } while ((target = target.offsetParent));
+
+        Scroll.animateScroll.scrollTo(curtop - 10);
+      }
+
       return { open };
     });
-
-    let curtop = 0;
-    if (e.target.offsetParent) {
-      do {
-        curtop += e.target.offsetTop;
-      } while ((e.target = e.target.offsetParent));
-    }
-    Scroll.animateScroll.scrollTo(curtop - 20);
   };
   render() {
     const { items } = this.props;
