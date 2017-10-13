@@ -1,6 +1,6 @@
 let isOpen = false;
 
-//he site is always open in dev mode
+//the site is always open in dev mode
 if (__DEV__) {
   isOpen = true;
 }

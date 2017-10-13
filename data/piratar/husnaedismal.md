@@ -1,0 +1,3 @@
+Að hafa þak yfir höfuðið eru sjálfsögð mannréttindi sem hið opinbera þarf að tryggja fólki ef húsnæðismarkaðurinn getur það ekki. Núverandi skortur á húsnæði bitnar harðast á ungu fólki og þeim sem hafa lágar tekjur. Píratar vilja að ríkissjóður fjárfesti verulega í nýbyggingum smærri íbúða, bæði með beinum hætti og með skattaafslætti til byggingaraðila.
+
+Píratar vilja efla leigjendasamtök og stuðla að öflugri leigumarkaði þar sem stöðugleiki gagnvart leigjendum er í fyrirrúmi. Efla þarf rétt leigjenda á mörgum sviðum, þá sérstaklega upplýsingarétt leigjenda um stöðu sína. Liður í því er að hefja rafræna skráningu allra þinglýstra samninga til þess að auðveldara sé að fylgjast með leiguverði og bregðast við þegar þörf krefur.

@@ -1,0 +1,1 @@
+Píratar elska lýðræðið og vilja að íslenska þjóðin ráði því hvort haldið verði áfram með aðildarviðræður við Evrópusambandið. Að loknum hugsanlegum samningaviðræðum og upplýstri umræðu eiga kjósendur einnig að eiga lokaorðið.

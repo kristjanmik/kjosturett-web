@@ -7,57 +7,57 @@ const readFile = promisify(fs.readFile);
 
 const categories = [
   {
-    name: 'Velferðarmál',
-    url: 'velferdarmal',
-  },
-  {
-    name: 'Jafnréttismál',
-    url: 'jafnrettismal',
-  },
-  {
-    name: 'Húsnæðismál',
-    url: 'husnaedismal',
-  },
-  {
     name: 'Atvinnumál',
-    url: 'atvinnumal',
-  },
-  {
-    name: 'Heilbrigðismál',
-    url: 'heilbrigdismal',
-  },
-  {
-    name: 'Skattamál',
-    url: 'skattamal',
-  },
-  {
-    name: 'Evrópumál',
-    url: 'evropumal',
-  },
-  {
-    name: 'Stjórnarskrármál',
-    url: 'stjornarskrarmal',
-  },
-  {
-    name: 'Menntamál',
-    url: 'menntamal',
-  },
-  {
-    name: 'Sjávarútvegsmál',
-    url: 'sjavarutvegsmal',
-  },
-  {
-    name: 'Umhverfismál',
-    url: 'umhverfismal',
-  },
-  {
-    name: 'Samgöngumál',
-    url: 'samgongumal',
+    url: 'atvinnumal'
   },
   {
     name: 'Byggðarmál',
-    url: 'byggdarmal',
+    url: 'byggdarmal'
   },
+  {
+    name: 'Evrópumál',
+    url: 'evropumal'
+  },
+  {
+    name: 'Heilbrigðismál',
+    url: 'heilbrigdismal'
+  },
+  {
+    name: 'Húsnæðismál',
+    url: 'husnaedismal'
+  },
+  {
+    name: 'Jafnréttismál',
+    url: 'jafnrettismal'
+  },
+  {
+    name: 'Menntamál',
+    url: 'menntamal'
+  },
+  {
+    name: 'Samgöngumál',
+    url: 'samgongumal'
+  },
+  {
+    name: 'Sjávarútvegsmál',
+    url: 'sjavarutvegsmal'
+  },
+  {
+    name: 'Skattamál',
+    url: 'skattamal'
+  },
+  {
+    name: 'Stjórnarskrármál',
+    url: 'stjornarskrarmal'
+  },
+  {
+    name: 'Umhverfismál',
+    url: 'umhverfismal'
+  },
+  {
+    name: 'Velferðarmál',
+    url: 'velferdarmal'
+  }
 ];
 
 export const parties = [
@@ -67,7 +67,7 @@ export const parties = [
     name: 'Björt Framtíð',
     website: 'http://www.bjortframtid.is',
     leader: 'Óttarr Proppé',
-    leaderTitle: 'Formaður',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'B',
@@ -75,7 +75,7 @@ export const parties = [
     name: 'Framsóknarflokkurinn',
     website: 'https://framsokn.is',
     leader: 'Sigurður Ingi Jóhannsson',
-    leaderTitle: 'Formaður',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'C',
@@ -83,7 +83,7 @@ export const parties = [
     name: 'Viðreisn',
     website: 'https://www.vidreisn.is',
     leader: 'Þorgerður Katrín Gunnarsdóttir',
-    leaderTitle: 'Formaður',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'D',
@@ -91,7 +91,7 @@ export const parties = [
     name: 'Sjálfstæðisflokkurinn',
     website: 'http://xd.is',
     leader: 'Bjarni Benediktsson',
-    leaderTitle: 'Formaður',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'E',
@@ -99,7 +99,7 @@ export const parties = [
     name: 'Íslenska Þjóðfylkingin',
     website: 'http://x-e.is/',
     leader: 'Guðmundur Þorleifsson',
-    leaderTitle: 'Formaður',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'F',
@@ -107,7 +107,7 @@ export const parties = [
     name: 'Flokkur Fólksins',
     website: 'https://www.flokkurfolksins.is',
     leader: 'Inga Sæland',
-    leaderTitle: 'Formaður',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'M',
@@ -115,7 +115,7 @@ export const parties = [
     name: 'Miðflokkurinn',
     website: 'http://midflokkurinn.is',
     leader: 'Sigmundur Davíð Gunnlaugsson',
-    leaderTitle: 'Formaður',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'P',
@@ -123,7 +123,7 @@ export const parties = [
     name: 'Píratar',
     website: 'https://piratar.is',
     leader: 'Þór­hild­ur Sunna Ævars­dótt­ir',
-    leaderTitle: '',
+    leaderTitle: ''
   },
   {
     letter: 'R',
@@ -131,7 +131,7 @@ export const parties = [
     name: 'Alþýðufylkingin',
     website: 'https://www.althydufylkingin.is/',
     leader: 'Þorvaldur Þorvaldsson',
-    leaderTitle: 'Formaður',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'S',
@@ -139,7 +139,7 @@ export const parties = [
     name: 'Samfylkingin',
     website: 'https://xs.is',
     leader: 'Logi Einarsson',
-    leaderTitle: 'Formaður',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'T',
@@ -147,7 +147,7 @@ export const parties = [
     name: 'Dögun',
     website: 'http://xdogun.is/',
     leader: 'Pálmey Gísladóttir',
-    leaderTitle: 'Formaður',
+    leaderTitle: 'Formaður'
   },
   {
     letter: 'V',
@@ -155,8 +155,8 @@ export const parties = [
     name: 'Vinstri Græn',
     website: 'https://vg.is',
     leader: 'Katrín Jakobsdóttir',
-    leaderTitle: 'Formaður',
-  },
+    leaderTitle: 'Formaður'
+  }
 ];
 
 writeFile(
@@ -186,7 +186,7 @@ categories.forEach(async category => {
       console.log('got it', party, data);
       return {
         ...party,
-        statement: data ? marked(data) : '',
+        statement: data ? marked(data) : ''
       };
     })
   );
@@ -214,7 +214,7 @@ parties.forEach(async party => {
       return {
         category: category.url,
         name: category.name,
-        statement: data ? marked(data) : '',
+        statement: data ? marked(data) : ''
       };
     })
   );
