@@ -1,25 +1,15 @@
 import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
-import { Collapse } from 'react-collapse';
+import Collapsable from '../../components/Collapsable';
 import Scroll from 'react-scroll';
 
 let scroll = Scroll.animateScroll;
 import s from './MalefniSingle.scss';
 
 class MalefniSingle extends PureComponent {
-  state = {
-    open: []
-  };
   render() {
-    const { open } = this.state;
     const { parties, categories, selectedCategory } = this.props;
-
-    let showAll = true;
-
-    parties.forEach(party => {
-      if (party.statement !== '') showAll = false;
-    });
 
     return (
       <div className={s.root}>
@@ -33,75 +23,23 @@ class MalefniSingle extends PureComponent {
               )}
               href={`/malefni/${category.url}`}
             >
-              <div className={s.imageContainer}>
-                <img
-                  src={`https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/${category.url}_black.svg`}
-                  className={s.image}
-                />
-              </div>
-              <h5 className={s.name}>{category.name}</h5>
+              {category.name}
             </a>
           ))}
         </div>
-        <div className={s.parties}>
-          {parties.map(party => (
-            <div className={s.party} key={party.url}>
-              <div className={s.info}>
-                <div>
-                  <img
-                    src={`https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/${party.url}.png`}
-                    className={s.image}
-                  />
-                </div>
-                <h5
-                  className={s.name}
-                  onClick={e => {
-                    let found = false;
-                    let open = [...this.state.open].filter(partyUrl => {
-                      if (partyUrl === party.url) {
-                        found = true;
-                        return false;
-                      }
-                      return true;
-                    });
-
-                    if (!found) {
-                      open.push(party.url);
-                    }
-
-                    this.setState(() => ({
-                      open
-                    }));
-
-                    var curtop = 0;
-                    if (e.target.offsetParent) {
-                      do {
-                        curtop += e.target.offsetTop;
-                      } while ((e.target = e.target.offsetParent));
-                    }
-                    scroll.scrollTo(curtop - 20);
-                  }}
-                >
-                  {party.name}
-                </h5>
-              </div>
-              <Collapse isOpened={showAll || open.indexOf(party.url) > -1}>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      party.statement !== ''
-                        ? party.statement
-                        : 'Ekkert svar hefur borist við þessum málaflokki'
-                  }}
-                  className={cx(
-                    s.text,
-                    party.statement === '' ? s.textNoReply : null
-                  )}
-                />
-              </Collapse>
-            </div>
-          ))}
-        </div>
+        <Collapsable
+          items={
+            parties &&
+            parties.map(party => ({
+              key: party.url,
+              title: party.name,
+              content:
+                party.statement ||
+                'Ekkert svar hefur borist við þessum málaflokki',
+              image: `https://s3.eu-west-2.amazonaws.com/assets.kjosturett.is/${party.url}.png`,
+            }))
+          }
+        />
       </div>
     );
   }
