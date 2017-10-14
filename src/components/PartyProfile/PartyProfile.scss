@@ -1,3 +1,5 @@
+@import '../../components/functions.scss';
+
 .root {
   align-items: center;
   display: flex;
@@ -5,9 +7,10 @@
 
 .imgWrap {
   border-radius: 50%;
-  height: 42px;
   overflow: hidden;
-  width: 42px;
+
+  @include between-property('height', 64px, 42px, 1200px, 0);
+  @include between-property('width', 64px, 42px, 1200px, 0);
 }
 
 .img {

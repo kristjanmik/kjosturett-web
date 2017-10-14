@@ -49,7 +49,7 @@ class Collapsable extends React.Component {
           curtop += target.offsetTop;
         } while ((target = target.offsetParent));
 
-        Scroll.animateScroll.scrollTo(curtop - 10);
+        Scroll.animateScroll.scrollTo(curtop - 75);
       }
 
       return { open };

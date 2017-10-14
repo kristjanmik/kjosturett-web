@@ -1,3 +1,4 @@
+@import '../../components/functions.scss';
 @import '../../components/variables.scss';
 
 *,
@@ -14,6 +15,8 @@ html {
   font-size: 16px;
   font-family: $font-sans;
   line-height: 1.75;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 .root {
@@ -23,10 +26,11 @@ html {
 }
 
 .subHeader {
-  background: rgb(122, 124, 128);
+  background: rgb(230, 231, 233);
   margin-bottom: 2em;
-  padding-bottom: 1em;
-  padding-top: 1em;
+
+  @include between-property('padding-bottom', 16px, 5px, 1200px, 0);
+  @include between-property('padding-top', 16px, 5px, 1200px, 0);
 }
 
 .subHeaderContent {
@@ -38,10 +42,10 @@ html {
 .altTitle,
 .altTitle a,
 .title {
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 700;
+  color: rgb(69, 70, 75);
   text-decoration: none;
+
+  @include between-property('font-size', 16px, 12px, 1200px, 0);
 }
 
 .main {

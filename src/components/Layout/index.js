@@ -10,9 +10,7 @@ class Layout extends Component {
     const { page, title, altTitle, children } = this.props;
     return (
       <div className={s.root}>
-        <Container>
-          <Header page={page} />
-        </Container>
+        <Header page={page} />
         <main className={s.main}>
           {title && (
             <header className={s.subHeader}>
