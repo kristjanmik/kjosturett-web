@@ -1,25 +1,56 @@
 @import '../../components/variables.scss';
+@import '../../components/functions.scss';
 
 .root {
   width: 100%;
 }
 
 .category {
-  padding: 0.7em 0;
+  @include between-property('padding-top', 28px, 16px, 768px, 500px);
+  @include between-property('padding-bottom', 28px, 16px, 768px, 500px);
+}
 
-  &:not(:last-child) {
-    border-bottom: 1px solid #eee;
-  }
+.category:not(:last-child) {
+  border-bottom: 1px solid #eee;
 }
 
 .header {
-  display: flex;
   align-items: center;
+  display: flex;
+  cursor: pointer;
   height: 35px;
 
   @media screen and (max-width: #{$site-medium}) {
     height: 30px;
   }
+}
+
+.icon {
+  display: inline-block;
+  background: #ccc;
+  height: 2px;
+  margin-left: auto;
+  transition: transform 250ms;
+  transform: rotate(180deg);
+  width: 16px;
+
+  &::after {
+    background: inherit;
+    content: '';
+    display: block;
+    height: 100%;
+    transition: inherit;
+    transform: rotate(0);
+    width: 100%;
+  }
+}
+
+.isOpen {
+  transform: none;
+}
+
+.isOpen::after {
+  transform: rotate(-90deg);
 }
 
 .image {
@@ -36,23 +67,17 @@
 
 .title {
   font-family: $font-serif;
-  font-size: 1.05rem;
-  cursor: pointer;
 
-  @media (min-width: #{$site-medium}) {
-    font-size: 1.4rem;
-  }
+  @include between-property('font-size', 28px, 16px, 768px, 500px);
 }
 
 .content {
-  padding-bottom: 1em;
-  padding-top: 1em;
+  color: #585858;
+  padding-top: 0.5em;
 
-  p {
-    margin-bottom: 1rem;
+  @include between-property('font-size', 17px, 12px, 768px, 500px);
 
-    @media screen and (max-width: #{$site-medium}) {
-      font-size: 0.9rem;
-    }
+  * + * {
+    margin-top: 1em;
   }
 }

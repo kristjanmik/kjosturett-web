@@ -7,6 +7,20 @@
   @return calc(#{$base} + #{100vw * $slope});
 }
 
+@mixin between-property($property, $to, $from, $toWidth, $fromWidth: 0) {
+  #{$property}: between($to, $from, $toWidth, $fromWidth);
+
+  @if $fromWidth != 0 {
+    @media (max-width: #{$fromWidth - 1}) {
+      #{$property}: $from;
+    }
+  }
+
+  @media (min-width: #{$toWidth}) {
+    #{$property}: $to;
+  }
+}
+
 @mixin responsive-property(
   $property,
   $fromValue,

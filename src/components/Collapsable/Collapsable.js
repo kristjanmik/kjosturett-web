@@ -66,6 +66,10 @@ class Collapsable extends React.Component {
             <div className={styles.header} onClick={this.toggle(key)}>
               {image && <img className={styles.image} src={image} />}
               <h3 className={styles.title}>{title}</h3>
+              <i
+                ariaHidden={true}
+                className={cx(styles.icon, !open[key] && styles.isOpen)}
+              />
             </div>
             <Collapse
               isOpened={open[key] === true}

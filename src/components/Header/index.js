@@ -27,7 +27,7 @@ class Header extends PureComponent {
             <span className={s.politicsPrefix}>Stjórnmála</span>flokkar
           </Link>
           <Link
-            href="/malefni/velferdarmal"
+            href="/malefni/atvinnumal"
             className={cx(page === 'malefni' ? s.active : null)}
           >
             Málefnin
