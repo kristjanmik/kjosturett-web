@@ -1,11 +1,11 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Layout.scss';
 import Header from '../Header';
 import Footer from '../Footer';
 import Container from '../Container';
 
-class Layout extends PureComponent {
+class Layout extends Component {
   render() {
     const { page, title, altTitle, children } = this.props;
     return (

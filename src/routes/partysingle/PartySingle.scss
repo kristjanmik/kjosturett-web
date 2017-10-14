@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
 
-  @include between-property('margin-bottom', 64px, 12px, 768px, 500px);
+  @include between-property('margin-bottom', 64px, 0px, 768px, 0);
 }
 
 .logo {

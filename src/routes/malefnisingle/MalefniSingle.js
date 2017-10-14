@@ -2,8 +2,7 @@ import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Collapsable from '../../components/Collapsable';
-import Link from '../../Link';
-import Scroll from 'react-scroll';
+import ListResponsive from '../../components/ListResponsive';
 import { getAssetUrl } from '../../utils';
 import s from './MalefniSingle.scss';
 
@@ -13,20 +12,14 @@ class MalefniSingle extends PureComponent {
 
     return (
       <div className={s.root}>
-        <div className={s.categories}>
-          {categories.map(category => (
-            <Link
-              key={category.url}
-              className={cx(
-                s.category,
-                category.url === selectedCategory ? s.categoryActive : null
-              )}
-              href={`/malefni/${category.url}`}
-            >
-              {category.name}
-            </Link>
-          ))}
-        </div>
+        <ListResponsive
+          mobileTitle="Málefni:"
+          current={`/malefni/${selectedCategory}`}
+          links={categories.map(category => ({
+            title: category.name,
+            href: `/malefni/${category.url}`,
+          }))}
+        />
         <Collapsable
           items={
             parties &&

@@ -6,8 +6,11 @@
 }
 
 .category {
-  @include between-property('padding-top', 28px, 16px, 768px, 500px);
-  @include between-property('padding-bottom', 28px, 16px, 768px, 500px);
+  @include between-property('padding-bottom', 28px, 16px, 1200px, 500px);
+
+  &:not(:first-child) {
+    @include between-property('padding-top', 28px, 16px, 1200px, 500px);
+  }
 }
 
 .category:not(:last-child) {
@@ -68,14 +71,14 @@
 .title {
   font-family: $font-serif;
 
-  @include between-property('font-size', 28px, 16px, 768px, 500px);
+  @include between-property('font-size', 28px, 16px, 1200px, 500px);
 }
 
 .content {
   color: #585858;
   padding-top: 0.5em;
 
-  @include between-property('font-size', 17px, 12px, 768px, 500px);
+  @include between-property('font-size', 17px, 12px, 1200px, 500px);
 
   * + * {
     margin-top: 1em;

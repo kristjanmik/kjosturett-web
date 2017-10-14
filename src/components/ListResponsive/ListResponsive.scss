@@ -1,0 +1,48 @@
+@import '../../components/functions.scss';
+@import '../../components/variables.scss';
+
+.root {
+  @media (min-width: 768px) {
+    padding-right: 4em;
+  }
+}
+
+.mobile {
+  display: flex;
+  margin-bottom: 2em;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.label {
+  font-weight: 700;
+  margin-right: 0.5em;
+}
+
+.select {
+  appearance: none;
+  background: transparent;
+  border: none;
+  flex: 1 0 auto;
+  font-size: 14px;
+}
+
+.desktop {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.link {
+  color: rgb(114, 114, 114);
+  display: flex;
+  text-decoration: none;
+
+  @include between-property('font-size', 18px, 12px, 1200px, 768px);
+}
+
+.linkActive {
+  color: #000;
+}

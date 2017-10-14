@@ -10,21 +10,3 @@ $breakpoint: $site-medium;
     flex-direction: row;
   }
 }
-
-.categories {
-  min-width: 200px;
-}
-
-.category {
-  color: rgb(114, 114, 114);
-  font-size: 0.9rem;
-  display: flex;
-  text-decoration: none;
-
-  @media (max-width: #{$breakpoint}) {
-  }
-}
-
-.categoryActive {
-  color: #000;
-}
