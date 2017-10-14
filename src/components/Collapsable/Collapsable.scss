@@ -78,7 +78,7 @@
   color: #585858;
   padding-top: 0.5em;
 
-  @include between-property('font-size', 17px, 12px, 1200px, 500px);
+  @include between-property('font-size', 17px, 13px, 1200px, 500px);
 
   * + * {
     margin-top: 1em;

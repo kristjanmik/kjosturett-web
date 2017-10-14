@@ -17,35 +17,39 @@ const routes = {
   children: [
     {
       path: '/',
-      load: () => import(/* webpackChunkName: 'frontpage' */ './frontpage')
+      load: () => import(/* webpackChunkName: 'frontpage' */ './frontpage'),
     },
     {
       path: '/malefni',
-      load: () => import(/* webpackChunkName: 'malefni' */ './malefni')
+      load: () => import(/* webpackChunkName: 'malefni' */ './malefni'),
+    },
+    {
+      path: '/verkefnid',
+      load: () => import(/* webpackChunkName: 'about' */ './about'),
     },
     {
       path: '/malefni/:malefni',
       load: () =>
-        import(/* webpackChunkName: 'malefnisingle' */ './malefnisingle')
+        import(/* webpackChunkName: 'malefnisingle' */ './malefnisingle'),
     },
     {
       path: '/flokkur/:party',
-      load: () => import(/* webpackChunkName: 'partysingle' */ './partysingle')
+      load: () => import(/* webpackChunkName: 'partysingle' */ './partysingle'),
     },
     {
       path: '/opening-ceremony-live',
-      load: () => import(/* webpackChunkName: 'ceremony' */ './ceremony')
+      load: () => import(/* webpackChunkName: 'ceremony' */ './ceremony'),
     },
     {
       path: '/opnum-fljotlega',
-      load: () => import(/* webpackChunkName: 'coming-soon' */ './coming-soon')
+      load: () => import(/* webpackChunkName: 'coming-soon' */ './coming-soon'),
     },
 
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     {
       path: '*',
-      load: () => import(/* webpackChunkName: 'not-found' */ './not-found')
-    }
+      load: () => import(/* webpackChunkName: 'not-found' */ './not-found'),
+    },
   ],
 
   async action({ next }) {
@@ -57,14 +61,14 @@ const routes = {
     route.description = route.description || '';
 
     return route;
-  }
+  },
 };
 
 // The error page is available by permanent url for development mode
 if (__DEV__) {
   routes.children.unshift({
     path: '/error',
-    action: require('./error').default
+    action: require('./error').default,
   });
 }
 

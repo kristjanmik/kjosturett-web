@@ -1,0 +1,15 @@
+@import '../../components/functions.scss';
+
+.root {
+  color: #585858;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 768px;
+
+  @include between-property('padding-top', 32px, 0, 1200px, 0);
+  @include between-property('font-size', 17px, 13px, 1200px, 500px);
+
+  * + * {
+    margin-top: 1em;
+  }
+}

@@ -3,13 +3,13 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import styles from './Footer.scss';
-import Container from '../Container/Container'
+import Link from '../../Link';
+import Container from '../Container/Container';
 
 const Footer = () => (
   <footer className={styles.footer}>
     <Container>
-      <div className={styles.countdown}>
-      </div>
+      <Link href={'/verkefnid'}>Um verkefnið</Link>
     </Container>
   </footer>
 );
