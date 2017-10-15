@@ -1,0 +1,7 @@
+Alþýðufylkingin styður að frumvarp stjórnlagaráðs taki gildi sem fyrst sem ný stjórnarskrá. En þegar hún hefur tekið gildi viljum við samt gera breytingar á henni.
+ 
+Alþýðufylkingin tekur ekki undir þá skoðun að orsök kreppunnar sé að finna í stjórnarskránni og því sé brýnt að breyta henna til að koma á samfélagslegum breytingum. Enda koma miklar breytingar á stjórnarskrám frekar í kjölfar þjóðfélagsbreytinga en að stuðla að þeim.
+ 
+Frumvarp Stjórnlagaráðs að nýrri stjórnarskrá felur í sér ýmsar breytingar sem eru til bóta, t.d. um aukna aðkomu almennings að málum gegnum þjóðaratkvæðagreislur. Þá er greinin um náttúruauðlindir mjög til bóta og fleira mætti nefna. Hins vegar virðist 111. greinin um framsal ríkisvalds aðallega þjóna þeim tilgangi að auðvelda inngöngu í ESB.
+ 
+Þegar kemur til uppstokkunar á stjórnarskránni verður fullt tilefni til að beita sér fyrir mun meiri breytingum til jafnaðar og hagsbóta fyrir alþýðuna en stjórnlagaráð hefur lagt til. Þar má nefna ítarlegri skilgreiningu á eignarréttinum sem kvæði á um að eignarréttur allra skuli verða jafn gildur. Núverandi skilgreining sem aðeins segir að eignarrétturinn sé friðhelgur, er mest notuð til að renna stoðum undir rétt auðstéttarinnar til að halda sínu og græða á eigin auðmagni. Setja mætti í stjórnarskrá ákvæði um hámarks launamun, félagslegan rekstur á innviðum samfélagsins og fleira sem setur auðstéttinni skorður en bætir réttarstöðu alþýðunnar.
