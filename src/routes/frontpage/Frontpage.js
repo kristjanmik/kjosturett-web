@@ -17,7 +17,10 @@ class FrontPage extends PureComponent {
             key={party.letter}
           >
             <span className={s.imgWrap}>
-              <img src={getAssetUrl(party.url)} className={s.image} />
+              <img
+                src={getAssetUrl('party-icons', party.url)}
+                className={s.image}
+              />
             </span>
             <span className={s.info}>
               <h3 className={s.name}>{party.name}</h3>

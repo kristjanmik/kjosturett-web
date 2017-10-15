@@ -17,7 +17,7 @@ class MalefniSingle extends PureComponent {
           current={`/malefni/${selectedCategory}`}
           links={categories.map(category => ({
             title: category.name,
-            href: `/malefni/${category.url}`,
+            href: `/malefni/${category.url}`
           }))}
         />
         <Collapsable
@@ -29,7 +29,7 @@ class MalefniSingle extends PureComponent {
               content:
                 party.statement ||
                 'Ekkert svar hefur borist við þessum málaflokki',
-              image: getAssetUrl(party.url),
+              image: getAssetUrl('party-icons', party.url)
             }))
           }
         />

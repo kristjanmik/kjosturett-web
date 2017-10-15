@@ -15,7 +15,11 @@ class PartySingle extends PureComponent {
       <div className={s.root}>
         <div className={s.header}>
           <PartyProfile {...party} />
-          <img className={s.logo} src={getAssetUrl(party.url)} alt="Logo" />
+          <img
+            className={s.logo}
+            src={getAssetUrl('party-icons', party.url)}
+            alt="Logo"
+          />
         </div>
         <div className={s.topics}>
           <Collapsable
@@ -27,7 +31,7 @@ class PartySingle extends PureComponent {
                 title: name,
                 content:
                   statement ||
-                  `${party.name} hefur ekki skilað inn umfjöllun um ${name.toLowerCase()}.`,
+                  `${party.name} hefur ekki skilað inn umfjöllun um ${name.toLowerCase()}.`
               }))
             }
           />
