@@ -1,6 +1,6 @@
-**Framsókn vill styrkja heilbrigðis-, samgöngu- og menntamál um 20 milljarða**
+**Framsókn vill fjárfesta í heilbrigðis-, samgöngu- og menntamálum**
 
-Setja þarf 20 milljarða í heilbrigðis- samgöngu- og menntamál til að bregðast við brýnni þörf. Framsókn telur mikilvægt að nota ríflegan afgang af ríkisrekstri til að fjárfesta í betra heilbrigðiskerfi, betri lífsgæðum og betri samgöngum ásamt því að lækka skuldir ríkissjóðs.
+Setja þarf 20 milljarða í heilbrigðis-, samgöngu- og menntamál til að bregðast við brýnni þörf. Framsókn telur mikilvægt að nota ríflegan afgang af ríkisrekstri til að fjárfesta í betra heilbrigðiskerfi, betri lífsgæðum og betri samgöngum ásamt því að lækka skuldir ríkissjóðs.
 
 **Framsókn vill fella niður afborganir af námslánum í fimm ár**
 
@@ -17,11 +17,8 @@ Framsókn vill að fjármunir sem sparast við styttingu framhaldsskólans í þ
 **Framsókn vill hækka endurgreiðslu í 25% í tengslum við nýsköpun og rannsóknir**
 
 Rannsóknir og nýsköpun í dag eru undirstaða kröftugs hagvaxtar og velmegunar í framtíðinni. Framsókn telur skynsamlegt og nauðsynlegt efla stuðning við rannsóknir og nýsköpun.
-
-**Framsókn vill afnema virðisaukaskatt af bókum**
-
+Framsókn vill afnema virðisaukaskatt af bókum
 Bóksala hefur dregist saman um 31% frá árinu 2008 og 11% samdráttur var í bóksölu árið 2016 miðað við fyrra ár. Framsókn vill afnema virðisaukaskatt af bókum og rafbókum til að efla lestur og styrkja innlent fræðastarf og auðga íslenska tungu sem á undir högg að sækja.
 
 **Framsókn vill afnema virðisaukaskatt af tónlist**
-
 Sala tónlistar fer í auknum mæli fram á netinu og tónlistarmenn fá sífellt minna í sinn hlut. Framsókn vill styðja við öflugt tónlistarlíf og tónlistariðnað í landinu og vill leggja niður virðisaukaskatt af sölu tónlistar á netinu, á geisladiskum og hljómplötum.

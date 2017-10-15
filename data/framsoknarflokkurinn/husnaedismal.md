@@ -7,7 +7,7 @@ Framsókn vill afborgunarhlé á námslánum í fimm ár til að mæta ungum fj�
 
 **Framsókn vill 300 nýjar þjónustuíbúðir og hjúkrunarrými fyrir aldraða á ári**
 
-Stórátak þarf í byggingu á þjónustuíbúðum og hjúkrunarrýmum fyrir aldraða. Framsókn vill að í samstarfi við lífeyrissjóðina verði fjárfest minnst 10 milljörðum árlega til uppbyggingar á 300 hagkvæmum íbúðum og hjúkrunaríbúðum fyrir aldraða í þeim sveitarfélögum þar sem þörfin er brýnust.
+Stórátak þarf í byggingu á þjónustuíbúðum og hjúkrunarrýmum fyrir aldraða. Framsókn vill að í samstarfi við lífeyrissjóðina verði fjárfest minnst 10 milljörðum árlega til uppbyggingar á 300 hagkvæmum íbúðum og hjúkrunarrýmum fyrir aldraða í þeim sveitarfélögum þar sem þörfin er brýnust.
 
 **Framsókn vill fjarlægja húsnæðisliðinn út úr vísitölu neysluverðs og banna verðtryggingu á nýjum neytenda- og íbúðalánum**
 

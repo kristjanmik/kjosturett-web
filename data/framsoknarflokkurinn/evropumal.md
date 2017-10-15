@@ -2,9 +2,10 @@
 
 Framsókn telur hagsmunum Íslands best borgið með því að vera áfram sjálfstæð þjóð utan Evrópusambandsins. Breska þjóðin hefur ákveðið að yfirgefa sambandið og því er komin upp gjörbreytt staða innan Evrópusambandsins. Framtíðarskipulag Evrópu mun taka breytingum á næstu misserum og því er brýnt að tryggja efnahags- og viðskiptalega hagsmuni Íslands gagnvart Bretlandi. Stefnumótun í utanríkismálum á miðast að þessu breyta heimi.
 
-**Framsókn vill meta árangurinn af EES og Schengen samstarfinu**
+**EES-samningurinn**
 
-Brátt eru liðin 25 ár frá því Ísland gekk í EES. Samstarfið hefur tekið miklum breytingum á þeim tíma og frekari breytingar í vændum t.d. með útgöngu Bretlands úr ESB. Framsókn telur tímabært að meta árangurinn af EES og Schengen samstarfinu.
+EES-samningurinn er mikilvægasti og umfangsmesti efnahagssamningur Íslands og því þurfi að tryggja skilvirka framkvæmd hans í aukinni samvinnu við löggjafarvaldið.
+Brátt eru liðin 25 ár frá því Ísland gekk í EES. Samstarfið hefur tekið miklum breytingum á þeim tíma og frekari breytingar í vændum t.d. með útgöngu Bretlands úr ESB.
 
 **Framsókn vill að Ísland sé í fremstu röð í alþjóðlegri baráttu gegn skattaskjólum**
 

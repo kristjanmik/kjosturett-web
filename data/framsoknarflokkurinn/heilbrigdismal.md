@@ -1,14 +1,14 @@
-**Framsókn vill styrkja heilbrigðis-, samgöngu- og menntamál um 20 milljarða**
+**Framsókn vill fjárfesta í heilbrigðis-, samgöngu- og menntamálum**
 
-Setja þarf 20 milljarða í heilbrigðis- samgöngu- og menntamál til að bregðast við brýnni þörf. Framsókn telur mikilvægt að nota ríflegan afgang af ríkisrekstri til að fjárfesta í betra heilbrigðiskerfi, betri lífsgæðum og betri samgöngum ásamt því að lækka skuldir ríkissjóðs.
+Setja þarf 20 milljarða í heilbrigðis-, samgöngu- og menntamál til að bregðast við brýnni þörf. Framsókn telur mikilvægt að nota ríflegan afgang af ríkisrekstri til að fjárfesta í betra heilbrigðiskerfi, betri lífsgæðum og betri samgöngum ásamt því að lækka skuldir ríkissjóðs.
 
-**Markmið er að veikir borgi ekki. Draga þarf úr greiðsluþátttöku sjúklinga**
+**Framtíðarmarkmiðið er að veikir borgi ekki**
 
-Núverandi kerfi er íþyngjandi sérstaklega ef fólk er búið að greiða hámark kostnaðar vegna læknisþjónustu og lyfja. Sameina þarf þessi tvö kerfi. Framsókn vill enn fremur að tannlækninga-, sálfræði- og ferðakostnaður sjúklinga falli undir greiðsluþátttökukerfið. Framtíðarmarkmið er að veikir borgi ekki.
+Kostnaðarþátttaka sjúklinga á Íslandi er hærri en á Norðurlöndunum. Núverandi kerfi er íþyngjandi sérstaklega ef fólk er búið að greiða hámark kostnaðar vegna læknisþjónustu og lyfja. Sameina þarf þessi tvö kerfi. Framsókn vill enn fremur að tannlækninga-, sálfræði- og ferðakostnaður sjúklinga falli undir greiðsluþátttökukerfið. Framtíðarmarkmið er að veikir borgi ekki.
 
-**Framsókn vill efla heilbrigðisstofnanir um land allt**
+**Framsókn vill heilbrigðisáætlun fyrir Ísland**
 
-Framsókn vill greina hvar þörfin er miðað við íbúaþróun, samgöngur, fjarlægð, aldursamsetningu íbúa, staðsetningu sjúkrabifreiða, aðgang að sjúkraflugi og sumarhúsabyggð. Samráð skal haft við fagfólk á heilbrigðisstofnunum um allt land við gerð heilbrigðisáætlunar.
+Almenn eining ríkir um að gera þurfi betur í heilbrigðismálum á Íslandi. Framsókn stóð fyrir samþykkt heilbrigðisáætlunar fyrir Ísland. Þrjú verkefni þola ekki bið. Hjúkrunarheimilum þarf að fjölga, reisa þarf þjóðarsjúkrahús og efla þarf heilsugæslu. Framsókn vill greina hvar brýnasta þörfin er fyrir grunnþjónustu.
 
 **Framsókn vill að sálfræðiþjónusta verði hluti af heilbrigðiskerfinu**
 
