@@ -94,14 +94,6 @@ export const parties = [
     leaderTitle: 'Formaður'
   },
   {
-    letter: 'E',
-    url: 'islenka-thjodfylkingin',
-    name: 'Íslenska Þjóðfylkingin',
-    website: 'http://x-e.is/',
-    leader: 'Guðmundur Þorleifsson',
-    leaderTitle: 'Formaður'
-  },
-  {
     letter: 'F',
     url: 'flokkur-folksins',
     name: 'Flokkur Fólksins',
