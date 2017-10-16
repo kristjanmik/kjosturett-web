@@ -1,0 +1,11 @@
+Öflugt heilbrigðiskerfi er ein af grunnstoðum samfélags. Stjórnvöldum ber skylda til þess að tryggja öllum aðgang að góðri heilbrigðisþjónustu, óhað efnahag og búsetu. Forgangsraða þarf í ríkisfjármálum í þágu fjárfestingar í heilbrigðismálum. Heilsuefling og forvarnir eiga að vera forgangsmál í heilbrigðisþjónustunni sem langtímafjárfesting í heilbrigði og vellíðan þjóðarinnar.
+
+Halda þarf áfram uppbygginu Landspítala við Hringbraut og ljúka verkefninu á næstu fimm til sex árum. Uppbygging spítalans er forsenda fyrir skilvirkri uppbyggingu heilbrigðiskerfisins.
+
+Auka þarf framlög til spítalaþjónustu. Skilgreina þarf þá þjónustu sem allir eiga rétt á í sinni heimabyggð. Þarfir notenda, gott starfsumhverfi heilbrigðisstarfsmanna og gott eftirlit með þjónustunni á að fara saman. Boðið verði upp á fjölbreyttar þjónustuleiðir og samræmingu verkferla í heilbrigðiskerfinu. Efla þarf samvinnu milli heilbrigðisstofnana. Fjarlækningar verði efldar sem og fjarþjónusta á sviði sálfræði og stuðningsþjónustu.
+
+Brýnt er að leggja sérstaka áherslu á stórfellda uppbygginu í öldrunarþjónustu, til dæmis með fjölgun hjúkrunarheimila fyrir aldraða en einnig með eflingu heimahjúkrunar.
+
+Styrkja þarf heilsugæsluna um land allt sem fyrsta viðkomustað og einfalda leið fólks um heilbrigðiskerfið. Heilsugæslan veitir persónulega þjónustu og getur greint vandamál áður en þau verða alvarleg. Mikilvægt er að bregðast við heilsufarsvandamálum skjótt, og beina sjúklingum í réttan farveg.
+
+Viðreisn leggur áherslu á stórátak í geðheilbrigðismálum með heildstæðri stefnumótun. Lögð verði aukin áhersla á meðhöndlun geðrænna vandamála og forvarnir í tengslum við þau. Bætt verði aðgengi að sálfræðiþjónustu og hún fari í skrefum inn í tryggingakerfið. Vanlíðan er oft rót heilsufarsvandamála og mikilvægt er að styðja við börn og ungmenni með sálfræðihjálp. Þannig má mögulega draga úr brottfalli úr skólum, þunglyndi og vanlíðan. Mikilvægt er að heilbrigðis-, skóla og félagsmálayfirvöld vinni náið saman. Auka þarf áherslu á yngstu hópana, en Viðreisn hefur jafnframt lagt fram tillögur um að auka aðgengi að sálfræðiþjónustu í skólakerfinu öllu, allt frá gunnskóla til háskóla.
