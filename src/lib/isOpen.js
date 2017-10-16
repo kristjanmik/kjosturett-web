@@ -1,4 +1,4 @@
-let isOpen = false;
+let isOpen = true;
 
 //the site is always open in dev mode
 if (__DEV__) {
