@@ -10,11 +10,12 @@ export default ({ query }) => {
 
   return {
     chunks: ['frontpage'],
-    title: `Kjóstu rétt 2017`,
+    title: 'Kjóstu rétt - Alþingiskosningar 2017',
+    description: 'Allir stjórnmálaflokkarnir í Alþingiskosningunum 2017',
     component: (
       <Layout page="flokkar">
         <Frontpage />
       </Layout>
-    ),
+    )
   };
 };
