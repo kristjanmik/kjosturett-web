@@ -40,35 +40,92 @@ html {
   right: 0;
   top: 0;
   width: 100%;
+
+  p {
+    position: fixed;
+    top: 50%;
+    text-align: right;
+    margin-top: 40px;
+    left: 50%;
+    font-size: 2rem;
+    width: 440px;
+    margin-left: -220px;
+    opacity: 0;
+    z-index: -1;
+    will-change: opacity, transform;
+  }
 }
 
 .logo {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) translateX(-100vw);
+  transform: translate(-50%, -50%) translateY(-100%) scale(0.25);
   z-index: -1;
   width: 440px;
   will-change: transform, opacity;
 }
 
 .link {
+  border: 1px solid #aaa;
   outline: none;
   appearance: none;
   display: block;
   color: #000;
   font-size: 3rem;
-  padding: 0.6em 1em;
-  border: 1px solid #888;
+  padding: 0.4em 1em;
   font-weight: 900;
   text-decoration: none;
-  transition: transform 600ms 400ms;
+  transition: transform 1200ms 0ms;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.76, 1);
+  transition-timing-function: cubic-bezier(0.19, 1.38, 0.76, 1.08);
   will-change: transform;
+  position: relative;
+}
+
+.linkBot,
+.linkTop {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+}
+
+.linkTop {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #555;
+  border-left: 2px solid #555;
+}
+
+.linkBot {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #555;
+  border-right: 2px solid #555;
+}
+
+@keyframes text {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  50%,
+  85% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes logoout {
-  40%,
-  80% {
+  20%,
+  90% {
     opacity: 1;
     transform: translate(-50%, -50%);
   }
@@ -80,11 +137,17 @@ html {
 }
 
 .isOpen {
+  p {
+    animation: text 3500ms 1 forwards;
+  }
+
   .logo {
-    animation: logoout 4000ms 1 forwards;
+    animation: logoout 3500ms 1 forwards;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.76, 1);
+    animation-timing-function: cubic-bezier(0.19, 1.38, 0.76, 1.08);
   }
 
   .link {
-    transform: translateX(100vw) scale(0.5);
+    transform: translateY(100vh) scale(0.5);
   }
 }

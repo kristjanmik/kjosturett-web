@@ -15,8 +15,9 @@ class Ceremony extends PureComponent {
         isOpen: true,
       },
       () => {
-        setTimeout(function() {
-          window.location.href = '/verkefnid';
+        setTimeout(() => {
+          window.location.href = '/';
+          // window.location.href = '/open-kjosturett-2017-live';
         }, 4000);
       }
     );
@@ -27,12 +28,15 @@ class Ceremony extends PureComponent {
     return (
       <div className={cx(s.root, this.state.isOpen && s.isOpen)}>
         <img src={logo} className={s.logo} />
+        <p>...er nú opin öllum!</p>
         <a
           onClick={this.onClick}
           className={s.link}
           href="/open-kjosturett-2017-live"
         >
           Opna Kjósturétt.is
+          <span className={s.linkBot} />
+          <span className={s.linkTop} />
         </a>
       </div>
     );
