@@ -124,6 +124,7 @@
   }
 }
 
+.links a:last-child::first-letter,
 .politics::first-letter {
   text-transform: uppercase;
 }

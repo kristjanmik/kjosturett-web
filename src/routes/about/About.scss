@@ -2,14 +2,65 @@
 
 .root {
   color: #585858;
+
   margin-left: auto;
   margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
   max-width: 768px;
 
-  @include between-property('padding-top', 32px, 0, 1200px, 0);
+  @include between-property('padding-bottom', 44px, 0, 1200px, 0);
+  @include between-property('padding-top', 32px, 0, 1200px, 500px);
   @include between-property('font-size', 17px, 13px, 1200px, 500px);
 
   * + * {
     margin-top: 1em;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.we {
+  text-align: center;
+
+  @media (min-width: 600px) {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.person {
+  margin-bottom: 2em;
+  margin-top: 3em;
+
+  a {
+    display: inline-block;
+    background-image: linear-gradient(0deg, #555, #555);
+    background-position: 0 calc(1em + 4px);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+  }
+
+  @media (min-width: 600px) {
+    margin-top: 2em;
+  }
+}
+
+.name {
+  font-size: 1.2em;
+  font-weight: 700;
+  font-family: 'Lora', serif;
+  margin-top: 0.5em;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.img {
+  border-radius: 50%;
+  max-width: 250px;
+  width: 100%;
 }
