@@ -20,6 +20,7 @@ export default ({ params }) => {
   return {
     chunks: ['malefnisingle'],
     title: `${category.name} - Kjóstu Rétt`,
+    description: `Svör stjórnmálaflokkanna í ${category.name.toLowerCase()}um fyrir Alþingiskosningarnar 2017`,
     component: (
       <Layout page="malefni" title={category.name}>
         <MalefniSingle
@@ -28,6 +29,6 @@ export default ({ params }) => {
           selectedCategory={params.malefni}
         />
       </Layout>
-    ),
+    )
   };
 };
