@@ -65,6 +65,7 @@ export const parties = [
     letter: 'A',
     url: 'bjort-framtid',
     name: 'Björt Framtíð',
+    nameDeflected: 'Bjartrar Framtíðar',
     website: 'http://www.bjortframtid.is',
     leader: 'Óttarr Proppé',
     leaderTitle: 'Formaður'
@@ -73,6 +74,7 @@ export const parties = [
     letter: 'B',
     url: 'framsoknarflokkurinn',
     name: 'Framsóknarflokkurinn',
+    nameDeflected: 'Framsónarflokksins',
     website: 'https://framsokn.is',
     leader: 'Sigurður Ingi Jóhannsson',
     leaderTitle: 'Formaður'
@@ -81,6 +83,7 @@ export const parties = [
     letter: 'C',
     url: 'vidreisn',
     name: 'Viðreisn',
+    nameDeflected: 'Viðreisnar',
     website: 'https://www.vidreisn.is',
     leader: 'Þorgerður Katrín Gunnarsdóttir',
     leaderTitle: 'Formaður'
@@ -89,6 +92,7 @@ export const parties = [
     letter: 'D',
     url: 'sjalfstaedisflokkurinn',
     name: 'Sjálfstæðisflokkurinn',
+    nameDeflected: 'Sjálfstæðisflokksins',
     website: 'http://xd.is',
     leader: 'Bjarni Benediktsson',
     leaderTitle: 'Formaður'
@@ -97,6 +101,7 @@ export const parties = [
     letter: 'F',
     url: 'flokkur-folksins',
     name: 'Flokkur Fólksins',
+    nameDeflected: 'Flokks Fólksins',
     website: 'https://www.flokkurfolksins.is',
     leader: 'Inga Sæland',
     leaderTitle: 'Formaður'
@@ -105,6 +110,7 @@ export const parties = [
     letter: 'M',
     url: 'midflokkurinn',
     name: 'Miðflokkurinn',
+    nameDeflected: 'Miðflokksins',
     website: 'http://midflokkurinn.is',
     leader: 'Sigmundur Davíð Gunnlaugsson',
     leaderTitle: 'Formaður'
@@ -113,6 +119,7 @@ export const parties = [
     letter: 'P',
     url: 'piratar',
     name: 'Píratar',
+    nameDeflected: 'Pírata',
     website: 'https://piratar.is',
     leader: 'Þór­hild­ur Sunna Ævars­dótt­ir',
     leaderTitle: ''
@@ -121,6 +128,7 @@ export const parties = [
     letter: 'R',
     url: 'althydufylkingin',
     name: 'Alþýðufylkingin',
+    nameDeflected: 'Alþýðufylkingarinnar',
     website: 'https://www.althydufylkingin.is/',
     leader: 'Þorvaldur Þorvaldsson',
     leaderTitle: 'Formaður'
@@ -129,6 +137,7 @@ export const parties = [
     letter: 'S',
     url: 'samfylkingin',
     name: 'Samfylkingin',
+    nameDeflected: 'Samfylkingarinnar',
     website: 'https://xs.is',
     leader: 'Logi Einarsson',
     leaderTitle: 'Formaður'
@@ -137,6 +146,7 @@ export const parties = [
     letter: 'T',
     url: 'dogun',
     name: 'Dögun',
+    nameDeflected: 'Dögunar',
     website: 'http://xdogun.is/',
     leader: 'Pálmey Gísladóttir',
     leaderTitle: 'Formaður'
@@ -145,6 +155,7 @@ export const parties = [
     letter: 'V',
     url: 'vinstri-graen',
     name: 'Vinstri Græn',
+    nameDeflected: 'Vinstri Grænna',
     website: 'https://vg.is',
     leader: 'Katrín Jakobsdóttir',
     leaderTitle: 'Formaður'

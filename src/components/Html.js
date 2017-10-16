@@ -7,34 +7,35 @@ import config from '../config';
 
 class Html extends React.Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    description: PropTypes.string,
     styles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        cssText: PropTypes.string.isRequired,
+        cssText: PropTypes.string.isRequired
       }).isRequired
     ),
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
-    children: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired
   };
 
   static defaultProps = {
     styles: [],
-    scripts: [],
+    scripts: []
   };
 
   render() {
-    let {
-      title = 'Kjóstu Rétt 2017',
-      description = 'Upplýsingar um stjórnmálaflokka og kosningarmálefni þeirra gerð aðgengileg almenningi.',
-      styles,
-      scripts,
-      app,
-      children,
-    } = this.props;
+    let { title, description, styles, scripts, app, children } = this.props;
 
+    if (!title) {
+      title = 'Kjóstu Rétt 2017';
+    }
+
+    if (!description) {
+      description =
+        'Upplýsingar um stjórnmálaflokka og kosningarmálefni þeirra gerð aðgengileg almenningi.';
+    }
     return (
       <html className="no-js" lang="en">
         <head>
@@ -113,7 +114,7 @@ class Html extends React.Component {
                 __html:
                   'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' +
                   `ga('create','${config.analytics
-                    .googleTrackingId}','auto');ga('send','pageview')`,
+                    .googleTrackingId}','auto');ga('send','pageview')`
               }}
             />
           )}
