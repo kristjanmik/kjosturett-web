@@ -33,6 +33,7 @@ class FrontPage extends PureComponent {
             </span>
           </Link>
         ))}
+        <div className={s.emptyParty} />
       </section>
     );
   }
