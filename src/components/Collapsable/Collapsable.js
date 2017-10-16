@@ -67,7 +67,7 @@ class Collapsable extends React.Component {
               {image && <img className={styles.image} src={image} />}
               <h3 className={styles.title}>{title}</h3>
               <i
-                ariaHidden={true}
+                aria-hidden={true}
                 className={cx(styles.icon, !open[key] && styles.isOpen)}
               />
             </div>
