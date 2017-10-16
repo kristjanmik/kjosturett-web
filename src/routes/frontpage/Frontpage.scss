@@ -31,14 +31,11 @@
   height: 65px;
   width: 100%;
 
-  @media (min-width: 500px) {
+  @media (min-width: 600px) {
     border-width: 1px;
     height: 200px;
     justify-content: center;
     margin-bottom: 1em;
-  }
-
-  @media (min-width: 600px) {
     width: calc(50% - 0.5em);
   }
 
@@ -63,7 +60,7 @@
     font-size: 1.2rem;
   }
 
-  @media (max-width: 499px) {
+  @media (max-width: 599px) {
     display: none;
   }
 }
@@ -90,7 +87,7 @@
   max-width: 30px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   .info {
     width: 55%;
   }

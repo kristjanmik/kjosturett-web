@@ -63,6 +63,15 @@ class Header extends PureComponent {
                 >
                   Málefnin
                 </Link>
+                <Link
+                  className={cx(
+                    s.about,
+                    page === 'verkefnid' ? s.active : null
+                  )}
+                  href={'/verkefnid'}
+                >
+                  <span className={s.politicsPrefix}>Um </span>verkefnið
+                </Link>
               </div>
             </div>
           </Container>

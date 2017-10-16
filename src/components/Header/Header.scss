@@ -70,15 +70,26 @@
 }
 
 .logo {
-  width: 120px;
+  width: 90px;
+  @media (min-width: 370px) {
+    width: 120px;
+  }
 }
 
 .countdown {
-  bottom: -8px;
-  font-size: 11px;
+  bottom: -5px;
+  font-size: 9px;
   opacity: 0.7;
   position: absolute;
-  right: 0;
+  left: 0;
+  white-space: nowrap;
+
+  @media (min-width: 370px) {
+    font-size: 11px;
+    bottom: -8px;
+    left: auto;
+    right: 0;
+  }
 }
 
 .links {
@@ -95,9 +106,9 @@
     text-decoration: none;
     text-shadow: 1px 1px #fff, -1px 1px #fff, 0 -1px #fff;
 
-    @media (max-width: 500px) {
+    @media (max-width: 510px) {
       font-size: 0.9em;
-      margin-left: 1em;
+      margin-left: 0.7em;
       padding: 0.8em 0;
     }
   }
@@ -117,7 +128,7 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 510px) {
   .politicsPrefix {
     display: none;
   }

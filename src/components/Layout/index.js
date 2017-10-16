@@ -24,7 +24,6 @@ class Layout extends Component {
           )}
           <Container>{children}</Container>
         </main>
-        <Footer />
       </div>
     );
   }
