@@ -10,5 +10,5 @@ export default () => ({
     <Layout page="verkefnid" title="Verkefnið">
       <About />
     </Layout>
-  ),
+  )
 });

@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import serialize from 'serialize-javascript';
-import config from '../config';
+import React from 'react'
+import PropTypes from 'prop-types'
+import serialize from 'serialize-javascript'
+import config from '../config'
 
 /* eslint-disable react/no-danger */
 
 class Html extends React.Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    description: PropTypes.string,
     styles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -18,12 +18,12 @@ class Html extends React.Component {
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
     children: PropTypes.string.isRequired,
-  };
+  }
 
   static defaultProps = {
     styles: [],
     scripts: [],
-  };
+  }
 
   render() {
     let {
@@ -34,7 +34,7 @@ class Html extends React.Component {
       scripts,
       app,
       children,
-    } = this.props;
+    } = this.props
 
     return (
       <html className="no-js" lang="en">
@@ -133,8 +133,8 @@ class Html extends React.Component {
           /> */}
         </body>
       </html>
-    );
+    )
   }
 }
 
-export default Html;
+export default Html

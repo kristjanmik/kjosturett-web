@@ -14,10 +14,11 @@ const title = 'Page Not Found';
 
 function action() {
   return {
-    chunks: ['not-found'],
-    title,
-    component: <NotFound title={title} />,
-    status: 404
+    redirect: '/'
+    // chunks: ['not-found'],
+    // title,
+    // component: <NotFound title={title} />,
+    // status: 404
   };
 }
 

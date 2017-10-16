@@ -1,26 +1,27 @@
-import React from 'react';
-import MalefniSingle from './MalefniSingle';
-import Layout from '../../components/Layout';
-import categories from '../../lib/data/categories.json';
+import React from 'react'
+import MalefniSingle from './MalefniSingle'
+import Layout from '../../components/Layout'
+import categories from '../../lib/data/categories.json'
 
 export default ({ params }) => {
   const category = categories.filter(
     category => category.url === params.malefni
-  )[0];
+  )[0]
 
-  if (!category) throw Error('Not found');
+  if (!category) throw Error('Not found')
 
-  let parties = [];
+  let parties = []
   try {
-    parties = require(`../../lib/data/${params.malefni}.json`);
+    parties = require(`../../lib/data/${params.malefni}.json`)
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
 
   return {
     chunks: ['malefnisingle'],
     title: `${category.name} - Kjóstu Rétt`,
     path: `/malefni/${category.url}`,
+    description: `Svör stjórnmálaflokkanna í ${category.name.toLowerCase()}um fyrir Alþingiskosningarnar 2017`,
     component: (
       <Layout page="malefni" title={category.name}>
         <MalefniSingle
@@ -30,5 +31,5 @@ export default ({ params }) => {
         />
       </Layout>
     ),
-  };
-};
+  }
+}
