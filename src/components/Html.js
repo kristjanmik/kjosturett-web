@@ -29,6 +29,7 @@ class Html extends React.Component {
     let {
       title = 'Kjóstu Rétt 2017',
       description = 'Upplýsingar um stjórnmálaflokka og kosningarmálefni þeirra gerð aðgengileg almenningi.',
+      path = '/',
       styles,
       scripts,
       app,
@@ -55,7 +56,7 @@ class Html extends React.Component {
           />
           <meta property="og:title" content={title} />
           <meta property="og:site_name" content="Kjóstu rétt 2017" />
-          <meta property="og:url" content="https://kjosturett.is" />
+          <meta property="og:url" content={`https://kjosturett.is${path}`} />
           <meta property="og:description" content={description} />
           <meta property="og:type" content="website" />
 

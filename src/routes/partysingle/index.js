@@ -19,6 +19,7 @@ export default ({ params }) => {
   return {
     chunks: ['partysingle'],
     title: `${party.name} - Kjóstu Rétt`,
+    path: `/flokkur/${party.url}`,
     component: (
       <Layout
         page="flokkar"

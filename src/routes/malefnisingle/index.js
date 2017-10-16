@@ -20,6 +20,7 @@ export default ({ params }) => {
   return {
     chunks: ['malefnisingle'],
     title: `${category.name} - Kjóstu Rétt`,
+    path: `/malefni/${category.url}`,
     component: (
       <Layout page="malefni" title={category.name}>
         <MalefniSingle
