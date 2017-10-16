@@ -5,10 +5,12 @@ if (__DEV__) {
   isOpen = true;
 }
 
+//Let's automatically open this thing at 18:25 for brevity
+const openTimestamp = 1508178300000;
+
 export default () => {
   //Browser won't have access to the isOpen boolean
-  //Check if clock is more than 18:50 on monday
-  return process.env.BROWSER || Date.now() > 1508179800000 || isOpen;
+  return process.env.BROWSER || Date.now() > openTimestamp || isOpen;
 };
 
 export const goLive = () => {
@@ -16,5 +18,5 @@ export const goLive = () => {
 };
 
 export const manualOpeningDone = () => {
-  return isOpen || Date.now() > 1508179800000;
+  return isOpen || Date.now() > openTimestamp;
 };
