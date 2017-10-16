@@ -26,14 +26,15 @@ class Html extends React.Component {
   };
 
   render() {
-    let { title, description, styles, scripts, app, children } = this.props;
+    let {
+      title = 'Kjóstu Rétt 2017',
+      description = 'Upplýsingar um stjórnmálaflokka og kosningarmálefni þeirra gerð aðgengileg almenningi.',
+      styles,
+      scripts,
+      app,
+      children,
+    } = this.props;
 
-    description =
-      'Upplýsingar um stjórnmálaflokka og kosningarmálefni þeirra gerð aðgengileg almenningi.';
-
-    if (!title) {
-      title = 'Kjóstu Rétt 2017';
-    }
     return (
       <html className="no-js" lang="en">
         <head>
