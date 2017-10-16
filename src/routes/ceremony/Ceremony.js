@@ -16,8 +16,7 @@ class Ceremony extends PureComponent {
       },
       () => {
         setTimeout(() => {
-          window.location.href = '/';
-          // window.location.href = '/open-kjosturett-2017-live';
+          window.location.href = '/open-kjosturett-2017-live';
         }, 4000);
       }
     );
