@@ -12,17 +12,17 @@ class Html extends React.Component {
     styles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        cssText: PropTypes.string.isRequired
+        cssText: PropTypes.string.isRequired,
       }).isRequired
     ),
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
-    children: PropTypes.string.isRequired
+    children: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
     styles: [],
-    scripts: []
+    scripts: [],
   };
 
   render() {
@@ -50,7 +50,7 @@ class Html extends React.Component {
           <meta name="description" content={description} />
           <meta
             name="keywords"
-            content="kosningar,alþingi 2017,alþingiskosningar,frambjóðendur,málefni,björt framtíð,framsóknarflokkurinn,píratar,samfylkingin,sjálfstæðisflokkurinn,viðreisn,vinstri græn,flokkur fólksins"
+            content="kosningar,alþingi 2017,alþingiskosningar,frambjóðendur,málefni,björt framtíð,framsóknarflokkurinn,píratar,samfylkingin,sjálfstæðisflokkurinn,viðreisn,vinstri græn,flokkur fólksins,alþýðufylkingin"
           />
           <meta property="og:title" content={title} />
           <meta property="og:site_name" content="Kjóstu rétt 2017" />
@@ -79,12 +79,15 @@ class Html extends React.Component {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="theme-color" content="#ffffff" />
 
-          <meta property="og:image" content="https://kjosturett.is/logo.png" />
+          <meta property="og:image" content="https://kjosturett.is/og.png" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="Kjóstu Rétt 2017" />
           <meta name="twitter:description" content={description} />
 
-          <link href="https://fonts.googleapis.com/css?family=Lora|Roboto" rel="stylesheet" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Lora|Roboto"
+            rel="stylesheet"
+          />
 
           {scripts.map(script => (
             <link key={script} rel="preload" href={script} as="script" />
@@ -109,7 +112,7 @@ class Html extends React.Component {
                 __html:
                   'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' +
                   `ga('create','${config.analytics
-                    .googleTrackingId}','auto');ga('send','pageview')`
+                    .googleTrackingId}','auto');ga('send','pageview')`,
               }}
             />
           )}
