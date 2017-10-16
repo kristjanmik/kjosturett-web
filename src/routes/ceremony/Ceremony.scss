@@ -20,6 +20,8 @@ html {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .main {
@@ -38,4 +40,51 @@ html {
   right: 0;
   top: 0;
   width: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(-100vw);
+  z-index: -1;
+  width: 440px;
+  will-change: transform, opacity;
+}
+
+.link {
+  outline: none;
+  appearance: none;
+  display: block;
+  color: #000;
+  font-size: 3rem;
+  padding: 0.6em 1em;
+  border: 1px solid #888;
+  font-weight: 900;
+  text-decoration: none;
+  transition: transform 600ms 400ms;
+  will-change: transform;
+}
+
+@keyframes logoout {
+  40%,
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.isOpen {
+  .logo {
+    animation: logoout 4000ms 1 forwards;
+  }
+
+  .link {
+    transform: translateX(100vw) scale(0.5);
+  }
 }
