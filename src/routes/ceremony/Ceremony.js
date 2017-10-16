@@ -10,13 +10,13 @@ class Ceremony extends PureComponent {
     isOpen: false
   };
   onClick = event => {
+    setTimeout(() => {
+      window.location = 'https://kjosturett.is';
+    }, 4000);
+
     this.setState({
       isOpen: true
     });
-
-    setTimeout(() => {
-      window.location.href = '/';
-    }, 4000);
 
     event.preventDefault();
     return false;
