@@ -7,16 +7,16 @@ import s from './Ceremony.scss';
 
 class Ceremony extends PureComponent {
   state = {
-    isOpen: false,
+    isOpen: false
   };
   onClick = event => {
     this.setState(
       {
-        isOpen: true,
+        isOpen: true
       },
       () => {
         setTimeout(() => {
-          window.location.href = '/open-kjosturett-2017-live';
+          window.location.href = '/';
         }, 4000);
       }
     );
