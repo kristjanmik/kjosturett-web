@@ -22,6 +22,8 @@
   display: flex;
   cursor: pointer;
   height: 35px;
+  color: inherit;
+  text-decoration: none;
 
   @media screen and (max-width: #{$site-medium}) {
     height: 30px;

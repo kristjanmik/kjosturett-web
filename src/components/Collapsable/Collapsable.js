@@ -34,6 +34,27 @@ class Collapsable extends React.Component {
       return state;
     }, {}),
   };
+  componentDidMount() {
+    const hash = window.location.hash.replace(/^#/, '');
+    const open = { ...this.state.open };
+    if (hash && open.hasOwnProperty(hash)) {
+      Object.keys(open).forEach(key => {
+        open[key] = key === hash;
+      });
+      this.setState({ open }, () => {
+        this.scrollTo(this.rootEl_.querySelector(`[href="#${hash}"]`));
+      });
+    }
+  }
+  scrollTo(target) {
+    let curtop = 0;
+
+    do {
+      curtop += target.offsetTop;
+    } while ((target = target.offsetParent));
+
+    Scroll.animateScroll.scrollTo(curtop - 90);
+  }
   toggle = (key: string) => event => {
     let target = event.target;
 
@@ -43,13 +64,7 @@ class Collapsable extends React.Component {
 
       // Scroll to collapseable only when opening.
       if (nextState && target.offsetParent) {
-        let curtop = 0;
-
-        do {
-          curtop += target.offsetTop;
-        } while ((target = target.offsetParent));
-
-        Scroll.animateScroll.scrollTo(curtop - 75);
+        this.scrollTo(target);
       }
 
       return { open };
@@ -60,17 +75,21 @@ class Collapsable extends React.Component {
     const { open } = this.state;
 
     return (
-      <div className={styles.root}>
+      <div ref={el => (this.rootEl_ = el)} className={styles.root}>
         {items.map(({ key, title, content, image }) => (
           <div className={styles.category} key={key}>
-            <div className={styles.header} onClick={this.toggle(key)}>
+            <a
+              href={`#${key}`}
+              className={styles.header}
+              onClick={this.toggle(key)}
+            >
               {image && <img className={styles.image} src={image} />}
               <h3 className={styles.title}>{title}</h3>
               <i
-                aria-hidden={true}
+                aria-hidden="true"
                 className={cx(styles.icon, !open[key] && styles.isOpen)}
               />
-            </div>
+            </a>
             <Collapse
               isOpened={open[key] === true}
               springConfig={Collapsable.spring}
