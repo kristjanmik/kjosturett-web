@@ -66,6 +66,12 @@ class About extends PureComponent {
         </p>
 
         <p>Við þökkum kærlega fyrir allan stuðning!</p>
+
+        <h3>Hafa samband</h3>
+        <p>
+          Hægt er að hafa samband við Kjóstu rétt í gegnum tölvupóst á netfangið{' '}
+          <a href="mailto:kjosturett@kjosturett.is">kjosturett@kjosturett.is</a>
+        </p>
       </div>
     );
   }
