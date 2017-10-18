@@ -177,7 +177,7 @@ writeFile(
 categories.forEach(async category => {
   let out = await Promise.all(
     parties.map(async party => {
-      const key = `./${party.url}/${category.url}.md`;
+      const key = `./parties/${party.url}/${category.url}.md`;
 
       let data = '';
       try {
@@ -204,7 +204,7 @@ categories.forEach(async category => {
 parties.forEach(async party => {
   let out = await Promise.all(
     categories.map(async category => {
-      const key = `./${party.url}/${category.url}.md`;
+      const key = `./parties/${party.url}/${category.url}.md`;
 
       let data = '';
       try {
