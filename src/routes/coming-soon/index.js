@@ -8,7 +8,7 @@ export default () => {
   }
   return {
     chunks: ['coming-soon'],
-    title: `Kjóstu Rétt 2017`,
-    component: <ComingSoon />
+    title: 'Kjóstu Rétt 2017',
+    component: <ComingSoon />,
   };
 };

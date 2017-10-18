@@ -7,14 +7,14 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
-import NotFound from './NotFound';
-
-const title = 'Page Not Found';
+// import React from 'react';
+// import NotFound from './NotFound';
+//
+// const title = 'Page Not Found';
 
 function action() {
   return {
-    redirect: '/'
+    redirect: '/',
     // chunks: ['not-found'],
     // title,
     // component: <NotFound title={title} />,

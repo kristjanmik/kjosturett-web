@@ -1,11 +1,11 @@
 // @flow
 
 import React from 'react';
-import styles from './PartyProfile.scss';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import styles from './PartyProfile.scss';
 import { getAssetUrl } from '../../utils';
 
-const Container = ({ name, letter, leader, leaderTitle, url, website }) => (
+const Container = ({ name, leader, leaderTitle, url }) => (
   <div className={styles.root}>
     <div className={styles.imgWrap}>
       <img

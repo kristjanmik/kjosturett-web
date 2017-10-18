@@ -24,11 +24,11 @@ module.exports = {
   plugins: ['flowtype', 'css-modules', 'prettier'],
 
   globals: {
-    __DEV__: true
+    __DEV__: true,
   },
 
   env: {
-    browser: true
+    browser: true,
   },
 
   rules: {
@@ -40,8 +40,8 @@ module.exports = {
       {
         js: 'never',
         jsx: 'never',
-        mjs: 'never'
-      }
+        mjs: 'never',
+      },
     ],
 
     // Not supporting nested package.json yet
@@ -53,8 +53,8 @@ module.exports = {
     'no-console': [
       'error',
       {
-        allow: ['warn', 'error', 'info']
-      }
+        allow: ['warn', 'error', 'info'],
+      },
     ],
 
     // Allow js files to use jsx syntax, too
@@ -86,8 +86,8 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/tree/master/resolvers
     'import/resolver': {
       node: {
-        moduleDirectory: ['node_modules', 'src']
-      }
-    }
-  }
+        moduleDirectory: ['node_modules', 'src'],
+      },
+    },
+  },
 };

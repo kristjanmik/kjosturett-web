@@ -13,7 +13,7 @@ type Fetch = (url: string, options: ?any) => Promise<any>;
 
 type Options = {
   baseUrl: string,
-  cookie?: string
+  cookie?: string,
 };
 
 /**
@@ -32,22 +32,21 @@ function createFetch(fetch: Fetch, { baseUrl, cookie }: Options) {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       auth: 'foobarauth',
-      ...(cookie ? { Cookie: cookie } : null)
-    }
+      ...(cookie ? { Cookie: cookie } : null),
+    },
   };
 
-  return (url: string, options: any) => {
-    return url.startsWith('/graphql') || url.startsWith('/api')
+  return (url: string, options: any) =>
+    url.startsWith('/graphql') || url.startsWith('/api')
       ? fetch(`${baseUrl}${url}`, {
           ...defaults,
           ...options,
           headers: {
             ...defaults.headers,
-            ...(options && options.headers)
-          }
+            ...(options && options.headers),
+          },
         })
       : fetch(url, options);
-  };
 }
 
 export default createFetch;

@@ -4,11 +4,11 @@ import Layout from '../../components/Layout';
 
 export default () => ({
   chunks: ['about'],
-  title: `Verkefnið - Kjóstu Rétt`,
+  title: 'Verkefnið - Kjóstu Rétt',
   path: '/verkefnid',
   component: (
     <Layout page="verkefnid" title="Verkefnið">
       <About />
     </Layout>
-  )
+  ),
 });

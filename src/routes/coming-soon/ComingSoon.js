@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import Countdown from '../../components/Countdown';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import Countdown from '../../components/Countdown';
 import logo from '../../logo.svg';
 import s from './ComingSoon.scss';
 

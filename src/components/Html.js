@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import serialize from 'serialize-javascript'
-import config from '../config'
+import React from 'react';
+import PropTypes from 'prop-types';
+import serialize from 'serialize-javascript';
+import config from '../config';
 
 /* eslint-disable react/no-danger */
 
@@ -13,20 +13,20 @@ class Html extends React.Component {
       PropTypes.shape({
         id: PropTypes.string.isRequired,
         cssText: PropTypes.string.isRequired,
-      }).isRequired
+      }).isRequired,
     ),
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
     children: PropTypes.string.isRequired,
-  }
+  };
 
   static defaultProps = {
     styles: [],
     scripts: [],
-  }
+  };
 
   render() {
-    let {
+    const {
       title = 'Kjóstu Rétt 2017',
       description = 'Upplýsingar um stjórnmálaflokka og kosningarmálefni þeirra gerð aðgengileg almenningi.',
       path = '/',
@@ -34,7 +34,7 @@ class Html extends React.Component {
       scripts,
       app,
       children,
-    } = this.props
+    } = this.props;
 
     return (
       <html className="no-js" lang="en">
@@ -133,8 +133,8 @@ class Html extends React.Component {
           /> */}
         </body>
       </html>
-    )
+    );
   }
 }
 
-export default Html
+export default Html;

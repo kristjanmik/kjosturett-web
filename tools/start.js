@@ -42,12 +42,14 @@ function createCompilationPromise(name, compiler, config) {
       const time = timeEnd.getTime() - timeStart.getTime();
       if (stats.hasErrors()) {
         console.info(
-          `[${format(timeEnd)}] Failed to compile '${name}' after ${time} ms`
+          `[${format(timeEnd)}] Failed to compile '${name}' after ${time} ms`,
         );
         reject(new Error('Compilation failed!'));
       } else {
         console.info(
-          `[${format(timeEnd)}] Finished '${name}' compilation after ${time} ms`
+          `[${format(
+            timeEnd,
+          )}] Finished '${name}' compilation after ${time} ms`,
         );
         resolve(stats);
       }
@@ -72,29 +74,29 @@ async function start() {
   clientConfig.entry.client = [
     'react-error-overlay',
     'react-hot-loader/patch',
-    'webpack-hot-middleware/client?name=client&reload=true'
+    'webpack-hot-middleware/client?name=client&reload=true',
   ]
     .concat(clientConfig.entry.client)
     .sort((a, b) => b.includes('polyfill') - a.includes('polyfill'));
   clientConfig.output.filename = clientConfig.output.filename.replace(
     'chunkhash',
-    'hash'
+    'hash',
   );
   clientConfig.output.chunkFilename = clientConfig.output.chunkFilename.replace(
     'chunkhash',
-    'hash'
+    'hash',
   );
   clientConfig.module.rules = clientConfig.module.rules.filter(
-    x => x.loader !== 'null-loader'
+    x => x.loader !== 'null-loader',
   );
   const { options } = clientConfig.module.rules.find(
-    x => x.loader === 'babel-loader'
+    x => x.loader === 'babel-loader',
   );
   options.plugins = ['react-hot-loader/babel'].concat(options.plugins || []);
   clientConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
   );
 
   // Configure server-side hot module replacement
@@ -103,32 +105,32 @@ async function start() {
   serverConfig.output.hotUpdateChunkFilename =
     'updates/[id].[hash].hot-update.js';
   serverConfig.module.rules = serverConfig.module.rules.filter(
-    x => x.loader !== 'null-loader'
+    x => x.loader !== 'null-loader',
   );
   serverConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
   );
 
   // Configure compilation
   await run(clean);
   const multiCompiler = webpack(webpackConfig);
   const clientCompiler = multiCompiler.compilers.find(
-    compiler => compiler.name === 'client'
+    compiler => compiler.name === 'client',
   );
   const serverCompiler = multiCompiler.compilers.find(
-    compiler => compiler.name === 'server'
+    compiler => compiler.name === 'server',
   );
   const clientPromise = createCompilationPromise(
     'client',
     clientCompiler,
-    clientConfig
+    clientConfig,
   );
   const serverPromise = createCompilationPromise(
     'server',
     serverCompiler,
-    serverConfig
+    serverConfig,
   );
 
   // https://github.com/webpack/webpack-dev-middleware
@@ -136,8 +138,8 @@ async function start() {
     webpackDevMiddleware(clientCompiler, {
       publicPath: clientConfig.output.publicPath,
       quiet: true,
-      watchOptions
-    })
+      watchOptions,
+    }),
   );
 
   // https://github.com/glenjamin/webpack-hot-middleware
@@ -149,7 +151,9 @@ async function start() {
   serverCompiler.plugin('compile', () => {
     if (!appPromiseIsResolved) return;
     appPromiseIsResolved = false;
-    appPromise = new Promise(resolve => (appPromiseResolve = resolve));
+    appPromise = new Promise(resolve => {
+      appPromiseResolve = resolve;
+    });
   });
 
   let app;
@@ -181,7 +185,7 @@ async function start() {
         } else {
           console.info(`${hmrPrefix}Updated modules:`);
           updatedModules.forEach(moduleId =>
-            console.info(`${hmrPrefix} - ${moduleId}`)
+            console.info(`${hmrPrefix} - ${moduleId}`),
           );
           checkForUpdate(true);
         }
@@ -195,7 +199,7 @@ async function start() {
           console.warn(`${hmrPrefix}App has been reloaded.`);
         } else {
           console.warn(
-            `${hmrPrefix}Update failed: ${error.stack || error.message}`
+            `${hmrPrefix}Update failed: ${error.stack || error.message}`,
           );
         }
       });
@@ -250,12 +254,12 @@ async function start() {
               logFileChanges: false,
               logSnippet: false,
               minify: false,
-              timestamps: false
+              timestamps: false,
             }
-          : { notify: false, ui: false })
+          : { notify: false, ui: false }),
       },
-      (error, bs) => (error ? reject(error) : resolve(bs))
-    )
+      (error, bs) => (error ? reject(error) : resolve(bs)),
+    ),
   );
 
   const timeEnd = new Date();

@@ -1,4 +1,3 @@
-import { appendFile } from 'fs';
 import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -12,7 +11,6 @@ import Html from './components/Html';
 import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
 import createFetch from './createFetch';
-import createHelpers from './store/createHelpers';
 import router from './router';
 // import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
@@ -46,7 +44,7 @@ app.get('/open-kjosturett-2017-live', (req, res) => {
   res.redirect('/');
 });
 
-const hackRoute = (req, res, next) => {
+const hackRoute = (req, res) => {
   res.redirect('https://www.facebook.com/events/1493507597370764/');
 };
 
@@ -65,20 +63,20 @@ app.get('*', async (req, res, next) => {
     // Universal HTTP client
     const fetch = createFetch(nodeFetch, {
       baseUrl: config.api.serverUrl,
-      cookie: req.headers.cookie
+      cookie: req.headers.cookie,
     });
 
     const initialState = {};
 
     const store = configureStore(initialState, {
-      fetch
+      fetch,
     });
 
     store.dispatch(
       setRuntimeVariable({
         name: 'initialNow',
-        value: Date.now()
-      })
+        value: Date.now(),
+      }),
     );
 
     // Global (context) variables that can be easily accessed from any React component
@@ -95,13 +93,13 @@ app.get('*', async (req, res, next) => {
       fetch,
       // You can access redux through react-redux connect
       store,
-      storeSubscription: null
+      storeSubscription: null,
     };
 
     const route = await router.resolve({
       ...context,
       path: req.path,
-      query: req.query
+      query: req.query,
     });
 
     if (route.redirect) {
@@ -113,7 +111,7 @@ app.get('*', async (req, res, next) => {
     data.children = ReactDOM.renderToString(
       <App context={context} store={store}>
         {route.component}
-      </App>
+      </App>,
     );
     data.styles = [{ id: 'css', cssText: [...css].join('') }];
     data.scripts = [assets.vendor.js];
@@ -123,7 +121,7 @@ app.get('*', async (req, res, next) => {
     data.scripts.push(assets.client.js);
     data.app = {
       apiUrl: config.api.clientUrl,
-      state: context.store.getState()
+      state: context.store.getState(),
     };
 
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
@@ -151,7 +149,7 @@ app.use((err, req, res, next) => {
       styles={[{ id: 'css', cssText: errorPageStyle._getCss() }]} // eslint-disable-line no-underscore-dangle
     >
       {ReactDOM.renderToString(<ErrorPageWithoutStyle error={err} />)}
-    </Html>
+    </Html>,
   );
   res.status(err.status || 500);
   res.send(`<!doctype html>${html}`);

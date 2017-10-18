@@ -19,7 +19,7 @@ const ContextType = {
   fetch: PropTypes.func.isRequired,
   // Integrate Redux
   // http://redux.js.org/docs/basics/UsageWithReact.html
-  ...ReduxProvider.childContextTypes
+  ...ReduxProvider.childContextTypes,
 };
 
 /**
@@ -47,7 +47,7 @@ const ContextType = {
 class App extends React.PureComponent {
   static propTypes = {
     context: PropTypes.shape(ContextType).isRequired,
-    children: PropTypes.element.isRequired
+    children: PropTypes.element.isRequired,
   };
 
   static childContextTypes = ContextType;
