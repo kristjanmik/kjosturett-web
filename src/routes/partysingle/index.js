@@ -32,6 +32,6 @@ export default ({ params }) => {
       >
         <PartySingle party={party} categories={categories} />
       </Layout>
-    )
+    ),
   };
 };

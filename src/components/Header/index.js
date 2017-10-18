@@ -11,7 +11,6 @@ class Header extends PureComponent {
   state = {
     isTop: true,
   };
-  lastScrollPos = undefined;
   componentDidMount() {
     window.addEventListener('scroll', this.scroll);
     this.scroll();
@@ -19,6 +18,7 @@ class Header extends PureComponent {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.scroll);
   }
+  lastScrollPos = undefined;
   scroll = () => {
     const scroll = window.pageYOffset;
     if (this.lastScrollPos === scroll) {
@@ -52,7 +52,7 @@ class Header extends PureComponent {
                   href="/"
                   className={cx(
                     s.politics,
-                    page === 'flokkar' ? s.active : null
+                    page === 'flokkar' ? s.active : null,
                   )}
                 >
                   <span className={s.politicsPrefix}>Stjórnmála</span>flokkar
@@ -64,10 +64,7 @@ class Header extends PureComponent {
                   Málefnin
                 </Link>
                 <Link
-                  className={cx(
-                    s.about,
-                    page === 'verkefnid' ? s.active : null
-                  )}
+                  className={cx(page === 'verkefnid' ? s.active : null)}
                   href={'/verkefnid'}
                 >
                   <span className={s.politicsPrefix}>Um </span>verkefnið

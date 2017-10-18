@@ -1,5 +1,7 @@
 import fs from 'fs';
+
 const { promisify } = require('util');
+
 import marked from 'marked';
 
 const writeFile = promisify(fs.writeFile);
@@ -8,56 +10,56 @@ const readFile = promisify(fs.readFile);
 const categories = [
   {
     name: 'Atvinnumál',
-    url: 'atvinnumal'
+    url: 'atvinnumal',
   },
   {
     name: 'Byggðarmál',
-    url: 'byggdarmal'
+    url: 'byggdarmal',
   },
   {
     name: 'Evrópumál',
-    url: 'evropumal'
+    url: 'evropumal',
   },
   {
     name: 'Heilbrigðismál',
-    url: 'heilbrigdismal'
+    url: 'heilbrigdismal',
   },
   {
     name: 'Húsnæðismál',
-    url: 'husnaedismal'
+    url: 'husnaedismal',
   },
   {
     name: 'Jafnréttismál',
-    url: 'jafnrettismal'
+    url: 'jafnrettismal',
   },
   {
     name: 'Menntamál',
-    url: 'menntamal'
+    url: 'menntamal',
   },
   {
     name: 'Samgöngumál',
-    url: 'samgongumal'
+    url: 'samgongumal',
   },
   {
     name: 'Sjávarútvegsmál',
-    url: 'sjavarutvegsmal'
+    url: 'sjavarutvegsmal',
   },
   {
     name: 'Skattamál',
-    url: 'skattamal'
+    url: 'skattamal',
   },
   {
     name: 'Stjórnarskrármál',
-    url: 'stjornarskrarmal'
+    url: 'stjornarskrarmal',
   },
   {
     name: 'Umhverfismál',
-    url: 'umhverfismal'
+    url: 'umhverfismal',
   },
   {
     name: 'Velferðarmál',
-    url: 'velferdarmal'
-  }
+    url: 'velferdarmal',
+  },
 ];
 
 export const parties = [
@@ -68,7 +70,7 @@ export const parties = [
     nameDeflected: 'Bjartrar Framtíðar',
     website: 'http://www.bjortframtid.is',
     leader: 'Óttarr Proppé',
-    leaderTitle: 'Formaður'
+    leaderTitle: 'Formaður',
   },
   {
     letter: 'B',
@@ -77,7 +79,7 @@ export const parties = [
     nameDeflected: 'Framsónarflokksins',
     website: 'https://framsokn.is',
     leader: 'Sigurður Ingi Jóhannsson',
-    leaderTitle: 'Formaður'
+    leaderTitle: 'Formaður',
   },
   {
     letter: 'C',
@@ -86,7 +88,7 @@ export const parties = [
     nameDeflected: 'Viðreisnar',
     website: 'https://www.vidreisn.is',
     leader: 'Þorgerður Katrín Gunnarsdóttir',
-    leaderTitle: 'Formaður'
+    leaderTitle: 'Formaður',
   },
   {
     letter: 'D',
@@ -95,7 +97,7 @@ export const parties = [
     nameDeflected: 'Sjálfstæðisflokksins',
     website: 'http://xd.is',
     leader: 'Bjarni Benediktsson',
-    leaderTitle: 'Formaður'
+    leaderTitle: 'Formaður',
   },
   {
     letter: 'F',
@@ -104,7 +106,7 @@ export const parties = [
     nameDeflected: 'Flokks Fólksins',
     website: 'https://www.flokkurfolksins.is',
     leader: 'Inga Sæland',
-    leaderTitle: 'Formaður'
+    leaderTitle: 'Formaður',
   },
   {
     letter: 'M',
@@ -113,7 +115,7 @@ export const parties = [
     nameDeflected: 'Miðflokksins',
     website: 'http://midflokkurinn.is',
     leader: 'Sigmundur Davíð Gunnlaugsson',
-    leaderTitle: 'Formaður'
+    leaderTitle: 'Formaður',
   },
   {
     letter: 'P',
@@ -122,7 +124,7 @@ export const parties = [
     nameDeflected: 'Pírata',
     website: 'https://piratar.is',
     leader: 'Þór­hild­ur Sunna Ævars­dótt­ir',
-    leaderTitle: ''
+    leaderTitle: '',
   },
   {
     letter: 'R',
@@ -131,7 +133,7 @@ export const parties = [
     nameDeflected: 'Alþýðufylkingarinnar',
     website: 'https://www.althydufylkingin.is/',
     leader: 'Þorvaldur Þorvaldsson',
-    leaderTitle: 'Formaður'
+    leaderTitle: 'Formaður',
   },
   {
     letter: 'S',
@@ -140,7 +142,7 @@ export const parties = [
     nameDeflected: 'Samfylkingarinnar',
     website: 'https://xs.is',
     leader: 'Logi Einarsson',
-    leaderTitle: 'Formaður'
+    leaderTitle: 'Formaður',
   },
   {
     letter: 'T',
@@ -149,7 +151,7 @@ export const parties = [
     nameDeflected: 'Dögunar',
     website: 'http://xdogun.is/',
     leader: 'Pálmey Gísladóttir',
-    leaderTitle: 'Formaður'
+    leaderTitle: 'Formaður',
   },
   {
     letter: 'V',
@@ -158,24 +160,24 @@ export const parties = [
     nameDeflected: 'Vinstri Grænna',
     website: 'https://vg.is',
     leader: 'Katrín Jakobsdóttir',
-    leaderTitle: 'Formaður'
-  }
+    leaderTitle: 'Formaður',
+  },
 ];
 
 writeFile(
   '../src/lib/data/categories.json',
   JSON.stringify(categories, null, 0),
-  console.log
+  console.log,
 );
 
 writeFile(
   '../src/lib/data/parties.json',
   JSON.stringify(parties, null, 0),
-  console.log
+  console.log,
 );
 
 categories.forEach(async category => {
-  let out = await Promise.all(
+  const out = await Promise.all(
     parties.map(async party => {
       const key = `./parties/${party.url}/${category.url}.md`;
 
@@ -189,20 +191,20 @@ categories.forEach(async category => {
       console.log('got it', party, data);
       return {
         ...party,
-        statement: data ? marked(data) : ''
+        statement: data ? marked(data) : '',
       };
-    })
+    }),
   );
 
   fs.writeFile(
     `../src/lib/data/${category.url}.json`,
     JSON.stringify(out, null, 0),
-    console.log
+    console.log,
   );
 });
 
 parties.forEach(async party => {
-  let out = await Promise.all(
+  const out = await Promise.all(
     categories.map(async category => {
       const key = `./parties/${party.url}/${category.url}.md`;
 
@@ -217,15 +219,15 @@ parties.forEach(async party => {
       return {
         category: category.url,
         name: category.name,
-        statement: data ? marked(data) : ''
+        statement: data ? marked(data) : '',
       };
-    })
+    }),
   );
 
   fs.writeFile(
     `../src/lib/data/${party.url}.json`,
     JSON.stringify(out, null, 0),
-    console.log
+    console.log,
   );
 });
 

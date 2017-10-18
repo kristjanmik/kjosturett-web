@@ -2,9 +2,6 @@
 
 import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import Collapsable from '../../components/Collapsable';
-import PartyProfile from '../../components/PartyProfile';
-import { getAssetUrl } from '../../utils';
 import s from './About.scss';
 
 class About extends PureComponent {

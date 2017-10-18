@@ -1,13 +1,9 @@
 // @flow
 
 import React from 'react';
-import s from './Container.scss';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import s from './Container.scss';
 
-const Container = ({ children }) => (
-  <div className={s.root}>
-    {children}
-  </div>
-);
+const Container = ({ children }) => <div className={s.root}>{children}</div>;
 
 export default withStyles(s)(Container);

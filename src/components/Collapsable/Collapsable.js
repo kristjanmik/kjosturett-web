@@ -17,7 +17,7 @@ class Collapsable extends React.Component {
         title: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired,
         image: PropTypes.string,
-      })
+      }),
     ),
   };
   static defaultProps = {
@@ -56,7 +56,7 @@ class Collapsable extends React.Component {
     Scroll.animateScroll.scrollTo(curtop - 90);
   }
   toggle = (key: string) => event => {
-    let target = event.target;
+    const target = event.target;
 
     this.setState(state => {
       const open = { ...state.open };
@@ -75,7 +75,12 @@ class Collapsable extends React.Component {
     const { open } = this.state;
 
     return (
-      <div ref={el => (this.rootEl_ = el)} className={styles.root}>
+      <div
+        ref={el => {
+          this.rootEl_ = el;
+        }}
+        className={styles.root}
+      >
         {items.map(({ key, title, content, image }) => (
           <div className={styles.category} key={key}>
             <a
@@ -99,7 +104,7 @@ class Collapsable extends React.Component {
                   __html: content,
                 }}
                 className={cx(
-                  styles.content
+                  styles.content,
                   // category.statement === '' ? s.textNoReply : null
                 )}
               />

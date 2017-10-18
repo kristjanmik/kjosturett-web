@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import cx from 'classnames';
 import Collapsable from '../../components/Collapsable';
 import ListResponsive from '../../components/ListResponsive';
 import { getAssetUrl } from '../../utils';
@@ -17,7 +16,7 @@ class MalefniSingle extends PureComponent {
           current={`/malefni/${selectedCategory}`}
           links={categories.map(category => ({
             title: category.name,
-            href: `/malefni/${category.url}`
+            href: `/malefni/${category.url}`,
           }))}
         />
         <Collapsable
@@ -29,7 +28,7 @@ class MalefniSingle extends PureComponent {
               content:
                 party.statement ||
                 'Ekkert svar hefur borist við þessum málaflokki',
-              image: getAssetUrl('party-icons', party.url)
+              image: getAssetUrl('party-icons', party.url),
             }))
           }
         />
