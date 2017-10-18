@@ -45,6 +45,16 @@ app.get('/open-kjosturett-2017-live', (req, res) => {
 
   res.redirect('/');
 });
+
+const hackRoute = (req, res, next) => {
+  res.redirect('https://www.facebook.com/events/1493507597370764/');
+};
+
+app.get('/hakk', hackRoute);
+app.get('/hack', hackRoute);
+app.get('/hackaton', hackRoute);
+app.get('/hackathon', hackRoute);
+
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------
