@@ -1,66 +1,13 @@
-import fs from 'fs';
+const fs = require('fs');
 const { promisify } = require('util');
-import marked from 'marked';
+const marked = require('marked');
 
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
 
-const categories = [
-  {
-    name: 'Atvinnumál',
-    url: 'atvinnumal'
-  },
-  {
-    name: 'Byggðarmál',
-    url: 'byggdarmal'
-  },
-  {
-    name: 'Evrópumál',
-    url: 'evropumal'
-  },
-  {
-    name: 'Heilbrigðismál',
-    url: 'heilbrigdismal'
-  },
-  {
-    name: 'Húsnæðismál',
-    url: 'husnaedismal'
-  },
-  {
-    name: 'Jafnréttismál',
-    url: 'jafnrettismal'
-  },
-  {
-    name: 'Menntamál',
-    url: 'menntamal'
-  },
-  {
-    name: 'Samgöngumál',
-    url: 'samgongumal'
-  },
-  {
-    name: 'Sjávarútvegsmál',
-    url: 'sjavarutvegsmal'
-  },
-  {
-    name: 'Skattamál',
-    url: 'skattamal'
-  },
-  {
-    name: 'Stjórnarskrármál',
-    url: 'stjornarskrarmal'
-  },
-  {
-    name: 'Umhverfismál',
-    url: 'umhverfismal'
-  },
-  {
-    name: 'Velferðarmál',
-    url: 'velferdarmal'
-  }
-];
+const categories = ;
 
-export const parties = [
+const parties = [
   {
     letter: 'A',
     url: 'bjort-framtid',
@@ -162,14 +109,16 @@ export const parties = [
   }
 ];
 
+console.log(JSON.stringify(parties, null, 1));
+
 writeFile(
-  '../src/lib/data/categories.json',
+  '../../src/lib/data/categories.json',
   JSON.stringify(categories, null, 0),
   console.log
 );
 
 writeFile(
-  '../src/lib/data/parties.json',
+  '../../src/lib/data/parties.json',
   JSON.stringify(parties, null, 0),
   console.log
 );
@@ -177,7 +126,7 @@ writeFile(
 categories.forEach(async category => {
   let out = await Promise.all(
     parties.map(async party => {
-      const key = `./parties/${party.url}/${category.url}.md`;
+      const key = `./${party.url}/${category.url}.md`;
 
       let data = '';
       try {
@@ -186,7 +135,6 @@ categories.forEach(async category => {
       } catch (e) {
         console.error('Could not load key', key, process.cwd());
       }
-      console.log('got it', party, data);
       return {
         ...party,
         statement: data ? marked(data) : ''
@@ -195,7 +143,7 @@ categories.forEach(async category => {
   );
 
   fs.writeFile(
-    `../src/lib/data/${category.url}.json`,
+    `../../src/lib/data/${category.url}.json`,
     JSON.stringify(out, null, 0),
     console.log
   );
@@ -204,7 +152,7 @@ categories.forEach(async category => {
 parties.forEach(async party => {
   let out = await Promise.all(
     categories.map(async category => {
-      const key = `./parties/${party.url}/${category.url}.md`;
+      const key = `./${party.url}/${category.url}.md`;
 
       let data = '';
       try {
@@ -213,7 +161,6 @@ parties.forEach(async party => {
       } catch (e) {
         console.error('Could not load key', key, process.cwd());
       }
-      console.log('got it', party, data);
       return {
         category: category.url,
         name: category.name,
@@ -223,7 +170,7 @@ parties.forEach(async party => {
   );
 
   fs.writeFile(
-    `../src/lib/data/${party.url}.json`,
+    `../../src/lib/data/${party.url}.json`,
     JSON.stringify(out, null, 0),
     console.log
   );
