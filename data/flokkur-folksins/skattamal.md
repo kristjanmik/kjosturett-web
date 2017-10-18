@@ -1,0 +1,1 @@
+Flokkur fólksins vill tryggja að 300 þúsund króna mánaðarlaun verði ekki skattlögð, en tekjur umfram það, verði skattlagðar í þremur þrepum þar sem persónuafsláttur fer stiglækkandi eftir því sem  launin verða hærri og fellur að lokum niður við 1.0 millj. kr. mánaðargreiðslu.

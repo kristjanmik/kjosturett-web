@@ -1,0 +1,3 @@
+Tryggja verður framtíð ferðaþjónustunnar með öllum ráðum, Um leið og hún er dýrmætasta atvinnugrein okkar nú, er hún og afar viðkvæm fyrir hvers konar óstöðugleika og skipulagsleysi.  Nauðsynlegt er að koma á fót styrkri, faglegri aðgerðaráætlun sem horfir til framtíðar og einskorðast við að vernda og tryggja þessa miklu auðlind eins og kostur er.
+
+Stuðlað verði að nýsköpun atvinnuvega, m.a. með lækkun tryggingargjaldsins og að strandveiðar krókabáta verði heimilaðar.  Búvörusamningur verði endurskoðaður með tilliti til sóknar í landbúnaði. Komið verði strax til móts við sauðfjárbændur með tímabundnu viðbótarframlagi í beingreiðslum til þeirra sem hafa meirihluta tekna sinna af landbúnaðarframleiðslu.
