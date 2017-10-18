@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import Countdown from '../../components/Countdown';
 import cx from 'classnames';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import logo from '../../logo.svg';
@@ -7,7 +6,7 @@ import s from './Ceremony.scss';
 
 class Ceremony extends PureComponent {
   state = {
-    isOpen: false
+    isOpen: false,
   };
   onClick = event => {
     setTimeout(() => {
@@ -15,7 +14,7 @@ class Ceremony extends PureComponent {
     }, 4000);
 
     this.setState({
-      isOpen: true
+      isOpen: true,
     });
 
     event.preventDefault();

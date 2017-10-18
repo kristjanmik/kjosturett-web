@@ -3,6 +3,6 @@ import Ceremony from './Ceremony';
 
 export default () => ({
   chunks: ['ceremony'],
-  title: `Kjóstu Rétt 2017`,
-  component: <Ceremony />
+  title: 'Kjóstu Rétt 2017',
+  component: <Ceremony />,
 });

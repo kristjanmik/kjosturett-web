@@ -1,0 +1,254 @@
+[
+  {
+    "saeti": 1,
+    "nafn": "Einar Aðalsteinn Brynjólfsson",
+    "kjordaemi": "nordaustur",
+    "slug": "einar-adalsteinn-brynjolfsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 2,
+    "nafn": "Guðrún Ágústa Þórdísardóttir",
+    "kjordaemi": "nordaustur",
+    "slug": "gudrun-agusta-thordisardottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 3,
+    "nafn": "Hrafndís Bára Einarsdóttir",
+    "kjordaemi": "nordaustur",
+    "slug": "hrafndis-bara-einarsdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 4,
+    "nafn": "Sævar Þór Halldórsson",
+    "kjordaemi": "nordaustur",
+    "slug": "saevar-thor-halldorsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 5,
+    "nafn": "Margrét Urður Snædal",
+    "kjordaemi": "nordaustur",
+    "slug": "margret-urdur-snaedal",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 6,
+    "nafn": "Sigríður Lára Sigurjónsdóttir",
+    "kjordaemi": "nordaustur",
+    "slug": "sigridur-lara-sigurjonsdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 1,
+    "nafn": "Eva Pandora Baldursdóttir",
+    "kjordaemi": "nordvestur",
+    "slug": "eva-pandora-baldursdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 2,
+    "nafn": "Gunnar Ingiberg Guðmundsson",
+    "kjordaemi": "nordvestur",
+    "slug": "gunnar-ingiberg-gudmundsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 3,
+    "nafn": "Rannveig Ernudóttir",
+    "kjordaemi": "nordvestur",
+    "slug": "rannveig-ernudottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 4,
+    "nafn": "Ragnheiður Steina Ólafsdóttir",
+    "kjordaemi": "nordvestur",
+    "slug": "ragnheidur-steina-olafsdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 5,
+    "nafn": "Sunna Einarsdóttir",
+    "kjordaemi": "nordvestur",
+    "slug": "sunna-einarsdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 6,
+    "nafn": "Halldór Logi Sigurðarson",
+    "kjordaemi": "nordvestur",
+    "slug": "halldor-logi-sigurdarson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 1,
+    "nafn": "Helgi Hrafn Gunnarsson",
+    "kjordaemi": "reykjavik-nordur",
+    "slug": "helgi-hrafn-gunnarsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 2,
+    "nafn": "Halldóra Mogensen",
+    "kjordaemi": "reykjavik-nordur",
+    "slug": "halldora-mogensen",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 3,
+    "nafn": "Gunnar Hrafn Jónsson",
+    "kjordaemi": "reykjavik-nordur",
+    "slug": "gunnar-hrafn-jonsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 4,
+    "nafn": "Sara Oskarsson",
+    "kjordaemi": "reykjavik-nordur",
+    "slug": "sara-oskarsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 5,
+    "nafn": "Sunna Rós Víðisdóttir",
+    "kjordaemi": "reykjavik-nordur",
+    "slug": "sunna-ros-vidisdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 6,
+    "nafn": "Salvör Kristjana Gissurardóttir",
+    "kjordaemi": "reykjavik-nordur",
+    "slug": "salvor-kristjana-gissurardottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 1,
+    "nafn": "Þórhildur Sunna Ævarsdóttir",
+    "kjordaemi": "reykjavik-sudur",
+    "slug": "thorhildur-sunna-aevarsdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 2,
+    "nafn": "Björn Leví Gunnarsson",
+    "kjordaemi": "reykjavik-sudur",
+    "slug": "bjorn-levi-gunnarsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 3,
+    "nafn": "Olga Margrét Cilia",
+    "kjordaemi": "reykjavik-sudur",
+    "slug": "olga-margret-cilia",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 4,
+    "nafn": "Snæbjörn Brynjarsson",
+    "kjordaemi": "reykjavik-sudur",
+    "slug": "snaebjorn-brynjarsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 5,
+    "nafn": "Katla Hólm Vilbergs- og Þórhildardóttir",
+    "kjordaemi": "reykjavik-sudur",
+    "slug": "katla-holm-vilbergs-og-thorhildardottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 6,
+    "nafn": "Arnaldur Sigurðarson",
+    "kjordaemi": "reykjavik-sudur",
+    "slug": "arnaldur-sigurdarson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 1,
+    "nafn": "Smári McCarthy",
+    "kjordaemi": "sudur",
+    "slug": "smari-mccarthy",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 2,
+    "nafn": "Álfheiður Eymarsdóttir",
+    "kjordaemi": "sudur",
+    "slug": "alfheidur-eymarsdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 3,
+    "nafn": "Fanný Þórsdóttir",
+    "kjordaemi": "sudur",
+    "slug": "fanny-thorsdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 4,
+    "nafn": "Albert Svan Sigurðsson",
+    "kjordaemi": "sudur",
+    "slug": "albert-svan-sigurdsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 5,
+    "nafn": "Kristinn Ágúst Eggertsson",
+    "kjordaemi": "sudur",
+    "slug": "kristinn-agust-eggertsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 6,
+    "nafn": "Kolbrún Valbergsdóttir",
+    "kjordaemi": "sudur",
+    "slug": "kolbrun-valbergsdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 1,
+    "nafn": "Jón Þór Ólafsson",
+    "kjordaemi": "sudvestur",
+    "slug": "jon-thor-olafsson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 2,
+    "nafn": "Oktavía Hrund Jónsdóttir",
+    "kjordaemi": "sudvestur",
+    "slug": "oktavia-hrund-jonsdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 3,
+    "nafn": "Dóra Björt Guðjónsdóttir",
+    "kjordaemi": "sudvestur",
+    "slug": "dora-bjort-gudjonsdottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 4,
+    "nafn": "Andri Þór Sturluson",
+    "kjordaemi": "sudvestur",
+    "slug": "andri-thor-sturluson",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 5,
+    "nafn": "Gígja Skúladóttir",
+    "kjordaemi": "sudvestur",
+    "slug": "gigja-skuladottir",
+    "bokstafur": "P"
+  },
+  {
+    "saeti": 6,
+    "nafn": "Hákon Helgi Leifsson",
+    "kjordaemi": "sudvestur",
+    "slug": "hakon-helgi-leifsson",
+    "bokstafur": "P"
+  }
+]

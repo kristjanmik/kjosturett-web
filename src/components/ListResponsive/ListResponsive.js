@@ -3,8 +3,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Link from '../../Link';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import Link from '../../Link';
 import history from '../../history';
 import styles from './ListResponsive.scss';
 
@@ -63,7 +63,7 @@ class ListResponsive extends React.Component {
               key={href}
               className={cx(
                 styles.link,
-                href === current ? styles.linkActive : null
+                href === current ? styles.linkActive : null,
               )}
               href={href}
             >

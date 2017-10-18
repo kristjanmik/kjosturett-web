@@ -3,7 +3,7 @@ import Frontpage from './Frontpage';
 import Layout from '../../components/Layout';
 import isOpen from '../../lib/isOpen';
 
-export default ({ query }) => {
+export default () => {
   if (!isOpen()) {
     return { redirect: '/opnum-fljotlega' };
   }
@@ -16,6 +16,6 @@ export default ({ query }) => {
       <Layout page="flokkar">
         <Frontpage />
       </Layout>
-    )
+    ),
   };
 };

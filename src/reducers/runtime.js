@@ -5,7 +5,7 @@ export default function runtime(state = {}, action) {
     case SET_RUNTIME_VARIABLE:
       return {
         ...state,
-        [action.payload.name]: action.payload.value
+        [action.payload.name]: action.payload.value,
       };
     default:
       return state;

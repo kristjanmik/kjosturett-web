@@ -2,7 +2,7 @@
 
 if (process.env.BROWSER) {
   throw new Error(
-    'Do not import `config.js` from inside the client-side code.'
+    'Do not import `config.js` from inside the client-side code.',
   );
 }
 
@@ -26,11 +26,11 @@ module.exports = {
     // API URL to be used in the server-side code
     serverUrl:
       process.env.API_SERVER_URL ||
-      `http://localhost:${process.env.PORT || 3000}`
+      `http://localhost:${process.env.PORT || 3000}`,
   },
 
   // Web analytics
   analytics: {
-    googleTrackingId
-  }
+    googleTrackingId,
+  },
 };
