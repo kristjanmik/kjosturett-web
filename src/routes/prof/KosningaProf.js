@@ -17,6 +17,9 @@ const areYouSure =
 const defaultAnswer = '3';
 
 class Kosningaprof extends PureComponent {
+  static contextTypes = {
+    fetch: PropTypes.func.isRequired,
+  };
   static propTypes = {
     questions: PropTypes.arrayOf(
       PropTypes.shape({
@@ -28,6 +31,7 @@ class Kosningaprof extends PureComponent {
   state = {
     started: false,
     token: null,
+    finished: false,
     answers: this.props.questions.reduce((all, { id }) => {
       // eslint-disable-next-line
       all[id] = defaultAnswer;
@@ -70,7 +74,7 @@ class Kosningaprof extends PureComponent {
     const first = parseInt(arr.slice(0, 14).join(''), 10).toString(36);
     const second = parseInt(arr.slice(14 + 1).join(''), 10).toString(36);
 
-    await fetch('/kosningaprof', {
+    await this.context.fetch('/konnun/replies', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -81,34 +85,38 @@ class Kosningaprof extends PureComponent {
         reply: `${first}:${second}`,
       }),
     });
+
+    this.setState({ finished: true });
   };
   render() {
     const { questions } = this.props;
-    const { answers } = this.state;
+    const { answers, started, finished } = this.state;
     return (
       <div className={s.root}>
-        {questions.map(({ question, id }) => (
-          <div key={id} className={s.question}>
-            <h3>{question}</h3>
-            {Object.keys(answerMap).map(value => {
-              const name = `${id}_${value}`;
-              return (
-                <div key={value}>
-                  <input
-                    id={name}
-                    name={name}
-                    value={value}
-                    type="radio"
-                    checked={answers[id] === value}
-                    onChange={this.onChange(id)}
-                  />
-                  <label htmlFor={name}>{answerMap[value]}</label>
-                </div>
-              );
-            })}
-          </div>
-        ))}
-        <button onClick={this.onSend}>Senda</button>
+        {finished && <h3>Takk fyrir þátttökuna!</h3>}
+        {!finished &&
+          questions.map(({ question, id }) => (
+            <div key={id} className={s.question}>
+              <h3>{question}</h3>
+              {Object.keys(answerMap).map(value => {
+                const name = `${id}_${value}`;
+                return (
+                  <div key={value}>
+                    <input
+                      id={name}
+                      name={name}
+                      value={value}
+                      type="radio"
+                      checked={answers[id] === value}
+                      onChange={this.onChange(id)}
+                    />
+                    <label htmlFor={name}>{answerMap[value]}</label>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        {started && !finished && <button onClick={this.onSend}>Senda</button>}
       </div>
     );
   }
