@@ -37,7 +37,7 @@ Lists all categories for a party. *Likely to change to include party specific da
 	"category": "atvinnumal",
 	"name": "Atvinnumál",
 	"statement": "<p>Alþýðufylkingin hafnar framsali á samningsrétti einstakra verkalýðsfélaga...</p>\n"
-},{...}]
+},{}]
 ```
 
 
@@ -52,7 +52,7 @@ Lists all categories for a party. *Likely to change to include party specific da
 	"leader": "Óttarr Proppé",
 	"leaderTitle": "Formaður",
 	"statement": "<p>Björt framtíð hefur þegar beitt sér fyrir setningu fjárfestingaáætlunar...</p>"
-},{...}]
+},{}]
 ```
 
 ### /data/build/candidates.json
@@ -66,7 +66,7 @@ First 6 people from every party in every region
 	"slug": "erna-lina-ornudottir-baldvinsdottir",
 	"bokstafur": "R",
 	"svar": "012340123401234012340123401234"
-},{...}]
+},{}]
 ```
 
 See *How does the reply string work?* for .svar clarification
@@ -78,7 +78,7 @@ All categories, aka málefnaflokkar(should be topics but we are just to deep :P)
 [{
   "name":"Atvinnumál",
   "url":"atvinnumal"
-},{...}]
+},{}]
 ```
 
 ### /data/build/parties.json
@@ -91,7 +91,7 @@ All categories, aka málefnaflokkar(should be topics but we are just to deep :P)
 	"website": "http://www.bjortframtid.is",
 	"leader": "Óttarr Proppé",
 	"leaderTitle": "Formaður"
-},{...}]
+},{}]
 ```
 
 ### /data/build/replies-candidates.json
@@ -99,7 +99,7 @@ All categories, aka málefnaflokkar(should be topics but we are just to deep :P)
 [{
   "n":"Alþýðufylkingin",
   "r":"01233012340123401234012401234"
-},{...}]
+},{}]
 ```
 .n represents name where .r represents the reply.
 
@@ -108,6 +108,6 @@ All categories, aka málefnaflokkar(should be topics but we are just to deep :P)
 [{
   "n":"Alþýðufylkingin",
   "r":"01233012340123401234012401234"
-},{...}]
+},{}]
 ```
 .n represents name where .r represents the reply.
