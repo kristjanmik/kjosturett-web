@@ -1,36 +1,35 @@
 [
   {
     "id": 1,
-    "question": "Afnema ætti verðtryggingu á nýjum lánum strax."
+    "question":
+      "Allir landsmenn ættu að hafa aðgang að grunnheilbrigðisþjónustu í sinni heimabyggð."
   },
   {
     "id": 2,
-    "question":
-      "Á kjörtímabilinu ætti að ljúka heildarendurskoðun stjórnarskrárinnar."
+    "question": "Afnema ætti verðtryggingu á nýjum lánum strax."
   },
   {
     "id": 3,
-    "question":
-      "Tillögur stjórnlagaráðs að nýrri stjórnarskrá ætti að samþykkja óbreyttar."
+    "question": "Ríkið á að selja hluti sína í bönkunum á næsta kjörtímabili."
   },
   {
     "id": 4,
     "question":
-      "Efna á til þjóðaratkvæðagreiðslu um hvort hefja eigi að nýju aðildarviðræður við ESB."
+      "Herða ætti refsiramma laga í kynferðis- og heimilisofbeldismálum."
   },
   {
     "id": 5,
-    "question": "Ríkið á að selja hluti sína í bönkunum á næsta kjörtímabili."
+    "question": "Taka ætti upp skólagjöld í opinberum háskólum."
   },
   {
     "id": 6,
     "question":
-      "Herða þarf reglur um móttöku hælisleitenda og veita færri hæli."
+      "Fjármagna ætti uppbyggingu vegakerfisins í nágrenni höfuðborgarsvæðisins með vegtollum."
   },
   {
     "id": 7,
     "question":
-      "Ísland á í samvinnu við alþjóðastofnanir að taka við fleiri flóttamönnum sem flýja stríð og ógnir."
+      "Herða þarf reglur um móttöku hælisleitenda og veita færri hæli."
   },
   {
     "id": 8,
@@ -39,100 +38,103 @@
   },
   {
     "id": 9,
-    "question": "Íslenska krónan er framtíðargjaldmiðill Íslands."
+    "question": "Lögleiða ætti notkun kannabisefna hér á landi."
   },
   {
     "id": 10,
-    "question":
-      "NATO/Bandaríkjaher á að byggja upp aðstöðu fyrir hersveitir á Keflavíkurflugvelli á ný."
+    "question": "Stjórnvöld eiga að láta markaðinn um að leysa húsnæðisvandann."
   },
   {
     "id": 11,
-    "question":
-      "Leita á nýrrar staðsetningar fyrir nýtt sjúkrahús á höfuðborgarsvæðinu."
+    "question": "Taka ætti við fleiri kvótaflóttamönnum hingað til lands."
   },
   {
     "id": 12,
-    "question": "Taka ætti upp skólagjöld í opinberum háskólum."
+    "question":
+      "Hækka á örorku- og ellilífeyrisbætur svo þær samsvari lægstu launum hverju sinni."
   },
   {
     "id": 13,
-    "question": "Afnema verður tekjutengingu bóta öryrkja og aldraðra."
+    "question":
+      "Leggja ætti á hátekju- eða eignaskatta til að fjármagna innviðafjárfestingu."
   },
   {
     "id": 14,
-    "question":
-      "Stjórnvöld og Alþingi ættu að fara að tillögum verkefnastjórnar um rammaáætlun og hreyfa ekki við flokkun hennar á virkjanakostum."
+    "question": "LÍN ætti að veita háskólanemum námsstyrki frekar en námslán."
   },
   {
     "id": 15,
     "question":
-      "Hagsmunir náttúrunnar eiga að vega þyngra en fjárhagslegir hagsmunir við ákvarðanatöku stjórnvalda í atvinnuuppbyggingu."
+      "Ísland á að nýta heimild Dyflinnarreglugerðarinnar alltaf þegar það er hægt."
   },
   {
     "id": 16,
-    "question": "Afnema ætti kostnaðarþátttöku sjúklinga í heilbrigðiskerfinu."
+    "question":
+      "Nýtt þing verður að samþykkja breytingar á stjórnarskrá á kjörtímabilinu, byggðar á tillögum stjórnlagaráðs."
   },
   {
     "id": 17,
-    "question": "Flytja á fleiri opinberar stofnanir út á land."
+    "question":
+      "Hagsmunir náttúrunnar eiga að vega þyngra en fjárhagslegir hagsmunir við ákvarðanatöku stjórnvalda í atvinnuuppbyggingu."
   },
   {
     "id": 18,
-    "question": "Lækka ætti skatta og gjöld á fyrirtæki."
+    "question": "Afnema ætti kostnaðarþátttöku sjúklinga í heilbrigðiskerfinu."
   },
   {
     "id": 19,
     "question":
-      "Alþingismenn eiga að beita sér fyrir því að vernda íslenska þjóðmenningu."
+      "Draga ætti úr fjölda ferðamanna til að verja náttúruna fyrir ágangi.."
   },
   {
     "id": 20,
-    "question": "Lengja ætti fæðingarorlof í 12 mánuði."
+    "question":
+      "Íslenskir neytendur ættu að fá að kaupa áfengi í matvöruverslunum."
   },
   {
     "id": 21,
-    "question": "Ríkið þarf að koma betur til móts við fólk í húsnæðisvanda."
+    "question": "Íslenska krónan er framtíðargjaldmiðill Íslands."
   },
   {
     "id": 22,
-    "question": "Auka þarf framlög til samgöngumála."
+    "question":
+      "Mikilvægt er að hið opinbera leysi vanda sauðfjárbænda með fjárframlögum."
   },
   {
     "id": 23,
-    "question": "LÍN ætti að veita háskólanemum námsstyrki frekar en námslán."
+    "question": "Lækka ætti skatta og gjöld á fyrirtæki."
   },
   {
     "id": 24,
     "question":
-      "Stjórnvöld ættu að taka hærri gjöld eða skatta af erlendum ferðamönnum sem koma hingað til lands."
+      "Mikilvægt er að ríkið beiti sér fyrir bættri aðstöðu á ferðamannastöðum í sinni eigu."
   },
   {
     "id": 25,
     "question":
-      "Mikilvægt er að ríkið beiti sér fyrir bættri aðstöðu á ferðamannastöðum í sinni eigu."
+      "Það er mikilvægt að neytendur fái að kaupa innflutt, fersk matvæli."
   },
   {
     "id": 26,
-    "question":
-      "Hið opinbera á að tryggja fjölbreytta möguleika til menntunar um allt land."
+    "question": "Auka ætti einkarekstur í heilbrigðiskerfinu."
   },
   {
     "id": 27,
-    "question": "Auka á framlög Íslands til þróunarmála."
+    "question":
+      "Stjórnvöld ættu að taka hærri gjöld eða skatta af erlendum ferðamönnum sem koma hingað til lands."
   },
   {
     "id": 28,
-    "question": "Ríkið á að selja hlut sinn í orku- og veitufyrirtækjum."
+    "question":
+      "Stjórnvöld og Alþingi ættu að fara að tillögum verkefnastjórnar um rammaáætlun og hreyfa ekki við flokkun hennar á virkjanakostum."
   },
   {
     "id": 29,
-    "question":
-      "Mikilvægt er að landsmenn allir hafi jafnan aðgang að hágæða heilbrigðiskerfi."
+    "question": "Ríkið á að selja hlut sinn í orku- og veitufyrirtækjum."
   },
   {
     "id": 30,
     "question":
-      "Alþingismenn eiga að standa vörð um stöðu Þjóðkirkjunnar í íslensku samfélagi"
+      "Lækka þarf skuldir ríkissjóðs áður en ráðist er í umfangsmiklar innviðafjárfestingar."
   }
 ]
