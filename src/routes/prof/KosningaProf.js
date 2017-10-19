@@ -11,7 +11,7 @@ const answerMap = {
   2: 'Frekar ósammála',
   3: 'Hlutlaus',
   4: 'Frekar sammála',
-  5: 'Mjög sammála',
+  5: 'Mjög sammála'
 };
 const areYouSure =
   'Ertu viss um að þú viljir yfirgefa síðuna núna? Öll svörin munu týnast.';
@@ -19,15 +19,15 @@ const defaultAnswer = '3';
 
 class Kosningaprof extends PureComponent {
   static contextTypes = {
-    fetch: PropTypes.func.isRequired,
+    fetch: PropTypes.func.isRequired
   };
   static propTypes = {
     questions: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        question: PropTypes.string.isRequired,
+        question: PropTypes.string.isRequired
       })
-    ).isRequired,
+    ).isRequired
   };
   state = {
     started: false,
@@ -37,8 +37,12 @@ class Kosningaprof extends PureComponent {
       // eslint-disable-next-line
       all[id] = defaultAnswer;
       return all;
-    }, {}),
+    }, {})
   };
+  constructor(props) {
+    super(props);
+    this.onSend = this.onSend.bind(this);
+  }
   componentDidMount() {
     const { token } = queryString.parse(window.location.search);
     if (!token) {
@@ -63,28 +67,29 @@ class Kosningaprof extends PureComponent {
         started: true,
         answers: {
           ...answers,
-          [id]: target.value,
-        },
+          [id]: target.value
+        }
       };
     });
   };
-  onSend = async () => {
+  async onSend() {
+    console.log('this is', this);
     const { answers, token } = this.state;
 
     await this.context.fetch('/konnun/replies', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         token,
-        reply: encodeAnswersToken(Object.keys(answers).map(x => answers[x])),
-      }),
+        reply: encodeAnswersToken(Object.keys(answers).map(x => answers[x]))
+      })
     });
 
     this.setState({ finished: true });
-  };
+  }
   render() {
     const { questions } = this.props;
     const { answers, started, finished } = this.state;
