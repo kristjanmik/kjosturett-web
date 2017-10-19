@@ -6,16 +6,15 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './KosningaProf.scss';
 
 const answerMap = {
-  0: 'Mjög ósammála',
-  1: 'Frekar ósammála',
-  2: 'Hlutlaus',
-  3: 'Frekar sammála',
-  4: 'Mjög sammála',
-  5: 'Vil ekki svara',
+  1: 'Mjög ósammála',
+  2: 'Frekar ósammála',
+  3: 'Hlutlaus',
+  4: 'Frekar sammála',
+  5: 'Mjög sammála',
 };
 const areYouSure =
   'Ertu viss um að þú viljir yfirgefa síðuna núna? Öll svörin munu týnast.';
-const defaultAnswer = '5';
+const defaultAnswer = '3';
 
 class Kosningaprof extends PureComponent {
   static propTypes = {
@@ -67,6 +66,10 @@ class Kosningaprof extends PureComponent {
   onSend = async () => {
     const { answers, token } = this.state;
 
+    const arr = Object.keys(answers).map(x => answers[x]);
+    const first = parseInt(arr.slice(0, 14).join(''), 10).toString(36);
+    const second = parseInt(arr.slice(14 + 1).join(''), 10).toString(36);
+
     await fetch('/kosningaprof', {
       method: 'POST',
       headers: {
@@ -75,9 +78,7 @@ class Kosningaprof extends PureComponent {
       },
       body: JSON.stringify({
         token,
-        reply: Object.keys(answers)
-          .map(x => answers[x])
-          .join(''),
+        reply: `${first}:${second}`,
       }),
     });
   };
