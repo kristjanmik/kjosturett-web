@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import parties from '../../lib/data/parties.json';
+import parties from '../../../data/build/parties.json';
 import Link from '../../Link';
 import { getAssetUrl } from '../../utils';
 

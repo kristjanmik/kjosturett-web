@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import categories from '../../lib/data/categories.json';
+import categories from '../../../data/build/categories.json';
 
 import s from './Malefni.scss';
 

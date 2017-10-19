@@ -1,7 +1,7 @@
 import React from 'react';
 import PartySingle from './PartySingle';
 import Layout from '../../components/Layout';
-import parties from '../../lib/data/parties.json';
+import parties from '../../../data/build/parties.json';
 import { pleasantUrl } from '../../utils';
 
 export default ({ params }) => {
@@ -11,7 +11,7 @@ export default ({ params }) => {
 
   let categories = [];
   try {
-    categories = require(`../../lib/data/${party.url}.json`);
+    categories = require(`../../../data/build/${party.url}.json`);
   } catch (e) {
     console.error(e);
   }
@@ -32,6 +32,6 @@ export default ({ params }) => {
       >
         <PartySingle party={party} categories={categories} />
       </Layout>
-    ),
+    )
   };
 };

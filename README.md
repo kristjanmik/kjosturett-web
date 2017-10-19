@@ -1,24 +1,28 @@
 To start:
-  yarn install
-  yarn start
+  npm install
+  npm start
 
 Server starts on port 3000
 
-To update the data:
-edit files in the /data directory
-run the build file
-  babel-node build.js
+##How do I build data?
 
-Opening ceremony:
-Go to https://kjosturett.is/opening-ceremony-live and press the button.
-The whole page should now be live.
-By default in dev mode the page is wide open
+All data lives in the data folder. To build the data run ./build.sh inside that folder(node v8 required). All the output goes to /data/build folder
 
-ToDo
-- Generate new Open Graph image and update Facebook cache
-- expand all takki
-- Hagnýtar upplýsingar síða
-- Design opening ceremony page
+##How does the reply string work?
 
+When a person answers all the questions we generate a numerical sequence. Each number represent one question where:
+-0 stands for first option, with value of *0*
+-1 stands for first option, with value of *0.25*
+-2 stands for first option, with value of *0.5*
+-3 stands for first option, with value of *0.75*
+-4 stands for first option, with value of *1*
 
-Stats: http://www.visir.is/g/2017170918861/ny-konnun-sjalfstaedismenn-og-vg-jafnstor-og-atta-flokkar-inni-a-thingi
+If you
+
+##Data sources
+
+###/data/build/replies-candidates.json
+```
+[{"n":"Alþýðufylkingin","r":"01233012340123401234012401234"}]
+```
+.n represents name where .r represents the reply.

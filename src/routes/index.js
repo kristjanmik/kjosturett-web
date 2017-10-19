@@ -44,10 +44,6 @@ const routes = {
       path: '/opnum-fljotlega',
       load: () => import(/* webpackChunkName: 'coming-soon' */ './coming-soon')
     },
-    {
-      path: '/konnun/*',
-      load: () => import(/* webpackChunkName: 'coming-soon' */ './konnun')
-    },
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     {
       path: '*',

@@ -1,18 +1,18 @@
 import React from 'react';
 import MalefniSingle from './MalefniSingle';
 import Layout from '../../components/Layout';
-import categories from '../../lib/data/categories.json';
+import categories from '../../../data/build/categories.json';
 
 export default ({ params }) => {
   const category = categories.filter(
-    category => category.url === params.malefni,
+    category => category.url === params.malefni
   )[0];
 
   if (!category) throw Error('Not found');
 
   let parties = [];
   try {
-    parties = require(`../../lib/data/${params.malefni}.json`);
+    parties = require(`../../../data/build/${params.malefni}.json`);
   } catch (e) {
     console.error(e);
   }
@@ -30,6 +30,6 @@ export default ({ params }) => {
           selectedCategory={params.malefni}
         />
       </Layout>
-    ),
+    )
   };
 };
