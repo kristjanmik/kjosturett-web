@@ -7,10 +7,10 @@ import Container from '../Container';
 
 class Layout extends Component {
   render() {
-    const { page, title, altTitle, children } = this.props;
+    const { page, title, altTitle, children, showHeader = true } = this.props;
     return (
       <div className={s.root}>
-        <Header page={page} />
+        {showHeader && <Header page={page} />}
         <main className={s.main}>
           {title && (
             <header className={s.subHeader}>
