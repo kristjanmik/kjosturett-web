@@ -19,12 +19,12 @@ We have some relations in the dataset that have to be hooked. This complicates t
 
 ## How does the reply string work?
 When a person answers all the questions we generate a numerical sequence. Each number represent one question. You can think of this zero to one scale as 0 being extremely against(mjög á móti) and 1 being (mjög sammála). 0.5 is a neautral response.This is the format of each number in the sequence.
-- 0 stands for first option, with value of *0*
-- 1 stands for first option, with value of *0.25*
-- 2 stands for first option, with value of *0.5*
-- 3 stands for first option, with value of *0.75*
-- 4 stands for first option, with value of *1*
-- 5 stands for no response
+- 1 stands for first option, with value of *0*
+- 2 stands for first option, with value of *0.25*
+- 3 stands for first option, with value of *0.5*
+- 4 stands for first option, with value of *0.75*
+- 5 stands for first option, with value of *1*
+- 6 stands for no response
 
 ## Data sources
 We have various data sources. Described below are data sources that are available after the build step, but the raw data is also available in /build
@@ -65,7 +65,7 @@ First 6 people from every party in every region
 	"kjordaemi": "sudvestur",
 	"slug": "erna-lina-ornudottir-baldvinsdottir",
 	"bokstafur": "R",
-	"svar": "012340123401234012340123401234"
+	"svar": "112541123451234512345123451234"
 },{}]
 ```
 
@@ -98,7 +98,7 @@ All categories, aka málefnaflokkar(should be topics but we are just to deep :P)
 ```json
 [{
   "n":"Alþýðufylkingin",
-  "r":"01233012340123401234012401234"
+  "r":"112541123451234512345123451234"
 },{}]
 ```
 .n represents name where .r represents the reply.
@@ -107,7 +107,7 @@ All categories, aka málefnaflokkar(should be topics but we are just to deep :P)
 ```json
 [{
   "n":"Alþýðufylkingin",
-  "r":"01233012340123401234012401234"
+  "r":"112541123451234512345123451234"
 },{}]
 ```
 .n represents name where .r represents the reply.

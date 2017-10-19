@@ -58,13 +58,13 @@ const currentCandidates = rawData.children
 
         value = value / 100.0;
 
-        let response = 5; //No reply
+        let response = 6; //No reply
         let minDistance = 1;
 
         options.forEach((option, index) => {
           const d = Math.abs(option - value);
           if (d < minDistance) {
-            response = index;
+            response = index + 1;
             minDistance = d;
           }
         });
@@ -79,7 +79,7 @@ const currentCandidates = rawData.children
       ...candidate
     };
 
-    if (reply === '555555555555555555555555555555') {
+    if (reply === '666666666666666666666666666666') {
       return {
         ...out,
         reply: null
