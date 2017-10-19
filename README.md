@@ -4,7 +4,7 @@
 
 ```bash
 npm install
-cd data && ./build.sh && cd ..
+npm run build-data
 ```
 
 **Node v8 or higher is needed to run the data build step**
