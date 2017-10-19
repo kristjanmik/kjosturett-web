@@ -76,7 +76,7 @@ class Kosningaprof extends PureComponent {
     console.log('this is', this);
     const { answers, token } = this.state;
 
-    await this.context.fetch('/konnun/replies', {
+    await this.context.fetch(`/konnun/replies?timestamp=${Date.now()}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
