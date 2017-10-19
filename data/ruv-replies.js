@@ -54,7 +54,7 @@ const currentCandidates = rawData.children
     const reply = questionMapper
       .map(question => {
         let value = row.values[question];
-        if (typeof value === 'undefined') return 5;
+        if (typeof value === 'undefined') return 6;
 
         value = value / 100.0;
 
