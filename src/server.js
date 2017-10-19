@@ -16,7 +16,6 @@ import router from './router';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import configureStore from './store/configureStore';
 import config from './config';
-import { goLive } from './lib/isOpen';
 import { setRuntimeVariable } from './actions/runtime';
 
 const app = express();
@@ -39,8 +38,6 @@ if (__DEV__) {
 }
 
 app.get('/open-kjosturett-2017-live', (req, res) => {
-  goLive();
-
   res.redirect('/');
 });
 
@@ -63,20 +60,20 @@ app.get('*', async (req, res, next) => {
     // Universal HTTP client
     const fetch = createFetch(nodeFetch, {
       baseUrl: config.api.serverUrl,
-      cookie: req.headers.cookie,
+      cookie: req.headers.cookie
     });
 
     const initialState = {};
 
     const store = configureStore(initialState, {
-      fetch,
+      fetch
     });
 
     store.dispatch(
       setRuntimeVariable({
         name: 'initialNow',
-        value: Date.now(),
-      }),
+        value: Date.now()
+      })
     );
 
     // Global (context) variables that can be easily accessed from any React component
@@ -93,13 +90,13 @@ app.get('*', async (req, res, next) => {
       fetch,
       // You can access redux through react-redux connect
       store,
-      storeSubscription: null,
+      storeSubscription: null
     };
 
     const route = await router.resolve({
       ...context,
       path: req.path,
-      query: req.query,
+      query: req.query
     });
 
     if (route.redirect) {
@@ -111,7 +108,7 @@ app.get('*', async (req, res, next) => {
     data.children = ReactDOM.renderToString(
       <App context={context} store={store}>
         {route.component}
-      </App>,
+      </App>
     );
     data.styles = [{ id: 'css', cssText: [...css].join('') }];
     data.scripts = [assets.vendor.js];
@@ -121,7 +118,7 @@ app.get('*', async (req, res, next) => {
     data.scripts.push(assets.client.js);
     data.app = {
       apiUrl: config.api.clientUrl,
-      state: context.store.getState(),
+      state: context.store.getState()
     };
 
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
@@ -149,7 +146,7 @@ app.use((err, req, res, next) => {
       styles={[{ id: 'css', cssText: errorPageStyle._getCss() }]} // eslint-disable-line no-underscore-dangle
     >
       {ReactDOM.renderToString(<ErrorPageWithoutStyle error={err} />)}
-    </Html>,
+    </Html>
   );
   res.status(err.status || 500);
   res.send(`<!doctype html>${html}`);
