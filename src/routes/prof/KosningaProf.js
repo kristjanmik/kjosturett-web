@@ -3,6 +3,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import { encodeAnswersToken } from '../../utils';
 import s from './KosningaProf.scss';
 
 const answerMap = {
@@ -70,10 +71,6 @@ class Kosningaprof extends PureComponent {
   onSend = async () => {
     const { answers, token } = this.state;
 
-    const arr = Object.keys(answers).map(x => answers[x]);
-    const first = parseInt(arr.slice(0, 14).join(''), 10).toString(36);
-    const second = parseInt(arr.slice(14 + 1).join(''), 10).toString(36);
-
     await this.context.fetch('/konnun/replies', {
       method: 'POST',
       headers: {
@@ -82,7 +79,7 @@ class Kosningaprof extends PureComponent {
       },
       body: JSON.stringify({
         token,
-        reply: `${first}:${second}`,
+        reply: encodeAnswersToken(Object.keys(answers).map(x => answers[x])),
       }),
     });
 
