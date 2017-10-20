@@ -6,135 +6,131 @@
   },
   {
     "id": 2,
-    "question": "Afnema ætti verðtryggingu á nýjum lánum strax."
+    "question":
+      "Leita á nýrrar staðsetningar fyrir nýtt sjúkrahús á höfuðborgarsvæðinu."
   },
   {
     "id": 3,
-    "question": "Ríkið á að selja hluti sína í bönkunum á næsta kjörtímabili."
-  },
-  {
-    "id": 4,
     "question":
-      "Herða ætti refsiramma laga í kynferðis- og heimilisofbeldismálum."
+      "Leyfa ætti aukinn arðsemisdrifinn einkarekstur í heilbrigðiskerfinu"
   },
+  { "id": 4, "question": "Auka þarf framlög til samgöngumála." },
   {
     "id": 5,
-    "question": "Taka ætti upp skólagjöld í opinberum háskólum."
-  },
-  {
-    "id": 6,
     "question":
-      "Fjármagna ætti uppbyggingu vegakerfisins í nágrenni höfuðborgarsvæðisins með vegtollum."
+      "Ísland á í samvinnu við alþjóðastofnanir að taka við fleiri flóttamönnum sem flýja stríð og ógnir."
   },
+  { "id": 6, "question": "Lengja ætti fæðingarorlof í 12 mánuði." },
   {
     "id": 7,
     "question":
-      "Herða þarf reglur um móttöku hælisleitenda og veita færri hæli."
+      "LÍN ætti að veita háskólanemum námsstyrki að hluta til eða öllu leiti"
   },
   {
     "id": 8,
-    "question":
-      "Gjöld fyrir nýtingu náttúruauðlinda ætti að hækka, þar á meðal veiðigjöld."
+    "question": "Afnema verður tekjutengingu bóta öryrkja og aldraðra."
   },
   {
     "id": 9,
-    "question": "Lögleiða ætti notkun kannabisefna hér á landi."
+    "question":
+      "Hækka þarf örorkubætur svo þær samsvari lægstu launum hverju sinni."
   },
   {
     "id": 10,
-    "question": "Stjórnvöld eiga að láta markaðinn um að leysa húsnæðisvandann."
+    "question":
+      "Hækka þarf ellilífeyrisbætur svo þær samsvari lægstu launum hverju sinni."
   },
   {
     "id": 11,
-    "question": "Taka ætti við fleiri kvótaflóttamönnum hingað til lands."
+    "question":
+      "Tillögur stjórnlagaráðs að nýrri stórnarskrá ætti að samþykkja óbreyttar."
   },
   {
     "id": 12,
     "question":
-      "Hækka á örorku- og ellilífeyrisbætur svo þær samsvari lægstu launum hverju sinni."
+      "Á kjörtímabilinu ætti að ljúka heildarendurskoðun stjórnarskrárinnar."
   },
   {
     "id": 13,
     "question":
-      "Leggja ætti á hátekju- eða eignaskatta til að fjármagna innviðafjárfestingu."
+      "Efna á til þjóðaratkvæðagreiðslu um hvort hefja eigi að nýju aðildarviðræður við ESB."
   },
-  {
-    "id": 14,
-    "question": "LÍN ætti að veita háskólanemum námsstyrki frekar en námslán."
-  },
+  { "id": 14, "question": "Auka á framlög Íslands til þróunarmála." },
   {
     "id": 15,
     "question":
-      "Ísland á að nýta heimild Dyflinnarreglugerðarinnar alltaf þegar það er hægt."
+      "NATO/Bandaríkjaher á að byggju upp aðstöðu fyrir herveitir á Keflavíkurflugvelli á ný."
   },
-  {
-    "id": 16,
-    "question":
-      "Nýtt þing verður að samþykkja breytingar á stjórnarskrá á kjörtímabilinu, byggðar á tillögum stjórnlagaráðs."
-  },
+  { "id": 16, "question": "Flytja á fleiri opinberar stofnanir út á land." },
   {
     "id": 17,
     "question":
-      "Hagsmunir náttúrunnar eiga að vega þyngra en fjárhagslegir hagsmunir við ákvarðanatöku stjórnvalda í atvinnuuppbyggingu."
+      "Alþingismenn eiga að standa vörð um stöðu Þjóðkirkjunnar í íslensku samfélagi."
   },
   {
     "id": 18,
-    "question": "Afnema ætti kostnaðarþátttöku sjúklinga í heilbrigðiskerfinu."
+    "question": "Þyngja ætti refsingar í kynferðis- og heimilisofbeldismálum."
   },
   {
     "id": 19,
     "question":
-      "Draga ætti úr fjölda ferðamanna til að verja náttúruna fyrir ágangi.."
+      "Mikilvægt er að hið opinbera leysi vanda sauðfjárbænda vegna búvörusamninga með fjárframlögum."
   },
   {
     "id": 20,
     "question":
-      "Íslenskir neytendur ættu að fá að kaupa áfengi í matvöruverslunum."
+      "Fjármagna ætti uppbyggingu vegakerfisins í nágrenni höfuðborgarsvæðisins með vegtollum sbr. núverandi tillögur samgönguráðherra."
   },
   {
     "id": 21,
-    "question": "Íslenska krónan er framtíðargjaldmiðill Íslands."
-  },
-  {
-    "id": 22,
     "question":
-      "Mikilvægt er að hið opinbera leysi vanda sauðfjárbænda með fjárframlögum."
+      "Hið opinbera á að tryggja fjölbreytta möguleika til menntunar um allt land."
   },
-  {
-    "id": 23,
-    "question": "Lækka ætti skatta og gjöld á fyrirtæki."
-  },
+  { "id": 22, "question": "Taka ætti upp skólagjöld í opinberum háskólum." },
+  { "id": 23, "question": "Afglæpavæða ætti kannabis á kjörtímabilinu" },
   {
     "id": 24,
-    "question":
-      "Mikilvægt er að ríkið beiti sér fyrir bættri aðstöðu á ferðamannastöðum í sinni eigu."
+    "question": "Stjórnvöld eiga að láta markaðinn um að leysa húsnæðisvandann."
   },
   {
     "id": 25,
     "question":
-      "Það er mikilvægt að neytendur fái að kaupa innflutt, fersk matvæli."
+      "Leggja þarf áherslu á innviðafjárfestingar áður en hafist er niðurgreiðsla skulda ríkissjóðs."
   },
   {
     "id": 26,
-    "question": "Auka ætti einkarekstur í heilbrigðiskerfinu."
-  },
-  {
-    "id": 27,
     "question":
-      "Stjórnvöld ættu að taka hærri gjöld eða skatta af erlendum ferðamönnum sem koma hingað til lands."
+      "Ríkið á að selja hlut sinn í bönkunum að einhverju eða öllu leiti á næsta kjörtímabili."
   },
-  {
-    "id": 28,
-    "question":
-      "Stjórnvöld og Alþingi ættu að fara að tillögum verkefnastjórnar um rammaáætlun og hreyfa ekki við flokkun hennar á virkjanakostum."
-  },
+  { "id": 27, "question": "Lækka þarf tryggingagjald fyrirtækja" },
+  { "id": 28, "question": "Hækka þarf hátekjuskatta." },
   {
     "id": 29,
-    "question": "Ríkið á að selja hlut sinn í orku- og veitufyrirtækjum."
+    "question":
+      "Skoða þarf hvort hægt sé að afnema verðtryggingu á nýjum lánum strax"
+  },
+  { "id": 30, "question": "Gjaldmiðlinum á að halda óbreyttum" },
+  {
+    "id": 31,
+    "question":
+      "Það er mikilvægt að neytendur fái að kaupa innflutt, fersk matvæli."
   },
   {
-    "id": 30,
+    "id": 32,
     "question":
-      "Lækka þarf skuldir ríkissjóðs áður en ráðist er í umfangsmiklar innviðafjárfestingar."
+      "Íslenskir neytendur ættu að fá að kaupa áfengi í matvöruverslunum."
+  },
+  { "id": 33, "question": "Hækka þarf skatta í ferðamannaiðnaðinum." },
+  {
+    "id": 34,
+    "question":
+      "Mikilvægt er að ríkið beiti sér fyrir bættri aðstöðu á ferðamannastöðum í sinni eigu."
+  },
+  { "id": 35, "question": "Hækka þarf veiðigjöld á kjörtímabilinu." },
+  { "id": 36, "question": "Ríkið á að selja hlut sinn í orkufyrirtækjum" },
+  {
+    "id": 37,
+    "question":
+      "Hagsmunir náttúrunnar eiga að vega þyngra en fjárhagslegir hagsmunir við ákvarðanatöku stjórnvalda í atvinnuuppbyggingu."
   }
 ]
