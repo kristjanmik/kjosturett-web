@@ -29,6 +29,21 @@ When a person answers all the questions we generate a numerical sequence. Each n
 ## Data sources
 We have various data sources. Described below are data sources that are available after the build step, but the raw data is also available in /build
 
+### Where do I vote?
+You can query the kjorskra endpoint at: https://kjorskra.kjosturett.is/leita/{{VALID-KENNITALA}}. This endpoint can take up to 2-4 seconds to load since we are using a very slow screenscraper. Second request to this endpoint with the same kennitala is cached heavily for 1 month.
+
+```json
+{
+	"kennitala": "1234567890",
+	"nafn": "Jón Jónsson",
+	"logheimili": "Melbær 14",
+	"kjordaemi": "Reykjavíkurkjördæmi suður",
+	"sveitafelag": "Reykjavík",
+	"kjorstadur": "Árbæjarskóli",
+	"kjordeild": "1"
+}
+```
+
 ### /data/build/{{party}}.json
 Lists all categories for a party. *Likely to change to include party specific data as well*
 
