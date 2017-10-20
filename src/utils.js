@@ -11,17 +11,28 @@ export function pleasantUrl(url: string) {
 }
 
 export function encodeAnswersToken(answers) {
-  const midpoint = answers.length / 2;
-  const first = parseInt(answers.slice(0, midpoint).join(''), 10).toString(36);
-  const second = parseInt(answers.slice(midpoint).join(''), 10).toString(36);
-  return `${first}:${second}`;
+  const chunkLength = Math.floor(answers.length / 3);
+
+  const first = parseInt(answers.slice(0, chunkLength).join(''), 10).toString(
+    36
+  );
+  const second = parseInt(
+    answers.slice(chunkLength, chunkLength * 2).join(''),
+    10
+  ).toString(36);
+  const third = parseInt(
+    answers.slice(chunkLength * 2, answers.length).join(''),
+    10
+  ).toString(36);
+
+  return `${first}:${second}:${third}`;
 }
 
 export function decodeAnswersToken(token) {
-  const [first, second] = token.split(':').map(part =>
+  const [first, second, third] = token.split(':').map(part =>
     parseInt(part, 36)
       .toString()
       .split('')
   );
-  return [...first, ...second];
+  return [...first, ...second, ...third];
 }
