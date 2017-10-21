@@ -1,0 +1,114 @@
+@import '../../components/variables.scss';
+
+.root {
+  max-width: 768px;
+  margin: 3rem auto 4rem;
+
+  h2,
+  h3,
+  h4 {
+    font-family: 'Lora', serif;
+  }
+
+  h3 {
+    margin-top: 1.4em;
+    margin-bottom: 1em;
+  }
+
+  input {
+    margin-right: 15px;
+  }
+
+  button {
+    background: #353535;
+    color: #fff;
+    border: none;
+    appearance: none;
+    padding: 1em 1.4em;
+    margin-top: 3rem;
+  }
+}
+
+.party {
+  color: inherit;
+  display: flex;
+  margin-bottom: 0.3em;
+  padding-bottom: 0.3em;
+  text-decoration: none;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.partyName {
+  font-weight: 700;
+}
+
+.partyPercentage {
+  margin-left: auto;
+}
+
+.partyLogo {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.candidates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.candidate {
+  margin-bottom: 2.5%;
+  position: relative;
+  width: 49%;
+
+  @media (min-width: 600px) {
+    margin-bottom: 2%;
+    width: 32%;
+  }
+}
+
+.candidateImg {
+  display: block;
+
+  // placeholder when image doesn't exist.
+  &::before {
+    content: '';
+    background: transparent no-repeat center / contain;
+    background-image: url(http://via.placeholder.com/400x400?text=Mynd+vantar);
+    display: block;
+    padding-bottom: 100%;
+    width: 100%;
+  }
+}
+
+.candidateInfo {
+  background-image: linear-gradient(0deg, rgba(#000, 0.6), rgba(#000, 0));
+  bottom: 0;
+  color: #fff;
+  left: 0;
+  padding: 1em;
+  position: absolute;
+  width: 100%;
+}
+
+.candidateName {
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.3;
+  padding-top: 0.5em;
+  padding-bottom: 0.4em;
+}
+
+.candidateParty {
+  font-size: 0.8em;
+  line-height: 1;
+}
+
+.candidatePercentage {
+}

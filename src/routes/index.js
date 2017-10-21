@@ -24,6 +24,11 @@ const routes = {
       load: () => import(/* webpackChunkName: 'prof' */ './prof'),
     },
     {
+      path: '/kosningaprof/:nidurstodur',
+      load: () =>
+        import(/* webpackChunkName: 'prof-nidurstodur' */ './prof-nidurstodur'),
+    },
+    {
       path: '/malefni',
       load: () => import(/* webpackChunkName: 'malefni' */ './malefni'),
     },
