@@ -2,6 +2,7 @@ import React from 'react';
 import KosningaProf from './KosningaProf';
 import Layout from '../../components/Layout';
 import questions from '../../../data/poll/questions.json';
+import answers from '../../../data/poll/answers.json';
 
 export default ({ params }) => {
   return {
@@ -10,7 +11,7 @@ export default ({ params }) => {
     path: `/kosningaprof`,
     component: (
       <Layout page="prof" showHeader={false}>
-        <KosningaProf questions={questions} />
+        <KosningaProf answers={answers} questions={questions} />
       </Layout>
     ),
   };
