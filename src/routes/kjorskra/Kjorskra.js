@@ -284,6 +284,10 @@ class Kjorskra extends PureComponent {
 
     const location = await this.locationFromAddress(currentAddressInput || data.logheimili);
 
+    this.setState({
+      currentAddress: location.center,
+    });
+
     const position = {
       from: new window.google.maps.LatLng(
         location.center.lat,
@@ -328,7 +332,6 @@ class Kjorskra extends PureComponent {
     console.log('what is bussing', bussing);
 
     this.setState({
-      currentAddress: location.center,
       driving: driving,
       walking: walking,
       bicycling: bicycling,
