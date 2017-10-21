@@ -36,6 +36,10 @@ const routes = {
       load: () => import(/* webpackChunkName: 'kjorskra' */ './kjorskra')
     },
     {
+      path: '/kjorskra/:nidurstada',
+      load: () => import(/* webpackChunkName: 'kjorskra' */ './kjorskra')
+    },
+    {
       path: '/malefni/:malefni',
       load: () =>
         import(/* webpackChunkName: 'malefnisingle' */ './malefnisingle')

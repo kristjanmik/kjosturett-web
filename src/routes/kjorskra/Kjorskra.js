@@ -375,6 +375,8 @@ class Kjorskra extends PureComponent {
     return itineries;
   }
   render() {
+    const { nidurstada } = this.props;
+
     const {
       kennitala,
       data,
@@ -391,16 +393,23 @@ class Kjorskra extends PureComponent {
     return (
       <div className={s.root}>
         {!data && (
-          <div className={s.lookupContainer}>
-            <input
-              value={kennitala}
-              type="text"
-              placeholder="Settu inn kennitöluna þína"
-              className={s.input}
-              onChange={e => this.onInputChange('kennitala', e)}
-            />
-            <div onClick={this.submit} className={s.submit}>
-              Fletta upp
+          <div>
+            {nidurstada && (
+              <p>
+                {`${nidurstada.fornafn} er í kjördæminu ${nidurstada.kjordaemi} og kjörstaður er ${nidurstada.kjorstadur}. Finnum út úr því hvar þú átt að kjósa!`}
+              </p>
+            )}
+            <div className={s.lookupContainer}>
+              <input
+                value={kennitala}
+                type="text"
+                placeholder="Settu inn kennitöluna þína"
+                className={s.input}
+                onChange={e => this.onInputChange('kennitala', e)}
+              />
+              <div onClick={this.submit} className={s.submit}>
+                Fletta upp
+              </div>
             </div>
           </div>
         )}

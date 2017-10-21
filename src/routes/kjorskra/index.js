@@ -2,13 +2,49 @@ import React from 'react';
 import Kjorskra from './Kjorskra';
 import Layout from '../../components/Layout';
 
-export default () => ({
-  chunks: ['kjorskra'],
-  title: 'Hvar á ég að kjósa? - Kjóstu Rétt',
-  path: '/kjorskra',
-  component: (
-    <Layout page="kjorskra" title="Hvar á ég að Kjósa?">
-      <Kjorskra />
-    </Layout>
-  )
-});
+export default ({ params }) => {
+  let { nidurstada } = params;
+
+  let nidurstadaObj = null;
+
+  if (nidurstada) {
+    try {
+      if (process.env.BROWSER) {
+        nidurstada = atob(nidurstada);
+      } else {
+        //@TODO fix the server side rendering wrong text cuz lame encoding, need iso-8859-1
+        nidurstada = Buffer.from('nidurstada', 'base64').toString('utf-8');
+      }
+
+      nidurstada = nidurstada.split('|');
+    } catch (e) {
+      //@TODO polyfil the base64 decoding
+      nidurstada = [];
+    }
+
+    const [fornafn, kjorstadur, kjordeild, kjordaemi] = nidurstada;
+
+    nidurstadaObj = {
+      fornafn,
+      kjorstadur,
+      kjordeild,
+      kjordaemi
+    };
+  }
+
+  const title = nidurstadaObj
+    ? `Kjörstaðurinn minn er ${nidurstadaObj.kjorstadur}`
+    : 'Hvar á ég að kjósa?';
+  return {
+    chunks: ['kjorskra'],
+    title: `${title} - Kjóstu Rétt`,
+    path: '/kjorskra',
+    description:
+      'Veist ekki HVAR þú átt að kjósa? Flettu upp þínum kjörstað með einföldu uppflettingartóli. Við finnum einnig út bestu leiðina fyrir þig til að komast á kjörstað!',
+    component: (
+      <Layout page="kjorskra" title="Hvar á ég að Kjósa?">
+        <Kjorskra nidurstada={nidurstadaObj} />
+      </Layout>
+    )
+  };
+};
