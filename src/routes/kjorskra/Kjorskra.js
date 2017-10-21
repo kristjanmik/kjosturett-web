@@ -3,6 +3,10 @@
 import React, { PureComponent, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Kjorskra.scss';
+import walkingIcon from './walking.png';
+import drivingIcon from './driving.png';
+import bicyclingIcon from './bicycling.png';
+import busIcon from './bus.png';
 import busData from './bus.json';
 import BusPlanner from './components/BusPlanner';
 import TaxiPlanner from './components/TaxiPlanner';
@@ -31,6 +35,43 @@ const Map = withScriptjs(
   })
 );
 
+class Itinery extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const { duration, distance, type } = this.props;
+
+    const translate = {
+      walking: 'að labba',
+      driving: 'að keyra',
+      bicycling: 'að hjóla',
+      bus: 'með Strætó',
+    };
+
+    const icons = {
+      walkingIcon,
+      drivingIcon,
+      bicyclingIcon,
+      busIcon
+    };
+
+    const icon = icons[`${type}Icon`];
+
+    // TODO: Fix nánar link
+    return (
+      <li style={{backgroundImage: `url(${icon})`}} className={duration ? '' : s.faded}>
+        <b>{duration ? Math.round(duration / 60) : '...'} mínútur</b> {translate[type]}.
+        Sjá nánar á {' '}
+        <a href="https://straeto.is" target="_blank">
+          Google Maps
+        </a>
+      </li>
+    )
+  }
+}
+
 class Kjorskra extends PureComponent {
   static contextTypes = {
     fetch: PropTypes.func.isRequired
@@ -45,9 +86,10 @@ class Kjorskra extends PureComponent {
     },
     currentAddress: null,
     currentAddressInput: '',
-    driving: null,
-    walking: null,
-    bicycling: null
+    driving: {},
+    walking: {},
+    bicycling: {},
+    bussing: {},
   };
   constructor(props) {
     super(props);
@@ -74,8 +116,18 @@ class Kjorskra extends PureComponent {
     //       sveitafelag: 'Reykjavík',
     //       kjorstadur: 'Árbæjarskóli',
     //       kjordeild: '5'
-    //     }
+    //     },
+    //     currentAddress: { lat: 64.11, lng: -21.79 },
     //   });
+    //
+    //   setTimeout(() => {
+    //     this.setState({
+    //       walking: { duration: 1500, distance: 1111 },
+    //       bicycling: { duration: 1000, distance: 1234 },
+    //       driving: { duration: 700, distance: 1357 },
+    //       bussing: { duration: 1200, distance: 1200 },
+    //     });
+    //   }, 3000);
     // }
   }
   async getDistance({ from, to, mode }) {
@@ -114,6 +166,38 @@ class Kjorskra extends PureComponent {
         }
       );
     });
+  }
+  async getBusDistance({ from , to }) {
+    const now = new Date();
+    const timestamp = `${now.getHours()}:${('0' + now.getMinutes()).substr(
+      -2
+    )}`;
+
+    const date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+
+    const url = `https://otp.straeto.is/otp/routers/default/plan?fromPlace=${from.lat()},${from.lng()}&toPlace=${to.lat()},${to.lng()}&time=${timestamp}&date=${date}&mode=TRANSIT,WALK&arriveBy=false&wheelchair=false&showIntermediateStops=false&numItineraries=1&locale=is`;
+
+    const response = await this.context.fetch(url, {
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+    const data = await response.json();
+
+    console.log('bus from and to:', from, to);
+    console.log('bus response status:', response.status);
+    console.log('bus response data:', data);
+
+    // TODO: find the one with the shortest time.
+    const { duration, legs } = data.plan.itineraries[0];
+    const distance = legs.reduce((sum, leg) => {
+      return sum + leg.distance;
+    }, 0);
+
+    return {
+      distance,
+      duration,
+    };
   }
   async locationFromAddress(address) {
     if (!process.env.BROWSER) return this.state.mapOptions.center;
@@ -196,9 +280,9 @@ class Kjorskra extends PureComponent {
   }
   async submitCurrentAddress() {
     console.log('submit');
-    const { currentAddressInput, mapOptions } = this.state;
+    const { data, currentAddressInput, mapOptions } = this.state;
 
-    const location = await this.locationFromAddress(currentAddressInput);
+    const location = await this.locationFromAddress(currentAddressInput || data.logheimili);
 
     const position = {
       from: new window.google.maps.LatLng(
@@ -226,22 +310,29 @@ class Kjorskra extends PureComponent {
       mode: 'DRIVING'
     });
 
-    const [walking, bicycling, driving] = await Promise.all([
+    const busPromise = this.getBusDistance({
+      ...position,
+    });
+
+    const [walking, bicycling, driving, bussing] = await Promise.all([
       walkingPromise,
       bicyclingPromise,
-      drivingPromise
+      drivingPromise,
+      busPromise,
     ]);
 
     console.log('what is location', location);
     console.log('what is walking', walking);
     console.log('what is bicycling', bicycling);
     console.log('what is driving', driving);
+    console.log('what is bussing', bussing);
 
     this.setState({
       currentAddress: location.center,
       driving: driving,
       walking: walking,
-      bicycling: bicycling
+      bicycling: bicycling,
+      bussing: bussing,
     });
   }
   render() {
@@ -254,7 +345,8 @@ class Kjorskra extends PureComponent {
       currentAddressInput,
       walking,
       driving,
-      bicycling
+      bicycling,
+      bussing,
     } = this.state;
 
     return (
@@ -277,19 +369,25 @@ class Kjorskra extends PureComponent {
           <div className={s.results}>
             <div>
               <p>
-                Hæ, {data.nafn}. Þú ert í <b>kjördeild</b>{' '}
-                <i>{data.kjordeild}</i> og <b>kjörstaðurinn</b> þinn er{' '}
-                <i>{data.kjorstadur}</i>, <i>{data.sveitafelag}</i>. Þú greiðir
+                Hæ {data.nafn}.<br />
+                <b>Kjörstaðurinn</b> þinn er:
+              </p>
+              <p className={s.kjorstadur}>
+                {data.kjorstadur}, {data.sveitafelag}
+              </p>
+              <p>
+                Þú ert í <b>kjördeild</b>{' '}
+                <i>{data.kjordeild}</i> og þú greiðir
                 atkvæði í <b>kjördæminu</b> <i>{data.kjordaemi}</i>.
               </p>
               {!currentAddress && (
                 <div>
-                  <h3>Nú þurfum við bara að koma þér á kjörstað!</h3>
+                  <h3>Nú þurfum við bara að koma þér á kjörstað! Hvar ert þú núna?</h3>
                   <div className={s.currentAddressContainer}>
                     <input
                       value={currentAddressInput}
                       type="text"
-                      placeholder="Hvar ert þú núna?"
+                      placeholder={data.logheimili}
                       className={s.input}
                       onChange={e =>
                         this.onInputChange('currentAddressInput', e)}
@@ -305,29 +403,13 @@ class Kjorskra extends PureComponent {
               )}
               {currentAddress && (
                 <div>
-                  {walking.duration && (
-                    <p>
-                      Það tekur þig {Math.ceil(walking.duration / 60)} mínútur
-                      að labba {(walking.distance / 1000).toFixed(1)} km. á
-                      kjörstað
-                    </p>
-                  )}
-                  {bicycling.duration && (
-                    <p>
-                      Það tekur þig {Math.ceil(bicycling.duration / 60)} mínútur
-                      að hjóla {(bicycling.distance / 1000).toFixed(1)} km. á
-                      kjörstað
-                    </p>
-                  )}
-                  {driving.duration && (
-                    <p>
-                      Það tekur þig {Math.ceil(driving.duration / 60)} mínútur
-                      að keyra {(driving.distance / 1000).toFixed(1)} km. á
-                      kjörstað
-                    </p>
-                  )}
-                  <TaxiPlanner />
-                  <BusPlanner from={mapOptions.center} to={currentAddress} />
+                  <h2>Koma ser a kjorstad:</h2>
+                  <ul className={s.itineries}>
+                    <Itinery type="walking" {...walking} />
+                    <Itinery type="bicycling" {...bicycling} />
+                    <Itinery type="driving" {...driving} />
+                    <Itinery type="bus" {...bussing} />
+                  </ul>
                 </div>
               )}
             </div>
