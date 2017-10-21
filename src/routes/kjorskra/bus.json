@@ -1,0 +1,854 @@
+{
+  "requestParameters": {
+    "date": "2017-10-20",
+    "mode": "TRANSIT,WALK",
+    "arriveBy": "false",
+    "wheelchair": "false",
+    "showIntermediateStops": "false",
+    "fromPlace": "64.1456203,-21.8666037",
+    "toPlace": "64.1163028,-21.7996805",
+    "time": "14:50",
+    "locale": "is",
+    "numItineraries": "3"
+  },
+  "plan": {
+    "date": 1508511000000,
+    "from": {
+      "name": "Upphafstaður",
+      "lon": -21.8666037,
+      "lat": 64.1456203,
+      "orig": "",
+      "vertexType": "NORMAL"
+    },
+    "to": {
+      "name": "Áfangastað",
+      "lon": -21.7996805,
+      "lat": 64.1163028,
+      "orig": "",
+      "vertexType": "NORMAL"
+    },
+    "itineraries": [
+      {
+        "duration": 1580,
+        "startTime": 1508511380000,
+        "endTime": 1508512960000,
+        "walkTime": 618,
+        "transitTime": 960,
+        "waitingTime": 2,
+        "walkDistance": 731.9999699122933,
+        "walkLimitExceeded": false,
+        "elevationLost": 0,
+        "elevationGained": 0,
+        "transfers": 0,
+        "legs": [
+          {
+            "startTime": 1508511380000,
+            "endTime": 1508511839000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 548.675,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 0,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "Upphafstaður",
+              "lon": -21.8666037,
+              "lat": 64.1456203,
+              "departure": 1508511380000,
+              "orig": "",
+              "vertexType": "NORMAL"
+            },
+            "to": {
+              "name": "Hrafnista",
+              "stopId": "1:90000188",
+              "stopCode": "HRAFNI1",
+              "lon": -21.867406,
+              "lat": 64.149018,
+              "arrival": 1508511839000,
+              "departure": 1508511840000,
+              "stopIndex": 9,
+              "stopSequence": 10,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points":
+                "omofKfymdC@s@?W?E?AW???A?????A?????AA????A??????AA?????A??A??A????A??A??A??A??A?????AA??A??AA?????AA??A???A??IUiAuAYtBM`ACRANEXARCXGGIGGx@AJEn@Cb@I`B?HAb@Af@??{CyAYGOCUIKSMPOPKNMHG@E???A@?@?@A??@?@?@?@EFEFQUOUG[GUOWYIQKHk@?A",
+              "length": 101
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 459,
+            "steps": [
+              {
+                "distance": 276.106,
+                "relativeDirection": "DEPART",
+                "streetName": "göngustígur",
+                "absoluteDirection": "EAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.866599417045258,
+                "lat": 64.14568240233562,
+                "elevation": []
+              },
+              {
+                "distance": 250.251,
+                "relativeDirection": "RIGHT",
+                "streetName": "Ã¾jónustu vegur",
+                "absoluteDirection": "NORTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": -21.8685879,
+                "lat": 64.1468886,
+                "elevation": []
+              },
+              {
+                "distance": 9.701,
+                "relativeDirection": "CONTINUE",
+                "streetName": "Kleppsvegur",
+                "absoluteDirection": "NORTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.867757400000002,
+                "lat": 64.1489395,
+                "elevation": []
+              },
+              {
+                "distance": 12.617,
+                "relativeDirection": "RIGHT",
+                "streetName": "göngustígur",
+                "absoluteDirection": "SOUTHEAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": -21.867695700000002,
+                "lat": 64.1490225,
+                "elevation": []
+              }
+            ]
+          },
+          {
+            "startTime": 1508511840000,
+            "endTime": 1508512800000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 6526.983823317477,
+            "pathway": false,
+            "mode": "BUS",
+            "route": "16",
+            "agencyName": "Strætó bs.",
+            "agencyUrl": "http://straeto.is/",
+            "agencyTimeZoneOffset": 0,
+            "routeType": 3,
+            "routeId": "1:16.17301.ST",
+            "interlineWithPreviousLeg": false,
+            "tripBlockId": "4414",
+            "headsign": "Árbær/Hraunsás",
+            "agencyId": "1",
+            "tripId": "1:306945",
+            "serviceDate": "20171020",
+            "from": {
+              "name": "Hrafnista",
+              "stopId": "1:90000188",
+              "stopCode": "HRAFNI1",
+              "lon": -21.867406,
+              "lat": 64.149018,
+              "arrival": 1508511839000,
+              "departure": 1508511840000,
+              "stopIndex": 9,
+              "stopSequence": 10,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "Bæjarbraut",
+              "stopId": "1:90000732",
+              "stopCode": "BÆJARB8",
+              "lon": -21.799352,
+              "lat": 64.117652,
+              "arrival": 1508512800000,
+              "departure": 1508512801000,
+              "stopIndex": 22,
+              "stopSequence": 23,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points":
+                "ubpfKz}mdCZ{B`@sC^{BPcAPgARaANu@XoANq@Ry@T}@XeA\\mAl@mBd@uAf@yAd@qA\\cAZy@zDaLjEiMfBkFhA{C^aA`@{@b@w@JQ^k@j@{@h@m@v@u@n@e@bAi@|@[d@Kb@G\\Ax@Cn@E|@EzDMpDMhFQtDMnEObCIRArACb@CdFUdIc@pEUbG[p@G|AMvC]zCa@jAWj@M\\Ih@KVGb@K^IlBa@JNZCVC\\@THVb@Pf@Fh@@p@E`AQbAUr@[j@WZ_@J]H[?c@Ba@EYUQ_@Ms@E}@@aADwCBc@HaAn@yIb@eHLaCPsDX}GX}H?IJiEHyCDoBP_CTcDFw@Hu@BUDKHYFMFIHGFC@?J?HBHDHHFJFPBLDTBVBf@?dB@fE?dE?rC@`@WLu@h@y@h@u@\\G?WDA?O@??MA]C_@I?A???A???A???A???A???A???A???A???A???A???A???AA??A?????A???A???A???A??AA?????A???A???AA????A?????A??AA?????A?????AA????A????A??A???????AA??????A??A??????A??A???????A??A????????FwFFmED{B@mA@iA?}@@i@?_A?g@?u@A{BAgHAY?iB?s@AgBAaCCyCA}@?mAGwCG_BCi@UeCO_BIi@Q_B[aCSwCKsBC}@fCK\\CJ?DAj@?X?L?LA@?@?H@??l@A|@ABxB@lA@nC@vA??@^?bA@v@@Z@VF`@BPBL@D@@HXHNFHDBFFFDF@RD?A@?@@hARFAF?BABAFEBE@ADIJKDABAZFt@JN@B@HEJWFa@@q@FqDD_BAu@I_AAS_@mDCo@@aAJ}FTiKNcI@q@FcEA{@?m@?IBiADuBBaBBaC?oA?{B???[?Y??@}A?_BDaBLk@HeAHy@Fu@ZeDj@gGRyBTgCUOi@_@}AcAWQ[SKEQGKCy@MSC??u@Mi@ES?{@FwCFCgE?u@G{K?k@???{A?S?YEeD?}@CkHAcGCiDHkBFeA\\\\d@LX???D@h@CfAExBGr@C\\A`@?N@L?H?J@J@F@NDXFHDJBHDLFPH\\TDB|@l@b@Zb@Z??n@d@vA`AAF?F?J@H@H@HBDBDB@B?B?BABABEBI@K@ClBnAFj@RSf@^f@\\",
+              "length": 443
+            },
+            "routeShortName": "16",
+            "rentedBike": false,
+            "transitLeg": true,
+            "duration": 960,
+            "steps": []
+          },
+          {
+            "startTime": 1508512801000,
+            "endTime": 1508512960000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 182.93699999999998,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 0,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "Bæjarbraut",
+              "stopId": "1:90000732",
+              "stopCode": "BÆJARB8",
+              "lon": -21.799352,
+              "lat": 64.117652,
+              "arrival": 1508512800000,
+              "departure": 1508512801000,
+              "stopIndex": 22,
+              "stopSequence": 23,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "Áfangastað",
+              "lon": -21.7996805,
+              "lat": 64.1163028,
+              "arrival": 1508512960000,
+              "orig": "",
+              "vertexType": "NORMAL"
+            },
+            "legGeometry": {
+              "points": "k~ifKlu`dCRNx@j@hBnA@O@QPJLiBJFPLTP",
+              "length": 11
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 159,
+            "steps": [
+              {
+                "distance": 116.30599999999998,
+                "relativeDirection": "DEPART",
+                "streetName": "göngustígur",
+                "absoluteDirection": "SOUTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": -21.79942940354801,
+                "lat": 64.1176631216134,
+                "elevation": []
+              },
+              {
+                "distance": 9.644,
+                "relativeDirection": "RIGHT",
+                "streetName": "Bæjarbraut",
+                "absoluteDirection": "SOUTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.799952400000002,
+                "lat": 64.1167214,
+                "elevation": []
+              },
+              {
+                "distance": 26.816,
+                "relativeDirection": "LEFT",
+                "streetName": "Rofabær",
+                "absoluteDirection": "EAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.800012300000002,
+                "lat": 64.11663870000001,
+                "elevation": []
+              },
+              {
+                "distance": 30.171,
+                "relativeDirection": "RIGHT",
+                "streetName": "road",
+                "absoluteDirection": "SOUTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": -21.7994893,
+                "lat": 64.116561,
+                "elevation": []
+              }
+            ]
+          }
+        ],
+        "tooSloped": false
+      },
+      {
+        "duration": 1971,
+        "startTime": 1508511782000,
+        "endTime": 1508513753000,
+        "walkTime": 375,
+        "transitTime": 1440,
+        "waitingTime": 156,
+        "walkDistance": 459.4325112732098,
+        "walkLimitExceeded": false,
+        "elevationLost": 0,
+        "elevationGained": 0,
+        "transfers": 1,
+        "legs": [
+          {
+            "startTime": 1508511782000,
+            "endTime": 1508511959000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 209.639,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 0,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "Upphafstaður",
+              "lon": -21.8666037,
+              "lat": 64.1456203,
+              "departure": 1508511782000,
+              "orig": "",
+              "vertexType": "NORMAL"
+            },
+            "to": {
+              "name": "Hrafnista",
+              "stopId": "1:90000249",
+              "stopCode": "AUSTUR5",
+              "lon": -21.867253,
+              "lat": 64.146758,
+              "arrival": 1508511959000,
+              "departure": 1508511960000,
+              "stopIndex": 18,
+              "stopSequence": 19,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points":
+                "omofKfymdC@s@?W?E?AW???A?????A?????AA????A??????AA?????A??A??A????A??A??A??A??A?????AA??A??AA?????AA??A???A??IUiAuAYtBM`ACRANEXARCXGGIGGx@AJ",
+              "length": 63
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 177,
+            "steps": [
+              {
+                "distance": 209.639,
+                "relativeDirection": "DEPART",
+                "streetName": "göngustígur",
+                "absoluteDirection": "EAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.866599417045258,
+                "lat": 64.14568240233562,
+                "elevation": []
+              }
+            ]
+          },
+          {
+            "startTime": 1508511960000,
+            "endTime": 1508512380000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 1713.1428650662126,
+            "pathway": false,
+            "mode": "BUS",
+            "route": "14",
+            "agencyName": "Strætó bs.",
+            "agencyUrl": "http://straeto.is/",
+            "agencyTimeZoneOffset": 0,
+            "routeType": 3,
+            "routeId": "1:14.17301.ST",
+            "interlineWithPreviousLeg": false,
+            "tripBlockId": "4408",
+            "headsign": "Grandi",
+            "agencyId": "1",
+            "tripId": "1:308544",
+            "serviceDate": "20171020",
+            "from": {
+              "name": "Hrafnista",
+              "stopId": "1:90000249",
+              "stopCode": "AUSTUR5",
+              "lon": -21.867253,
+              "lat": 64.146758,
+              "arrival": 1508511959000,
+              "departure": 1508511960000,
+              "stopIndex": 18,
+              "stopSequence": 19,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "Hátún",
+              "stopId": "1:90000049",
+              "stopCode": "LAUGAV2",
+              "lon": -21.898187,
+              "lat": 64.141195,
+              "arrival": 1508512380000,
+              "departure": 1508512380000,
+              "stopIndex": 22,
+              "stopSequence": 23,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points":
+                "}sofKn}mdCIbACr@ItBA\\CjA?jC?|@@|@?b@@|B?fB@zC@lC@~A?XAd@?v@AhAC?A@CBADCD?FAF?F@D?D@B@D@B@B@@@@B?@?Bp@@p@@hA@`@@~CDpH@|EAfA?RChA?n@LtH@lA@pC@vB@lA@bE@pC?dA@p@@tC?j@@lA@zBDlC@RBdBDdBD`B?FHxDFdDBx@lAQXIbAUx@Qf@KVA~@@`CTP@??zEb@ZBb@D`AHtBPxAXv@?n@`@PVJXFj@Bb@e@nFK~@Gp@Gf@Eb@OjA[|BS~A]jC",
+              "length": 101
+            },
+            "routeShortName": "14",
+            "rentedBike": false,
+            "transitLeg": true,
+            "duration": 420,
+            "steps": []
+          },
+          {
+            "startTime": 1508512380000,
+            "endTime": 1508512466000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 110.928,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 0,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "Hátún",
+              "stopId": "1:90000049",
+              "stopCode": "LAUGAV2",
+              "lon": -21.898187,
+              "lat": 64.141195,
+              "arrival": 1508512380000,
+              "departure": 1508512380000,
+              "stopIndex": 22,
+              "stopSequence": 23,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "Gamla sjónvarpshúsið",
+              "stopId": "1:90000031",
+              "stopCode": "LAUGAV1",
+              "lon": -21.896676,
+              "lat": 64.140661,
+              "arrival": 1508512466000,
+              "departure": 1508512620000,
+              "stopIndex": 7,
+              "stopSequence": 8,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points": "mqnfKt~sdC?CJ{@DODSBMBOBOFFLLHHf@yD",
+              "length": 12
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 86,
+            "steps": [
+              {
+                "distance": 110.928,
+                "relativeDirection": "DEPART",
+                "streetName": "Hátún => Gamla sjónvarpshúsið",
+                "absoluteDirection": "SOUTHEAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.898187,
+                "lat": 64.141195,
+                "elevation": []
+              }
+            ]
+          },
+          {
+            "startTime": 1508512620000,
+            "endTime": 1508513640000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 5733.490338898779,
+            "pathway": false,
+            "mode": "BUS",
+            "route": "5",
+            "agencyName": "Strætó bs.",
+            "agencyUrl": "http://straeto.is/",
+            "agencyTimeZoneOffset": 0,
+            "routeType": 3,
+            "routeId": "1:5.17301.ST",
+            "interlineWithPreviousLeg": false,
+            "tripBlockId": "4179",
+            "headsign": "Norðlingaholt",
+            "agencyId": "1",
+            "tripId": "1:306550",
+            "serviceDate": "20171020",
+            "from": {
+              "name": "Gamla sjónvarpshúsið",
+              "stopId": "1:90000031",
+              "stopCode": "LAUGAV1",
+              "lon": -21.896676,
+              "lat": 64.140661,
+              "arrival": 1508512466000,
+              "departure": 1508512620000,
+              "stopIndex": 7,
+              "stopSequence": 8,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "Rofabær / Hábær",
+              "stopId": "1:90000400",
+              "stopCode": "ROFABÆ1",
+              "lon": -21.801618,
+              "lat": 64.11686,
+              "arrival": 1508513640000,
+              "departure": 1508513641000,
+              "stopIndex": 17,
+              "stopSequence": 18,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points":
+                "innfK~tsdCD_@Hq@NiAH{@@?ZqCHm@V{BJgAHoAFq@BoA?e@@aACsAK}CUqHCyAAgA?kB??AiB?gE?}A@mA@}ABcADoAD_ABi@BQB_@HeAN}ARgBRqAN}@P_AXmA@EP{@^yAj@mBV{@JY^mAVs@FOn@cB^{@bBsDdD}GBGlAgCpAkCPa@x@aBFf@GTFUGg@@CvCeGJUh@iAl@oAP]nAiCpBeE|@mBf@cAz@iB`@{@Vg@`@}@^_Ab@gAx@}B^mAl@qBfAcEFSBIBEPUBBDBB?DADABEBEBGPCTH`@T`@J\\H@???TB\\@R@dDSLH|BQ@?@A`@CDAJA\\@LDLLJPDFDPFPBRBVBR?V?X?XAb@C\\C\\I`@ERGPGLGFMFK@KAKGIIIOGUCWCUAU@w@ToFBY@YBm@h@sFjCyXRsBvBcUbAoKnAyNBc@HaAn@yIb@eHLaCPsDX}GX}H?IJiEHyCDoBDeDD}CFuEBqF@aG?cEAeJEsLK{WAo@AwDC_G??AaEEkNJwMHeFDaDJyCDkBBg@D[JYV]b@G\\E^Ad@Ab@Ab@?h@?n@Dl@Ff@J^J`@Lb@PLk@HeAHy@Fu@ZeDj@gGRyBTgCj@`@x@l@??XRB@fBlA^Vb@Zd@\\z@j@d@\\TPNoBJsAP{B@KHeAJuATuCL}A^aFT{CT{CDk@XcDHiA",
+              "length": 237
+            },
+            "routeShortName": "5",
+            "rentedBike": false,
+            "transitLeg": true,
+            "duration": 1020,
+            "steps": []
+          },
+          {
+            "startTime": 1508513641000,
+            "endTime": 1508513753000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 138.71099999999998,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 0,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "Rofabær / Hábær",
+              "stopId": "1:90000400",
+              "stopCode": "ROFABÆ1",
+              "lon": -21.801618,
+              "lat": 64.11686,
+              "arrival": 1508513640000,
+              "departure": 1508513641000,
+              "stopIndex": 17,
+              "stopSequence": 18,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "Áfangastað",
+              "lon": -21.7996805,
+              "lat": 64.1163028,
+              "arrival": 1508513753000,
+              "orig": "",
+              "vertexType": "NORMAL"
+            },
+            "legGeometry": {
+              "points": "kyifKbcadCBa@JqA\\kELiBJFPLTP",
+              "length": 8
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 112,
+            "steps": [
+              {
+                "distance": 108.53999999999999,
+                "relativeDirection": "DEPART",
+                "streetName": "Rofabær",
+                "absoluteDirection": "EAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.801611916972195,
+                "lat": 64.11686796826201,
+                "elevation": []
+              },
+              {
+                "distance": 30.171,
+                "relativeDirection": "RIGHT",
+                "streetName": "road",
+                "absoluteDirection": "SOUTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": -21.7994893,
+                "lat": 64.116561,
+                "elevation": []
+              }
+            ]
+          }
+        ],
+        "tooSloped": false
+      },
+      {
+        "duration": 1580,
+        "startTime": 1508513180000,
+        "endTime": 1508514760000,
+        "walkTime": 618,
+        "transitTime": 960,
+        "waitingTime": 2,
+        "walkDistance": 731.9999699122933,
+        "walkLimitExceeded": false,
+        "elevationLost": 0,
+        "elevationGained": 0,
+        "transfers": 0,
+        "legs": [
+          {
+            "startTime": 1508513180000,
+            "endTime": 1508513639000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 548.675,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 0,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "Upphafstaður",
+              "lon": -21.8666037,
+              "lat": 64.1456203,
+              "departure": 1508513180000,
+              "orig": "",
+              "vertexType": "NORMAL"
+            },
+            "to": {
+              "name": "Hrafnista",
+              "stopId": "1:90000188",
+              "stopCode": "HRAFNI1",
+              "lon": -21.867406,
+              "lat": 64.149018,
+              "arrival": 1508513639000,
+              "departure": 1508513640000,
+              "stopIndex": 9,
+              "stopSequence": 10,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points":
+                "omofKfymdC@s@?W?E?AW???A?????A?????AA????A??????AA?????A??A??A????A??A??A??A??A?????AA??A??AA?????AA??A???A??IUiAuAYtBM`ACRANEXARCXGGIGGx@AJEn@Cb@I`B?HAb@Af@??{CyAYGOCUIKSMPOPKNMHG@E???A@?@?@A??@?@?@?@EFEFQUOUG[GUOWYIQKHk@?A",
+              "length": 101
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 459,
+            "steps": [
+              {
+                "distance": 276.106,
+                "relativeDirection": "DEPART",
+                "streetName": "göngustígur",
+                "absoluteDirection": "EAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.866599417045258,
+                "lat": 64.14568240233562,
+                "elevation": []
+              },
+              {
+                "distance": 250.251,
+                "relativeDirection": "RIGHT",
+                "streetName": "Ã¾jónustu vegur",
+                "absoluteDirection": "NORTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": -21.8685879,
+                "lat": 64.1468886,
+                "elevation": []
+              },
+              {
+                "distance": 9.701,
+                "relativeDirection": "CONTINUE",
+                "streetName": "Kleppsvegur",
+                "absoluteDirection": "NORTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.867757400000002,
+                "lat": 64.1489395,
+                "elevation": []
+              },
+              {
+                "distance": 12.617,
+                "relativeDirection": "RIGHT",
+                "streetName": "göngustígur",
+                "absoluteDirection": "SOUTHEAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": -21.867695700000002,
+                "lat": 64.1490225,
+                "elevation": []
+              }
+            ]
+          },
+          {
+            "startTime": 1508513640000,
+            "endTime": 1508514600000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 6526.983823317477,
+            "pathway": false,
+            "mode": "BUS",
+            "route": "16",
+            "agencyName": "Strætó bs.",
+            "agencyUrl": "http://straeto.is/",
+            "agencyTimeZoneOffset": 0,
+            "routeType": 3,
+            "routeId": "1:16.17301.ST",
+            "interlineWithPreviousLeg": false,
+            "tripBlockId": "4416",
+            "headsign": "Árbær/Hraunsás",
+            "agencyId": "1",
+            "tripId": "1:306944",
+            "serviceDate": "20171020",
+            "from": {
+              "name": "Hrafnista",
+              "stopId": "1:90000188",
+              "stopCode": "HRAFNI1",
+              "lon": -21.867406,
+              "lat": 64.149018,
+              "arrival": 1508513639000,
+              "departure": 1508513640000,
+              "stopIndex": 9,
+              "stopSequence": 10,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "Bæjarbraut",
+              "stopId": "1:90000732",
+              "stopCode": "BÆJARB8",
+              "lon": -21.799352,
+              "lat": 64.117652,
+              "arrival": 1508514600000,
+              "departure": 1508514601000,
+              "stopIndex": 22,
+              "stopSequence": 23,
+              "vertexType": "TRANSIT"
+            },
+            "legGeometry": {
+              "points":
+                "ubpfKz}mdCZ{B`@sC^{BPcAPgARaANu@XoANq@Ry@T}@XeA\\mAl@mBd@uAf@yAd@qA\\cAZy@zDaLjEiMfBkFhA{C^aA`@{@b@w@JQ^k@j@{@h@m@v@u@n@e@bAi@|@[d@Kb@G\\Ax@Cn@E|@EzDMpDMhFQtDMnEObCIRArACb@CdFUdIc@pEUbG[p@G|AMvC]zCa@jAWj@M\\Ih@KVGb@K^IlBa@JNZCVC\\@THVb@Pf@Fh@@p@E`AQbAUr@[j@WZ_@J]H[?c@Ba@EYUQ_@Ms@E}@@aADwCBc@HaAn@yIb@eHLaCPsDX}GX}H?IJiEHyCDoBP_CTcDFw@Hu@BUDKHYFMFIHGFC@?J?HBHDHHFJFPBLDTBVBf@?dB@fE?dE?rC@`@WLu@h@y@h@u@\\G?WDA?O@??MA]C_@I?A???A???A???A???A???A???A???A???A???A???A???AA??A?????A???A???A???A??AA?????A???A???AA????A?????A??AA?????A?????AA????A????A??A???????AA??????A??A??????A??A???????A??A????????FwFFmED{B@mA@iA?}@@i@?_A?g@?u@A{BAgHAY?iB?s@AgBAaCCyCA}@?mAGwCG_BCi@UeCO_BIi@Q_B[aCSwCKsBC}@fCK\\CJ?DAj@?X?L?LA@?@?H@??l@A|@ABxB@lA@nC@vA??@^?bA@v@@Z@VF`@BPBL@D@@HXHNFHDBFFFDF@RD?A@?@@hARFAF?BABAFEBE@ADIJKDABAZFt@JN@B@HEJWFa@@q@FqDD_BAu@I_AAS_@mDCo@@aAJ}FTiKNcI@q@FcEA{@?m@?IBiADuBBaBBaC?oA?{B???[?Y??@}A?_BDaBLk@HeAHy@Fu@ZeDj@gGRyBTgCUOi@_@}AcAWQ[SKEQGKCy@MSC??u@Mi@ES?{@FwCFCgE?u@G{K?k@???{A?S?YEeD?}@CkHAcGCiDHkBFeA\\\\d@LX???D@h@CfAExBGr@C\\A`@?N@L?H?J@J@F@NDXFHDJBHDLFPH\\TDB|@l@b@Zb@Z??n@d@vA`AAF?F?J@H@H@HBDBDB@B?B?BABABEBI@K@ClBnAFj@RSf@^f@\\",
+              "length": 443
+            },
+            "routeShortName": "16",
+            "rentedBike": false,
+            "transitLeg": true,
+            "duration": 960,
+            "steps": []
+          },
+          {
+            "startTime": 1508514601000,
+            "endTime": 1508514760000,
+            "departureDelay": 0,
+            "arrivalDelay": 0,
+            "realTime": false,
+            "distance": 182.93699999999998,
+            "pathway": false,
+            "mode": "WALK",
+            "route": "",
+            "agencyTimeZoneOffset": 0,
+            "interlineWithPreviousLeg": false,
+            "from": {
+              "name": "Bæjarbraut",
+              "stopId": "1:90000732",
+              "stopCode": "BÆJARB8",
+              "lon": -21.799352,
+              "lat": 64.117652,
+              "arrival": 1508514600000,
+              "departure": 1508514601000,
+              "stopIndex": 22,
+              "stopSequence": 23,
+              "vertexType": "TRANSIT"
+            },
+            "to": {
+              "name": "Áfangastað",
+              "lon": -21.7996805,
+              "lat": 64.1163028,
+              "arrival": 1508514760000,
+              "orig": "",
+              "vertexType": "NORMAL"
+            },
+            "legGeometry": {
+              "points": "k~ifKlu`dCRNx@j@hBnA@O@QPJLiBJFPLTP",
+              "length": 11
+            },
+            "rentedBike": false,
+            "transitLeg": false,
+            "duration": 159,
+            "steps": [
+              {
+                "distance": 116.30599999999998,
+                "relativeDirection": "DEPART",
+                "streetName": "göngustígur",
+                "absoluteDirection": "SOUTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": -21.79942940354801,
+                "lat": 64.1176631216134,
+                "elevation": []
+              },
+              {
+                "distance": 9.644,
+                "relativeDirection": "RIGHT",
+                "streetName": "Bæjarbraut",
+                "absoluteDirection": "SOUTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.799952400000002,
+                "lat": 64.1167214,
+                "elevation": []
+              },
+              {
+                "distance": 26.816,
+                "relativeDirection": "LEFT",
+                "streetName": "Rofabær",
+                "absoluteDirection": "EAST",
+                "stayOn": false,
+                "area": false,
+                "bogusName": false,
+                "lon": -21.800012300000002,
+                "lat": 64.11663870000001,
+                "elevation": []
+              },
+              {
+                "distance": 30.171,
+                "relativeDirection": "RIGHT",
+                "streetName": "road",
+                "absoluteDirection": "SOUTH",
+                "stayOn": false,
+                "area": false,
+                "bogusName": true,
+                "lon": -21.7994893,
+                "lat": 64.116561,
+                "elevation": []
+              }
+            ]
+          }
+        ],
+        "tooSloped": false
+      }
+    ]
+  },
+  "debugOutput": {
+    "precalculationTime": 66,
+    "pathCalculationTime": 63,
+    "pathTimes": [26, 18, 19],
+    "renderingTime": 1,
+    "totalTime": 130,
+    "timedOut": false
+  }
+}

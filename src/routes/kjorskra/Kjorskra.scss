@@ -1,0 +1,58 @@
+@import '../../components/functions.scss';
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.lookupContainer {
+  display: flex;
+}
+
+.input {
+  width: 200px;
+  height: 40px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #c6cacc;
+  border-top: 1px solid #c6cacc;
+  border-radius: 4px;
+  outline: none;
+  background: #fafafa;
+  font-size: 15px;
+  color: #808080;
+  box-sizing: border-box;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 4px;
+  background: #0076fc;
+  color: white;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.results {
+  display: flex;
+}
+
+.mapContainer {
+  min-width: 350px;
+  min-height: 350px;
+}
+
+.currentAddressContainer {
+  display: flex;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: auto;
+}
