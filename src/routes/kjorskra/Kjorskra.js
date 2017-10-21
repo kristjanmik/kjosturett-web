@@ -8,8 +8,6 @@ import drivingIcon from './driving.png';
 import bicyclingIcon from './bicycling.png';
 import busIcon from './bus.png';
 import busData from './bus.json';
-import BusPlanner from './components/BusPlanner';
-import TaxiPlanner from './components/TaxiPlanner';
 
 import {
   withScriptjs,
@@ -35,40 +33,51 @@ const Map = withScriptjs(
   })
 );
 
+const getItineryInfo = ({ duration, distance, type, from, to }) => {
+  return {
+    walking: {
+      text: 'að labba',
+      icon: walkingIcon,
+      link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=walking`,
+      linkText: 'Google Maps'
+    },
+    driving: {
+      text: 'að keyra',
+      icon: drivingIcon,
+      link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=driving`,
+      linkText: 'Google Maps'
+    },
+    bicycling: {
+      text: 'að hjóla',
+      icon: bicyclingIcon,
+      link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=bicycling`,
+      linkText: 'Google Maps'
+    },
+    bussing: {
+      text: 'með strætó',
+      icon: busIcon,
+      link: `https://straeto.is`,
+      linkText: 'Strætó.is'
+    }
+  }[type];
+};
+
 class Itinery extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const { duration, distance, type } = this.props;
+    const { duration, distance } = this.props;
 
-    const translate = {
-      walking: 'að labba',
-      driving: 'að keyra',
-      bicycling: 'að hjóla',
-      bus: 'með Strætó',
-    };
+    const { text, icon, link, linkText } = getItineryInfo(this.props);
 
-    const icons = {
-      walkingIcon,
-      drivingIcon,
-      bicyclingIcon,
-      busIcon
-    };
-
-    const icon = icons[`${type}Icon`];
-
-    // TODO: Fix nánar link
     return (
-      <li style={{backgroundImage: `url(${icon})`}} className={duration ? '' : s.faded}>
-        <b>{duration ? Math.round(duration / 60) : '...'} mínútur</b> {translate[type]}.
-        Sjá nánar á {' '}
-        <a href="https://straeto.is" target="_blank">
-          Google Maps
+      <li className={duration ? '' : s.faded}>
+        <div className={s.icon} style={{ backgroundImage: `url(${icon})` }} />
+        <b>{duration ? Math.round(duration / 60) : '...'} mínútur</b>&nbsp;{text}.
+        Sjá nánar á &nbsp;
+        <a href={link} target="_blank">
+          {linkText}
         </a>
       </li>
-    )
+    );
   }
 }
 
@@ -89,15 +98,13 @@ class Kjorskra extends PureComponent {
     driving: {},
     walking: {},
     bicycling: {},
-    bussing: {},
+    bussing: {} //Stupid, but consistency
   };
   constructor(props) {
     super(props);
     this.onInputChange = this.onInputChange.bind(this);
     this.submit = this.submit.bind(this);
     this.submitCurrentAddress = this.submitCurrentAddress.bind(this);
-
-    setTimeout(() => {}, 3000);
   }
   componentWillMount() {
     // if (__DEV__) {
@@ -116,18 +123,21 @@ class Kjorskra extends PureComponent {
     //       sveitafelag: 'Reykjavík',
     //       kjorstadur: 'Árbæjarskóli',
     //       kjordeild: '5'
-    //     },
-    //     currentAddress: { lat: 64.11, lng: -21.79 },
+    //     }
     //   });
     //
-    //   setTimeout(() => {
-    //     this.setState({
-    //       walking: { duration: 1500, distance: 1111 },
-    //       bicycling: { duration: 1000, distance: 1234 },
-    //       driving: { duration: 700, distance: 1357 },
-    //       bussing: { duration: 1200, distance: 1200 },
-    //     });
-    //   }, 3000);
+    //   this.setState({
+    //     currentAddress: { lat: 64.11, lng: -21.79 }
+    //   });
+    //
+    //   // setTimeout(() => {
+    //   this.setState({
+    //     walking: { duration: 1500, distance: 1111 },
+    //     bicycling: { duration: 1000, distance: 1234 },
+    //     driving: { duration: 700, distance: 1357 },
+    //     bussing: { duration: 1200, distance: 1200 }
+    //   });
+    //   // }, 3000);
     // }
   }
   async getDistance({ from, to, mode }) {
@@ -135,8 +145,8 @@ class Kjorskra extends PureComponent {
     return new Promise(resolve => {
       new window.google.maps.DistanceMatrixService().getDistanceMatrix(
         {
-          origins: ['austurbrun 2'],
-          destinations: ['arbaejarskoli'],
+          origins: [from],
+          destinations: [to],
           travelMode: mode //BICYCLING,WALKING,DRIVING
         },
         results => {
@@ -167,7 +177,8 @@ class Kjorskra extends PureComponent {
       );
     });
   }
-  async getBusDistance({ from , to }) {
+  async getBusDistance({ from, to }) {
+    console.log('getBusDistance', from, to);
     const now = new Date();
     const timestamp = `${now.getHours()}:${('0' + now.getMinutes()).substr(
       -2
@@ -175,7 +186,17 @@ class Kjorskra extends PureComponent {
 
     const date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
 
-    const url = `https://otp.straeto.is/otp/routers/default/plan?fromPlace=${from.lat()},${from.lng()}&toPlace=${to.lat()},${to.lng()}&time=${timestamp}&date=${date}&mode=TRANSIT,WALK&arriveBy=false&wheelchair=false&showIntermediateStops=false&numItineraries=1&locale=is`;
+    const url = [
+      'https://otp.straeto.is/otp/routers/default/plan?fromPlace=',
+      `${from.lat()},${from.lng()}`,
+      '&toPlace=',
+      `${to.lat()},${to.lng()}`,
+      '&time=',
+      timestamp,
+      '&date=',
+      date,
+      '&mode=TRANSIT,WALK&arriveBy=false&wheelchair=false&showIntermediateStops=false&numItineraries=1&locale=is'
+    ].join('');
 
     const response = await this.context.fetch(url, {
       headers: {
@@ -184,31 +205,33 @@ class Kjorskra extends PureComponent {
     });
     const data = await response.json();
 
-    console.log('bus from and to:', from, to);
-    console.log('bus response status:', response.status);
-    console.log('bus response data:', data);
+    if (response.status !== 200) {
+      //@TODO handle bus error
+      console.error('Error fetching bus data', response.status, response);
+      return {
+        distance: null,
+        duration: null
+      };
+    }
 
-    // TODO: find the one with the shortest time.
-    const { duration, legs } = data.plan.itineraries[0];
+    let shortestTrip = data.plan.itineraries[0];
+
+    data.plan.itineraries.forEach(itinery => {
+      if (shortestTrip.duration > itinery.duration) shortestTrip = itinery;
+    });
+
+    const { duration, legs } = shortestTrip;
     const distance = legs.reduce((sum, leg) => {
       return sum + leg.distance;
     }, 0);
 
     return {
       distance,
-      duration,
+      duration
     };
   }
   async locationFromAddress(address) {
     if (!process.env.BROWSER) return this.state.mapOptions.center;
-
-    // const distance = await this.getDistance({
-    //   from: 'Austurbrun 2',
-    //   to: 'Arbaejarskoli',
-    //   mode: 'DRIVING'
-    // });
-    //
-    // console.log('what is distance result', distance);
 
     return new Promise(resolve => {
       new window.google.maps.Geocoder().geocode(
@@ -279,14 +302,25 @@ class Kjorskra extends PureComponent {
     }, 400);
   }
   async submitCurrentAddress() {
-    console.log('submit');
     const { data, currentAddressInput, mapOptions } = this.state;
+    let lookupAddress = currentAddressInput;
 
-    const location = await this.locationFromAddress(currentAddressInput || data.logheimili);
+    if (!lookupAddress) {
+      lookupAddress = `${data.logheimili},${data.sveitafelag}`;
+    } else if (
+      lookupAddress.toLowerCase().indexOf(data.sveitafelag.toLowerCase()) === -1
+    ) {
+      lookupAddress += `,${data.sveitafelag}`;
+    }
+    console.log('using lookup address', lookupAddress);
 
+    const location = await this.locationFromAddress(lookupAddress);
     this.setState({
-      currentAddress: location.center,
+      currentAddress: location.center
     });
+
+    console.log('what is location center', location.center.lat);
+    console.log('what is mapOptions center', mapOptions.center.lat);
 
     const position = {
       from: new window.google.maps.LatLng(
@@ -299,44 +333,46 @@ class Kjorskra extends PureComponent {
       )
     };
 
-    const walkingPromise = this.getDistance({
+    //Look up all the itineries and emit them asynchronous
+    this.getDistance({
       ...position,
       mode: 'WALKING'
-    });
+    }).then(data => this.setState({ walking: data }));
 
-    const bicyclingPromise = this.getDistance({
+    this.getDistance({
       ...position,
       mode: 'BICYCLING'
-    });
+    }).then(data => this.setState({ bicycling: data }));
 
-    const drivingPromise = this.getDistance({
+    this.getDistance({
       ...position,
       mode: 'DRIVING'
+    }).then(data => this.setState({ driving: data }));
+
+    this.getBusDistance({
+      ...position
+    }).then(data => this.setState({ bussing: data }));
+  }
+  getItineriesByDistance({ from, to, types }) {
+    let itineries = [
+      'walking',
+      'bicycling',
+      'driving',
+      'bussing'
+    ].map(type => ({
+      type,
+      data: types[type],
+      from,
+      to
+    }));
+
+    itineries.sort((a, b) => {
+      if (a.data.duration > b.data.duration) return 1;
+      if (a.data.duration < b.data.duration) return -1;
+      return 0;
     });
 
-    const busPromise = this.getBusDistance({
-      ...position,
-    });
-
-    const [walking, bicycling, driving, bussing] = await Promise.all([
-      walkingPromise,
-      bicyclingPromise,
-      drivingPromise,
-      busPromise,
-    ]);
-
-    console.log('what is location', location);
-    console.log('what is walking', walking);
-    console.log('what is bicycling', bicycling);
-    console.log('what is driving', driving);
-    console.log('what is bussing', bussing);
-
-    this.setState({
-      driving: driving,
-      walking: walking,
-      bicycling: bicycling,
-      bussing: bussing,
-    });
+    return itineries;
   }
   render() {
     const {
@@ -349,7 +385,7 @@ class Kjorskra extends PureComponent {
       walking,
       driving,
       bicycling,
-      bussing,
+      bussing
     } = this.state;
 
     return (
@@ -370,22 +406,22 @@ class Kjorskra extends PureComponent {
         )}
         {data && (
           <div className={s.results}>
-            <div>
+            <div className={s.leftResults}>
               <p>
-                Hæ {data.nafn}.<br />
-                <b>Kjörstaðurinn</b> þinn er:
+                Hæ {data.nafn.split(' ')[0]}, <b>kjörstaðurinn</b> þinn er:
               </p>
               <p className={s.kjorstadur}>
                 {data.kjorstadur}, {data.sveitafelag}
               </p>
               <p>
-                Þú ert í <b>kjördeild</b>{' '}
-                <i>{data.kjordeild}</i> og þú greiðir
+                Þú ert í <b>kjördeild</b> <i>{data.kjordeild}</i> og þú greiðir
                 atkvæði í <b>kjördæminu</b> <i>{data.kjordaemi}</i>.
               </p>
               {!currentAddress && (
-                <div>
-                  <h3>Nú þurfum við bara að koma þér á kjörstað! Hvar ert þú núna?</h3>
+                <div className={s.currentAddressBox}>
+                  <h3>
+                    Nú þurfum við bara að koma þér á kjörstað! Hvar ert þú núna?
+                  </h3>
                   <div className={s.currentAddressContainer}>
                     <input
                       value={currentAddressInput}
@@ -405,13 +441,26 @@ class Kjorskra extends PureComponent {
                 </div>
               )}
               {currentAddress && (
-                <div>
-                  <h2>Koma ser a kjorstad:</h2>
+                <div className={s.itineriesBox}>
+                  <h3>Komdu þér á kjörstað:</h3>
                   <ul className={s.itineries}>
-                    <Itinery type="walking" {...walking} />
-                    <Itinery type="bicycling" {...bicycling} />
-                    <Itinery type="driving" {...driving} />
-                    <Itinery type="bus" {...bussing} />
+                    {this.getItineriesByDistance({
+                      from: currentAddress,
+                      to: mapOptions.center,
+                      types: {
+                        walking,
+                        bicycling,
+                        driving,
+                        bussing
+                      }
+                    }).map(itinery => (
+                      <Itinery
+                        {...itinery.data}
+                        type={itinery.type}
+                        from={itinery.from}
+                        to={itinery.to}
+                      />
+                    ))}
                   </ul>
                 </div>
               )}
@@ -424,7 +473,7 @@ class Kjorskra extends PureComponent {
                 <Map
                   googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDJ6iS5zhPH3xJQM6WPlx5YvgHSvgA3Ceo&libraries=geometry,drawing,places"
                   loadingElement={<div style={{ height: `100%` }} />}
-                  containerElement={<div style={{ height: `400px` }} />}
+                  containerElement={<div style={{ height: `100%` }} />}
                   mapElement={<div style={{ height: '100%', width: '100%' }} />}
                   mapOptions={mapOptions}
                   kjorstadur={data.kjorstadur}
