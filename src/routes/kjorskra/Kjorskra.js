@@ -442,6 +442,7 @@ class Kjorskra extends PureComponent {
               {!nidurstada && (<h1>Flettu upp hvar þinn kjörstaður er staðsettur</h1>)}
               <div className={s.lookupWrap}>
                 <input
+                  autoFocus
                   value={kennitala}
                   type="text"
                   placeholder="Settu inn kennitöluna þína"
@@ -474,6 +475,7 @@ class Kjorskra extends PureComponent {
                   </h3>
                   <div className={s.currentAddressContainer}>
                     <input
+                      autoFocus
                       value={currentAddressInput}
                       type="text"
                       placeholder={data.logheimili}
