@@ -11,7 +11,8 @@ const answerMap = {
   2: 'Frekar ósammála',
   3: 'Hlutlaus',
   4: 'Frekar sammála',
-  5: 'Mjög sammála'
+  5: 'Mjög sammála',
+  6: 'Vil ekki svara'
 };
 const areYouSure =
   'Ertu viss um að þú viljir yfirgefa síðuna núna? Öll svörin munu týnast.';
