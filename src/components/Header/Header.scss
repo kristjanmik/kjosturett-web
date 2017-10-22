@@ -95,14 +95,17 @@
 .links {
   a {
     display: inline-block;
+    background-image: linear-gradient(0deg, #555, #555);
+    background-position: 0 calc(2em + 4px);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
     color: inherit;
     margin-left: 1.5em;
     padding: 1em 0;
     transition: background-size 250ms, background-position 250ms;
     text-decoration: none;
     text-shadow: 1px 1px #fff, -1px 1px #fff, 0 -1px #fff;
-    font-weight: 800;
-    color: $color-dark;
+
     @media (max-width: 510px) {
       font-size: 0.9em;
       margin-left: 0.7em;
@@ -111,7 +114,9 @@
   }
 
   a:not(.active) {
-    color: $color-primary;
+    background-size: 0 1px;
+    background-position-x: 50%;
+    opacity: 0.5;
   }
 
   a.active {

@@ -10,10 +10,7 @@ import busIcon from './bus.png';
 import busData from './bus.json';
 import history from '../../history';
 
-import {
-  clean as cleanKennitala,
-  isPerson
-} from 'kennitala';
+import { clean as cleanKennitala, isPerson } from 'kennitala';
 
 import {
   withScriptjs,
@@ -23,20 +20,19 @@ import {
   InfoWindow
 } from 'react-google-maps';
 
-const Map =
-  withGoogleMap(({ mapOptions, kjorstadur }) => {
-    return (
-      <GoogleMap defaultZoom={mapOptions.zoom} center={mapOptions.center}>
-        <Marker position={mapOptions.center}>
-          <InfoWindow>
-            <div>
-              Kjörstaðurinn þinn er <b>{kjorstadur}</b>
-            </div>
-          </InfoWindow>
-        </Marker>
-      </GoogleMap>
-    );
-  });
+const Map = withGoogleMap(({ mapOptions, kjorstadur }) => {
+  return (
+    <GoogleMap defaultZoom={mapOptions.zoom} center={mapOptions.center}>
+      <Marker position={mapOptions.center}>
+        <InfoWindow>
+          <div>
+            Kjörstaðurinn þinn er <b>{kjorstadur}</b>
+          </div>
+        </InfoWindow>
+      </Marker>
+    </GoogleMap>
+  );
+});
 
 const getItineryInfo = ({ duration, distance, type, from, to }) => {
   return {
@@ -280,7 +276,7 @@ class Kjorskra extends PureComponent {
 
     this.setState({
       isFetching: true,
-      fetchError: '',
+      fetchError: ''
     });
 
     let data;
@@ -299,7 +295,7 @@ class Kjorskra extends PureComponent {
 
       const newState = {
         isFetching: false,
-        fetchError: 'Villa kom upp!',
+        fetchError: 'Villa kom upp!'
       };
 
       if (e.success === false && e.message === 'Kennitala not found') {
@@ -347,18 +343,18 @@ class Kjorskra extends PureComponent {
 
     this.setState({
       isFetching: true,
-      fetchError: '',
+      fetchError: ''
     });
 
     const location = await this.locationFromAddress(lookupAddress);
 
     this.setState({
-      isFetching: false,
+      isFetching: false
     });
 
     if (location.invalidLocation) {
       this.setState({
-        fetchError: 'Heimilisfang fannst ekki!',
+        fetchError: 'Heimilisfang fannst ekki!'
       });
       return;
     }
@@ -441,21 +437,22 @@ class Kjorskra extends PureComponent {
 
     return (
       <div className={s.root}>
-        <div className={`${s.background} ${data ? s.backgroundgone : null}`}></div>
+        <div className={`${s.background} ${data ? s.backgroundgone : null}`} />
         {!data && (
           <div>
             <div className={s.lookupContainer}>
               {nidurstada &&
-              process.env.BROWSER && (
-                <div>
-                <h1>
-                  <b>{nidurstada.fornafn}</b> er í kjördæminu <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er <b>{nidurstada.kjorstadur}</b>.
-                  <br/>
-                  Finnum út úr því hvar þú átt að kjósa!
-                </h1>
-                </div>
-              )}
-              {!nidurstada && (<h1>Flettu upp hvar þinn kjörstaður er staðsettur</h1>)}
+                process.env.BROWSER && (
+                  <div>
+                    <h2>
+                      <b>{nidurstada.fornafn}</b> er í kjördæminu{' '}
+                      <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er{' '}
+                      <b>{nidurstada.kjorstadur}</b>.
+                    </h2>
+                    <h3>Finnum út úr því hvar þú átt að kjósa!</h3>
+                  </div>
+                )}
+              {!nidurstada && <h3>Finnum út úr því hvar þú átt að kjósa!</h3>}
               <div className={s.lookupWrap}>
                 <input
                   autoFocus
@@ -464,9 +461,17 @@ class Kjorskra extends PureComponent {
                   placeholder="Settu inn kennitöluna þína"
                   className={s.input}
                   onChange={e => this.onInputChange('kennitala', e)}
-                  onKeyUp={(e) => { e.keyCode === 13 && this.submit() }}
+                  onKeyUp={e => {
+                    e.keyCode === 13 && this.submit();
+                  }}
                 />
-                <input onClick={this.submit} type="button" disabled={!this.isKennitalaValid(kennitala)} className={s.submitwhite} value="Leita" />
+                <input
+                  onClick={this.submit}
+                  type="button"
+                  disabled={!this.isKennitalaValid(kennitala)}
+                  className={s.submitwhite}
+                  value="Leita"
+                />
               </div>
             </div>
           </div>
@@ -496,8 +501,11 @@ class Kjorskra extends PureComponent {
                       type="text"
                       placeholder={data.logheimili}
                       className={s.input}
-                      onChange={e => this.onInputChange('currentAddressInput', e)}
-                      onKeyUp={(e) => { e.keyCode === 13 && this.submitCurrentAddress() }}
+                      onChange={e =>
+                        this.onInputChange('currentAddressInput', e)}
+                      onKeyUp={e => {
+                        e.keyCode === 13 && this.submitCurrentAddress();
+                      }}
                     />
                     <div
                       onClick={this.submitCurrentAddress}
@@ -548,14 +556,18 @@ class Kjorskra extends PureComponent {
             )}
           </div>
         )}
-        <div className={s.disclaimer}>
-          {isFetching && <div className={`${s.errormsg} ${s.fetching}`}>Næ í gögn</div>}
-          {fetchError && <div className={`${s.errormsg} ${s.fetchError}`}>{fetchError}</div>}
+        {/* <div className={s.disclaimer}>
+          {isFetching && (
+            <div className={`${s.errormsg} ${s.fetching}`}>Næ í gögn</div>
+          )}
+          {fetchError && (
+            <div className={`${s.errormsg} ${s.fetchError}`}>{fetchError}</div>
+          )}
           <p>Uppflettingar eru gerðar í Kjörskrá. Gögn eru ekki geymd.</p>
-        </div>
+        </div> */}
       </div>
     );
   }
 }
 
-export default withScriptjs(withStyles(s)(Kjorskra))
+export default withScriptjs(withStyles(s)(Kjorskra));
