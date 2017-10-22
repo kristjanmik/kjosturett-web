@@ -12,6 +12,7 @@
 
 .lookupContainer {
   h1 {
+    font-weight: 300;
     text-align: center;
     margin-bottom: 1rem;
     margin-top: 4rem;
@@ -145,18 +146,11 @@
   -webkit-transition:all 0.5s ease-in-out;
   -o-transition:all 0.5s ease-in-out;
   -ms-transition:all 0.5s ease-in-out;
-  transition:all 0.5s ease-in-out; 
+  transition:all 0.5s ease-in-out;
   -moz-animation:blink normal 1.5s infinite ease-in-out; /* Firefox */
   -webkit-animation:blink normal 1.5s infinite ease-in-out; /* Webkit */
   -ms-animation:blink normal 1.5s infinite ease-in-out; /* IE */
   animation:blink normal 1.5s infinite ease-in-out; /* Opera */
-}
-
-.findout {
-  text-align: center;
-  color: #FFF;
-  font-weight: 800;
-  margin-bottom: 2rem;
 }
 
 .errormsg {

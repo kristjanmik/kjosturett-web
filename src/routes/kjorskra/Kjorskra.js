@@ -444,16 +444,15 @@ class Kjorskra extends PureComponent {
         <div className={`${s.background} ${data ? s.backgroundgone : null}`}></div>
         {!data && (
           <div>
-            
             <div className={s.lookupContainer}>
-
               {nidurstada &&
               process.env.BROWSER && (
                 <div>
                 <h1>
-                  {`${nidurstada.fornafn} er í kjördæminu ${nidurstada.kjordaemi} og kjörstaðurinn er ${nidurstada.kjorstadur}.`}
+                  <b>{nidurstada.fornafn}</b> er í kjördæminu <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er <b>{nidurstada.kjorstadur}</b>.
+                  <br/>
+                  Finnum út úr því hvar þú átt að kjósa!
                 </h1>
-                <p className={s.findout}>Finnum út úr því hvar þú átt að kjósa!</p>
                 </div>
               )}
               {!nidurstada && (<h1>Flettu upp hvar þinn kjörstaður er staðsettur</h1>)}
@@ -549,7 +548,6 @@ class Kjorskra extends PureComponent {
             )}
           </div>
         )}
-    
         <div className={s.disclaimer}>
           {isFetching && <div className={`${s.errormsg} ${s.fetching}`}>Næ í gögn</div>}
           {fetchError && <div className={`${s.errormsg} ${s.fetchError}`}>{fetchError}</div>}
