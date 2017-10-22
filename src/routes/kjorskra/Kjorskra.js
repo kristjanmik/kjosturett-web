@@ -275,13 +275,23 @@ class Kjorskra extends PureComponent {
         `https://kjorskra.kjosturett.is/leita/${kennitala}`
       );
       data = await response.json();
+
+      if (!data.success) {
+        throw data;
+      }
     } catch (e) {
-      //@TODO handle
       console.error(e);
 
-      this.setState({
-        isFetching: false
-      });
+      const newState = {
+        isFetching: false,
+        fetchError: 'Villa kom upp!',
+      };
+
+      if (e.success === false && e.message === 'Kennitala not found') {
+        newState.fetchError = 'Kennitala fannst ekki!';
+      }
+
+      this.setState(newState);
       return;
     }
 
@@ -381,6 +391,7 @@ class Kjorskra extends PureComponent {
       kennitala,
       data,
       isFetching,
+      fetchError,
       mapOptions,
       currentAddress,
       currentAddressInput,
@@ -492,6 +503,7 @@ class Kjorskra extends PureComponent {
           </div>
         )}
         {isFetching && <div>Næ í gögn</div>}
+        {fetchError && <div style={{ color: 'red' }}>{fetchError}</div>}
 
         <p className={s.disclaimer}>
           Uppflettingar eru gerðar í Kjörskrá. Gögn eru ekki geymd.
