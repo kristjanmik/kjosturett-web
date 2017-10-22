@@ -474,7 +474,8 @@ class Kjorskra extends PureComponent {
                 <input
                   autoFocus
                   value={kennitala}
-                  type="text"
+                  type="number"
+                  pattern="[\d]*"
                   placeholder="Sláðu inn kennitöluna þína"
                   className={s.input}
                   onChange={e => this.onInputChange('kennitala', e)}
