@@ -6,6 +6,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './KosningaProf.scss';
 
+const storageKey = 'prof:answers';
 const answerMap = {
   1: 'Mjög ósammála',
   2: 'Frekar ósammála',
@@ -17,6 +18,13 @@ const answerMap = {
 const areYouSure =
   'Ertu viss um að þú viljir yfirgefa síðuna núna? Öll svörin munu týnast.';
 const defaultAnswer = '3';
+
+const initialAnswers = questions =>
+  questions.reduce((all, { id }) => {
+    // eslint-disable-next-line
+    all[id] = defaultAnswer;
+    return all;
+  }, {})
 
 class Kosningaprof extends PureComponent {
   static contextTypes = {
@@ -34,11 +42,8 @@ class Kosningaprof extends PureComponent {
     started: false,
     token: null,
     finished: false,
-    answers: this.props.questions.reduce((all, { id }) => {
-      // eslint-disable-next-line
-      all[id] = defaultAnswer;
-      return all;
-    }, {})
+    showReset: false,
+    answers: initialAnswers(this.props.questions),
   };
   constructor(props) {
     super(props);
@@ -49,27 +54,36 @@ class Kosningaprof extends PureComponent {
     if (!token) {
       window.location = '/';
     }
-    // eslint-disable-next-line
-    this.setState({ token });
+
+    let answers = this.state.answers;
+    let showReset = false;
+    try {
+      answers = JSON.parse(localStorage.getItem(storageKey));
+      showReset = true;
+    } catch (error) {}
+
+    this.setState({
+      showReset,
+      answers,
+      token,
+    });
   }
-  componentWillUnmount() {
-    window.onbeforeunload = null;
+  onReset = () => {
+    this.setState({
+      answers: initialAnswers(this.props.questions),
+      showReset: false,
+    });
   }
   onChange = id => ({ target }) => {
     this.setState(({ answers, started }) => {
-      if (!started) {
-        window.onbeforeunload = event => {
-          // eslint-disable-next-line
-          event.returnValue = areYouSure;
-          return areYouSure;
-        };
-      }
+      const newAnswers = {
+        ...answers,
+        [id]: target.value,
+      };
+      localStorage.setItem(storageKey, JSON.stringify(newAnswers));
       return {
         started: true,
-        answers: {
-          ...answers,
-          [id]: target.value
-        }
+        answers: newAnswers,
       };
     });
   };
@@ -86,17 +100,20 @@ class Kosningaprof extends PureComponent {
       body: JSON.stringify({
         token,
         reply: encodeAnswersToken(Object.keys(answers).map(x => answers[x]))
-      })
+      }),
     });
 
     this.setState({ finished: true });
   }
   render() {
     const { questions } = this.props;
-    const { answers, started, finished } = this.state;
+    const { answers, showReset, started, finished } = this.state;
     return (
       <div className={s.root}>
         {finished && <h3>Takk fyrir þátttökuna!</h3>}
+        {!finished && showReset &&
+          <button className={s.reset} onClick={this.onReset}>Frumstilla svör</button>
+        }
         {!finished &&
           questions.map(({ question, id }) => (
             <div key={id} className={s.question}>
