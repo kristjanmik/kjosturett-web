@@ -15,7 +15,9 @@ npm start
 ```
 
 ## Why do we build the data?
-We have some relations in the dataset that have to be hooked. This complicates the process but gives us the huge benefit of having all the data here in the repo, easily readable and flat. All data lives in the data folder. To build the data run ./build.sh inside that folder(node v8 required). All the output goes to /data/build folder. **Some data needs to be built seperately.** We state this where needed.
+We have some relations in the dataset that have to be hooked. This complicates the process but gives us the huge benefit of having all the data here in the repo, easily readable and flat. All data lives in the data folder. To build the data run ./build.sh inside that folder(**nodejs v8 required**). All the output goes to /data/build folder. **Some data needs to be built seperately.** We state this where needed.
+
+Having trouble building the data? Check out the data/build-dump folder for archives. You can unzip the most recent folder into data/build and the project should run just fine
 
 ## How does the reply string work?
 When a person answers all the questions we generate a numerical sequence. Each number represent one question. You can think of this zero to one scale as 0 being extremely against(mjög á móti) and 1 being (mjög sammála). 0.5 is a neautral response.This is the format of each number in the sequence.
