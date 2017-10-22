@@ -406,7 +406,7 @@ class Kjorskra extends PureComponent {
             {nidurstada &&
               process.env.BROWSER && (
                 <p>
-                  {`${nidurstada.fornafn} er í kjördæminu ${nidurstada.kjordaemi} og kjörstaður er ${nidurstada.kjorstadur}. Finnum út úr því hvar þú átt að kjósa!`}
+                  {`${nidurstada.fornafn} er í kjördæminu ${nidurstada.kjordaemi} og kjörstaðurinn er ${nidurstada.kjorstadur}. Finnum út úr því hvar þú átt að kjósa!`}
                 </p>
               )}
             <div className={s.lookupContainer}>
