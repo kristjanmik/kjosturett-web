@@ -8,6 +8,7 @@
   @include between-property('padding-bottom', 44px, 0, 1200px, 0);
   @include between-property('padding-top', 32px, 0, 1200px, 500px);
   @include between-property('font-size', 17px, 13px, 1200px, 500px);
+
   h2,
   h3,
   h4 {

@@ -9,10 +9,6 @@
     margin-bottom: 1em;
   }
 
-  input {
-    margin-right: 15px;
-  }
-
   button {
     background: #353535;
     color: #fff;
@@ -24,5 +20,40 @@
 }
 
 .question + .question {
-  padding-top: 4rem;
+  margin-top: 4rem;
+}
+
+.question {
+  position: relative;
+
+  img {
+    height: auto;
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  label {
+    background-color: rgb(240, 240, 240);
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 1em 1.5em;
+    padding-left: 3em;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  input:checked + label {
+    background: #333;
+    color: #fff;
+  }
 }
