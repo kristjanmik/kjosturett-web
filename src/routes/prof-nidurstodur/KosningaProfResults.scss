@@ -1,13 +1,22 @@
+@import '../../components/functions.scss';
 @import '../../components/variables.scss';
 
 .root {
   max-width: 768px;
-  margin: 3rem auto 4rem;
+  margin: 0 auto;
 
+  @include between-property('padding-bottom', 44px, 0, 1200px, 0);
+  @include between-property('padding-top', 32px, 0, 1200px, 500px);
+  @include between-property('font-size', 17px, 13px, 1200px, 500px);
   h2,
   h3,
   h4 {
     font-family: 'Lora', serif;
+    line-height: 1.2;
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
   }
 
   h3 {
@@ -30,6 +39,7 @@
 }
 
 .party {
+  align-items: center;
   color: inherit;
   display: flex;
   margin-bottom: 0.3em;
