@@ -6,6 +6,10 @@ export function getAssetUrl(...assets: Array<string>) {
   return `${URL}/${assets.join('/')}.png`;
 }
 
+export function candidateImage(slug) {
+  return `https://kjosturett-is.imgix.net/${slug}.jpg?fit=facearea&facepad=2.0&w=300&h=300&sat=-100`;
+}
+
 export function pleasantUrl(url: string) {
   return url.replace(/^(https?:)?\/\/(www\.)?/i, '').replace(/\/$/, '');
 }

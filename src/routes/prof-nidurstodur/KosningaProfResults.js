@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './KosningaProfResults.scss';
 import Link from '../../Link';
-import { getAssetUrl } from '../../utils';
+import { getAssetUrl, candidateImage } from '../../utils';
 
 class KosningaprofResults extends PureComponent {
   render() {
@@ -45,7 +45,10 @@ class KosningaprofResults extends PureComponent {
             const percent = 100 * (1 - index / 23);
             return (
               <div key={candidate.nafn} className={s.candidate}>
-                <img className={s.candidateImg} src="/kristjan.jpg" />
+                <img
+                  className={s.candidateImg}
+                  src={candidateImage(candidate.slug)}
+                />
                 <div className={s.candidateProgressBar}>
                   <div
                     className={s.candidateProgress}
