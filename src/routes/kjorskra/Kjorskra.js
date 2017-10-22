@@ -427,6 +427,7 @@ class Kjorskra extends PureComponent {
 
     return (
       <div className={s.root}>
+        <div className={`${s.background} ${data ? s.backgroundgone : null}`}></div>
         {!data && (
           <div>
             {nidurstada &&
@@ -436,15 +437,18 @@ class Kjorskra extends PureComponent {
                 </p>
               )}
             <div className={s.lookupContainer}>
-              <input
-                value={kennitala}
-                type="text"
-                placeholder="Settu inn kennitöluna þína"
-                className={s.input}
-                onChange={e => this.onInputChange('kennitala', e)}
-              />
-              <div onClick={this.submit} className={this.isKennitalaValid(kennitala) ? s.submit : ''}>
-                Fletta upp
+
+              <h1>Flettu upp hvar þinn kjörstaður er staðsettur</h1>
+              <div className={s.lookupWrap}>
+                <input
+                  value={kennitala}
+                  type="text"
+                  placeholder="Settu inn kennitöluna þína"
+                  className={s.input}
+                  onChange={e => this.onInputChange('kennitala', e)}
+                />
+                <input onClick={this.submit} disabled={!this.isKennitalaValid(kennitala)} className={s.submitwhite} value="Leita" />
+
               </div>
             </div>
           </div>
@@ -527,12 +531,12 @@ class Kjorskra extends PureComponent {
             )}
           </div>
         )}
-        {isFetching && <div>Næ í gögn</div>}
-        {fetchError && <div style={{ color: 'red' }}>{fetchError}</div>}
-
-        <p className={s.disclaimer}>
-          Uppflettingar eru gerðar í Kjörskrá. Gögn eru ekki geymd.
-        </p>
+    
+        <div className={s.disclaimer}>
+          {isFetching && <div className={`${s.errormsg} ${s.fetching}`}>Næ í gögn</div>}
+          {fetchError && <div className={`${s.errormsg} ${s.fetchError}`}>{fetchError}</div>}
+          <p>Uppflettingar eru gerðar í Kjörskrá. Gögn eru ekki geymd.</p>
+        </div>
       </div>
     );
   }

@@ -42,7 +42,7 @@ export default ({ params }) => {
     description:
       'Veist ekki HVAR þú átt að kjósa? Flettu upp þínum kjörstað með einföldu uppflettingartóli. Við finnum einnig út bestu leiðina fyrir þig til að komast á kjörstað!',
     component: (
-      <Layout page="kjorskra" title="Hvar á ég að Kjósa?">
+      <Layout page="kjorskra" title="Hvar á ég að Kjósa?" >
         <Kjorskra nidurstada={nidurstadaObj} />
       </Layout>
     )
