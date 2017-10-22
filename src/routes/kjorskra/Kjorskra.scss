@@ -57,6 +57,13 @@
   color: #808080;
   box-sizing: border-box;
   padding: 0 1rem;
+  -moz-appearance:textfield;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .submit {
