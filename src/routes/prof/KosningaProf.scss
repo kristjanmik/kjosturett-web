@@ -1,0 +1,28 @@
+@import '../../components/variables.scss';
+
+.root {
+  max-width: 500px;
+  margin: 3rem auto 4rem;
+
+  h3 {
+    font-family: 'Lora', serif;
+    margin-bottom: 1em;
+  }
+
+  input {
+    margin-right: 15px;
+  }
+
+  button {
+    background: #353535;
+    color: #fff;
+    border: none;
+    appearance: none;
+    padding: 1em 1.4em;
+    margin-top: 3rem;
+  }
+}
+
+.question + .question {
+  padding-top: 4rem;
+}

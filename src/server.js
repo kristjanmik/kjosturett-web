@@ -1,4 +1,5 @@
 import path from 'path';
+import { appendFile } from 'fs';
 import express from 'express';
 import bodyParser from 'body-parser';
 import nodeFetch from 'node-fetch';
@@ -49,6 +50,27 @@ app.get('/hakk', hackRoute);
 app.get('/hack', hackRoute);
 app.get('/hackaton', hackRoute);
 app.get('/hackathon', hackRoute);
+
+//This is an append only file
+const repliesPath = path.resolve(__dirname, '../../replies.log');
+
+app.post('/konnun/replies', (req, res) => {
+  const { token, reply } = req.body;
+
+  const obj = {
+    token,
+    reply,
+    timestamp: Math.round(Date.now() / 1000)
+  };
+
+  appendFile(repliesPath, `${JSON.stringify(obj)}\n`, error => {
+    if (error) return next(error);
+
+    res.json({
+      success: true
+    });
+  });
+});
 
 //
 // Register server-side rendering middleware
