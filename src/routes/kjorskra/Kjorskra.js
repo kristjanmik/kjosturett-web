@@ -345,7 +345,24 @@ class Kjorskra extends PureComponent {
     }
     console.log('using lookup address', lookupAddress);
 
+    this.setState({
+      isFetching: true,
+      fetchError: '',
+    });
+
     const location = await this.locationFromAddress(lookupAddress);
+
+    this.setState({
+      isFetching: false,
+    });
+
+    if (location.invalidLocation) {
+      this.setState({
+        fetchError: 'Heimilisfang fannst ekki!',
+      });
+      return;
+    }
+
     this.setState({
       currentAddress: location.center
     });
