@@ -35,7 +35,7 @@ class KosningaprofResults extends PureComponent {
         <h3>Frambjóðendur með svipaðr skoðanir og ég</h3>
         <div className={s.candidates}>
           {candidates.slice(0, 12).map((candidate, index) => (
-            <div className={s.candidate}>
+            <div key={candidate.nafn} className={s.candidate}>
               <img className={s.candidateImg} src="notfound.jpg" />
               <div className={s.candidateInfo}>
                 <div className={s.candidateName}>{candidate.nafn}</div>
