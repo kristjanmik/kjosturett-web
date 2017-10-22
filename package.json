@@ -6,12 +6,7 @@
     "node": ">=6.5",
     "npm": ">=3.10"
   },
-  "browserslist": [
-    ">1%",
-    "last 4 versions",
-    "Firefox ESR",
-    "not ie < 9"
-  ],
+  "browserslist": [">1%", "last 4 versions", "Firefox ESR", "not ie < 9"],
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "bluebird": "^3.5.0",
@@ -35,6 +30,7 @@
     "react-collapse": "^4.0.3",
     "react-countdown-now": "^1.2.0",
     "react-dom": "^15.5.4",
+    "react-google-maps": "^9.0.1",
     "react-loading": "^0.1.4",
     "react-motion": "^0.5.1",
     "react-redux": "^5.0.5",
@@ -148,9 +144,7 @@
     ],
     "env": {
       "test": {
-        "plugins": [
-          "rewire"
-        ]
+        "plugins": ["rewire"]
       }
     },
     "ignore": [
