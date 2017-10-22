@@ -11,6 +11,11 @@ import busData from './bus.json';
 import history from '../../history';
 
 import {
+  clean as cleanKennitala,
+  isPerson
+} from 'kennitala';
+
+import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
@@ -18,7 +23,7 @@ import {
   InfoWindow
 } from 'react-google-maps';
 
-const Map = withScriptjs(
+const Map =
   withGoogleMap(({ mapOptions, kjorstadur }) => {
     return (
       <GoogleMap defaultZoom={mapOptions.zoom} center={mapOptions.center}>
@@ -31,8 +36,7 @@ const Map = withScriptjs(
         </Marker>
       </GoogleMap>
     );
-  })
-);
+  });
 
 const getItineryInfo = ({ duration, distance, type, from, to }) => {
   return {
@@ -90,6 +94,7 @@ class Kjorskra extends PureComponent {
     kennitala: '',
     data: null,
     isFetching: false,
+    fetchError: '',
     mapOptions: {
       zoom: 13,
       center: { lat: 65.7, lng: -19.6 }
@@ -140,6 +145,9 @@ class Kjorskra extends PureComponent {
     //   });
     //   // }, 3000);
     // }
+  }
+  isKennitalaValid() {
+    return isPerson(this.state.kennitala);
   }
   async getDistance({ from, to, mode }) {
     if (!process.env.BROWSER) return { distance: null, duration: null };
@@ -265,24 +273,40 @@ class Kjorskra extends PureComponent {
     console.log('doing submit');
     const { kennitala } = this.state;
 
+    if (!this.isKennitalaValid(kennitala)) {
+      console.log('Not a valid kennitala');
+      return;
+    }
+
     this.setState({
-      isFetching: true
+      isFetching: true,
+      fetchError: '',
     });
 
     let data;
 
     try {
       const response = await this.context.fetch(
-        `https://kjorskra.kjosturett.is/leita/${kennitala}`
+        `https://kjorskra.kjosturett.is/leita/${cleanKennitala(kennitala)}`
       );
       data = await response.json();
+
+      if (!data.success) {
+        throw data;
+      }
     } catch (e) {
-      //@TODO handle
       console.error(e);
 
-      this.setState({
-        isFetching: false
-      });
+      const newState = {
+        isFetching: false,
+        fetchError: 'Villa kom upp!',
+      };
+
+      if (e.success === false && e.message === 'Kennitala not found') {
+        newState.fetchError = 'Kennitala fannst ekki!';
+      }
+
+      this.setState(newState);
       return;
     }
 
@@ -291,16 +315,14 @@ class Kjorskra extends PureComponent {
       data
     });
 
-    setTimeout(async () => {
-      const options = await this.locationFromAddress(data.kjorstadur);
+    const options = await this.locationFromAddress(data.kjorstadur);
 
-      this.setState({
-        mapOptions: {
-          zoom: 13,
-          ...options
-        }
-      });
-    }, 400);
+    this.setState({
+      mapOptions: {
+        zoom: 13,
+        ...options
+      }
+    });
 
     const { nafn, kjorstadur, kjordeild, kjordaemi } = data;
 
@@ -323,7 +345,24 @@ class Kjorskra extends PureComponent {
     }
     console.log('using lookup address', lookupAddress);
 
+    this.setState({
+      isFetching: true,
+      fetchError: '',
+    });
+
     const location = await this.locationFromAddress(lookupAddress);
+
+    this.setState({
+      isFetching: false,
+    });
+
+    if (location.invalidLocation) {
+      this.setState({
+        fetchError: 'Heimilisfang fannst ekki!',
+      });
+      return;
+    }
+
     this.setState({
       currentAddress: location.center
     });
@@ -390,6 +429,7 @@ class Kjorskra extends PureComponent {
       kennitala,
       data,
       isFetching,
+      fetchError,
       mapOptions,
       currentAddress,
       currentAddressInput,
@@ -401,24 +441,32 @@ class Kjorskra extends PureComponent {
 
     return (
       <div className={s.root}>
+        <div className={`${s.background} ${data ? s.backgroundgone : null}`}></div>
         {!data && (
           <div>
-            {nidurstada &&
-              process.env.BROWSER && (
-                <p>
-                  {`${nidurstada.fornafn} er í kjördæminu ${nidurstada.kjordaemi} og kjörstaðurinn er ${nidurstada.kjorstadur}. Finnum út úr því hvar þú átt að kjósa!`}
-                </p>
-              )}
             <div className={s.lookupContainer}>
-              <input
-                value={kennitala}
-                type="text"
-                placeholder="Settu inn kennitöluna þína"
-                className={s.input}
-                onChange={e => this.onInputChange('kennitala', e)}
-              />
-              <div onClick={this.submit} className={s.submit}>
-                Fletta upp
+              {nidurstada &&
+              process.env.BROWSER && (
+                <div>
+                <h1>
+                  <b>{nidurstada.fornafn}</b> er í kjördæminu <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er <b>{nidurstada.kjorstadur}</b>.
+                  <br/>
+                  Finnum út úr því hvar þú átt að kjósa!
+                </h1>
+                </div>
+              )}
+              {!nidurstada && (<h1>Flettu upp hvar þinn kjörstaður er staðsettur</h1>)}
+              <div className={s.lookupWrap}>
+                <input
+                  autoFocus
+                  value={kennitala}
+                  type="text"
+                  placeholder="Settu inn kennitöluna þína"
+                  className={s.input}
+                  onChange={e => this.onInputChange('kennitala', e)}
+                  onKeyUp={(e) => { e.keyCode === 13 && this.submit() }}
+                />
+                <input onClick={this.submit} type="button" disabled={!this.isKennitalaValid(kennitala)} className={s.submitwhite} value="Leita" />
               </div>
             </div>
           </div>
@@ -443,12 +491,13 @@ class Kjorskra extends PureComponent {
                   </h3>
                   <div className={s.currentAddressContainer}>
                     <input
+                      autoFocus
                       value={currentAddressInput}
                       type="text"
                       placeholder={data.logheimili}
                       className={s.input}
-                      onChange={e =>
-                        this.onInputChange('currentAddressInput', e)}
+                      onChange={e => this.onInputChange('currentAddressInput', e)}
+                      onKeyUp={(e) => { e.keyCode === 13 && this.submitCurrentAddress() }}
                     />
                     <div
                       onClick={this.submitCurrentAddress}
@@ -490,8 +539,6 @@ class Kjorskra extends PureComponent {
             {!mapOptions.invalidLocation && (
               <div className={s.mapContainer}>
                 <Map
-                  googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDJ6iS5zhPH3xJQM6WPlx5YvgHSvgA3Ceo&libraries=geometry,drawing,places"
-                  loadingElement={<div style={{ height: `100%` }} />}
                   containerElement={<div style={{ height: `100%` }} />}
                   mapElement={<div style={{ height: '100%', width: '100%' }} />}
                   mapOptions={mapOptions}
@@ -501,14 +548,14 @@ class Kjorskra extends PureComponent {
             )}
           </div>
         )}
-        {isFetching && <div>Næ í gögn</div>}
-
-        <p className={s.disclaimer}>
-          Uppflettingar eru gerðar í Kjörskrá. Gögn eru ekki geymd.
-        </p>
+        <div className={s.disclaimer}>
+          {isFetching && <div className={`${s.errormsg} ${s.fetching}`}>Næ í gögn</div>}
+          {fetchError && <div className={`${s.errormsg} ${s.fetchError}`}>{fetchError}</div>}
+          <p>Uppflettingar eru gerðar í Kjörskrá. Gögn eru ekki geymd.</p>
+        </div>
       </div>
     );
   }
 }
 
-export default withStyles(s)(Kjorskra);
+export default withScriptjs(withStyles(s)(Kjorskra))

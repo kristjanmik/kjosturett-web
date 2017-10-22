@@ -26,7 +26,7 @@ html {
 }
 
 .subHeader {
-  background: rgb(230, 231, 233);
+  background: $color-gray;
   margin-bottom: 2em;
 
   @include between-property('padding-bottom', 16px, 5px, 1200px, 0);
