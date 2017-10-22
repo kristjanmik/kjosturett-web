@@ -12,24 +12,20 @@ export default ({ params }) => {
       if (process.env.BROWSER) {
         nidurstada = atob(nidurstada);
       } else {
-        //@TODO fix the server side rendering wrong text cuz lame encoding, need iso-8859-1
-        nidurstada = Buffer.from('nidurstada', 'base64').toString('utf-8');
+        nidurstada = Buffer.from(nidurstada, 'base64').toString('binary');
       }
 
       nidurstada = nidurstada.split('|');
-    } catch (e) {
-      //@TODO polyfil the base64 decoding
-      nidurstada = [];
-    }
 
-    const [fornafn, kjorstadur, kjordeild, kjordaemi] = nidurstada;
+      const [fornafn, kjorstadur, kjordeild, kjordaemi] = nidurstada;
 
-    nidurstadaObj = {
-      fornafn,
-      kjorstadur,
-      kjordeild,
-      kjordaemi
-    };
+      nidurstadaObj = {
+        fornafn,
+        kjorstadur,
+        kjordeild,
+        kjordaemi
+      };
+    } catch (e) {}
   }
 
   const title = nidurstadaObj
