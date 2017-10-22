@@ -10,6 +10,11 @@ import busIcon from './bus.png';
 import busData from './bus.json';
 
 import {
+  clean as cleanKennitala,
+  isPerson
+} from 'kennitala';
+
+import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
@@ -140,6 +145,9 @@ class Kjorskra extends PureComponent {
     //   // }, 3000);
     // }
   }
+  isKennitalaValid() {
+    return isPerson(this.state.kennitala);
+  }
   async getDistance({ from, to, mode }) {
     if (!process.env.BROWSER) return { distance: null, duration: null };
     return new Promise(resolve => {
@@ -264,6 +272,11 @@ class Kjorskra extends PureComponent {
     console.log('doing submit');
     const { kennitala } = this.state;
 
+    if (!this.isKennitalaValid(kennitala)) {
+      console.log('Not a valid kennitala');
+      return;
+    }
+
     this.setState({
       isFetching: true
     });
@@ -272,7 +285,7 @@ class Kjorskra extends PureComponent {
 
     try {
       const response = await this.context.fetch(
-        `https://kjorskra.kjosturett.is/leita/${kennitala}`
+        `https://kjorskra.kjosturett.is/leita/${cleanKennitala(kennitala)}`
       );
       data = await response.json();
 
@@ -418,7 +431,7 @@ class Kjorskra extends PureComponent {
                 className={s.input}
                 onChange={e => this.onInputChange('kennitala', e)}
               />
-              <div onClick={this.submit} className={s.submit}>
+              <div onClick={this.submit} className={this.isKennitalaValid(kennitala) ? s.submit : ''}>
                 Fletta upp
               </div>
             </div>
