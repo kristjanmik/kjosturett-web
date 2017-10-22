@@ -1,4 +1,4 @@
-# We are having a hackathon on the 22nd of October: [https://kjosturett.is/hack](https://kjosturett.is/hack)
+# We are having a hackathon on the 22nd of October: [https://www.facebook.com/events/1493507597370764/](https://www.facebook.com/events/1493507597370764/)
 
 ##Getting started
 
@@ -15,7 +15,9 @@ npm start
 ```
 
 ## Why do we build the data?
-We have some relations in the dataset that have to be hooked. This complicates the process but gives us the huge benefit of having all the data here in the repo, easily readable and flat. All data lives in the data folder. To build the data run ./build.sh inside that folder(node v8 required). All the output goes to /data/build folder. **Some data needs to be built seperately.** We state this where needed.
+We have some relations in the dataset that have to be hooked. This complicates the process but gives us the huge benefit of having all the data here in the repo, easily readable and flat. All data lives in the data folder. To build the data run ./build.sh inside that folder(**nodejs v8 required**). All the output goes to /data/build folder. **Some data needs to be built seperately.** We state this where needed.
+
+Having trouble building the data? Check out the data/build-dump folder for archives. You can unzip the most recent folder into data/build and the project should run just fine
 
 ## How does the reply string work?
 When a person answers all the questions we generate a numerical sequence. Each number represent one question. You can think of this zero to one scale as 0 being extremely against(mjög á móti) and 1 being (mjög sammála). 0.5 is a neautral response.This is the format of each number in the sequence.
@@ -28,6 +30,9 @@ When a person answers all the questions we generate a numerical sequence. Each n
 
 ## Data sources
 We have various data sources. Described below are data sources that are available after the build step, but the raw data is also available in /build
+
+## Thingmenn.is
+[Thingmenn.is](http://thingmenn.is) is a great project where you can see all the discussion by people in Alþingi, ranked by how they vote.
 
 ### Where do I vote?
 You can query the kjorskra endpoint at: https://kjorskra.kjosturett.is/leita/{{VALID-KENNITALA}}. This endpoint can take up to 2-4 seconds to load since we are using a very slow screenscraper. Second request to this endpoint with the same kennitala is cached heavily for 1 month. *If .success is false, the kennitala is most likely invalid*

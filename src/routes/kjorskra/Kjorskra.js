@@ -8,6 +8,7 @@ import drivingIcon from './driving.png';
 import bicyclingIcon from './bicycling.png';
 import busIcon from './bus.png';
 import busData from './bus.json';
+import history from '../../history';
 
 import {
   clean as cleanKennitala,
@@ -323,6 +324,14 @@ class Kjorskra extends PureComponent {
         }
       });
     }, 400);
+
+    const { nafn, kjorstadur, kjordeild, kjordaemi } = data;
+
+    const hash = btoa(
+      `${nafn.split(' ')[0]}|${kjorstadur}|${kjordeild}|${kjordaemi}`
+    );
+
+    history.replace(`/kjorskra/${hash}`);
   }
   async submitCurrentAddress() {
     const { data, currentAddressInput, mapOptions } = this.state;
@@ -418,11 +427,12 @@ class Kjorskra extends PureComponent {
       <div className={s.root}>
         {!data && (
           <div>
-            {nidurstada && (
-              <p>
-                {`${nidurstada.fornafn} er í kjördæminu ${nidurstada.kjordaemi} og kjörstaður er ${nidurstada.kjorstadur}. Finnum út úr því hvar þú átt að kjósa!`}
-              </p>
-            )}
+            {nidurstada &&
+              process.env.BROWSER && (
+                <p>
+                  {`${nidurstada.fornafn} er í kjördæminu ${nidurstada.kjordaemi} og kjörstaðurinn er ${nidurstada.kjorstadur}. Finnum út úr því hvar þú átt að kjósa!`}
+                </p>
+              )}
             <div className={s.lookupContainer}>
               <input
                 value={kennitala}
