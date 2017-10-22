@@ -17,7 +17,7 @@ const routes = {
   children: [
     {
       path: '/',
-      load: () => import(/* webpackChunkName: 'frontpage' */ './frontpage'),
+      load: () => import(/* webpackChunkName: 'frontpage' */ './frontpage')
     },
     {
       path: '/kosningaprof',
@@ -30,26 +30,34 @@ const routes = {
     },
     {
       path: '/malefni',
-      load: () => import(/* webpackChunkName: 'malefni' */ './malefni'),
+      load: () => import(/* webpackChunkName: 'malefni' */ './malefni')
     },
     {
       path: '/verkefnid',
-      load: () => import(/* webpackChunkName: 'about' */ './about'),
+      load: () => import(/* webpackChunkName: 'about' */ './about')
+    },
+    {
+      path: '/kjorskra',
+      load: () => import(/* webpackChunkName: 'kjorskra' */ './kjorskra')
+    },
+    {
+      path: '/kjorskra/:nidurstada',
+      load: () => import(/* webpackChunkName: 'kjorskra' */ './kjorskra')
     },
     {
       path: '/malefni/:malefni',
       load: () =>
-        import(/* webpackChunkName: 'malefnisingle' */ './malefnisingle'),
+        import(/* webpackChunkName: 'malefnisingle' */ './malefnisingle')
     },
     {
       path: '/flokkur/:party',
-      load: () => import(/* webpackChunkName: 'partysingle' */ './partysingle'),
+      load: () => import(/* webpackChunkName: 'partysingle' */ './partysingle')
     },
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     {
       path: '*',
-      load: () => import(/* webpackChunkName: 'not-found' */ './not-found'),
-    },
+      load: () => import(/* webpackChunkName: 'not-found' */ './not-found')
+    }
   ],
 
   async action({ next }) {
@@ -60,9 +68,9 @@ const routes = {
     route.title = route.title || 'Kjóstu rétt'
     route.description = route.description || ''
 
-    return route
-  },
-}
+    return route;
+  }
+};
 
 // The error page is available by permanent url for development mode
 if (__DEV__) {

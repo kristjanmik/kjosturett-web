@@ -43,7 +43,7 @@ app.get('/open-kjosturett-2017-live', (req, res) => {
 });
 
 const hackRoute = (req, res) => {
-  res.redirect('https://www.facebook.com/events/1493507597370764/');
+  res.redirect('https://github.com/kristjanmik/kjosturett-web');
 };
 
 app.get('/hakk', hackRoute);

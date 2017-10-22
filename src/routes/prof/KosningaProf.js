@@ -11,6 +11,13 @@ import checkmark from '../../checkmark.svg'
 const areYouSure =
   'Ertu viss um að þú viljir yfirgefa síðuna núna? Öll svörin munu týnast.'
 
+const initialAnswers = questions =>
+  questions.reduce((all, { id }) => {
+    // eslint-disable-next-line
+    all[id] = defaultAnswer;
+    return all;
+  }, {})
+
 class Kosningaprof extends PureComponent {
   static contextTypes = {
     fetch: PropTypes.func.isRequired,
@@ -25,9 +32,8 @@ class Kosningaprof extends PureComponent {
         id: PropTypes.number.isRequired,
         question: PropTypes.string.isRequired,
       })
-    ).isRequired,
-  }
-
+    ).isRequired
+  };
   constructor(props) {
     super(props)
     this.state = {
@@ -35,7 +41,8 @@ class Kosningaprof extends PureComponent {
       token: null,
       finished: false,
       visible: {},
-      answers: {},
+      showReset: false,
+      answers: initialAnswers(this.props.questions),
     }
 
     this.positions = {}
@@ -45,17 +52,34 @@ class Kosningaprof extends PureComponent {
     this.onSend = this.onSend.bind(this)
   }
   componentDidMount() {
-    const { token } = queryString.parse(window.location.search)
+    const { token } = queryString.parse(window.location.search);
 
-    this.onLayout()
-    this.onScroll()
+    let answers = this.state.answers;
+    let showReset = false;
+    try {
+      answers = JSON.parse(localStorage.getItem(storageKey));
+      showReset = true;
+    } catch (error) {}
 
     window.addEventListener('resize', this.onLayout)
     window.addEventListener('layout', this.onLayout)
     window.addEventListener('scroll', this.onScroll)
 
+    this.onLayout()
+    this.onScroll()
+    
     // eslint-disable-next-line
-    this.setState({ token })
+    this.setState({
+      showReset,
+      answers,
+      token,
+    });
+  }
+  onReset = () => {
+    this.setState({
+      answers: initialAnswers(this.props.questions),
+      showReset: false,
+    });
   }
   componentWillUnmount() {
     window.onbeforeunload = null
@@ -73,16 +97,17 @@ class Kosningaprof extends PureComponent {
           return areYouSure
         }
       }
-
+      const newAnswers = {
+        ...answers,
+        [id]: target.value,
+      };
+      localStorage.setItem(storageKey, JSON.stringify(newAnswers));
       return {
         started: true,
-        answers: {
-          ...answers,
-          [id]: target.value,
-        },
-      }
-    })
-  }
+        answers: newAnswers,
+      };
+    });
+  };
   onLayout() {
     this.questionsEl_.childNodes.forEach(question => {
       const { top } = question.getBoundingClientRect()

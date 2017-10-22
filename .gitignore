@@ -30,3 +30,5 @@ yarn-error.log*
 .DS_Store
 
 *webhooks.txt*
+
+package-lock.json
