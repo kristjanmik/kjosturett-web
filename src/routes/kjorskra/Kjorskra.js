@@ -95,6 +95,7 @@ class Kjorskra extends PureComponent {
     kennitala: '',
     data: null,
     isFetching: false,
+    fetchError: '',
     mapOptions: {
       zoom: 13,
       center: { lat: 65.7, lng: -19.6 }
@@ -279,7 +280,8 @@ class Kjorskra extends PureComponent {
     }
 
     this.setState({
-      isFetching: true
+      isFetching: true,
+      fetchError: '',
     });
 
     let data;
