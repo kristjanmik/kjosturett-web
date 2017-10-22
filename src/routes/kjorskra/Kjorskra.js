@@ -439,6 +439,7 @@ class Kjorskra extends PureComponent {
                 placeholder="Settu inn kennitöluna þína"
                 className={s.input}
                 onChange={e => this.onInputChange('kennitala', e)}
+                onKeyUp={(e) => { e.keyCode === 13 && this.submit() }}
               />
               <div onClick={this.submit} className={this.isKennitalaValid(kennitala) ? s.submit : ''}>
                 Fletta upp
@@ -470,8 +471,8 @@ class Kjorskra extends PureComponent {
                       type="text"
                       placeholder={data.logheimili}
                       className={s.input}
-                      onChange={e =>
-                        this.onInputChange('currentAddressInput', e)}
+                      onChange={e => this.onInputChange('currentAddressInput', e)}
+                      onKeyUp={(e) => { e.keyCode === 13 && this.submitCurrentAddress() }}
                     />
                     <div
                       onClick={this.submitCurrentAddress}
