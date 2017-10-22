@@ -1,0 +1,179 @@
+@import '../../components/functions.scss';
+@import '../../components/variables.scss';
+
+.root {
+  max-width: 768px;
+  margin: 0 auto;
+
+  @include between-property('padding-bottom', 44px, 0, 1200px, 0);
+  @include between-property('padding-top', 32px, 0, 1200px, 500px);
+  @include between-property('font-size', 17px, 13px, 1200px, 500px);
+
+  h2,
+  h3,
+  h4 {
+    font-family: 'Lora', serif;
+    line-height: 1.2;
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
+  h3 {
+    margin-top: 1.4em;
+    margin-bottom: 1em;
+  }
+
+  input {
+    margin-right: 15px;
+  }
+
+  button {
+    background: #353535;
+    color: #fff;
+    border: none;
+    appearance: none;
+    padding: 1em 1.4em;
+    margin-top: 3rem;
+  }
+}
+
+.party {
+  align-items: center;
+  color: inherit;
+  display: flex;
+  margin-bottom: 0.3em;
+  padding-bottom: 0.3em;
+  position: relative;
+  text-decoration: none;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid #fff;
+  }
+}
+
+.partyName {
+  font-weight: 700;
+}
+
+.partyProgress {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  transform-origin: 0 0;
+  position: absolute;
+  bottom: 0;
+  top: -0.3em;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+
+  @for $index from 1 through 12 {
+    .party:nth-of-type(#{$index}) & {
+      opacity: 1 - $index / 12;
+    }
+  }
+}
+
+.partyPercentage {
+  color: #000;
+  margin-left: auto;
+  margin-right: 0.5em;
+}
+
+.partyLogo {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.candidates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.candidate {
+  margin-bottom: 10%;
+  position: relative;
+  width: 49%;
+
+  @media (min-width: 600px) {
+    margin-bottom: 5%;
+    width: 32%;
+  }
+}
+
+.candidateImg {
+  display: block;
+  height: auto;
+  width: 100%;
+
+  // placeholder when image doesn't exist.
+  &::before {
+    content: '';
+    background: transparent no-repeat center / contain;
+    background-image: url(http://via.placeholder.com/400x400?text=Mynd+vantar);
+    display: block;
+    padding-bottom: 100%;
+    width: 100%;
+  }
+}
+
+.candidateInfo {
+  align-items: flex-end;
+  background-image: linear-gradient(180deg, rgba(#000, 0.6), rgba(#000, 0));
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  left: 0;
+  padding: 0.3em 0.5em 0.5em;
+  position: absolute;
+  top: 0;
+  text-align: right;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    padding: 0.8em 1em 1em;
+  }
+}
+
+.candidateName {
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.3;
+  padding-top: 0.5em;
+  padding-bottom: 0.4em;
+}
+
+.candidateParty {
+  font-size: 0.8em;
+  line-height: 1;
+}
+
+.candidatePercentage {
+  color: rgb(65, 65, 65);
+  font-size: 0.8em;
+  margin-top: 6px;
+  position: absolute;
+  transform-origin: 0 0;
+  left: 0;
+  width: 100%;
+  top: 100%;
+}
+
+.candidateProgressBar {
+  background: #555;
+  height: 6px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+
+.candidateProgress {
+  background: rgb(21, 206, 61);
+  height: 100%;
+  transform-origin: 0 0;
+  width: 100%;
+}
