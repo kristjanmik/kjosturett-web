@@ -6,6 +6,7 @@ import cx from 'classnames';
 import Scroll from 'react-scroll';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Collapse } from 'react-collapse';
+import history from '../../history';
 import styles from './Collapsable.scss';
 
 class Collapsable extends React.Component {
@@ -56,7 +57,8 @@ class Collapsable extends React.Component {
     Scroll.animateScroll.scrollTo(curtop - 90);
   }
   toggle = (key: string) => event => {
-    const target = event.target;
+    const target = event.currentTarget;
+    event.preventDefault();
 
     this.setState(state => {
       const open = { ...state.open };
@@ -65,6 +67,7 @@ class Collapsable extends React.Component {
       // Scroll to collapseable only when opening.
       if (nextState && target.offsetParent) {
         this.scrollTo(target);
+        history.push(target.hash);
       }
 
       return { open };
