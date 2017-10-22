@@ -430,15 +430,19 @@ class Kjorskra extends PureComponent {
         <div className={`${s.background} ${data ? s.backgroundgone : null}`}></div>
         {!data && (
           <div>
-            {nidurstada &&
-              process.env.BROWSER && (
-                <p>
-                  {`${nidurstada.fornafn} er í kjördæminu ${nidurstada.kjordaemi} og kjörstaðurinn er ${nidurstada.kjorstadur}. Finnum út úr því hvar þú átt að kjósa!`}
-                </p>
-              )}
+            
             <div className={s.lookupContainer}>
 
-              <h1>Flettu upp hvar þinn kjörstaður er staðsettur</h1>
+              {nidurstada &&
+              process.env.BROWSER && (
+                <div>
+                <h1>
+                  {`${nidurstada.fornafn} er í kjördæminu ${nidurstada.kjordaemi} og kjörstaðurinn er ${nidurstada.kjorstadur}.`}
+                </h1>
+                <p className={s.findout}>Finnum út úr því hvar þú átt að kjósa!</p>
+                </div>
+              )}
+              {!nidurstada && (<h1>Flettu upp hvar þinn kjörstaður er staðsettur</h1>)}
               <div className={s.lookupWrap}>
                 <input
                   value={kennitala}
@@ -447,7 +451,7 @@ class Kjorskra extends PureComponent {
                   className={s.input}
                   onChange={e => this.onInputChange('kennitala', e)}
                 />
-                <input onClick={this.submit} disabled={!this.isKennitalaValid(kennitala)} className={s.submitwhite} value="Leita" />
+                <input onClick={this.submit} type="button" disabled={!this.isKennitalaValid(kennitala)} className={s.submitwhite} value="Leita" />
 
               </div>
             </div>
