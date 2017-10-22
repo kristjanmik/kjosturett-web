@@ -23,7 +23,7 @@ import {
   InfoWindow
 } from 'react-google-maps';
 
-const Map = withScriptjs(
+const Map =
   withGoogleMap(({ mapOptions, kjorstadur }) => {
     return (
       <GoogleMap defaultZoom={mapOptions.zoom} center={mapOptions.center}>
@@ -36,8 +36,7 @@ const Map = withScriptjs(
         </Marker>
       </GoogleMap>
     );
-  })
-);
+  });
 
 const getItineryInfo = ({ duration, distance, type, from, to }) => {
   return {
@@ -316,16 +315,14 @@ class Kjorskra extends PureComponent {
       data
     });
 
-    setTimeout(async () => {
-      const options = await this.locationFromAddress(data.kjorstadur);
+    const options = await this.locationFromAddress(data.kjorstadur);
 
-      this.setState({
-        mapOptions: {
-          zoom: 13,
-          ...options
-        }
-      });
-    }, 400);
+    this.setState({
+      mapOptions: {
+        zoom: 13,
+        ...options
+      }
+    });
 
     const { nafn, kjorstadur, kjordeild, kjordaemi } = data;
 
@@ -516,8 +513,6 @@ class Kjorskra extends PureComponent {
             {!mapOptions.invalidLocation && (
               <div className={s.mapContainer}>
                 <Map
-                  googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDJ6iS5zhPH3xJQM6WPlx5YvgHSvgA3Ceo&libraries=geometry,drawing,places"
-                  loadingElement={<div style={{ height: `100%` }} />}
                   containerElement={<div style={{ height: `100%` }} />}
                   mapElement={<div style={{ height: '100%', width: '100%' }} />}
                   mapOptions={mapOptions}
@@ -538,4 +533,4 @@ class Kjorskra extends PureComponent {
   }
 }
 
-export default withStyles(s)(Kjorskra);
+export default withScriptjs(withStyles(s)(Kjorskra))
