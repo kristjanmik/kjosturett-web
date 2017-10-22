@@ -31,6 +31,9 @@ When a person answers all the questions we generate a numerical sequence. Each n
 ## Data sources
 We have various data sources. Described below are data sources that are available after the build step, but the raw data is also available in /build
 
+## Thingmenn.is
+[Thingmenn.is](http://thingmenn.is) is a great project where you can see all the discussion by people in Alþingi, ranked by how they vote.
+
 ### Where do I vote?
 You can query the kjorskra endpoint at: https://kjorskra.kjosturett.is/leita/{{VALID-KENNITALA}}. This endpoint can take up to 2-4 seconds to load since we are using a very slow screenscraper. Second request to this endpoint with the same kennitala is cached heavily for 1 month. *If .success is false, the kennitala is most likely invalid*
 
