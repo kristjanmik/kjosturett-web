@@ -27,7 +27,9 @@ export default ({ params, url }) => {
       ] = nidurstada;
 
       if (coordinates) {
-        ogImage = `/og-image-kjorskra/${coordinates.split(',').join('%2C')}`;
+        ogImage = `https://kjosturett.is/og-image-kjorskra/${coordinates
+          .split(',')
+          .join('%2C')}`;
       }
 
       nidurstadaObj = {
