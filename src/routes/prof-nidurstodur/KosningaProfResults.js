@@ -43,7 +43,7 @@ class KosningaprofResults extends PureComponent {
         <h3>Frambjóðendur með svipaðr skoðanir og ég</h3>
         <div className={s.candidates}>
           {candidates.slice(0, 12).map(candidate => (
-            <div key={candidate.nafn} className={s.candidate}>
+            <div key={candidate.ssn} className={s.candidate}>
               <img
                 className={s.candidateImg}
                 src={candidateImage(candidate.slug)}
@@ -63,13 +63,12 @@ class KosningaprofResults extends PureComponent {
                 <span>{candidate.score.toFixed(0)}%</span>
               </div>
               <div className={s.candidateInfo}>
-                <div className={s.candidateName}>{candidate.nafn}</div>
+                <div className={s.candidateName}>{candidate.name}</div>
                 <div className={s.candidateParty}>
                   {
-                    parties.find(party => party.letter === candidate.bokstafur)
-                      .name
+                    parties.find(party => party.letter === candidate.party).name
                   }{' '}
-                  (x{candidate.bokstafur})
+                  (x{candidate.party})
                 </div>
               </div>
             </div>

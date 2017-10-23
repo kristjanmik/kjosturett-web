@@ -3,8 +3,8 @@ import KosningaProfResults from './KosningaProfResults';
 import Layout from '../../components/Layout';
 import questions from '../../../data/poll/questions.json';
 import answers from '../../../data/poll/answers.json';
-import candidateReplies from '../../../data/build/replies-candidates.json';
-import partyReplies from '../../../data/build/replies-parties.json';
+import candidateReplies from '../../../data/build/replies-candidates2.json';
+import partyReplies from '../../../data/build/parties.json';
 import getResultsByScore from '../../process-replies';
 import { decodeAnswersToken } from '../../utils';
 
