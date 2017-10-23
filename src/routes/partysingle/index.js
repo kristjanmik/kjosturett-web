@@ -2,14 +2,20 @@ import React from 'react';
 import PartySingle from './PartySingle';
 import Layout from '../../components/Layout';
 import parties from '../../../data/build/parties.json';
+import candidates from '../../../data/build/candidates.json';
 import { pleasantUrl } from '../../utils';
 
 export default ({ params }) => {
   const party = parties.filter(party => party.url === params.party)[0];
-
+  const partyCandidates = candidates.filter(candidate => candidate.bokstafur === party.letter)
+  console.log(party)
+  console.log(candidates)
+  console.log(partyCandidates)
+  
   if (!party) throw Error('Not found');
 
   let categories = [];
+
   try {
     categories = require(`../../../data/build/${party.url}.json`);
   } catch (e) {
@@ -30,7 +36,7 @@ export default ({ params }) => {
           </a>
         }
       >
-        <PartySingle party={party} categories={categories} />
+        <PartySingle party={party} categories={categories} partyCandidates={partyCandidates} />
       </Layout>
     )
   };

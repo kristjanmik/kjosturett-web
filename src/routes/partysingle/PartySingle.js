@@ -5,11 +5,12 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Collapsable from '../../components/Collapsable';
 import PartyProfile from '../../components/PartyProfile';
 import { getAssetUrl } from '../../utils';
+import Candidate from '../../components/Candidate/Candidate.js';
 import s from './PartySingle.scss';
 
 class PartySingle extends PureComponent {
   render() {
-    const { party, categories } = this.props;
+    const { party, categories, partyCandidates } = this.props;
 
     return (
       <div className={s.root}>
@@ -36,6 +37,22 @@ class PartySingle extends PureComponent {
             }
           />
         </div>
+          <div className={s.candidatesContainer}>
+            {
+              partyCandidates.map((candidate, index) => {
+                console.log(candidate.nafn)
+                return (
+                  <Candidate
+                    key={index}
+                    name={candidate.nafn}
+                    place={candidate.saeti}
+                    slug={candidate.slug}
+                    party={candidate.bokstafur}
+                  />
+                )
+              })
+            }
+          </div>
       </div>
     );
   }
