@@ -2,7 +2,7 @@ import React from 'react';
 import Kjorskra from './Kjorskra';
 import Layout from '../../components/Layout';
 
-export default ({ params }) => {
+export default ({ params, url }) => {
   let { nidurstada } = params;
 
   let nidurstadaObj = null;
@@ -34,7 +34,7 @@ export default ({ params }) => {
   return {
     chunks: ['kjorskra'],
     title: `${title} - Kjóstu Rétt`,
-    path: '/kjorskra',
+    path: url,
     description:
       'Veist ekki HVAR þú átt að kjósa? Flettu upp þínum kjörstað með einföldu uppflettingartóli. Við finnum einnig út bestu leiðina fyrir þig til að komast á kjörstað!',
     component: (
