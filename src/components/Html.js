@@ -12,17 +12,17 @@ class Html extends React.Component {
     styles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        cssText: PropTypes.string.isRequired,
-      }).isRequired,
+        cssText: PropTypes.string.isRequired
+      }).isRequired
     ),
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
-    children: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired
   };
 
   static defaultProps = {
     styles: [],
-    scripts: [],
+    scripts: []
   };
 
   render() {
@@ -33,7 +33,7 @@ class Html extends React.Component {
       styles,
       scripts,
       app,
-      children,
+      children
     } = this.props;
 
     return (
@@ -87,7 +87,7 @@ class Html extends React.Component {
           <meta name="twitter:description" content={description} />
 
           <link
-            href="https://fonts.googleapis.com/css?family=Lora|Roboto:300,400,900"
+            href="https://fonts.googleapis.com/css?family=Lora|Roboto:300,400,500,900"
             rel="stylesheet"
           />
 
@@ -114,7 +114,7 @@ class Html extends React.Component {
                 __html:
                   'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' +
                   `ga('create','${config.analytics
-                    .googleTrackingId}','auto');ga('send','pageview')`,
+                    .googleTrackingId}','auto');ga('send','pageview')`
               }}
             />
           )}

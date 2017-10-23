@@ -1,5 +1,7 @@
 @import '../../components/functions.scss';
 
+$breakPoint: 850px;
+
 @-moz-keyframes blink {
   0% {
     opacity: 1;
@@ -67,27 +69,31 @@
 .lookupContainer {
   max-width: 720px;
   margin: 0 auto;
-  h2 {
-    font-weight: 800;
-    font-size: 2rem;
-    line-height: 1.2;
-    text-align: center;
-    margin-bottom: 1rem;
-    margin-top: 3rem;
-    color: $color-dark;
-  }
 
   h3 {
     font-size: 2rem;
-    line-height: 1.2;
+    line-height: 1.4;
     font-weight: 300;
     text-align: center;
     margin-bottom: 1.5rem;
     margin-top: 1rem;
-    color: $color-dark;
+    color: #313131;
+    font-family: $font-sans;
+
+    @media screen and (max-width: $breakPoint) {
+      font-size: 1.4rem;
+    }
+
     b {
-      font-weight: 200;
-      color: $color-dark;
+      font-weight: 500;
+    }
+  }
+
+  .friendHeading {
+    font-size: 1.5rem;
+
+    @media screen and (max-width: $breakPoint) {
+      font-size: 1.1rem;
     }
   }
 }
@@ -123,10 +129,11 @@
   border-radius: 4px;
   outline: none;
   background: #eaeaea;
-  font-size: 15px;
+  font-size: 0.9rem;
   color: #808080;
   box-sizing: border-box;
   padding: 0 1rem;
+  text-align: center;
 }
 
 .submit {
@@ -144,19 +151,33 @@
   justify-content: space-around;
   max-width: 900px;
   margin: auto;
+
+  @media screen and (max-width: $breakPoint) {
+    flex-direction: column-reverse;
+  }
 }
 
 .leftResults {
   margin-right: 20px;
-  min-width: 400px;
-  //@TODO make this responsive, 400px wont work
+
+  @media screen and (max-width: $breakPoint) {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .kjorstadur {
   font-size: 2rem;
   font-weight: 300;
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+
+.votingInfo {
+  text-align: center;
 }
 
 .itineriesBox h3 {
@@ -185,10 +206,25 @@
 
 .mapContainer {
   min-width: 350px;
+  max-width: 430px;
   width: 100%;
   height: 323px;
+
+  @media screen and (max-width: $breakPoint) {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    margin-left: -15px;
+    height: 220px;
+  }
 }
 
+.currentAddressBox form {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .currentAddressBox h3 {
   margin-bottom: 0.5em;
   font-size: 1rem;
@@ -197,14 +233,34 @@
 
 .currentAddressContainer {
   display: flex;
+  width: 100%;
+  max-width: 300px;
+
+  @media screen and (max-width: $breakPoint) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .currentAddressContainer input {
   min-width: 120px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.currentAddressContainer .input {
+  @media screen and (max-width: $breakPoint) {
+    height: 40px;
+    width: 100%;
+  }
 }
 
 .currentAddressContainer .submit {
-  min-width: 140px;
+  @media screen and (max-width: $breakPoint) {
+    margin-top: 10px;
+    height: 40px;
+    margin-left: 0;
+  }
 }
 
 .fetching {

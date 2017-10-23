@@ -460,12 +460,12 @@ class Kjorskra extends PureComponent {
               {nidurstada &&
                 process.env.BROWSER && (
                   <div>
-                    <h3>
+                    <h3 className={s.friendHeading}>
                       <b>{nidurstada.fornafn}</b> er í kjördæminu{' '}
                       <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er{' '}
                       <b>{nidurstada.kjorstadur}</b>.
                     </h3>
-                    <h3>Finnum út úr því hvar þú átt að kjósa!</h3>
+                    <h3>En stóra spurningin er, hvar kýst þú?</h3>
                   </div>
                 )}
               {!nidurstada && <h3>Finnum út úr því hvar þú átt að kjósa!</h3>}
@@ -502,7 +502,7 @@ class Kjorskra extends PureComponent {
               <p className={s.kjorstadur}>
                 {data.kjorstadur}, {data.sveitafelag}
               </p>
-              <p>
+              <p className={s.votingInfo}>
                 Þú ert í <b>kjördeild</b> <i>{data.kjordeild}</i> og þú greiðir
                 atkvæði í <b>kjördæminu</b> <i>{data.kjordaemi}</i>.
               </p>
@@ -528,7 +528,7 @@ class Kjorskra extends PureComponent {
               )}
               {currentAddress && (
                 <div className={s.itineriesBox}>
-                  <h3>Komdu þér á kjörstað:</h3>
+                  <h3>Skelltu þér á kjörstað, þú ert aðeins...</h3>
                   <ul className={s.itineries}>
                     {this.getItineriesByDistance({
                       from: currentAddress,
@@ -553,12 +553,14 @@ class Kjorskra extends PureComponent {
               )}
             </div>
 
-            {mapOptions.invalidLocation && <div>INVALIDLOCATION</div>}
+            {mapOptions.invalidLocation && <div>Röng staðsetning</div>}
 
             {!mapOptions.invalidLocation && (
               <div className={s.mapContainer}>
                 <Map
-                  containerElement={<div style={{ height: `100%` }} />}
+                  containerElement={
+                    <div style={{ height: `100%`, width: '100%' }} />
+                  }
                   mapElement={<div style={{ height: '100%', width: '100%' }} />}
                   mapOptions={mapOptions}
                   kjorstadur={data.kjorstadur}
