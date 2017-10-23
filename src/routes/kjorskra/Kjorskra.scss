@@ -184,7 +184,9 @@ $breakPoint: 850px;
 }
 
 .votingInfo {
-  text-align: center;
+  @media screen and (max-width: $breakPoint) {
+    text-align: center;
+  }
 }
 
 .itineriesBox h3 {
