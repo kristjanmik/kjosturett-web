@@ -7,7 +7,7 @@ import Container from '../Container';
 
 class Layout extends Component {
   render() {
-    const { page, title, altTitle, children, showHeader = true } = this.props;
+    const { page, title, altTitle, children, background, showHeader = true } = this.props;
     return (
       <div className={s.root}>
         {showHeader && <Header page={page} />}

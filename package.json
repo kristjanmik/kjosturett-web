@@ -22,6 +22,7 @@
     "express": "^4.15.3",
     "history": "^4.6.3",
     "isomorphic-style-loader": "^3.0.0",
+    "kennitala": "^1.1.0",
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
     "metaphor": "^3.8.3",
@@ -165,6 +166,9 @@
     ]
   },
   "lint-staged": {},
+  "prettier": {
+    "singleQuote": true
+  },
   "scripts": {
     "precommit": "lint-staged",
     "lint-js": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",

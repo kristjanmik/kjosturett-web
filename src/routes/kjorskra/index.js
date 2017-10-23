@@ -28,7 +28,7 @@ export default ({ params }) => {
       fornafn,
       kjorstadur,
       kjordeild,
-      kjordaemi
+      kjordaemi,
     };
   }
 
@@ -42,9 +42,13 @@ export default ({ params }) => {
     description:
       'Veist ekki HVAR þú átt að kjósa? Flettu upp þínum kjörstað með einföldu uppflettingartóli. Við finnum einnig út bestu leiðina fyrir þig til að komast á kjörstað!',
     component: (
-      <Layout page="kjorskra" title="Hvar á ég að Kjósa?">
-        <Kjorskra nidurstada={nidurstadaObj} />
+      <Layout page="kjorskra" title="Hvar á ég að kjósa?">
+        <Kjorskra
+          nidurstada={nidurstadaObj}
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDJ6iS5zhPH3xJQM6WPlx5YvgHSvgA3Ceo&libraries=geometry,drawing,places"
+          loadingElement={<div style={{ height: `100%` }} />}
+        />
       </Layout>
-    )
+    ),
   };
 };
