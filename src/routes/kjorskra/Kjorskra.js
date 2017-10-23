@@ -515,7 +515,6 @@ class Kjorskra extends PureComponent {
                       <Autocomplete
                         ref={this.onAutocompleteMounted}
                         type="text"
-                        autoFocus
                         onChange={this.submitCurrentAddress}
                         placeholder="Núverandi heimilisfang"
                         className={s.input}
