@@ -12,7 +12,6 @@
   h2,
   h3,
   h4 {
-    font-family: 'Lora', serif;
     line-height: 1.2;
   }
 
@@ -33,10 +32,64 @@
     background: #353535;
     color: #fff;
     border: none;
+    font-size: 1rem;
     appearance: none;
     padding: 1em 1.4em;
     margin-top: 3rem;
   }
+
+  .reset {
+    background: #888;
+    margin-left: 1em;
+  }
+}
+
+.questions {
+  max-width: 500px;
+}
+
+.question + .question {
+  margin-top: 4rem;
+}
+
+.question {
+  position: relative;
+  transition: opacity 300ms ease-in-out;
+
+  img {
+    height: auto;
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  label {
+    background-color: rgb(240, 240, 240);
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 1em 1.5em;
+    padding-left: 3em;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  input:checked + label {
+    background: #333;
+    color: #fff;
+  }
+}
+
+.hidden {
+  opacity: 0.2;
 }
 
 .party {

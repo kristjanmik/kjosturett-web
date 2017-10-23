@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './KosningaProfResults.scss';
+import s from './styles.scss';
 import Link from '../../Link';
 import { getAssetUrl, candidateImage } from '../../utils';
 
