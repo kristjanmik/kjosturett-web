@@ -21,11 +21,11 @@ Having trouble building the data? Check out the data/build-dump folder for archi
 
 ## How does the reply string work?
 When a person answers all the questions we generate a numerical sequence. Each number represent one question. You can think of this zero to one scale as 0 being extremely against(mjög á móti) and 1 being (mjög sammála). 0.5 is a neautral response.This is the format of each number in the sequence.
-- 1 stands for first option, with value of *0*
-- 2 stands for first option, with value of *0.25*
-- 3 stands for first option, with value of *0.5*
-- 4 stands for first option, with value of *0.75*
-- 5 stands for first option, with value of *1*
+- 1 stands for very much against option, with value of *0*
+- 2 stands for somewhat against option, with value of *0.25*
+- 3 stands for neutral option, with value of *0.5*
+- 4 stands for somewhat agree option, with value of *0.75*
+- 5 stands for very much agree with option, with value of *1*
 - 6 stands for no response
 
 ## Data sources

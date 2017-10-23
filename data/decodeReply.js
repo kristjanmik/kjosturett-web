@@ -1,3 +1,3 @@
 const { decodeAnswersToken } = require('../src/utils');
 
-console.log(decodeAnswersToken('5by6sdzsrj:5dc0c4ngnn').join(''));
+console.log(decodeAnswersToken('1g2bqno5:494q2639:16jb8lowl').join(''));

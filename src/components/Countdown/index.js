@@ -13,7 +13,7 @@ const Countdown = () => (
       }
       let out = '';
       if (days > 0) {
-        out = `${days + 1} dagar í kosningar.`;
+        out = `${days + 1} dagar í kosningar`;
       }
 
       return <span>{out}</span>;
