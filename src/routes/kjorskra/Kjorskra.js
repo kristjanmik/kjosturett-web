@@ -8,6 +8,7 @@ import drivingIcon from './driving.png';
 import bicyclingIcon from './bicycling.png';
 import busIcon from './bus.png';
 import busData from './bus.json';
+import Autocomplete from './Autocomplete';
 import history from '../../history';
 
 import { clean as cleanKennitala, isPerson } from 'kennitala';
@@ -19,6 +20,10 @@ import {
   Marker,
   InfoWindow
 } from 'react-google-maps';
+
+const PLACE_OVERRIDE = {
+  'Smárinn': 'Dalsmára 5, Kópavogur',
+};
 
 const Map = withGoogleMap(({ mapOptions, kjorstadur }) => {
   return (
@@ -96,7 +101,6 @@ class Kjorskra extends PureComponent {
       center: { lat: 65.7, lng: -19.6 }
     },
     currentAddress: null,
-    currentAddressInput: '',
     driving: {},
     walking: {},
     bicycling: {},
@@ -210,7 +214,7 @@ class Kjorskra extends PureComponent {
     });
     const data = await response.json();
 
-    if (response.status !== 200) {
+    if (response.status !== 200 || !data.plan) {
       //@TODO handle bus error
       console.error('Error fetching bus data', response.status, response);
       return {
@@ -235,21 +239,37 @@ class Kjorskra extends PureComponent {
       duration
     };
   }
+  async locationFromPlace(place) {
+    if (place.geometry) {
+      return {
+        center: {
+          lat: place.geometry.location.lat(),
+          lng: place.geometry.location.lng()
+        }
+      };
+    }
+    return this.locationFromAddress(place.name);
+  }
   async locationFromAddress(address) {
     if (!process.env.BROWSER) return this.state.mapOptions.center;
 
     return new Promise(resolve => {
       new window.google.maps.Geocoder().geocode(
         {
-          address
+          address,
+          componentRestrictions: {
+            country: 'is'
+          }
         },
-        (results, status) => {
-          if (results.length === 0) {
+        results => {
+          if (
+            results.length === 0 ||
+            results[0].formatted_address === 'Iceland'
+          ) {
             return resolve({
               invalidLocation: true
             });
           }
-          console.log('here', results[0]);
           resolve({
             center: {
               lat: results[0].geometry.location.lat(),
@@ -260,12 +280,16 @@ class Kjorskra extends PureComponent {
       );
     });
   }
+  onAutocompleteMounted = ref => {
+    this.autocomplete = ref;
+  };
   onInputChange(type, e) {
     this.setState({
       [type]: e.target.value
     });
   }
-  async submit() {
+  async submit(event) {
+    event.preventDefault();
     console.log('doing submit');
     const { kennitala } = this.state;
 
@@ -311,7 +335,8 @@ class Kjorskra extends PureComponent {
       data
     });
 
-    const options = await this.locationFromAddress(data.kjorstadur);
+    const address = PLACE_OVERRIDE[data.kjorstadur] || data.kjorstadur;
+    const options = await this.locationFromAddress(address);
 
     this.setState({
       mapOptions: {
@@ -326,27 +351,22 @@ class Kjorskra extends PureComponent {
       `${nafn.split(' ')[0]}|${kjorstadur}|${kjordeild}|${kjordaemi}`
     );
 
-    history.replace(`/kjorskra/${hash}`);
+    history.replace(`/kjorskra/${encodeURIComponent(hash)}`);
   }
-  async submitCurrentAddress() {
-    const { data, currentAddressInput, mapOptions } = this.state;
-    let lookupAddress = currentAddressInput;
-
-    if (!lookupAddress) {
-      lookupAddress = `${data.logheimili},${data.sveitafelag}`;
-    } else if (
-      lookupAddress.toLowerCase().indexOf(data.sveitafelag.toLowerCase()) === -1
-    ) {
-      lookupAddress += `,${data.sveitafelag}`;
+  async submitCurrentAddress(event) {
+    if (event && event.preventDefault) {
+      event.preventDefault();
     }
-    console.log('using lookup address', lookupAddress);
+
+    const { mapOptions } = this.state;
+    const lookupPlace = this.autocomplete.getPlace();
 
     this.setState({
       isFetching: true,
       fetchError: ''
     });
 
-    const location = await this.locationFromAddress(lookupAddress);
+    const location = await this.locationFromPlace(lookupPlace);
 
     this.setState({
       isFetching: false
@@ -362,9 +382,6 @@ class Kjorskra extends PureComponent {
     this.setState({
       currentAddress: location.center
     });
-
-    console.log('what is location center', location.center.lat);
-    console.log('what is mapOptions center', mapOptions.center.lat);
 
     const position = {
       from: new window.google.maps.LatLng(
@@ -428,7 +445,6 @@ class Kjorskra extends PureComponent {
       fetchError,
       mapOptions,
       currentAddress,
-      currentAddressInput,
       walking,
       driving,
       bicycling,
@@ -454,6 +470,7 @@ class Kjorskra extends PureComponent {
                   </div>
                 )}
               {!nidurstada && <h3>Finnum út úr því hvar þú átt að kjósa!</h3>}
+
               <div className={s.lookupWrap}>
                 <input
                   autoFocus
@@ -474,6 +491,7 @@ class Kjorskra extends PureComponent {
                   value="Leita"
                 />
               </div>
+
             </div>
           </div>
         )}
@@ -495,26 +513,21 @@ class Kjorskra extends PureComponent {
                   <h3>
                     Nú þurfum við bara að koma þér á kjörstað! Hvar ert þú núna?
                   </h3>
-                  <div className={s.currentAddressContainer}>
-                    <input
-                      autoFocus
-                      value={currentAddressInput}
-                      type="text"
-                      placeholder={data.logheimili}
-                      className={s.input}
-                      onChange={e =>
-                        this.onInputChange('currentAddressInput', e)}
-                      onKeyUp={e => {
-                        e.keyCode === 13 && this.submitCurrentAddress();
-                      }}
-                    />
-                    <div
-                      onClick={this.submitCurrentAddress}
-                      className={s.submit}
-                    >
-                      Áfram
+                  <form onSubmit={this.submitCurrentAddress}>
+                    <div className={s.currentAddressContainer}>
+                      <Autocomplete
+                        ref={this.onAutocompleteMounted}
+                        type="text"
+                        autoFocus
+                        onChange={this.submitCurrentAddress}
+                        placeholder={data.logheimili}
+                        className={s.input}
+                      />
+                      <button type="submit" className={s.submit}>
+                        Áfram
+                      </button>
                     </div>
-                  </div>
+                  </form>
                 </div>
               )}
               {currentAddress && (
@@ -532,6 +545,7 @@ class Kjorskra extends PureComponent {
                       }
                     }).map(itinery => (
                       <Itinery
+                        key={itinery.type}
                         {...itinery.data}
                         type={itinery.type}
                         from={itinery.from}

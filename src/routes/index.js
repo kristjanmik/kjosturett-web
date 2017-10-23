@@ -24,6 +24,10 @@ const routes = {
       load: () => import(/* webpackChunkName: 'prof' */ './prof')
     },
     {
+      path: '/pr',
+      load: () => import(/* webpackChunkName: 'prof' */ './prof')
+    },
+    {
       path: '/malefni',
       load: () => import(/* webpackChunkName: 'malefni' */ './malefni')
     },
