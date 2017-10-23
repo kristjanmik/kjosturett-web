@@ -6,6 +6,7 @@ export default ({ params, url }) => {
   let { nidurstada } = params;
 
   let nidurstadaObj = null;
+  let ogImage = null;
 
   if (nidurstada) {
     try {
@@ -17,7 +18,17 @@ export default ({ params, url }) => {
 
       nidurstada = nidurstada.split('|');
 
-      const [fornafn, kjorstadur, kjordeild, kjordaemi] = nidurstada;
+      const [
+        fornafn,
+        kjorstadur,
+        kjordeild,
+        kjordaemi,
+        coordinates
+      ] = nidurstada;
+
+      if (coordinates) {
+        ogImage = `/og-image-kjorskra/${coordinates.split(',').join('%2C')}`;
+      }
 
       nidurstadaObj = {
         fornafn,
@@ -35,6 +46,7 @@ export default ({ params, url }) => {
     chunks: ['kjorskra'],
     title: `${title} - Kjóstu Rétt`,
     path: url,
+    ogImage,
     description:
       'Veist ekki HVAR þú átt að kjósa? Flettu upp þínum kjörstað með einföldu uppflettingartóli. Við finnum einnig út bestu leiðina fyrir þig til að komast á kjörstað!',
     component: (

@@ -348,7 +348,8 @@ class Kjorskra extends PureComponent {
     const { nafn, kjorstadur, kjordeild, kjordaemi } = data;
 
     const hash = btoa(
-      `${nafn.split(' ')[0]}|${kjorstadur}|${kjordeild}|${kjordaemi}`
+      `${nafn.split(' ')[0]}|${kjorstadur}|${kjordeild}|${kjordaemi}|${options
+        .center.lat},${options.center.lng}`
     );
 
     history.replace(`/kjorskra/${encodeURIComponent(hash)}`);

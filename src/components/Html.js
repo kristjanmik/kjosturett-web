@@ -9,6 +9,7 @@ class Html extends React.Component {
   static propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
+    ogImage: PropTypes.string,
     styles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -33,9 +34,10 @@ class Html extends React.Component {
       styles,
       scripts,
       app,
-      children
+      children,
+      ogImage
     } = this.props;
-
+    console.log('ogImage', ogImage);
     return (
       <html className="no-js" lang="en">
         <head>
@@ -81,7 +83,11 @@ class Html extends React.Component {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="theme-color" content="#ffffff" />
 
-          <meta property="og:image" content="https://kjosturett.is/og.png" />
+          {ogImage && <meta property="og:image" content={ogImage} />}
+          {!ogImage && (
+            <meta property="og:image" content="https://kjosturett.is/og.png" />
+          )}
+
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="Kjóstu Rétt 2017" />
           <meta name="twitter:description" content={description} />
