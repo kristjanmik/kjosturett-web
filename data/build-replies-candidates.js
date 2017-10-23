@@ -1,30 +1,37 @@
 const fs = require('fs');
 const { promisify } = require('util');
 const globby = require('globby');
-
 const writeFile = promisify(fs.writeFile);
+const replies = require('./poll/replies_candidates.json');
+const repliesObj = {};
+
+replies.forEach(({ kennitala, reply }) => {
+  repliesObj[kennitala] = reply;
+});
 
 (async () => {
   console.log('Build:Replies Candidates - Building');
-  const paths = await globby(['./parties/**/candidates.json']);
+  const paths = await globby(['./parties/**/candidates2.json']);
 
-  let replies = [];
+  let out = [];
 
   paths.forEach(path => {
     let candidates = require(path);
 
-    candidates = candidates
-      .filter(candidate => candidate.svar)
-      .map(({ svar, ...candidate }) => ({
-        ...candidate,
-        reply: svar,
-      }));
-    replies = [...replies, ...candidates];
+    candidates = candidates.map(candidate => {
+      const reply = repliesObj[candidate.ssn];
+
+      if (reply) candidate.reply = reply;
+
+      return candidate;
+    });
+    out = [...out, ...candidates];
   });
 
   await writeFile(
-    './build/replies-candidates.json',
-    JSON.stringify(replies, null, 0),
+    './build/replies-candidates2.json',
+    JSON.stringify(out, null, 0),
   );
+
   console.log('Build:Replies Candidates - Done');
 })();

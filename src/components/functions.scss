@@ -140,7 +140,6 @@
   @include responsive-property-calc('height',$fromValue,$toValue,$fromBp,$toBp);
 }
 
-
 @mixin button {
   width: 100px;
   height: 4rem;
@@ -150,18 +149,19 @@
   border-radius: 4px;
   background: $color-primary;
   color: white;
-  font-weight: 400;
   cursor: pointer;
   text-align: center;
   font-weight: 800;
   border: 0;
   font-size: 1rem;
   transition: $transition-bezier;
+
   &[disabled] {
     background: $color-gray;
     pointer-events: none;
   }
+
   &:hover {
-    background-color: $color-dark;
+    background-color: #6ea3c5;
   }
 }
