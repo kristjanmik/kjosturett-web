@@ -15,16 +15,16 @@ const writeFile = promisify(fs.writeFile);
 
     candidates = candidates
       .filter(candidate => candidate.svar)
-      .map(({ nafn, svar }) => ({
-        n: nafn,
-        r: svar
+      .map(({ svar, ...candidate }) => ({
+        ...candidate,
+        reply: svar,
       }));
     replies = [...replies, ...candidates];
   });
 
   await writeFile(
     './build/replies-candidates.json',
-    JSON.stringify(replies, null, 0)
+    JSON.stringify(replies, null, 0),
   );
   console.log('Build:Replies Candidates - Done');
 })();
