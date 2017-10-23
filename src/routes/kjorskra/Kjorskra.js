@@ -346,7 +346,7 @@ class Kjorskra extends PureComponent {
       `${nafn.split(' ')[0]}|${kjorstadur}|${kjordeild}|${kjordaemi}`
     );
 
-    history.replace(`/kjorskra/${hash}`);
+    history.replace(`/kjorskra/${encodeURIComponent(hash)}`);
   }
   async submitCurrentAddress(event) {
     if (event && event.preventDefault) {
