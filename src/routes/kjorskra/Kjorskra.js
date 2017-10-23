@@ -457,17 +457,16 @@ class Kjorskra extends PureComponent {
         {!data && (
           <div>
             <div className={s.lookupContainer}>
-              {nidurstada &&
-                process.env.BROWSER && (
-                  <div>
-                    <h3 className={s.friendHeading}>
-                      <b>{nidurstada.fornafn}</b> er í kjördæminu{' '}
-                      <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er{' '}
-                      <b>{nidurstada.kjorstadur}</b>.
-                    </h3>
-                    <h3>En stóra spurningin er, hvar kýst þú?</h3>
-                  </div>
-                )}
+              {nidurstada && (
+                <div>
+                  <h3 className={s.friendHeading}>
+                    <b>{nidurstada.fornafn}</b> er í kjördæminu{' '}
+                    <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er{' '}
+                    <b>{nidurstada.kjorstadur}</b>.
+                  </h3>
+                  <h3>En stóra spurningin er, hvar kýst þú?</h3>
+                </div>
+              )}
               {!nidurstada && <h3>Finnum út úr því hvar þú átt að kjósa!</h3>}
 
               <div className={s.lookupWrap}>
