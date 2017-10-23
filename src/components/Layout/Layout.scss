@@ -26,7 +26,7 @@ html {
 }
 
 .subHeader {
-  background: $color-gray;
+  background: $color-darkgray;
   margin-bottom: 2em;
 
   @include between-property('padding-bottom', 16px, 5px, 1200px, 0);
@@ -42,8 +42,9 @@ html {
 .altTitle,
 .altTitle a,
 .title {
-  color: rgb(69, 70, 75);
+  color: #fff;
   text-decoration: none;
+  font-weight: 200;
 
   @include between-property('font-size', 16px, 12px, 1200px, 0);
 }

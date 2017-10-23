@@ -65,20 +65,30 @@
 }
 
 .lookupContainer {
+  max-width: 720px;
+  margin: 0 auto;
   h2 {
-    font-weight: 300;
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1.2;
     text-align: center;
     margin-bottom: 1rem;
-    margin-top: 4rem;
-    color: rgb(85, 85, 85);
+    margin-top: 3rem;
+    color: $color-dark;
   }
 
   h3 {
+    font-size: 2rem;
+    line-height: 1.2;
     font-weight: 300;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     margin-top: 1rem;
-    color: rgb(85, 85, 85);
+    color: $color-dark;
+    b {
+      font-weight: 200;
+      color: $color-dark;
+    }
   }
 }
 
