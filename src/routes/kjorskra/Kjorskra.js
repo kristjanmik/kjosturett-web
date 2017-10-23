@@ -22,7 +22,7 @@ import {
 } from 'react-google-maps';
 
 const PLACE_OVERRIDE = {
-  'Smárinn': 'Dalsmára 5, Kópavogur',
+  Smárinn: 'Dalsmára 5, Kópavogur'
 };
 
 const Map = withGoogleMap(({ mapOptions, kjorstadur }) => {
@@ -460,13 +460,12 @@ class Kjorskra extends PureComponent {
               {nidurstada &&
                 process.env.BROWSER && (
                   <div>
-                    <h2>Finnum út úr því hvar þú átt að kjósa!</h2>
                     <h3>
                       <b>{nidurstada.fornafn}</b> er í kjördæminu{' '}
                       <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er{' '}
                       <b>{nidurstada.kjorstadur}</b>.
                     </h3>
-                    
+                    <h3>Finnum út úr því hvar þú átt að kjósa!</h3>
                   </div>
                 )}
               {!nidurstada && <h3>Finnum út úr því hvar þú átt að kjósa!</h3>}
@@ -476,7 +475,7 @@ class Kjorskra extends PureComponent {
                   autoFocus
                   value={kennitala}
                   type="text"
-                  placeholder="Settu inn kennitöluna þína"
+                  placeholder="Sláðu inn kennitöluna þína"
                   className={s.input}
                   onChange={e => this.onInputChange('kennitala', e)}
                   onKeyUp={e => {
@@ -491,7 +490,6 @@ class Kjorskra extends PureComponent {
                   value="Leita"
                 />
               </div>
-
             </div>
           </div>
         )}
@@ -510,9 +508,7 @@ class Kjorskra extends PureComponent {
               </p>
               {!currentAddress && (
                 <div className={s.currentAddressBox}>
-                  <h3>
-                    Nú þurfum við bara að koma þér á kjörstað! Hvar ert þú núna?
-                  </h3>
+                  <h3>Nú þurfum við bara að koma þér á kjörstað!</h3>
                   <form onSubmit={this.submitCurrentAddress}>
                     <div className={s.currentAddressContainer}>
                       <Autocomplete
@@ -520,7 +516,7 @@ class Kjorskra extends PureComponent {
                         type="text"
                         autoFocus
                         onChange={this.submitCurrentAddress}
-                        placeholder={data.logheimili}
+                        placeholder="Núverandi heimilisfang"
                         className={s.input}
                       />
                       <button type="submit" className={s.submit}>
@@ -571,15 +567,19 @@ class Kjorskra extends PureComponent {
             )}
           </div>
         )}
-        {<div className={s.disclaimer}>
-          {isFetching && (
-            <div className={`${s.errormsg} ${s.fetching}`}>Næ í gögn</div>
-          )}
-          {fetchError && (
-            <div className={`${s.errormsg} ${s.fetchError}`}>{fetchError}</div>
-          )}
-          <p>Uppflettingar eru gerðar í Kjörskrá. Gögn eru ekki geymd.</p>
-        </div>}
+        {
+          <div className={s.disclaimer}>
+            {isFetching && (
+              <div className={`${s.errormsg} ${s.fetching}`}>Næ í gögn</div>
+            )}
+            {fetchError && (
+              <div className={`${s.errormsg} ${s.fetchError}`}>
+                {fetchError}
+              </div>
+            )}
+            {/* <p>Uppflettingar eru gerðar í Kjörskrá. Gögn eru ekki geymd.</p> */}
+          </div>
+        }
       </div>
     );
   }
