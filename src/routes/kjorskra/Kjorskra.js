@@ -444,12 +444,13 @@ class Kjorskra extends PureComponent {
               {nidurstada &&
                 process.env.BROWSER && (
                   <div>
-                    <h2>
+                    <h2>Finnum út úr því hvar þú átt að kjósa!</h2>
+                    <h3>
                       <b>{nidurstada.fornafn}</b> er í kjördæminu{' '}
                       <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er{' '}
                       <b>{nidurstada.kjorstadur}</b>.
-                    </h2>
-                    <h3>Finnum út úr því hvar þú átt að kjósa!</h3>
+                    </h3>
+                    
                   </div>
                 )}
               {!nidurstada && <h3>Finnum út úr því hvar þú átt að kjósa!</h3>}
@@ -469,7 +470,7 @@ class Kjorskra extends PureComponent {
                   onClick={this.submit}
                   type="button"
                   disabled={!this.isKennitalaValid(kennitala)}
-                  className={s.submitwhite}
+                  className={s.submit}
                   value="Leita"
                 />
               </div>
@@ -556,7 +557,7 @@ class Kjorskra extends PureComponent {
             )}
           </div>
         )}
-        {/* <div className={s.disclaimer}>
+        {<div className={s.disclaimer}>
           {isFetching && (
             <div className={`${s.errormsg} ${s.fetching}`}>Næ í gögn</div>
           )}
@@ -564,7 +565,7 @@ class Kjorskra extends PureComponent {
             <div className={`${s.errormsg} ${s.fetchError}`}>{fetchError}</div>
           )}
           <p>Uppflettingar eru gerðar í Kjörskrá. Gögn eru ekki geymd.</p>
-        </div> */}
+        </div>}
       </div>
     );
   }
