@@ -21,6 +21,10 @@ import {
   InfoWindow
 } from 'react-google-maps';
 
+const PLACE_OVERRIDE = {
+  'Smárinn': 'Dalsmára 5, Kópavogur',
+};
+
 const Map = withGoogleMap(({ mapOptions, kjorstadur }) => {
   return (
     <GoogleMap defaultZoom={mapOptions.zoom} center={mapOptions.center}>
@@ -331,7 +335,8 @@ class Kjorskra extends PureComponent {
       data
     });
 
-    const options = await this.locationFromAddress(data.kjorstadur);
+    const address = PLACE_OVERRIDE[data.kjorstadur] || data.kjorstadur;
+    const options = await this.locationFromAddress(address);
 
     this.setState({
       mapOptions: {
