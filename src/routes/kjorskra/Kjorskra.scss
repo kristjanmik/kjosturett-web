@@ -133,7 +133,14 @@ $breakPoint: 850px;
   color: #808080;
   box-sizing: border-box;
   padding: 0 1rem;
+  -moz-appearance: textfield;
   text-align: center;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .submit {
