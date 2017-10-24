@@ -17,46 +17,61 @@ const routes = {
   children: [
     {
       path: '/',
-      load: () => import(/* webpackChunkName: 'frontpage' */ './frontpage')
+      load: () => import(/* webpackChunkName: 'frontpage' */ './frontpage'),
     },
     {
       path: '/4e94afa38918c6f2dcc12fd8a04d3972',
-      load: () => import(/* webpackChunkName: 'prof' */ './prof')
+      load: () => import(/* webpackChunkName: 'prof' */ './prof'),
     },
     {
       path: '/pr',
-      load: () => import(/* webpackChunkName: 'prof' */ './prof')
+      load: () => import(/* webpackChunkName: 'prof' */ './prof'),
+    },
+    {
+      path: '/kosningaprof',
+      children: [
+        {
+          path: '',
+          load: () =>
+            import(/* webpackChunkName: 'prof-nidurstodur' */ './prof-nidurstodur'),
+        },
+        {
+          path: '/:nidurstodur',
+          load: () =>
+            import(/* webpackChunkName: 'prof-nidurstodur' */ './prof-nidurstodur/results'),
+        },
+      ],
     },
     {
       path: '/malefni',
-      load: () => import(/* webpackChunkName: 'malefni' */ './malefni')
+      load: () => import(/* webpackChunkName: 'malefni' */ './malefni'),
     },
     {
       path: '/verkefnid',
-      load: () => import(/* webpackChunkName: 'about' */ './about')
+      load: () => import(/* webpackChunkName: 'about' */ './about'),
     },
     {
       path: '/kjorskra',
-      load: () => import(/* webpackChunkName: 'kjorskra' */ './kjorskra')
+      load: () => import(/* webpackChunkName: 'kjorskra' */ './kjorskra'),
     },
     {
       path: '/kjorskra/:nidurstada',
-      load: () => import(/* webpackChunkName: 'kjorskra' */ './kjorskra')
+      load: () => import(/* webpackChunkName: 'kjorskra' */ './kjorskra'),
     },
     {
       path: '/malefni/:malefni',
       load: () =>
-        import(/* webpackChunkName: 'malefnisingle' */ './malefnisingle')
+        import(/* webpackChunkName: 'malefnisingle' */ './malefnisingle'),
     },
     {
       path: '/flokkur/:party',
-      load: () => import(/* webpackChunkName: 'partysingle' */ './partysingle')
+      load: () => import(/* webpackChunkName: 'partysingle' */ './partysingle'),
     },
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     {
       path: '*',
-      load: () => import(/* webpackChunkName: 'not-found' */ './not-found')
-    }
+      load: () => import(/* webpackChunkName: 'not-found' */ './not-found'),
+    },
   ],
 
   async action({ next }) {
@@ -68,14 +83,14 @@ const routes = {
     route.description = route.description || '';
 
     return route;
-  }
+  },
 };
 
 // The error page is available by permanent url for development mode
 if (__DEV__) {
   routes.children.unshift({
     path: '/error',
-    action: require('./error').default
+    action: require('./error').default,
   });
 }
 

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProcessPoliticsTest: Candiate match  should calculate correct rating 1`] = `
+Array [
+  Object {
+    "bokstafur": "R",
+    "kjordaemi": "sudvestur",
+    "nafn": "Þorvarður Bergmann Kjartansson",
+    "reply": "012330123401234012340123401234",
+    "saeti": 2,
+    "score": 48.958333333333336,
+    "slug": "thorvardur-bergmann-kjartansson",
+  },
+  Object {
+    "bokstafur": "R",
+    "kjordaemi": "sudvestur",
+    "nafn": "Guðmundur Smári Sighvatsson",
+    "reply": "01233012340123401234012401234",
+    "saeti": 3,
+    "score": 48.91304347826087,
+    "slug": "gudmundur-smari-sighvatsson",
+  },
+  Object {
+    "bokstafur": "R",
+    "kjordaemi": "sudvestur",
+    "nafn": "Erna Lína Örnudóttir Baldvinsdóttir",
+    "reply": "012340123401234012340123401234",
+    "saeti": 1,
+    "score": 47.916666666666664,
+    "slug": "erna-lina-ornudottir-baldvinsdottir",
+  },
+  Object {
+    "bokstafur": "R",
+    "kjordaemi": "sudvestur",
+    "nafn": "Sigrún Erlingsdóttir",
+    "reply": "012340123401234012340123401234",
+    "saeti": 4,
+    "score": 47.916666666666664,
+    "slug": "sigrun-erlingsdottir",
+  },
+]
+`;

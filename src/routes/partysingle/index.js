@@ -5,7 +5,7 @@ import parties from '../../../data/build/parties.json';
 import candidates from '../../../data/build/candidates.json';
 import { pleasantUrl } from '../../utils';
 
-export default ({ params }) => {
+export default ({ params, url }) => {
   const party = parties.filter(party => party.url === params.party)[0];
   const partyCandidates = candidates.filter(
     candidate => candidate.bokstafur === party.letter
@@ -25,7 +25,7 @@ export default ({ params }) => {
     chunks: ['partysingle'],
     title: `${party.name} - Kjóstu Rétt`,
     description: `Upplýsingar um stefnumál ${party.nameDeflected} á mannamáli fyrir Alþingiskosningarnar 2017`,
-    path: `/flokkur/${party.url}`,
+    path: url,
     component: (
       <Layout
         title={party.name}
