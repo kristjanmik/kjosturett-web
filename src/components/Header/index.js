@@ -10,7 +10,7 @@ import logo from '../../logo.svg';
 class Header extends PureComponent {
   state = {
     isTop: true,
-    isOpen: false,
+    isOpen: false
   };
   componentDidMount() {
     window.addEventListener('scroll', this.scroll);
@@ -28,13 +28,13 @@ class Header extends PureComponent {
 
     this.lastScrollPos = scroll;
     this.setState({
-      isTop: scroll < 50,
+      isTop: scroll < 50
     });
   };
   toggle(state) {
     const force = state == null;
     this.setState(({ isOpen }) => ({
-      isOpen: force ? !isOpen : state,
+      isOpen: force ? !isOpen : state
     }));
   }
   renderLinks() {
@@ -65,14 +65,14 @@ class Header extends PureComponent {
       >
         Kjörstaðir
       </Link>,
-      <Link
-        afterClick={() => this.toggle(false)}
-        href="/kosningaprof"
-        key="/kosningaprof"
-        className={cx(page === 'kosningaprof' ? s.active : null)}
-      >
-        Kosningapróf
-      </Link>,
+      // <Link
+      //   afterClick={() => this.toggle(false)}
+      //   href="/kosningaprof"
+      //   key="/kosningaprof"
+      //   className={cx(page === 'kosningaprof' ? s.active : null)}
+      // >
+      //   Kosningapróf
+      // </Link>,
       <Link
         afterClick={() => this.toggle(false)}
         className={cx(page === 'verkefnid' ? s.active : null)}
@@ -80,7 +80,7 @@ class Header extends PureComponent {
         href={'/verkefnid'}
       >
         Um verkefnið
-      </Link>,
+      </Link>
     ];
   }
   render() {
