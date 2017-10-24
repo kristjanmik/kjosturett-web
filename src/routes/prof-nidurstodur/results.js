@@ -26,13 +26,20 @@ export default ({ params }) => {
   const questions = questionsBase.map(({ id, question }) => ({
     id,
     question,
-    myAnswer: myAnswers[id],
+    myAnswer: myAnswers[id]
   }));
+
+  const socialPayload = parties
+    .map(party => `${party.letter}:${party.score.toFixed(0)}`)
+    .join('|');
+
+  const ogImage = `https://lx62q4zmz2.execute-api.us-east-1.amazonaws.com/test/${socialPayload}`;
 
   return {
     chunks: ['prof-nidurstodur'],
     title: `Kjóstu Rétt - Kosningapróf`,
     path: `/kosningaprof/:nidurstodur`,
+    ogImage,
     component: (
       <Layout page="prof-nidurstodur" title="Kosningapróf / Niðurstöður">
         <KosningaProfResults
@@ -42,6 +49,6 @@ export default ({ params }) => {
           parties={parties}
         />
       </Layout>
-    ),
+    )
   };
 };
