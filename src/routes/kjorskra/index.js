@@ -59,6 +59,6 @@ export default ({ params, url }) => {
           loadingElement={<div style={{ height: `100%` }} />}
         />
       </Layout>
-    )
+    ),
   };
 };
