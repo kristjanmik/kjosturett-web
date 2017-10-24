@@ -30,7 +30,7 @@ replies.forEach(({ kennitala, reply }) => {
 
   await writeFile(
     './build/replies-candidates2.json',
-    JSON.stringify(out, null, 0)
+    JSON.stringify(out, null, 0),
   );
 
   console.log('Build:Replies Candidates - Done');
