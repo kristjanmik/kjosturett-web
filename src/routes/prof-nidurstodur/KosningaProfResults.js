@@ -48,6 +48,7 @@ class KosningaprofResults extends PureComponent {
             <div
               className={s.party}
               key={party.url}
+              role="button"
               onClick={() => this.toggle(party.letter)}
             >
               <div
@@ -97,8 +98,6 @@ class KosningaprofResults extends PureComponent {
                 .map(({ id, myAnswer, question, partyAnswer }) => {
                   const indiffrent = !(myAnswer !== 3 && myAnswer !== 6);
                   const difference = Math.abs(myAnswer - partyAnswer);
-
-                  console.log(difference === 0 && !indiffrent);
 
                   return (
                     <div className={s.partyQuestion} key={id}>
