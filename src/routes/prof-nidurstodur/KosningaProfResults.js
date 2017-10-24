@@ -38,8 +38,8 @@ class KosningaprofResults extends PureComponent {
               style={{
                 transform: `scaleX(${Math.max(
                   0.01,
-                  party.score / partyScoreScalar,
-                )})`,
+                  party.score / partyScoreScalar
+                )})`
               }}
             />
             <img
@@ -68,8 +68,8 @@ class KosningaprofResults extends PureComponent {
                   style={{
                     transform: `scaleX(${Math.max(
                       0.01,
-                      candidate.score / 100,
-                    )})`,
+                      candidate.score / 100
+                    )})`
                   }}
                 />
               </div>
