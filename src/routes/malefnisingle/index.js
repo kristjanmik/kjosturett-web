@@ -3,7 +3,7 @@ import MalefniSingle from './MalefniSingle';
 import Layout from '../../components/Layout';
 import categories from '../../../data/build/categories.json';
 
-export default ({ params, path }) => {
+export default ({ params, url }) => {
   const category = categories.filter(
     category => category.url === params.malefni
   )[0];
