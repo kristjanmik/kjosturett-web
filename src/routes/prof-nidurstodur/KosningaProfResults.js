@@ -12,14 +12,14 @@ const scoreToFloatingPoint = (score, scalar = 1) =>
 
 class KosningaprofResults extends PureComponent {
   state = {
-    open: {},
+    open: {}
   };
   toggle(party) {
     this.setState(({ open }) => ({
       open: {
         ...open,
-        [party]: !open[party],
-      },
+        [party]: !open[party]
+      }
     }));
   }
   render() {
@@ -44,7 +44,7 @@ class KosningaprofResults extends PureComponent {
           Flokkunum er raðað eftir hversu samála þið eruð.
         </p>
         {parties.filter(party => party.score).map(party => (
-          <div>
+          <div key={party.letter}>
             <div
               className={s.party}
               key={party.url}
@@ -56,8 +56,8 @@ class KosningaprofResults extends PureComponent {
                 style={{
                   transform: `scaleX(${scoreToFloatingPoint(
                     party.score,
-                    partyScoreScalar,
-                  )})`,
+                    partyScoreScalar
+                  )})`
                 }}
               />
               <img
@@ -71,14 +71,14 @@ class KosningaprofResults extends PureComponent {
               isOpened={this.state.open[party.letter] === true}
               springConfig={{
                 stiffness: 100,
-                damping: 20,
+                damping: 20
               }}
             >
               {questions
                 .map(question => ({
                   ...question,
                   myAnswer: question.myAnswer || 3,
-                  partyAnswer: party.reply[question.id] || 3,
+                  partyAnswer: party.reply[question.id] || 3
                 }))
                 .sort((a, b) => {
                   const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
@@ -151,8 +151,8 @@ class KosningaprofResults extends PureComponent {
                   className={s.candidateProgress}
                   style={{
                     transform: `scaleX(${scoreToFloatingPoint(
-                      candidate.score,
-                    )})`,
+                      candidate.score
+                    )})`
                   }}
                 />
               </div>
