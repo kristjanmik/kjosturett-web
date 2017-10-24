@@ -15,7 +15,7 @@ function questionAnswer(reply = []) {
   }, {});
 }
 
-export default ({ params }) => {
+export default ({ params, url }) => {
   const replies = decodeAnswersToken(params.nidurstodur);
   const myAnswers = questionAnswer(replies);
   const parties = getResultsByScore(replies, partyReplies).map(party => {
@@ -38,7 +38,7 @@ export default ({ params }) => {
   return {
     chunks: ['prof-nidurstodur'],
     title: `Kjóstu Rétt - Kosningapróf`,
-    path: `/kosningaprof/:nidurstodur`,
+    path: url,
     ogImage,
     component: (
       <Layout page="prof-nidurstodur" title="Kosningapróf / Niðurstöður">
