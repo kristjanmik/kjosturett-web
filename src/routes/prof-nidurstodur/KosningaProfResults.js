@@ -5,10 +5,13 @@ import s from './styles.scss';
 import Link from '../../Link';
 import { getAssetUrl, candidateImage } from '../../utils';
 
+const scoreToFloatingPoint = (score, scalar = 1) =>
+  Math.max(1, Math.ceil(score / scalar)) / 100;
+
 class KosningaprofResults extends PureComponent {
   render() {
     const { questions, answers, results, candidates, parties } = this.props;
-    const partyScoreScalar = parties.length ? parties[0].score : 1;
+    const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
     return (
       <div className={s.root}>
         <p className={s.lead}>
@@ -36,9 +39,9 @@ class KosningaprofResults extends PureComponent {
             <div
               className={s.partyProgress}
               style={{
-                transform: `scaleX(${Math.max(
-                  0.01,
-                  party.score / partyScoreScalar
+                transform: `scaleX(${scoreToFloatingPoint(
+                  party.score,
+                  partyScoreScalar
                 )})`
               }}
             />
@@ -47,12 +50,12 @@ class KosningaprofResults extends PureComponent {
               className={s.partyLogo}
             />
             <div className={s.partyName}>{party.name}</div>
-            <div className={s.partyPercentage}>{party.score.toFixed(0)}%</div>
+            <div className={s.partyPercentage}>{Math.ceil(party.score)}%</div>
           </Link>
         ))}
         <h3>Frambjóðendur</h3>
         <p className={s.nonLead}>
-          {/* TODO: Filter by kjördæni */}
+          {/* TODO: Filter by kjördæmi */}
           Frambjóðendur allra kjördæma.
         </p>
         <div className={s.candidates}>
@@ -66,15 +69,14 @@ class KosningaprofResults extends PureComponent {
                 <div
                   className={s.candidateProgress}
                   style={{
-                    transform: `scaleX(${Math.max(
-                      0.01,
-                      candidate.score / 100
+                    transform: `scaleX(${scoreToFloatingPoint(
+                      candidate.score
                     )})`
                   }}
                 />
               </div>
               <div className={s.candidatePercentage}>
-                <span>{candidate.score.toFixed(0)}%</span>
+                <span>{Math.ceil(candidate.score)}%</span>
               </div>
               <div className={s.candidateInfo}>
                 <div className={s.candidateName}>{candidate.name}</div>

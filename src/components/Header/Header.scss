@@ -11,6 +11,7 @@
   z-index: 10;
 }
 
+.hamburgerBtn,
 .leftWrap,
 .links {
   transition: transform 250ms;
@@ -27,7 +28,6 @@
 
 .sticky {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-
   transform: translateY(-30px);
 
   .countdown {
@@ -38,6 +38,7 @@
     transform: translateY(20px);
   }
 
+  .hamburgerBtn,
   .links {
     transform: translateY(15px);
   }
@@ -55,6 +56,106 @@
 
     .links {
       transform: translateY(30px);
+    }
+  }
+}
+
+.desktopNav .links {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.mobileNav {
+  align-items: center;
+  background: linear-gradient(180deg, rgba(#fff, 0.95), rgba(#fff, 1) 60%);
+  display: flex;
+  bottom: -30px;
+  flex-direction: column;
+  left: 0;
+  justify-content: center;
+  pointer-events: none;
+  position: fixed;
+  transition: transform 400ms ease-in-out;
+  transform: translateY(-140%);
+  width: 100%;
+  z-index: 9;
+
+  &.isOpen {
+    pointer-events: auto;
+    transform: none;
+  }
+
+  &.sticky.isOpen {
+    transform: translateY(-30px);
+  }
+
+  .links {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  .links a {
+    background-position: 0 calc(1.7em);
+    font-size: 2rem;
+    margin: 0 auto;
+    display: table;
+    padding: 0.3em 0;
+  }
+
+  @include between-property('top', 120px, 80px, 1200px, 768px);
+}
+
+.hamburgerBtn {
+  border: none;
+  background: transparent;
+  appearance: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+.hamburgerBtn,
+.mobileNav {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.hamburger {
+  justify-content: space-between;
+  flex-direction: column;
+  display: inline-flex;
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+  margin-top: -2px;
+  vertical-align: middle;
+
+  &::after,
+  &::before {
+    display: block;
+    content: '';
+    height: 2px;
+    background: #777;
+    transition: transform 400ms, filter 400ms;
+    transform-origin: 50% 50%;
+    width: 100%;
+  }
+
+  &::before {
+    filter: drop-shadow(0 7px 0 #777);
+  }
+
+  .isOpen & {
+    &::before {
+      filter: drop-shadow(0 14px 0 rgba(#fff, 0));
+      transform: translateY(7px) rotate(225deg);
+    }
+
+    &::after {
+      transform: translateY(-7px) rotate(-225deg);
     }
   }
 }
