@@ -9,7 +9,7 @@ import logo from '../../logo.svg';
 
 class Header extends PureComponent {
   state = {
-    isTop: true,
+    isTop: true
   };
   componentDidMount() {
     window.addEventListener('scroll', this.scroll);
@@ -27,7 +27,7 @@ class Header extends PureComponent {
 
     this.lastScrollPos = scroll;
     this.setState({
-      isTop: scroll < 50,
+      isTop: scroll < 50
     });
   };
   render() {
@@ -52,16 +52,30 @@ class Header extends PureComponent {
                   href="/"
                   className={cx(
                     s.politics,
-                    page === 'flokkar' ? s.active : null,
+                    page === 'flokkar' ? s.active : null
                   )}
                 >
-                  <span className={s.politicsPrefix}>Stjórnmála</span>flokkar
+                  {/* <span className={s.politicsPrefix} /> */}
+                  Flokkar
                 </Link>
+
                 <Link
                   href="/malefni/atvinnumal"
                   className={cx(page === 'malefni' ? s.active : null)}
                 >
-                  Málefnin
+                  Málefni
+                </Link>
+                <Link
+                  href="/kjorskra"
+                  className={cx(page === 'kjorskra' ? s.active : null)}
+                >
+                  Kjörstaðir
+                </Link>
+                <Link
+                  href="/kosningaprof"
+                  className={cx(page === 'kosningaprof' ? s.active : null)}
+                >
+                  Kosningapróf
                 </Link>
                 <Link
                   className={cx(page === 'verkefnid' ? s.active : null)}

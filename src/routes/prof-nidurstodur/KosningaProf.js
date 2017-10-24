@@ -19,19 +19,19 @@ const initialAnswers = questions =>
 
 class Kosningaprof extends PureComponent {
   static contextTypes = {
-    fetch: PropTypes.func.isRequired,
+    fetch: PropTypes.func.isRequired
   };
   static propTypes = {
     answers: PropTypes.shape({
       default: PropTypes.string.isRequired,
-      textMap: PropTypes.object.isRequired,
+      textMap: PropTypes.object.isRequired
     }).isRequired,
     questions: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        question: PropTypes.string.isRequired,
-      }),
-    ).isRequired,
+        question: PropTypes.string.isRequired
+      })
+    ).isRequired
   };
   constructor(props) {
     super(props);
@@ -42,7 +42,7 @@ class Kosningaprof extends PureComponent {
       finished: false,
       visible: {},
       showReset: false,
-      answers: initialAnswers(props.questions),
+      answers: initialAnswers(props.questions)
     };
 
     this.positions = {};
@@ -70,7 +70,7 @@ class Kosningaprof extends PureComponent {
   onReset() {
     this.setState({
       answers: initialAnswers(this.props.questions),
-      showReset: false,
+      showReset: false
     });
   }
   onChange = id => ({ target }) => {
@@ -79,10 +79,10 @@ class Kosningaprof extends PureComponent {
     this.setState(({ answers }) => {
       const newAnswers = {
         ...answers,
-        [id]: target.value,
+        [id]: target.value
       };
       const maxId = Math.max(
-        ...Object.keys(answers).map(num => parseInt(num, 10)),
+        ...Object.keys(answers).map(num => parseInt(num, 10))
       );
 
       if (nextId <= maxId) {
@@ -94,7 +94,7 @@ class Kosningaprof extends PureComponent {
       localStorage.setItem(storageKey, JSON.stringify(newAnswers));
       return {
         started: true,
-        answers: newAnswers,
+        answers: newAnswers
       };
     });
   };
