@@ -4,13 +4,18 @@ import Countdown from 'react-countdown-now';
 
 class OpeningHours extends PureComponent {
   static propTypes = {
-    sveitafelag: PropTypes.string.isRequired,
+    sveitafelag: PropTypes.string.isRequired
   };
   render() {
     const { sveitafelag } = this.props;
     const now = new Date();
     const openReykjavik = new Date('Saturday, October 28, 2017 9:00:00 AM');
     const closeReykjavik = new Date('Saturday, October 28, 2017 10:00:00 PM');
+
+    const showCountdown =
+      now.getTime() > openReykjavik.getTime() &&
+      getTime.getTime() < closeReykjavik.getTime();
+
     return (
       <div>
         {sveitafelag.includes('Reykjavík') && (
@@ -22,8 +27,8 @@ class OpeningHours extends PureComponent {
           </div>
         )}
         <div>
-          {now.getDate() === 24 &&
-            now.getHours() >= openReykjavik.getHours() && (
+          {sveitafelag.includes('Reykjavík') &&
+            showCountdown && (
               <Countdown
                 date={closeReykjavik}
                 renderer={({ hours, minutes, completed }) => {
