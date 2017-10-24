@@ -18,7 +18,7 @@ export default ({ params }) => {
     title: `Kjóstu Rétt - Kosningapróf`,
     path: `/kosningaprof/:nidurstodur`,
     component: (
-      <Layout page="prof-nidurstodur">
+      <Layout page="prof-nidurstodur" title="Kosningapróf / Niðurstöður">
         <KosningaProfResults
           answers={answers}
           questions={questions}

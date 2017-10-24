@@ -11,12 +11,22 @@ class KosningaprofResults extends PureComponent {
     const partyScoreScalar = parties.length ? parties[0].score : 1;
     return (
       <div className={s.root}>
-        <h2>Niðurstöður úr kosningaprófi Kjóstu Rétt</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sit
-          sunt velit rerum distinctio eius minus quis a nihil repudiandae?
+        <p className={s.lead}>
+          Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Ertu enn
+          óviss um hvað skal kjósa? Lestu{' '}
+          <Link href="/malefni/atvinnumal">stefnulýsingar flokkana</Link> í þeim
+          málefnum sem þér þykja mikilvæg.
         </p>
-        <h3>Stjórnmálaflokkar með svipaðr skoðanir og ég</h3>
+        <p>
+          <Link className={s.takeTest} href="/kosningaprof">
+            Taka kosningaprófið!
+          </Link>
+        </p>
+
+        <h3>Stjórnmálaflokkar</h3>
+        <p className={s.nonLead}>
+          Flokkunum er raðað eftir hversu samála þið eruð.
+        </p>
         {parties.filter(party => party.score).map(party => (
           <Link
             href={`/flokkur/${party.url}`}
@@ -40,7 +50,11 @@ class KosningaprofResults extends PureComponent {
             <div className={s.partyPercentage}>{party.score.toFixed(0)}%</div>
           </Link>
         ))}
-        <h3>Frambjóðendur með svipaðr skoðanir og ég</h3>
+        <h3>Frambjóðendur</h3>
+        <p className={s.nonLead}>
+          {/* TODO: Filter by kjördæni */}
+          Frambjóðendur allra kjördæma.
+        </p>
         <div className={s.candidates}>
           {candidates.slice(0, 12).map(candidate => (
             <div key={candidate.ssn} className={s.candidate}>
