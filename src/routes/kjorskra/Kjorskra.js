@@ -348,7 +348,8 @@ class Kjorskra extends PureComponent {
     const { nafn, kjorstadur, kjordeild, kjordaemi } = data;
 
     const hash = btoa(
-      `${nafn.split(' ')[0]}|${kjorstadur}|${kjordeild}|${kjordaemi}`,
+      `${nafn.split(' ')[0]}|${kjorstadur}|${kjordeild}|${kjordaemi}|${options
+        .center.lat},${options.center.lng}`
     );
 
     history.replace(`/kjorskra/${encodeURIComponent(hash)}`);
@@ -457,24 +458,24 @@ class Kjorskra extends PureComponent {
         {!data && (
           <div>
             <div className={s.lookupContainer}>
-              {nidurstada &&
-                process.env.BROWSER && (
-                  <div>
-                    <h3>
-                      <b>{nidurstada.fornafn}</b> er í kjördæminu{' '}
-                      <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er{' '}
-                      <b>{nidurstada.kjorstadur}</b>.
-                    </h3>
-                    <h3>Finnum út úr því hvar þú átt að kjósa!</h3>
-                  </div>
-                )}
+              {nidurstada && (
+                <div>
+                  <h3 className={s.friendHeading}>
+                    <b>{nidurstada.fornafn}</b> er í kjördæminu{' '}
+                    <b>{nidurstada.kjordaemi}</b> og kjörstaðurinn er{' '}
+                    <b>{nidurstada.kjorstadur}</b>.
+                  </h3>
+                  <h3>En stóra spurningin er, hvar kýst þú?</h3>
+                </div>
+              )}
               {!nidurstada && <h3>Finnum út úr því hvar þú átt að kjósa!</h3>}
 
               <div className={s.lookupWrap}>
                 <input
                   autoFocus
                   value={kennitala}
-                  type="text"
+                  type="number"
+                  pattern="[\d]*"
                   placeholder="Sláðu inn kennitöluna þína"
                   className={s.input}
                   onChange={e => this.onInputChange('kennitala', e)}
@@ -502,7 +503,7 @@ class Kjorskra extends PureComponent {
               <p className={s.kjorstadur}>
                 {data.kjorstadur}, {data.sveitafelag}
               </p>
-              <p>
+              <p className={s.votingInfo}>
                 Þú ert í <b>kjördeild</b> <i>{data.kjordeild}</i> og þú greiðir
                 atkvæði í <b>kjördæminu</b> <i>{data.kjordaemi}</i>.
               </p>
@@ -514,7 +515,6 @@ class Kjorskra extends PureComponent {
                       <Autocomplete
                         ref={this.onAutocompleteMounted}
                         type="text"
-                        autoFocus
                         onChange={this.submitCurrentAddress}
                         placeholder="Núverandi heimilisfang"
                         className={s.input}
@@ -528,7 +528,7 @@ class Kjorskra extends PureComponent {
               )}
               {currentAddress && (
                 <div className={s.itineriesBox}>
-                  <h3>Komdu þér á kjörstað:</h3>
+                  <h3>Skelltu þér á kjörstað, þú ert aðeins...</h3>
                   <ul className={s.itineries}>
                     {this.getItineriesByDistance({
                       from: currentAddress,
@@ -553,12 +553,14 @@ class Kjorskra extends PureComponent {
               )}
             </div>
 
-            {mapOptions.invalidLocation && <div>INVALIDLOCATION</div>}
+            {mapOptions.invalidLocation && <div>Röng staðsetning</div>}
 
             {!mapOptions.invalidLocation && (
               <div className={s.mapContainer}>
                 <Map
-                  containerElement={<div style={{ height: `100%` }} />}
+                  containerElement={
+                    <div style={{ height: `100%`, width: '100%' }} />
+                  }
                   mapElement={<div style={{ height: '100%', width: '100%' }} />}
                   mapOptions={mapOptions}
                   kjorstadur={data.kjorstadur}

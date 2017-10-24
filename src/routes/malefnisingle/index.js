@@ -3,7 +3,7 @@ import MalefniSingle from './MalefniSingle';
 import Layout from '../../components/Layout';
 import categories from '../../../data/build/categories.json';
 
-export default ({ params }) => {
+export default ({ params, path }) => {
   const category = categories.filter(
     category => category.url === params.malefni
   )[0];
@@ -20,7 +20,7 @@ export default ({ params }) => {
   return {
     chunks: ['malefnisingle'],
     title: `${category.name} - Kjóstu Rétt`,
-    path: `/malefni/${category.url}`,
+    path: url,
     description: `Svör stjórnmálaflokkanna í ${category.name.toLowerCase()}um fyrir Alþingiskosningarnar 2017`,
     component: (
       <Layout page="malefni" title={category.name}>

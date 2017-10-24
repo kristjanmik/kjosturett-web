@@ -9,20 +9,21 @@ class Html extends React.Component {
   static propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
+    ogImage: PropTypes.string,
     styles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        cssText: PropTypes.string.isRequired,
-      }).isRequired,
+        cssText: PropTypes.string.isRequired
+      }).isRequired
     ),
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
-    children: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired
   };
 
   static defaultProps = {
     styles: [],
-    scripts: [],
+    scripts: []
   };
 
   render() {
@@ -34,8 +35,9 @@ class Html extends React.Component {
       scripts,
       app,
       children,
+      ogImage
     } = this.props;
-
+    console.log('ogImage', ogImage);
     return (
       <html className="no-js" lang="en">
         <head>
@@ -81,13 +83,17 @@ class Html extends React.Component {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="theme-color" content="#ffffff" />
 
-          <meta property="og:image" content="https://kjosturett.is/og.png" />
+          {ogImage && <meta property="og:image" content={ogImage} />}
+          {!ogImage && (
+            <meta property="og:image" content="https://kjosturett.is/og.png" />
+          )}
+
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="Kjóstu Rétt 2017" />
           <meta name="twitter:description" content={description} />
 
           <link
-            href="https://fonts.googleapis.com/css?family=Lora|Roboto:300,400,900"
+            href="https://fonts.googleapis.com/css?family=Lora|Roboto:300,400,500,900"
             rel="stylesheet"
           />
 
@@ -114,7 +120,7 @@ class Html extends React.Component {
                 __html:
                   'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' +
                   `ga('create','${config.analytics
-                    .googleTrackingId}','auto');ga('send','pageview')`,
+                    .googleTrackingId}','auto');ga('send','pageview')`
               }}
             />
           )}
