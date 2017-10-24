@@ -9,6 +9,7 @@ import bicyclingIcon from './bicycling.png';
 import busIcon from './bus.png';
 import busData from './bus.json';
 import Autocomplete from './Autocomplete';
+import OpeningHours from './OpeningHours';
 import history from '../../history';
 
 import { clean as cleanKennitala, isPerson } from 'kennitala';
@@ -506,6 +507,7 @@ class Kjorskra extends PureComponent {
                 Þú ert í <b>kjördeild</b> <i>{data.kjordeild}</i> og þú greiðir
                 atkvæði í <b>kjördæminu</b> <i>{data.kjordaemi}</i>.
               </p>
+              <OpeningHours sveitafelag={data.sveitafelag} />
               {!currentAddress && (
                 <div className={s.currentAddressBox}>
                   <h3>Nú þurfum við bara að koma þér á kjörstað!</h3>
