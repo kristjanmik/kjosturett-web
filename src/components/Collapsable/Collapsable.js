@@ -16,7 +16,8 @@ class Collapsable extends React.Component {
       PropTypes.shape({
         key: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        content: PropTypes.string.isRequired,
+        content: PropTypes.string,
+        children: PropTypes.node,
         image: PropTypes.string,
       }),
     ),
@@ -84,7 +85,7 @@ class Collapsable extends React.Component {
         }}
         className={styles.root}
       >
-        {items.map(({ key, title, content, image }) => (
+        {items.map(({ key, title, content, image, children }) => (
           <div className={styles.category} key={key}>
             <a
               href={`#${key}`}
@@ -102,15 +103,19 @@ class Collapsable extends React.Component {
               isOpened={open[key] === true}
               springConfig={Collapsable.spring}
             >
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: content,
-                }}
-                className={cx(
-                  styles.content,
-                  // category.statement === '' ? s.textNoReply : null
-                )}
-              />
+              {children ? (
+                children
+              ) : (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: content,
+                  }}
+                  className={cx(
+                    styles.content
+                    // category.statement === '' ? s.textNoReply : null
+                  )}
+                />
+              )}
             </Collapse>
           </div>
         ))}
