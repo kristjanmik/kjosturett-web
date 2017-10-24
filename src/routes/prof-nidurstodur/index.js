@@ -6,11 +6,13 @@ import answers from '../../../data/poll/answers.json';
 
 export default () => ({
   chunks: ['prof'],
-  title: `Kjóstu Rétt - Kosningapróf`,
+  title: `Taktu kosningapróf kjósturétt.is!`,
+  description:
+    'Hvaða flokkar og frambjóðendur eru þér algjörlega sammála? Þú getur þreytt prófið og komist að áreiðanlegri niðurstöðu',
   path: `/kosningaprof`,
   component: (
     <Layout page="kosningaprof">
       <KosningaProf answers={answers} questions={questions} />
     </Layout>
-  ),
+  )
 });
