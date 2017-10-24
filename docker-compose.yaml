@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  server:
+    image:  node:8.7.0-alpine
+    working_dir: /usr/src/app
+    command: sh -c 'npm install; npm run build-data; npm start'
+    volumes:
+     - .:/usr/src/app
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    expose:
+      - 3000
+      - 3001
