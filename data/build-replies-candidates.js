@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { promisify } = require('util');
 const globby = require('globby');
+const slugify = require('slugify');
 const writeFile = promisify(fs.writeFile);
 const replies = require('./poll/replies_candidates.json');
 const repliesObj = {};
@@ -23,6 +24,8 @@ replies.forEach(({ kennitala, reply }) => {
 
       if (reply) candidate.reply = reply;
 
+      candidate.slug = slugify(candidate.name).toLowerCase();
+
       return candidate;
     });
     out = [...out, ...candidates];
@@ -30,7 +33,7 @@ replies.forEach(({ kennitala, reply }) => {
 
   await writeFile(
     './build/replies-candidates2.json',
-    JSON.stringify(out, null, 0),
+    JSON.stringify(out, null, 0)
   );
 
   console.log('Build:Replies Candidates - Done');

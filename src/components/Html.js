@@ -37,7 +37,7 @@ class Html extends React.Component {
       children,
       ogImage
     } = this.props;
-    console.log('ogImage', ogImage);
+
     return (
       <html className="no-js" lang="en">
         <head>
