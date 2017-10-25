@@ -352,12 +352,13 @@
 
 .candidateInfo {
   align-items: flex-end;
-  background-image: linear-gradient(180deg, rgba(#000, 0.6), rgba(#000, 0));
+  background: rgba(#000, 0.4);
+  bottom: 0;
   display: flex;
   flex-direction: column;
   color: #fff;
   left: 0;
-  padding: 0.3em 0.5em 0.5em;
+  padding: 0.3em 0.5em;
   position: absolute;
   top: 0;
   text-align: right;
@@ -366,6 +367,11 @@
   @media (min-width: 600px) {
     padding: 0.8em 1em 1em;
   }
+}
+
+.candidateConstituency {
+  font-size: 0.8rem;
+  margin-top: auto;
 }
 
 .candidateName {
