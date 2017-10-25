@@ -97,36 +97,44 @@ class KosningaprofResults extends PureComponent {
                   return aAgree - bAgree;
                 })
                 .map(({ id, myAnswer, question, partyAnswer }) => {
-                  const indiffrent = !(myAnswer !== 3 && myAnswer !== 6);
+                  const iAmIndiffrent = !(myAnswer !== 3 && myAnswer !== 6);
+                  const pluralParty = party.name === 'Píratar';
+                  const partyIndiffrent = !(
+                    partyAnswer !== 3 && partyAnswer !== 6
+                  );
                   const difference = Math.abs(myAnswer - partyAnswer);
 
                   return (
                     <div className={s.partyQuestion} key={id}>
                       <h4>
-                        {!indiffrent && (
+                        {!iAmIndiffrent && (
                           <i className={cx(s.dot, s[`dot${difference}`])} />
                         )}
                         {question}
                       </h4>
 
-                      {difference === 0 && !indiffrent ? (
+                      {difference === 0 ? (
                         <div>
-                          Við erum{' '}
+                          Bæði ég og {party.name} erum{' '}
                           <strong>
                             {answers.textMap[myAnswer].toLowerCase()}
                           </strong>{' '}
-                          þessari staðhæfingu.
+                          {iAmIndiffrent && 'gagnvart '} þessari staðhæfingu.
                         </div>
                       ) : (
                         <div>
-                          <div>
-                            <strong>{party.name}: </strong>
-                            {answers.textMap[partyAnswer]}
-                          </div>
-                          <div>
-                            <strong>Ég: </strong>
-                            {answers.textMap[myAnswer] || 'Hlutlaus'}
-                          </div>
+                          Ég er{' '}
+                          <strong>
+                            {(answers.textMap[myAnswer] || 'hlutlaus'
+                            ).toLowerCase()}
+                          </strong>{' '}
+                          en {party.name} {pluralParty ? 'eru ' : 'er '}
+                          <strong>
+                            {(answers.textMap[partyAnswer] || 'hlutlaus'
+                            ).toLowerCase()}
+                            {(partyIndiffrent && pluralParty && 'ir ') || ' '}
+                          </strong>{' '}
+                          {partyIndiffrent && 'gagnvart '} þessari staðhæfingu.
                         </div>
                       )}
                     </div>
