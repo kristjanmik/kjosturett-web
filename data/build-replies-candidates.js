@@ -30,6 +30,7 @@ replies.forEach(({ kennitala, reply }) => {
       delete candidate.occupation;
       delete candidate.place;
       delete candidate.street;
+      candidate.seat = parseInt(candidate.seat, 10);
 
       return candidate;
     });

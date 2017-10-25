@@ -4,15 +4,21 @@ import cx from 'classnames';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './styles.scss';
 import { Collapse } from 'react-collapse';
+import Select from 'react-select';
 import Link from '../../Link';
 import { getAssetUrl, candidateImage } from '../../utils';
+
+import SelectStyles from '../../../node_modules/react-select/dist/react-select.css';
 
 const scoreToFloatingPoint = (score, scalar = 1) =>
   Math.max(1, Math.ceil(score / scalar)) / 100;
 
 class KosningaprofResults extends PureComponent {
   state = {
-    open: {}
+    open: {},
+    kjordaemiFilter: '',
+    topFilter: 5,
+    candidateCount: 12
   };
   toggle(party) {
     this.setState(({ open }) => ({
@@ -31,6 +37,8 @@ class KosningaprofResults extends PureComponent {
       parties,
       url
     } = this.props;
+    const { kjordaemiFilter, topFilter, candidateCount } = this.state;
+
     const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
     return (
       <div className={s.root}>
@@ -141,7 +149,7 @@ class KosningaprofResults extends PureComponent {
                         <i
                           className={cx(
                             s.dot,
-                            !iAmIndiffrent && s[`dot${difference}`],
+                            !iAmIndiffrent && s[`dot${difference}`]
                           )}
                         />
                         {question}
@@ -179,45 +187,127 @@ class KosningaprofResults extends PureComponent {
         ))}
         <h3>Frambjóðendur</h3>
         <p className={s.nonLead}>
-          {/* TODO: Filter by kjördæmi */}
           Svör fólks í framboði fyrir alla flokka í öllum kjördæmum
         </p>
+        <div className={s.filters}>
+          <Select
+            multi={true}
+            name="kjordaemi"
+            value={kjordaemiFilter}
+            placeholder="Kjördæmi"
+            className={s.kjordaemiFilter}
+            options={[
+              { value: 'reykjavik-sudur', label: 'Reykjavíkurkjördæmi suður' },
+              {
+                value: 'reykjavik-nordur',
+                label: 'Reykjavíkurkjördæmi norður'
+              },
+              { value: 'nordvesturkjordaemi', label: 'Norðvesturkjördæmi' },
+              { value: 'nordausturkjordaemi', label: 'Norðausturkjördæmi' },
+              { value: 'sudurkjordaemi', label: 'Suðurkjördæmi' },
+              { value: 'sudvesturkjordaemi', label: 'Suðvesturkjördæmi' }
+            ]}
+            onChange={val => {
+              this.setState({
+                kjordaemiFilter: val.map(v => v.value).join(',')
+              });
+            }}
+          />
+          <Select
+            name="top"
+            value={topFilter}
+            className={s.topFilter}
+            clearable={false}
+            options={[
+              {
+                value: 30,
+                label: 'Allir frambjóðendur'
+              },
+              { value: 1, label: 'Oddvitar' },
+              { value: 2, label: 'Efst 2 á lista' },
+              { value: 5, label: 'Efstu 5 á lista' },
+              { value: 10, label: 'Efstu 10 á lista' }
+            ]}
+            onChange={val => {
+              this.setState({
+                topFilter: val.value
+              });
+            }}
+          />
+          <Select
+            name="show"
+            value={candidateCount}
+            className={s.showCount}
+            clearable={false}
+            options={[
+              {
+                value: 12,
+                label: 'Sýna 12'
+              },
+              { value: 24, label: 'Sýna 24' },
+              { value: 48, label: 'Sýna 48' },
+              { value: 96, label: 'Sýna 96' }
+            ]}
+            onChange={val => {
+              this.setState({
+                topFilter: val.value
+              });
+            }}
+          />
+        </div>
         <div className={s.candidates}>
-          {candidates.slice(0, 12).map(candidate => (
-            <div key={candidate.ssn} className={s.candidate}>
-              <img
-                className={s.candidateImg}
-                src={candidateImage(candidate.slug)}
-                color="https://via.placeholder.com/400x400?text=Mynd+vantar"
-              />
-              <div className={s.candidateProgressBar}>
-                <div
-                  className={s.candidateProgress}
-                  style={{
-                    transform: `scaleX(${scoreToFloatingPoint(
-                      candidate.score
-                    )})`
-                  }}
+          {candidates
+            .filter(c => {
+              if (
+                kjordaemiFilter !== '' &&
+                kjordaemiFilter.indexOf(c.constituency) === -1
+              ) {
+                return false;
+              }
+
+              if (c.seat > topFilter) {
+                return false;
+              }
+
+              return true;
+            })
+            .slice(0, candidateCount)
+            .map(candidate => (
+              <div key={candidate.ssn} className={s.candidate}>
+                <img
+                  className={s.candidateImg}
+                  src={candidateImage(candidate.slug)}
+                  color="https://via.placeholder.com/400x400?text=Mynd+vantar"
                 />
-              </div>
-              <div className={s.candidatePercentage}>
-                <span>{Math.ceil(candidate.score)}%</span>
-              </div>
-              <div className={s.candidateInfo}>
-                <div className={s.candidateName}>{candidate.name}</div>
-                <div className={s.candidateParty}>
-                  {
-                    parties.find(party => party.letter === candidate.party).name
-                  }{' '}
-                  (x{candidate.party})
+                <div className={s.candidateProgressBar}>
+                  <div
+                    className={s.candidateProgress}
+                    style={{
+                      transform: `scaleX(${scoreToFloatingPoint(
+                        candidate.score
+                      )})`
+                    }}
+                  />
+                </div>
+                <div className={s.candidatePercentage}>
+                  <span>{Math.ceil(candidate.score)}%</span>
+                </div>
+                <div className={s.candidateInfo}>
+                  <div className={s.candidateName}>{candidate.name}</div>
+                  <div className={s.candidateParty}>
+                    {
+                      parties.find(party => party.letter === candidate.party)
+                        .name
+                    }{' '}
+                    (x{candidate.party})
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     );
   }
 }
 
-export default withStyles(s)(KosningaprofResults);
+export default withStyles(s, SelectStyles)(KosningaprofResults);

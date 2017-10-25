@@ -70,6 +70,26 @@
     max-width: 600px;
   }
 
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  .kjordaemiFilter {
+    width: 270px;
+  }
+
+  .topFilter {
+    width: 270px;
+    margin-left: 15px;
+  }
+
+  .showCount {
+    width: 120px;
+    margin-left: 15px;
+  }
+
   .takeTest {
     background: #353535;
     border-radius: 4px;

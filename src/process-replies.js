@@ -6,7 +6,7 @@ const valueMap = {
   '3': 0,
   '4': 0.5,
   '5': 1,
-  '6': null,
+  '6': null
 };
 
 function mapToValues(answers) {
@@ -43,8 +43,8 @@ export default function getResultsByScore(answers, dataset) {
       ...data,
       score: match(
         answerValues,
-        data.reply && mapToValues(data.reply.split('')),
-      ),
+        data.reply && mapToValues(data.reply.split(''))
+      )
     }))
     .sort(sortByRating);
 }
