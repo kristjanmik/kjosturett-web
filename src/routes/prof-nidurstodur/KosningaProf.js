@@ -174,7 +174,11 @@ class Kosningaprof extends PureComponent {
                 }}
                 handleStyle={{
                   backgroundColor: '#333',
-                  borderColor: '#777',
+                  borderColor: '#999',
+                  marginLeft: -9,
+                  marginTop: -7,
+                  width: 18,
+                  height: 18,
                 }}
                 trackStyle={{
                   backgroundColor: 'transparent',
