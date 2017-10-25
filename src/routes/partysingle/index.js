@@ -24,6 +24,7 @@ export default ({ params, url }) => {
     component: (
       <Layout
         title={party.name}
+        color={party.color}
         altTitle={
           <a href={party.website} target="_blank">
             {pleasantUrl(party.website)}
@@ -32,6 +33,6 @@ export default ({ params, url }) => {
       >
         <PartySingle party={party} categories={categories} />
       </Layout>
-    )
+    ),
   };
 };

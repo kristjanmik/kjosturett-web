@@ -44,7 +44,6 @@ html {
 .title {
   color: #fff;
   text-decoration: none;
-  font-weight: 200;
 
   @include between-property('font-size', 16px, 12px, 1200px, 0);
 }
