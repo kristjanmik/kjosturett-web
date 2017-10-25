@@ -11,8 +11,8 @@ export default ({ url }) => ({
     'Hvaða flokkar og frambjóðendur eru þér algjörlega sammála? Þú getur þreytt prófið og komist að áreiðanlegri niðurstöðu',
   path: url,
   component: (
-    <Layout page="kosningaprof">
+    <Layout page="kosningaprof" title="Kosningapróf">
       <KosningaProf answers={answers} questions={questions} />
     </Layout>
-  )
+  ),
 });

@@ -17,6 +17,12 @@ const initialAnswers = questions =>
     return all;
   }, {});
 
+const marks = {
+  1: 'Ósammála',
+  3: 'Hlutlaus',
+  5: 'Sammála',
+};
+
 class Kosningaprof extends PureComponent {
   static contextTypes = {
     fetch: PropTypes.func.isRequired,
@@ -62,35 +68,34 @@ class Kosningaprof extends PureComponent {
     this.loadAnswers();
   }
   componentWillUnmount() {
-    window.onbeforeunload = null;
     window.removeEventListener('resize', this.onLayout);
     window.removeEventListener('layout', this.onLayout);
     window.removeEventListener('scroll', this.onScroll);
   }
   onReset() {
-    this.setState({
-      answers: initialAnswers(this.props.questions),
-      showReset: false,
-    });
+    // eslint-disable-next-line
+    if (window.confirm('Ertu viss um að þú byrja upp á nýtt?')) {
+      const answers = initialAnswers(this.props.questions);
+      localStorage.removeItem(storageKey);
+      this.setState({
+        answers,
+        showReset: false,
+      });
+    }
   }
   onChange = id => value => {
-    this.setState(
-      ({ answers }) => {
-        const newAnswers = {
-          ...answers,
-          [id]: value,
-        };
+    this.setState(({ answers }) => {
+      const newAnswers = {
+        ...answers,
+        [id]: value,
+      };
 
-        localStorage.setItem(storageKey, JSON.stringify(newAnswers));
-        return {
-          started: true,
-          answers: newAnswers,
-        };
-      },
-      () => {
-        console.log(this.state);
-      },
-    );
+      localStorage.setItem(storageKey, JSON.stringify(newAnswers));
+      return {
+        started: true,
+        answers: newAnswers,
+      };
+    });
   };
   onLayout() {
     this.questionsEl.childNodes.forEach(question => {
@@ -126,54 +131,62 @@ class Kosningaprof extends PureComponent {
   }
   render() {
     const { questions } = this.props;
-    const { answers, showReset, finished, visible } = this.state;
-    const marks = {
-      1: 'Ósammála',
-      3: 'Hlutlaus',
-      5: 'Sammála',
-    };
+    const { answers, showReset, visible } = this.state;
     return (
       <div className={cx(s.root, s.questions)}>
+        <div className={s.lead}>
+          <p>
+            Það getur reynst erfitt að ákveða hvað á að kjósa. Taktu
+            kosningapróf Kjóstu rétt til þess að fá betra yfirlit yfir hvaða
+            flokk þú líkist mest.
+          </p>
+          {showReset && (
+            <p>
+              Þú getur tekið upp þráðinn frá því síðast og klárað prófið, eða{' '}
+              <button className={s.reset} onClick={this.onReset}>
+                byrjað
+              </button>{' '}
+              upp á nýtt.
+            </p>
+          )}
+        </div>
+
         <div
           ref={element => {
             this.questionsEl = element;
           }}
         >
-          {!finished &&
-            questions.map(({ question, id }) => (
-              <div
-                key={id}
-                id={id}
-                className={cx(s.question, !visible[id] && s.hidden)}
-              >
-                <h3>{question}</h3>
-                <Slider
-                  dots
-                  min={1}
-                  max={5}
-                  value={answers[id] != null ? answers[id] : 3}
-                  marks={marks}
-                  onChange={this.onChange(id)}
-                  dotStyle={{
-                    borderColor: '#333',
-                  }}
-                  handleStyle={{
-                    backgroundColor: '#333',
-                    borderColor: '#777',
-                  }}
-                  trackStyle={{
-                    backgroundColor: 'transparent',
-                  }}
-                />
-              </div>
-            ))}
+          {questions.map(({ question, id }) => (
+            <div
+              key={id}
+              id={id}
+              className={cx(s.question, !visible[id] && s.hidden)}
+            >
+              <h3>{question}</h3>
+              <Slider
+                dots
+                min={1}
+                max={5}
+                value={answers[id] != null ? answers[id] : 3}
+                marks={marks}
+                onChange={this.onChange(id)}
+                dotStyle={{
+                  borderColor: '#333',
+                }}
+                handleStyle={{
+                  backgroundColor: '#333',
+                  borderColor: '#777',
+                }}
+                trackStyle={{
+                  backgroundColor: 'transparent',
+                }}
+              />
+            </div>
+          ))}
         </div>
-        <button onClick={this.onSend}>Senda</button>
-        {showReset && (
-          <button className={s.reset} onClick={this.onReset}>
-            Frumstilla svör
-          </button>
-        )}
+        <p style={{ textAlign: 'center' }}>
+          <button onClick={this.onSend}>Reikna niðurstöður</button>
+        </p>
       </div>
     );
   }
