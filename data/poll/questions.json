@@ -12,7 +12,7 @@
   {
     "id": 3,
     "question":
-      "Leyfa ætti aukinn arðsemisdrifinn einkarekstur í heilbrigðiskerfinu"
+      "Leyfa ætti aukinn arðsemisdrifinn einkarekstur í heilbrigðiskerfinu."
   },
   { "id": 4, "question": "Auka þarf framlög til samgöngumála." },
   {
@@ -24,7 +24,7 @@
   {
     "id": 7,
     "question":
-      "LÍN ætti að veita háskólanemum námsstyrki að hluta til eða öllu leiti"
+      "LÍN ætti að veita háskólanemum námsstyrki að hluta til eða öllu leiti."
   },
   {
     "id": 8,
@@ -59,7 +59,7 @@
   {
     "id": 15,
     "question":
-      "NATO/Bandaríkjaher á að byggju upp aðstöðu fyrir hersveitir á Keflavíkurflugvelli á ný."
+      "NATO/Bandaríkjaher á að byggja upp aðstöðu fyrir hersveitir á Keflavíkurflugvelli á ný."
   },
   { "id": 16, "question": "Flytja á fleiri opinberar stofnanir út á land." },
   {
@@ -87,7 +87,7 @@
       "Hið opinbera á að tryggja fjölbreytta möguleika til menntunar um allt land."
   },
   { "id": 22, "question": "Taka ætti upp skólagjöld í opinberum háskólum." },
-  { "id": 23, "question": "Afglæpavæða ætti kannabis á kjörtímabilinu" },
+  { "id": 23, "question": "Afglæpavæða ætti kannabis á kjörtímabilinu." },
   {
     "id": 24,
     "question": "Stjórnvöld eiga að láta markaðinn um að leysa húsnæðisvandann."
@@ -102,14 +102,14 @@
     "question":
       "Ríkið á að selja hlut sinn í bönkunum að einhverju eða öllu leiti á næsta kjörtímabili."
   },
-  { "id": 27, "question": "Lækka þarf tryggingagjald fyrirtækja" },
+  { "id": 27, "question": "Lækka þarf tryggingagjald fyrirtækja." },
   { "id": 28, "question": "Hækka þarf hátekjuskatta." },
   {
     "id": 29,
     "question":
-      "Skoða þarf hvort hægt sé að afnema verðtryggingu á nýjum lánum strax"
+      "Skoða þarf hvort hægt sé að afnema verðtryggingu á nýjum lánum strax."
   },
-  { "id": 30, "question": "Gjaldmiðlinum á að halda óbreyttum" },
+  { "id": 30, "question": "Gjaldmiðlinum á að halda óbreyttum." },
   {
     "id": 31,
     "question":
