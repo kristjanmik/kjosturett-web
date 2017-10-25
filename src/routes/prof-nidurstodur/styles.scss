@@ -343,13 +343,13 @@
 }
 
 .candidate {
-  margin-bottom: 8%;
   position: relative;
-  width: 49%;
+  margin-bottom: 32px;
+  width: 48%;
 
   @media (min-width: 600px) {
-    margin-bottom: 5%;
-    width: 32%;
+    width: 31%;
+    margin-bottom: 38px;
   }
 }
 
