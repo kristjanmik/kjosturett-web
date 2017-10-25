@@ -150,42 +150,41 @@ class Kjorskra extends PureComponent {
   isKennitalaValid() {
     return isPerson(this.state.kennitala);
   }
-  async getDistance({ from, to, mode }) {
-    if (!process.env.BROWSER) return { distance: null, duration: null };
-    return new Promise(resolve => {
-      new window.google.maps.DistanceMatrixService().getDistanceMatrix(
-        {
-          origins: [from],
-          destinations: [to],
-          travelMode: mode, //BICYCLING,WALKING,DRIVING
-        },
-        results => {
-          if (results.rows.length === 0) {
-            console.error('No results from distance matrix');
-            return;
-          }
+  async getDistance({ from, to, costing }) {
+    const json = {
+      sources: [{ lat: from.lat(), lon: from.lng() }],
+      targets: [{ lat: to.lat(), lon: to.lng() }],
+      costing
+    };
 
-          let distance = null;
-          let duration = null;
+    const api_key =
+      costing === 'pedestrian' ? 'mapzen-8S2Nh1w' : 'mapzen-pRTGdQw';
 
-          results.rows.forEach(row => {
-            row.elements.forEach(element => {
-              if (element && element.distance) {
-                distance = element.distance.value;
-              }
-              if (element && element.duration) {
-                duration = element.duration.value;
-              }
-            });
-          });
+    const url = [
+      'http://matrix.mapzen.com/one_to_many?api_key=',
+      api_key,
+      '&json=',
+      JSON.stringify(json)
+    ].join('');
 
-          resolve({
-            distance,
-            duration,
-          });
-        },
-      );
-    });
+    const response = await this.context.fetch(url);
+
+    if (response.status !== 200) {
+      console.error('Error fetching distance', response.status);
+      return {
+        distance: null,
+        duration: null
+      };
+    }
+
+    const data = await response.json();
+
+    const result = data.one_to_many[0][0];
+
+    return {
+      distance: result.distance * 1000,
+      duration: result.time
+    };
   }
   async getBusDistance({ from, to }) {
     console.log('getBusDistance', from, to);
@@ -404,17 +403,17 @@ class Kjorskra extends PureComponent {
     //Look up all the itineries and emit them asynchronous
     this.getDistance({
       ...position,
-      mode: 'WALKING',
+      costing: 'pedestrian'
     }).then(data => this.setState({ walking: data }));
 
     this.getDistance({
       ...position,
-      mode: 'BICYCLING',
+      costing: 'bicycle'
     }).then(data => this.setState({ bicycling: data }));
 
     this.getDistance({
       ...position,
-      mode: 'DRIVING',
+      costing: 'auto'
     }).then(data => this.setState({ driving: data }));
 
     this.getBusDistance({
