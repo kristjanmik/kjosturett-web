@@ -84,7 +84,7 @@ class KosningaprofResults extends PureComponent {
             )}`}
             target="_blank"
           >
-            Deila á Facebook
+            Deila niðurstöðum á Facebook
           </Link>
           <Link
             className={s.shareButton}
@@ -94,7 +94,7 @@ class KosningaprofResults extends PureComponent {
             )}`}
             target="_blank"
           >
-            Deila á Twitter
+            Deila niðurstöðum á Twitter
           </Link>
         </p>
 
