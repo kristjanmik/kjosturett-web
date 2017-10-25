@@ -1,12 +1,12 @@
+import SliderStyles from '../../../node_modules/rc-slider/assets/index.css';
 import React, { PureComponent } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import Scroll from 'react-scroll';
+import Slider from 'rc-slider';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './styles.scss';
 import history from '../../history';
-import checkmark from '../../checkmark.svg';
 
 const storageKey = 'prof:answers';
 
@@ -16,6 +16,12 @@ const initialAnswers = questions =>
     all[id] = null;
     return all;
   }, {});
+
+const marks = {
+  1: 'Ósammála',
+  3: 'Hlutlaus',
+  5: 'Sammála',
+};
 
 class Kosningaprof extends PureComponent {
   static contextTypes = {
@@ -62,34 +68,27 @@ class Kosningaprof extends PureComponent {
     this.loadAnswers();
   }
   componentWillUnmount() {
-    window.onbeforeunload = null;
     window.removeEventListener('resize', this.onLayout);
     window.removeEventListener('layout', this.onLayout);
     window.removeEventListener('scroll', this.onScroll);
   }
   onReset() {
-    this.setState({
-      answers: initialAnswers(this.props.questions),
-      showReset: false,
-    });
+    // eslint-disable-next-line
+    if (window.confirm('Ertu viss um að þú byrja upp á nýtt?')) {
+      const answers = initialAnswers(this.props.questions);
+      localStorage.removeItem(storageKey);
+      this.setState({
+        answers,
+        showReset: false,
+      });
+    }
   }
-  onChange = id => ({ target }) => {
-    const nextId = parseInt(id, 10) + 1;
-
+  onChange = id => value => {
     this.setState(({ answers }) => {
       const newAnswers = {
         ...answers,
-        [id]: target.value,
+        [id]: value,
       };
-      const maxId = Math.max(
-        ...Object.keys(answers).map(num => parseInt(num, 10)),
-      );
-
-      if (nextId <= maxId) {
-        setTimeout(() => {
-          Scroll.animateScroll.scrollTo(this.positions[nextId] - 110);
-        }, 200);
-      }
 
       localStorage.setItem(storageKey, JSON.stringify(newAnswers));
       return {
@@ -132,55 +131,65 @@ class Kosningaprof extends PureComponent {
   }
   render() {
     const { questions } = this.props;
-    const { answers, showReset, finished, visible } = this.state;
-    const answerMap = this.props.answers.textMap;
+    const { answers, showReset, visible } = this.state;
     return (
       <div className={cx(s.root, s.questions)}>
+        <div className={s.lead}>
+          <p>
+            Það getur reynst erfitt að ákveða hvað á að kjósa. Taktu
+            kosningapróf Kjóstu rétt til þess að fá betra yfirlit yfir hvaða
+            flokk þú líkist mest.
+          </p>
+          {showReset && (
+            <p>
+              Þú getur tekið upp þráðinn frá því síðast og klárað prófið, eða{' '}
+              <button className={s.reset} onClick={this.onReset}>
+                byrjað
+              </button>{' '}
+              upp á nýtt.
+            </p>
+          )}
+        </div>
+
         <div
           ref={element => {
             this.questionsEl = element;
           }}
         >
-          {!finished &&
-            questions.map(({ question, id }) => (
-              <div
-                key={id}
-                id={id}
-                className={cx(s.question, !visible[id] && s.hidden)}
-              >
-                <h3>{question}</h3>
-                {Object.keys(answerMap).map(value => {
-                  const name = `${id}_${value}`;
-                  const active = answers[id] === value;
-                  return (
-                    <div key={value}>
-                      <input
-                        id={name}
-                        name={name}
-                        value={value}
-                        type="radio"
-                        checked={active}
-                        onChange={this.onChange(id)}
-                      />
-                      <label htmlFor={name}>
-                        {active && <img src={checkmark} alt="ég er" />}
-                        {answerMap[value]}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
+          {questions.map(({ question, id }) => (
+            <div
+              key={id}
+              id={id}
+              className={cx(s.question, !visible[id] && s.hidden)}
+            >
+              <h3>{question}</h3>
+              <Slider
+                dots
+                min={1}
+                max={5}
+                value={answers[id] != null ? answers[id] : 3}
+                marks={marks}
+                onChange={this.onChange(id)}
+                dotStyle={{
+                  borderColor: '#333',
+                }}
+                handleStyle={{
+                  backgroundColor: '#333',
+                  borderColor: '#777',
+                }}
+                trackStyle={{
+                  backgroundColor: 'transparent',
+                }}
+              />
+            </div>
+          ))}
         </div>
-        <button onClick={this.onSend}>Senda</button>
-        {showReset && (
-          <button className={s.reset} onClick={this.onReset}>
-            Frumstilla svör
-          </button>
-        )}
+        <p style={{ textAlign: 'center' }}>
+          <button onClick={this.onSend}>Reikna niðurstöður</button>
+        </p>
       </div>
     );
   }
 }
 
-export default withStyles(s)(Kosningaprof);
+export default withStyles(s, SliderStyles)(Kosningaprof);

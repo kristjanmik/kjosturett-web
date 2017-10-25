@@ -31,19 +31,25 @@
     margin-right: 15px;
   }
 
-  button {
+  button:not(.reset) {
     background: #353535;
     color: #fff;
     border: none;
-    font-size: 1rem;
     appearance: none;
+    font-size: 1rem;
     padding: 1em 1.4em;
     margin-top: 3rem;
   }
 
   .reset {
-    background: #888;
-    margin-left: 1em;
+    background: transparent;
+    color: inherit;
+    border: none;
+    appearance: none;
+    display: inline;
+    font: inherit;
+    text-decoration: underline;
+    white-space: normal;
   }
 
   .lead {
@@ -54,6 +60,7 @@
   .nonLead {
     color: #666;
     margin-bottom: 2em;
+    max-width: 500px;
   }
 
   .takeTest {
@@ -72,7 +79,18 @@
 }
 
 .questions {
-  max-width: 500px;
+  .lead {
+    margin-bottom: 3em;
+
+    p:first-of-type {
+      font-size: 1.2em;
+    }
+
+    p + p {
+      padding-top: 1.4em;
+      opacity: 0.7;
+    }
+  }
 }
 
 .question + .question {
@@ -81,11 +99,18 @@
 
 .question {
   position: relative;
+  padding: 3em 40px;
   transition: opacity 300ms ease-in-out;
+  text-align: center;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
 
   h3 {
-    margin-bottom: 2em;
-    line-height: 1.4;
+    font-family: 'Lora', serif;
+    line-height: 1.7;
+    margin: 0 -40px 2em;
   }
 
   img {
