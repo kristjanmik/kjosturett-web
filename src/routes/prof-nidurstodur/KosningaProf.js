@@ -53,24 +53,11 @@ class Kosningaprof extends PureComponent {
 
     this.positions = {};
 
-    this.onScroll = this.onScroll.bind(this);
-    this.onLayout = this.onLayout.bind(this);
     this.onReset = this.onReset.bind(this);
     this.onSend = this.onSend.bind(this);
   }
   componentDidMount() {
-    window.addEventListener('resize', this.onLayout);
-    window.addEventListener('layout', this.onLayout);
-    window.addEventListener('scroll', this.onScroll);
-
-    this.onLayout();
-    this.onScroll();
     this.loadAnswers();
-  }
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.onLayout);
-    window.removeEventListener('layout', this.onLayout);
-    window.removeEventListener('scroll', this.onScroll);
   }
   onReset() {
     // eslint-disable-next-line
@@ -97,23 +84,6 @@ class Kosningaprof extends PureComponent {
       };
     });
   };
-  onLayout() {
-    this.questionsEl.childNodes.forEach(question => {
-      const { top } = question.getBoundingClientRect();
-      this.positions[question.id] = top;
-    });
-    this.viewHeight = window.innerHeight;
-  }
-  onScroll() {
-    const bottom = window.pageYOffset + 0.75 * this.viewHeight;
-    const visible = {};
-
-    Object.keys(this.positions).forEach(id => {
-      visible[id] = this.positions[id] < bottom;
-    });
-
-    this.setState({ visible });
-  }
   async onSend() {
     const { answers } = this.state;
     const answerValues = Object.keys(answers)
@@ -156,11 +126,7 @@ class Kosningaprof extends PureComponent {
           }}
         >
           {questions.map(({ question, id }) => (
-            <div
-              key={id}
-              id={id}
-              className={cx(s.question, !visible[id] && s.hidden)}
-            >
+            <div key={id} id={id} className={cx(s.question)}>
               <h3>{question}</h3>
               <Slider
                 dots
