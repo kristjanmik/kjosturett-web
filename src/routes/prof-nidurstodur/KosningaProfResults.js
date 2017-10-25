@@ -35,10 +35,9 @@ class KosningaprofResults extends PureComponent {
     return (
       <div className={s.root}>
         <div className={s.lead}>
-          Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Ertu enn
-          óviss um hvað skal kjósa? Lestu{' '}
-          <Link href="/malefni/atvinnumal">stefnulýsingar flokkana</Link> í þeim
-          málefnum sem þér þykja mikilvæg.
+          Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Hægt er að
+          lesa <Link href="/malefni/atvinnumal">stefnulýsingar flokkana</Link> í
+          þeim málefnum sem þér þykja mikilvæg.
         </div>
 
         <p className={s.buttons}>
@@ -73,8 +72,8 @@ class KosningaprofResults extends PureComponent {
         <h3>Stjórnmálaflokkar</h3>
         <p className={s.nonLead}>
           Flokkunum er raðað eftir afstöðu þeirra í kosningaprófinu samanborið
-          við þín svör. <strong>Smelltu á flokk</strong> til þess að skoða
-          líkindi einstakra spurninga.
+          við þín svör. <strong>Smelltu á stjórnmálaflokk</strong> til þess að
+          skoða samanburð einstakra spurninga.
         </p>
         {parties.filter(party => party.score).map(party => (
           <div key={party.letter}>
@@ -178,7 +177,7 @@ class KosningaprofResults extends PureComponent {
         <h3>Frambjóðendur</h3>
         <p className={s.nonLead}>
           {/* TODO: Filter by kjördæmi */}
-          Frambjóðendur allra kjördæma.
+          Svör fólks í framboði fyrir alla flokka í öllum kjördæmum
         </p>
         <div className={s.candidates}>
           {candidates.slice(0, 12).map(candidate => (
