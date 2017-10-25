@@ -18,9 +18,9 @@ const initialAnswers = questions =>
   }, {});
 
 const marks = {
-  1: 'Ósammála',
+  1: 'Mjög ósammála',
   3: 'Hlutlaus',
-  5: 'Sammála',
+  5: 'Mjög sammála',
 };
 
 class Kosningaprof extends PureComponent {
@@ -136,9 +136,8 @@ class Kosningaprof extends PureComponent {
       <div className={cx(s.root, s.questions)}>
         <div className={s.lead}>
           <p>
-            Það getur reynst erfitt að ákveða hvað á að kjósa. Taktu
-            kosningapróf Kjóstu rétt til þess að fá betra yfirlit yfir hvaða
-            flokk þú líkist mest.
+            Taktu kosingarpróf <strong>Kjóstu rétt</strong> til þess að sjá
+            hvaða flokkur passar best við þínar skoðanir.
           </p>
           {showReset && (
             <p>
