@@ -59,6 +59,26 @@ app.get('/hackathon', hackRoute);
 
 //This is an append only file
 const repliesPath = path.resolve(__dirname, '../../replies.log');
+const repliesVotersPath = path.resolve(__dirname, '../../replies-voters.log');
+
+let currentAllReplies = [];
+
+//Write to replies file every 10 seconds
+setInterval(() => {
+  const out = currentAllReplies.splice(0, currentAllReplies.length);
+
+  if (out.length > 0) {
+    appendFile(
+      repliesVotersPath,
+      out.map(o => `${JSON.stringify(o)}\n`).join(''),
+      error => {
+        if (error) return console.error(error);
+
+        console.log('Wrote to replies file');
+      }
+    );
+  }
+}, 10000);
 
 app.post('/konnun/replies', (req, res) => {
   const { token, reply } = req.body;
@@ -75,6 +95,22 @@ app.post('/konnun/replies', (req, res) => {
     res.json({
       success: true
     });
+  });
+});
+
+app.post('/konnun/replies/all', (req, res) => {
+  const { token, reply } = req.body;
+
+  const obj = {
+    token,
+    reply,
+    timestamp: Math.round(Date.now() / 1000)
+  };
+
+  currentAllReplies.push(obj);
+
+  res.json({
+    success: true
   });
 });
 
