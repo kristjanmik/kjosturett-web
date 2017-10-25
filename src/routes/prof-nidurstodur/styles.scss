@@ -81,11 +81,15 @@
 
 .question {
   position: relative;
+  padding: 3em 40px;
   transition: opacity 300ms ease-in-out;
+  text-align: center;
+  overflow: hidden;
 
   h3 {
-    margin-bottom: 2em;
-    line-height: 1.4;
+    font-family: 'Lora', serif;
+    line-height: 1.7;
+    margin: 0 -40px 2em;
   }
 
   img {

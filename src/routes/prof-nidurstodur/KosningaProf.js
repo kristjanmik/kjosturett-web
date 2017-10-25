@@ -1,12 +1,12 @@
+import SliderStyles from '../../../node_modules/rc-slider/assets/index.css';
 import React, { PureComponent } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import Scroll from 'react-scroll';
+import Slider from 'rc-slider';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './styles.scss';
 import history from '../../history';
-import checkmark from '../../checkmark.svg';
 
 const storageKey = 'prof:answers';
 
@@ -73,30 +73,24 @@ class Kosningaprof extends PureComponent {
       showReset: false,
     });
   }
-  onChange = id => ({ target }) => {
-    const nextId = parseInt(id, 10) + 1;
+  onChange = id => value => {
+    this.setState(
+      ({ answers }) => {
+        const newAnswers = {
+          ...answers,
+          [id]: value,
+        };
 
-    this.setState(({ answers }) => {
-      const newAnswers = {
-        ...answers,
-        [id]: target.value,
-      };
-      const maxId = Math.max(
-        ...Object.keys(answers).map(num => parseInt(num, 10)),
-      );
-
-      if (nextId <= maxId) {
-        setTimeout(() => {
-          Scroll.animateScroll.scrollTo(this.positions[nextId] - 110);
-        }, 200);
-      }
-
-      localStorage.setItem(storageKey, JSON.stringify(newAnswers));
-      return {
-        started: true,
-        answers: newAnswers,
-      };
-    });
+        localStorage.setItem(storageKey, JSON.stringify(newAnswers));
+        return {
+          started: true,
+          answers: newAnswers,
+        };
+      },
+      () => {
+        console.log(this.state);
+      },
+    );
   };
   onLayout() {
     this.questionsEl.childNodes.forEach(question => {
@@ -133,7 +127,11 @@ class Kosningaprof extends PureComponent {
   render() {
     const { questions } = this.props;
     const { answers, showReset, finished, visible } = this.state;
-    const answerMap = this.props.answers.textMap;
+    const marks = {
+      1: 'Ósammála',
+      3: 'Hlutlaus',
+      5: 'Sammála',
+    };
     return (
       <div className={cx(s.root, s.questions)}>
         <div
@@ -149,26 +147,24 @@ class Kosningaprof extends PureComponent {
                 className={cx(s.question, !visible[id] && s.hidden)}
               >
                 <h3>{question}</h3>
-                {Object.keys(answerMap).map(value => {
-                  const name = `${id}_${value}`;
-                  const active = answers[id] === value;
-                  return (
-                    <div key={value}>
-                      <input
-                        id={name}
-                        name={name}
-                        value={value}
-                        type="radio"
-                        checked={active}
-                        onChange={this.onChange(id)}
-                      />
-                      <label htmlFor={name}>
-                        {active && <img src={checkmark} alt="ég er" />}
-                        {answerMap[value]}
-                      </label>
-                    </div>
-                  );
-                })}
+                <Slider
+                  dots
+                  min={1}
+                  max={5}
+                  value={answers[id] != null ? answers[id] : 3}
+                  marks={marks}
+                  onChange={this.onChange(id)}
+                  dotStyle={{
+                    borderColor: '#333',
+                  }}
+                  handleStyle={{
+                    backgroundColor: '#333',
+                    borderColor: '#777',
+                  }}
+                  trackStyle={{
+                    backgroundColor: 'transparent',
+                  }}
+                />
               </div>
             ))}
         </div>
@@ -183,4 +179,4 @@ class Kosningaprof extends PureComponent {
   }
 }
 
-export default withStyles(s)(Kosningaprof);
+export default withStyles(s, SliderStyles)(Kosningaprof);
