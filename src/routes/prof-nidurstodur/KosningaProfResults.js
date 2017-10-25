@@ -261,11 +261,10 @@ class KosningaprofResults extends PureComponent {
                 label: 'Sýna 12',
               },
               { value: 24, label: 'Sýna 24' },
-              { value: 48, label: 'Sýna 48' },
-              { value: 96, label: 'Sýna 96' },
+              { value: 72, label: 'Sýna 72' },
+              { value: 144, label: 'Sýna 144' },
             ]}
             onChange={val => {
-              console.log('val', val);
               this.setState({
                 candidateCount: val.value,
               });
