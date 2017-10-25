@@ -41,8 +41,9 @@ class KosningaprofResults extends PureComponent {
 
         <h3>Stjórnmálaflokkar</h3>
         <p className={s.nonLead}>
-          Flokkunum er raðað eftir hversu samála þið eruð. Smelltu á flokk til
-          þess að skoða líkindi einstakra spurninga.
+          Flokkunum er raðað eftir hversu samála þið eruð.{' '}
+          <strong>Smelltu á flokk</strong> til þess að skoða líkindi einstakra
+          spurninga.
         </p>
         {parties.filter(party => party.score).map(party => (
           <div key={party.letter}>
