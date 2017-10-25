@@ -141,6 +141,15 @@
     font-weight: 500;
     padding: 0.4em 0.7em;
     text-align: center;
+
+    @media screen and (max-width: 420px) {
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.6em 1em;
+      margin-left: 0 !important;
+      margin-top: 12px;
+    }
   }
 }
 

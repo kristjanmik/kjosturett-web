@@ -8,7 +8,7 @@ export default ({ url }) => ({
   chunks: ['prof'],
   title: `Taktu kosningapróf kjósturétt.is!`,
   description:
-    'Hvaða flokkar og frambjóðendur eru þér algjörlega sammála? Þú getur þreytt prófið og komist að áreiðanlegri niðurstöðu',
+    'Hvaða flokkar og frambjóðendur eru þér algjörlega sammála? Þú getur þreytt prófið og komist að áreiðanlegri niðurstöðu.',
   path: url,
   ogImage: 'https://assets.kjosturett.is/og_prof.png',
   component: (

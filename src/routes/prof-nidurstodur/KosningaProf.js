@@ -20,24 +20,24 @@ const initialAnswers = questions =>
 const marks = {
   1: 'Mjög ósammála',
   3: 'Hlutlaus',
-  5: 'Mjög sammála',
+  5: 'Mjög sammála'
 };
 
 class Kosningaprof extends PureComponent {
   static contextTypes = {
-    fetch: PropTypes.func.isRequired,
+    fetch: PropTypes.func.isRequired
   };
   static propTypes = {
     answers: PropTypes.shape({
       default: PropTypes.string.isRequired,
-      textMap: PropTypes.object.isRequired,
+      textMap: PropTypes.object.isRequired
     }).isRequired,
     questions: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        question: PropTypes.string.isRequired,
-      }),
-    ).isRequired,
+        question: PropTypes.string.isRequired
+      })
+    ).isRequired
   };
   constructor(props) {
     super(props);
@@ -48,7 +48,7 @@ class Kosningaprof extends PureComponent {
       finished: false,
       visible: {},
       showReset: false,
-      answers: initialAnswers(props.questions),
+      answers: initialAnswers(props.questions)
     };
 
     this.positions = {};
@@ -66,7 +66,7 @@ class Kosningaprof extends PureComponent {
       localStorage.removeItem(storageKey);
       this.setState({
         answers,
-        showReset: false,
+        showReset: false
       });
     }
   }
@@ -74,13 +74,13 @@ class Kosningaprof extends PureComponent {
     this.setState(({ answers }) => {
       const newAnswers = {
         ...answers,
-        [id]: value,
+        [id]: value
       };
 
       localStorage.setItem(storageKey, JSON.stringify(newAnswers));
       return {
         started: true,
-        answers: newAnswers,
+        answers: newAnswers
       };
     });
   };
@@ -106,7 +106,7 @@ class Kosningaprof extends PureComponent {
       <div className={cx(s.root, s.questions)}>
         <div className={s.lead}>
           <p>
-            Taktu kosingarpróf <strong>Kjóstu rétt</strong> til þess að sjá
+            Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá
             hvaða flokkur passar best við þínar skoðanir.
           </p>
           {showReset && (
@@ -140,7 +140,7 @@ class Kosningaprof extends PureComponent {
                   marginLeft: -9,
                   marginBottom: -5,
                   width: 18,
-                  height: 18,
+                  height: 18
                 }}
                 handleStyle={{
                   backgroundColor: '#333',
@@ -148,10 +148,10 @@ class Kosningaprof extends PureComponent {
                   marginLeft: -9,
                   marginTop: -7,
                   width: 18,
-                  height: 18,
+                  height: 18
                 }}
                 trackStyle={{
-                  backgroundColor: 'transparent',
+                  backgroundColor: 'transparent'
                 }}
               />
             </div>
