@@ -6,12 +6,7 @@
     "node": ">=6.5",
     "npm": ">=3.10"
   },
-  "browserslist": [
-    ">1%",
-    "last 4 versions",
-    "Firefox ESR",
-    "not ie < 9"
-  ],
+  "browserslist": [">1%", "last 4 versions", "Firefox ESR", "not ie < 9"],
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "bluebird": "^3.5.0",
@@ -154,9 +149,7 @@
     ],
     "env": {
       "test": {
-        "plugins": [
-          "rewire"
-        ]
+        "plugins": ["rewire"]
       }
     },
     "ignore": [

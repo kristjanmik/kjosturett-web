@@ -145,6 +145,7 @@ class KosningaprofResults extends PureComponent {
               <img
                 className={s.candidateImg}
                 src={candidateImage(candidate.slug)}
+                color="https://via.placeholder.com/400x400?text=Mynd+vantar"
               />
               <div className={s.candidateProgressBar}>
                 <div
