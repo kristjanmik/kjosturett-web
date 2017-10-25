@@ -108,9 +108,12 @@ class KosningaprofResults extends PureComponent {
                   return (
                     <div className={s.partyQuestion} key={id}>
                       <h4>
-                        {!iAmIndiffrent && (
-                          <i className={cx(s.dot, s[`dot${difference}`])} />
-                        )}
+                        <i
+                          className={cx(
+                            s.dot,
+                            !iAmIndiffrent && s[`dot${difference}`],
+                          )}
+                        />
                         {question}
                       </h4>
 
