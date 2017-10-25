@@ -24,7 +24,7 @@
   }
 
   h3 {
-    margin-top: 4em;
+    margin-top: 2.5em;
   }
 
   input {
@@ -57,10 +57,17 @@
     text-align: center;
   }
 
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   .nonLead {
     color: #666;
     margin-bottom: 2em;
-    max-width: 500px;
+    max-width: 600px;
   }
 
   .takeTest {
@@ -72,8 +79,20 @@
     border: none;
     font-size: 1rem;
     font-weight: 500;
-    margin: 2em auto 0;
     padding: 0.8em 1em;
+    text-align: center;
+  }
+
+  .shareButton {
+    background: #353535;
+    border-radius: 4px;
+    display: table;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.4em 0.7em;
     text-align: center;
   }
 }

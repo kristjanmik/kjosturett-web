@@ -47,6 +47,7 @@ export default ({ params, url }) => {
           questions={questions}
           candidates={candidates}
           parties={parties}
+          url={`https://kjosturett.is${url}`}
         />
       </Layout>
     )

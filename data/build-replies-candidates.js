@@ -26,6 +26,11 @@ replies.forEach(({ kennitala, reply }) => {
 
       candidate.slug = slugify(candidate.name).toLowerCase();
 
+      delete candidate.ssn;
+      delete candidate.occupation;
+      delete candidate.place;
+      delete candidate.street;
+
       return candidate;
     });
     out = [...out, ...candidates];
