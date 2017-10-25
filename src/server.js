@@ -99,10 +99,9 @@ app.post('/konnun/replies', (req, res) => {
 });
 
 app.post('/konnun/replies/all', (req, res) => {
-  const { token, reply } = req.body;
+  const { reply } = req.body;
 
   const obj = {
-    token,
     reply,
     timestamp: Math.round(Date.now() / 1000)
   };
