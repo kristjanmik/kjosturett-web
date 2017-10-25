@@ -136,7 +136,11 @@ class Kosningaprof extends PureComponent {
                 marks={marks}
                 onChange={this.onChange(id)}
                 dotStyle={{
-                  borderColor: '#333',
+                  borderColor: '#e9e9e9',
+                  marginLeft: -9,
+                  marginBottom: -5,
+                  width: 18,
+                  height: 18,
                 }}
                 handleStyle={{
                   backgroundColor: '#333',
