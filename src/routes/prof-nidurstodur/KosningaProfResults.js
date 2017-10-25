@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { Collapse } from 'react-collapse';
+import Img from 'react-image';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './styles.scss';
-import { Collapse } from 'react-collapse';
 import Link from '../../Link';
+import transparent from './transparent.png';
 import { getAssetUrl, candidateImage } from '../../utils';
 
 const scoreToFloatingPoint = (score, scalar = 1) =>
@@ -153,37 +155,45 @@ class KosningaprofResults extends PureComponent {
           Frambjóðendur allra kjördæma.
         </p>
         <div className={s.candidates}>
-          {candidates.slice(0, 12).map(candidate => (
-            <div key={candidate.ssn} className={s.candidate}>
-              <img
-                className={s.candidateImg}
-                src={candidateImage(candidate.slug)}
-                color="https://via.placeholder.com/400x400?text=Mynd+vantar"
-              />
-              <div className={s.candidateProgressBar}>
-                <div
-                  className={s.candidateProgress}
-                  style={{
-                    transform: `scaleX(${scoreToFloatingPoint(
-                      candidate.score,
-                    )})`,
-                  }}
+          {candidates.slice(0, 12).map(candidate => {
+            const party = parties.find(x => x.letter === candidate.party);
+            return (
+              <div
+                key={candidate.slug}
+                className={s.candidate}
+                style={{
+                  backgroundColor: party && party.color,
+                }}
+              >
+                <Img
+                  className={s.candidateImg}
+                  src={[candidateImage(candidate.slug), transparent]}
+                  color="https://via.placeholder.com/400x400?text=Mynd+vantar"
                 />
-              </div>
-              <div className={s.candidatePercentage}>
-                <span>{Math.ceil(candidate.score)}%</span>
-              </div>
-              <div className={s.candidateInfo}>
-                <div className={s.candidateName}>{candidate.name}</div>
-                <div className={s.candidateParty}>
-                  {
-                    parties.find(party => party.letter === candidate.party).name
-                  }{' '}
-                  (x{candidate.party})
+                <div className={s.candidateProgressBar}>
+                  <div
+                    className={s.candidateProgress}
+                    style={{
+                      transform: `scaleX(${scoreToFloatingPoint(
+                        candidate.score,
+                      )})`,
+                    }}
+                  />
+                </div>
+                <div className={s.candidatePercentage}>
+                  <span>{Math.ceil(candidate.score)}%</span>
+                </div>
+                <div className={s.candidateInfo}>
+                  <div className={s.candidateName}>{candidate.name}</div>
+                  {party && (
+                    <div className={s.candidateParty}>
+                      {party.name} (x{candidate.party})
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     );

@@ -282,16 +282,6 @@
   display: block;
   height: auto;
   width: 100%;
-
-  // placeholder when image doesn't exist.
-  &::before {
-    content: '';
-    background: transparent no-repeat center / contain;
-    background-image: url(http://via.placeholder.com/400x400?text=Mynd+vantar);
-    display: block;
-    padding-bottom: 100%;
-    width: 100%;
-  }
 }
 
 .candidateInfo {
