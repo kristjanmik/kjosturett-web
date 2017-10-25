@@ -38,6 +38,7 @@
     "react-countdown-now": "^1.2.0",
     "react-dom": "^15.5.4",
     "react-google-maps": "^9.0.1",
+    "react-image": "^1.0.1",
     "react-loading": "^0.1.4",
     "react-motion": "^0.5.1",
     "react-redux": "^5.0.5",

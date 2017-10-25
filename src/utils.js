@@ -7,7 +7,7 @@ export function getAssetUrl(...assets: Array<string>) {
 }
 
 export function candidateImage(slug) {
-  return `https://kjosturett-is.imgix.net/${slug}.jpg?fit=facearea&facepad=2.0&w=500&h=500&sat=-100`;
+  return `https://kjosturett-is.imgix.net/${slug}.jpg?fit=facearea&facepad=2.0&w=500&h=500`;
 }
 
 export function pleasantUrl(url: string) {

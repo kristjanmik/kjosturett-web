@@ -72,22 +72,49 @@
 
   .filters {
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     margin-bottom: 30px;
+
+    @media screen and (max-width: 620px) {
+      flex-direction: column;
+    }
   }
 
   .kjordaemiFilter {
-    width: 270px;
+    flex: 1;
+    min-width: 250px;
+
+    @media screen and (max-width: 620px) {
+      min-width: 100%;
+      max-width: 100%;
+    }
   }
 
   .topFilter {
-    width: 270px;
+    flex: 1;
+    min-width: 200px;
     margin-left: 15px;
+
+    @media screen and (max-width: 620px) {
+      min-width: 100%;
+      max-width: 100%;
+      margin-top: 15px;
+      margin-left: 0;
+    }
   }
 
   .showCount {
-    width: 120px;
+    flex: 1;
+    min-width: 110px;
+    max-width: 110px;
     margin-left: 15px;
+
+    @media screen and (max-width: 620px) {
+      min-width: 100%;
+      max-width: 100%;
+      margin-top: 15px;
+      margin-left: 0;
+    }
   }
 
   .takeTest {
@@ -261,8 +288,8 @@
   }
 
   .dot {
-    background-color: #777;
-    box-shadow: 0 0 4px 0 #777;
+    background-color: #aaa;
+    box-shadow: 0 0 4px 0 #aaa;
     border-radius: 50%;
     display: inline-block;
     box-sizing: content-box;
@@ -321,16 +348,6 @@
   display: block;
   height: auto;
   width: 100%;
-
-  // placeholder when image doesn't exist.
-  &::before {
-    content: '';
-    background: transparent no-repeat center / contain;
-    background-image: url(http://via.placeholder.com/400x400?text=Mynd+vantar);
-    display: block;
-    padding-bottom: 100%;
-    width: 100%;
-  }
 }
 
 .candidateInfo {

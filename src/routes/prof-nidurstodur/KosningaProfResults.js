@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { Collapse } from 'react-collapse';
+import Img from 'react-image';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './styles.scss';
-import { Collapse } from 'react-collapse';
 import Select from 'react-select';
 import Link from '../../Link';
+import transparent from './transparent.png';
 import { getAssetUrl, candidateImage } from '../../utils';
 
 import SelectStyles from '../../../node_modules/react-select/dist/react-select.css';
@@ -29,15 +31,27 @@ class KosningaprofResults extends PureComponent {
     }));
   }
   render() {
-    const {
-      questions,
-      answers,
-      results,
-      candidates,
-      parties,
-      url
-    } = this.props;
+    const { questions, answers, results, parties, url } = this.props;
     const { kjordaemiFilter, topFilter, candidateCount } = this.state;
+
+    const candidates = this.props.candidates
+      .filter(c => {
+        if (
+          kjordaemiFilter !== '' &&
+          kjordaemiFilter.indexOf(c.constituency) === -1
+        ) {
+          return false;
+        }
+
+        if (c.seat > topFilter) {
+          return false;
+        }
+
+        return true;
+      })
+      .slice(0, candidateCount);
+
+    console.log('candidateCount', candidateCount);
 
     const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
     return (
@@ -249,35 +263,27 @@ class KosningaprofResults extends PureComponent {
               { value: 96, label: 'Sýna 96' }
             ]}
             onChange={val => {
+              console.log('val', val);
               this.setState({
-                topFilter: val.value
+                candidateCount: val.value
               });
             }}
           />
         </div>
         <div className={s.candidates}>
-          {candidates
-            .filter(c => {
-              if (
-                kjordaemiFilter !== '' &&
-                kjordaemiFilter.indexOf(c.constituency) === -1
-              ) {
-                return false;
-              }
-
-              if (c.seat > topFilter) {
-                return false;
-              }
-
-              return true;
-            })
-            .slice(0, candidateCount)
-            .map(candidate => (
-              <div key={candidate.ssn} className={s.candidate}>
-                <img
+          {candidates.map(candidate => {
+            const party = parties.find(x => x.letter === candidate.party);
+            return (
+              <div
+                key={candidate.slug}
+                className={s.candidate}
+                style={{
+                  backgroundColor: party && party.color
+                }}
+              >
+                <Img
                   className={s.candidateImg}
-                  src={candidateImage(candidate.slug)}
-                  color="https://via.placeholder.com/400x400?text=Mynd+vantar"
+                  src={[candidateImage(candidate.slug), transparent]}
                 />
                 <div className={s.candidateProgressBar}>
                   <div
@@ -294,16 +300,15 @@ class KosningaprofResults extends PureComponent {
                 </div>
                 <div className={s.candidateInfo}>
                   <div className={s.candidateName}>{candidate.name}</div>
-                  <div className={s.candidateParty}>
-                    {
-                      parties.find(party => party.letter === candidate.party)
-                        .name
-                    }{' '}
-                    (x{candidate.party})
-                  </div>
+                  {party && (
+                    <div className={s.candidateParty}>
+                      {party.name} (x{candidate.party})
+                    </div>
+                  )}
                 </div>
               </div>
-            ))}
+            );
+          })}
         </div>
       </div>
     );
