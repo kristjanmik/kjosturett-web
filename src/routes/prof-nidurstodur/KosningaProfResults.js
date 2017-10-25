@@ -12,30 +12,61 @@ const scoreToFloatingPoint = (score, scalar = 1) =>
 
 class KosningaprofResults extends PureComponent {
   state = {
-    open: {},
+    open: {}
   };
   toggle(party) {
     this.setState(({ open }) => ({
       open: {
         ...open,
-        [party]: !open[party],
-      },
+        [party]: !open[party]
+      }
     }));
   }
   render() {
-    const { questions, answers, results, candidates, parties } = this.props;
+    const {
+      questions,
+      answers,
+      results,
+      candidates,
+      parties,
+      url
+    } = this.props;
     const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
     return (
       <div className={s.root}>
-        <p className={s.lead}>
+        <div className={s.lead}>
           Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Ertu enn
           óviss um hvað skal kjósa? Lestu{' '}
           <Link href="/malefni/atvinnumal">stefnulýsingar flokkana</Link> í þeim
           málefnum sem þér þykja mikilvæg.
-        </p>
-        <p>
+        </div>
+
+        <p className={s.buttons}>
           <Link className={s.takeTest} href="/kosningaprof">
-            Taka kosningaprófið!
+            Taka kosningaprófið
+          </Link>
+        </p>
+
+        <p className={s.buttons}>
+          <Link
+            className={s.shareButton}
+            style={{ background: '#4760a5' }}
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+              url
+            )}`}
+            target="_blank"
+          >
+            Deila á Facebook
+          </Link>
+          <Link
+            className={s.shareButton}
+            style={{ background: '#1da0f2', marginLeft: '15px' }}
+            href={`https://twitter.com/home?status=${encodeURIComponent(
+              'Mínar niðurstöður úr kosningaprófi kjósturétt.is: ' + url
+            )}`}
+            target="_blank"
+          >
+            Deila á Twitter
           </Link>
         </p>
 
@@ -58,8 +89,8 @@ class KosningaprofResults extends PureComponent {
                 style={{
                   transform: `scaleX(${scoreToFloatingPoint(
                     party.score,
-                    partyScoreScalar,
-                  )})`,
+                    partyScoreScalar
+                  )})`
                 }}
               />
               <img
@@ -73,14 +104,14 @@ class KosningaprofResults extends PureComponent {
               isOpened={this.state.open[party.letter] === true}
               springConfig={{
                 stiffness: 100,
-                damping: 20,
+                damping: 20
               }}
             >
               {questions
                 .map(question => ({
                   ...question,
                   myAnswer: question.myAnswer || 3,
-                  partyAnswer: party.reply[question.id] || 3,
+                  partyAnswer: party.reply[question.id] || 3
                 }))
                 .sort((a, b) => {
                   const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
@@ -162,8 +193,8 @@ class KosningaprofResults extends PureComponent {
                   className={s.candidateProgress}
                   style={{
                     transform: `scaleX(${scoreToFloatingPoint(
-                      candidate.score,
-                    )})`,
+                      candidate.score
+                    )})`
                   }}
                 />
               </div>
