@@ -18,7 +18,7 @@ const constituencies = {
   nordvesturkjordaemi: 'Norðvesturkjördæmi',
   nordausturkjordaemi: 'Norðausturkjördæmi',
   sudurkjordaemi: 'Suðurkjördæmi',
-  sudvesturkjordaemi: 'Suðvesturkjördæmi',
+  sudvesturkjordaemi: 'Suðvesturkjördæmi'
 };
 
 const scoreToFloatingPoint = (score, scalar = 1) =>
@@ -29,14 +29,14 @@ class KosningaprofResults extends PureComponent {
     open: {},
     kjordaemiFilter: '',
     topFilter: 5,
-    candidateCount: 12,
+    candidateCount: 12
   };
   toggle(party) {
     this.setState(({ open }) => ({
       open: {
         ...open,
-        [party]: !open[party],
-      },
+        [party]: !open[party]
+      }
     }));
   }
   render() {
@@ -66,9 +66,9 @@ class KosningaprofResults extends PureComponent {
     return (
       <div className={s.root}>
         <div className={s.lead}>
-          Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Hægt er að
-          lesa <Link href="/malefni/atvinnumal">stefnulýsingar flokkana</Link> í
-          þeim málefnum sem þér þykja mikilvæg.
+          Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Þú getur
+          lesið <Link href="/malefni/atvinnumal">stefnumál flokkana</Link> í
+          þeim málefnum sem þér þykir mikilvæg.
         </div>
 
         <p className={s.buttons}>
@@ -82,7 +82,7 @@ class KosningaprofResults extends PureComponent {
             className={s.shareButton}
             style={{ background: '#4760a5' }}
             href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-              url,
+              url
             )}`}
             target="_blank"
           >
@@ -92,7 +92,7 @@ class KosningaprofResults extends PureComponent {
             className={s.shareButton}
             style={{ background: '#1da0f2', marginLeft: '15px' }}
             href={`https://twitter.com/home?status=${encodeURIComponent(
-              'Mínar niðurstöður úr kosningaprófi kjósturétt.is: ' + url,
+              'Mínar niðurstöður úr kosningaprófi kjósturétt.is: ' + url
             )}`}
             target="_blank"
           >
@@ -119,8 +119,8 @@ class KosningaprofResults extends PureComponent {
                 style={{
                   transform: `scaleX(${scoreToFloatingPoint(
                     party.score,
-                    partyScoreScalar,
-                  )})`,
+                    partyScoreScalar
+                  )})`
                 }}
               />
               <img
@@ -134,14 +134,14 @@ class KosningaprofResults extends PureComponent {
               isOpened={this.state.open[party.letter] === true}
               springConfig={{
                 stiffness: 100,
-                damping: 20,
+                damping: 20
               }}
             >
               {questions
                 .map(question => ({
                   ...question,
                   myAnswer: question.myAnswer || 3,
-                  partyAnswer: party.reply[question.id] || 3,
+                  partyAnswer: party.reply[question.id] || 3
                 }))
                 .sort((a, b) => {
                   const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
@@ -172,7 +172,7 @@ class KosningaprofResults extends PureComponent {
                         <i
                           className={cx(
                             s.dot,
-                            !iAmIndiffrent && s[`dot${difference}`],
+                            !iAmIndiffrent && s[`dot${difference}`]
                           )}
                         />
                         {question}
@@ -221,11 +221,11 @@ class KosningaprofResults extends PureComponent {
             className={s.kjordaemiFilter}
             options={Object.keys(constituencies).map(value => ({
               value,
-              label: constituencies[value],
+              label: constituencies[value]
             }))}
             onChange={val => {
               this.setState({
-                kjordaemiFilter: val.map(v => v.value).join(','),
+                kjordaemiFilter: val.map(v => v.value).join(',')
               });
             }}
           />
@@ -237,16 +237,16 @@ class KosningaprofResults extends PureComponent {
             options={[
               {
                 value: 30,
-                label: 'Allir frambjóðendur',
+                label: 'Allir frambjóðendur'
               },
               { value: 1, label: 'Oddvitar' },
               { value: 2, label: 'Efst 2 á lista' },
               { value: 5, label: 'Efstu 5 á lista' },
-              { value: 10, label: 'Efstu 10 á lista' },
+              { value: 10, label: 'Efstu 10 á lista' }
             ]}
             onChange={val => {
               this.setState({
-                topFilter: val.value,
+                topFilter: val.value
               });
             }}
           />
@@ -258,15 +258,15 @@ class KosningaprofResults extends PureComponent {
             options={[
               {
                 value: 12,
-                label: 'Sýna 12',
+                label: 'Sýna 12'
               },
               { value: 24, label: 'Sýna 24' },
               { value: 72, label: 'Sýna 72' },
-              { value: 144, label: 'Sýna 144' },
+              { value: 144, label: 'Sýna 144' }
             ]}
             onChange={val => {
               this.setState({
-                candidateCount: val.value,
+                candidateCount: val.value
               });
             }}
           />
@@ -279,7 +279,7 @@ class KosningaprofResults extends PureComponent {
                 key={candidate.slug}
                 className={s.candidate}
                 style={{
-                  backgroundColor: party && party.color,
+                  backgroundColor: party && party.color
                 }}
               >
                 <Img
@@ -291,8 +291,8 @@ class KosningaprofResults extends PureComponent {
                     className={s.candidateProgress}
                     style={{
                       transform: `scaleX(${scoreToFloatingPoint(
-                        candidate.score,
-                      )})`,
+                        candidate.score
+                      )})`
                     }}
                   />
                 </div>
