@@ -290,7 +290,9 @@ class Kjorskra extends PureComponent {
     });
   }
   async submit(event) {
-    event.preventDefault();
+    if (event && event.preventDefault) {
+      event.preventDefault();
+    }
     console.log('doing submit');
     const { kennitala } = this.state;
 
