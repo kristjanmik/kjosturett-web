@@ -60,8 +60,6 @@ class KosningaprofResults extends PureComponent {
       })
       .slice(0, candidateCount);
 
-    console.log('candidateCount', candidateCount);
-
     const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
     return (
       <div className={s.root}>
