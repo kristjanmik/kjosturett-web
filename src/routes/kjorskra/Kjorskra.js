@@ -23,10 +23,6 @@ import {
   InfoWindow
 } from 'react-google-maps';
 
-const PLACE_OVERRIDE = {
-  Smárinn: 'Dalsmára 5, Kópavogur'
-};
-
 const Map = withGoogleMap(({ mapOptions, kjorstadur }) => {
   return (
     <GoogleMap defaultZoom={mapOptions.zoom} center={mapOptions.center}>
@@ -256,34 +252,34 @@ class Kjorskra extends PureComponent {
     return this.locationFromAddress(place.name);
   }
   async locationFromAddress(address) {
-    if (!process.env.BROWSER) return this.state.mapOptions.center;
+    const url = [
+      'https://search.mapzen.com/v1/search',
+      '?api_key=mapzen-pRTGdQw',
+      '&size=1',
+      '&layers=venue,address',
+      '&boundary.country=is',
+      '&text=',
+      address
+    ].join('');
+    const response = await this.context.fetch(url);
 
-    return new Promise(resolve => {
-      new window.google.maps.Geocoder().geocode(
-        {
-          address,
-          componentRestrictions: {
-            country: 'is'
-          }
-        },
-        results => {
-          if (
-            results.length === 0 ||
-            results[0].formatted_address === 'Iceland'
-          ) {
-            return resolve({
-              invalidLocation: true
-            });
-          }
-          resolve({
-            center: {
-              lat: results[0].geometry.location.lat(),
-              lng: results[0].geometry.location.lng()
-            }
-          });
+    try {
+      const data = await response.json();
+
+      const { coordinates } = data.features[0].geometry;
+
+      return {
+        center: {
+          lat: coordinates[1],
+          lng: coordinates[0]
         }
-      );
-    });
+      }
+    } catch (e) {
+      console.error('Error geocoding address', response.status);
+      return {
+        invalidLocation: true,
+      };
+    }
   }
   onAutocompleteMounted = ref => {
     this.autocomplete = ref;
@@ -342,8 +338,7 @@ class Kjorskra extends PureComponent {
       data
     });
 
-    const address = PLACE_OVERRIDE[data.kjorstadur] || data.kjorstadur;
-    const options = await this.locationFromAddress(address);
+    const options = await this.locationFromAddress(`${data.kjorstadur}, ${data.sveitafelag}`);
 
     this.setState({
       mapOptions: {
