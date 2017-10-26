@@ -40,7 +40,7 @@ class KosningaprofResults extends PureComponent {
         window.ga('send', {
           hitType: 'event',
           eventCategory: window.location.pathname,
-          eventAction: `Togggle ${party.name}`,
+          eventAction: `Toggle ${party.name}`,
           eventLabel: isOpen ? 'Open' : 'Close',
         });
       }
