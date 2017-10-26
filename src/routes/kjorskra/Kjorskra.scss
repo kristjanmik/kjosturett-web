@@ -1,41 +1,156 @@
 @import '../../components/functions.scss';
 
+$breakPoint: 850px;
+
+@-moz-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Firefox */
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Webkit */
+@-ms-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* IE */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .root {
   display: flex;
   flex-direction: column;
 }
 
 .lookupContainer {
-  display: flex;
+  max-width: 720px;
+  margin: 0 auto;
+
+  h3 {
+    font-size: 2rem;
+    line-height: 1.4;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    color: #313131;
+    font-family: $font-sans;
+
+    @media screen and (max-width: $breakPoint) {
+      font-size: 1.4rem;
+    }
+
+    b {
+      font-weight: 500;
+    }
+  }
+
+  .friendHeading {
+    font-size: 1.5rem;
+
+    @media screen and (max-width: $breakPoint) {
+      font-size: 1.1rem;
+    }
+  }
 }
 
-.input {
-  width: 200px;
-  height: 40px;
-  padding-left: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #c6cacc;
-  border-top: 1px solid #c6cacc;
-  border-radius: 4px;
-  outline: none;
-  background: #fafafa;
-  font-size: 15px;
-  color: #808080;
-  box-sizing: border-box;
-}
-
-.submit {
+.lookupWrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 40px;
-  margin-left: 10px;
+}
+
+.background {
+  // background-image: url('./iceland.png');
+  // background-color: #ced5dc;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 1;
+}
+
+.backgroundgone {
+  transition: $transition-bezier;
+  opacity: 0;
+}
+
+.input {
+  width: 300px;
+  height: 4rem;
+  border: 0;
   border-radius: 4px;
-  background: #0076fc;
-  color: white;
-  font-weight: 400;
-  cursor: pointer;
+  outline: none;
+  background: #eaeaea;
+  font-size: 0.9rem;
+  color: #808080;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  -moz-appearance: textfield;
+  text-align: center;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.submit {
+  @include button;
+}
+
+.submitwhite {
+  @include button;
+  background: #fff;
+  color: $color-primary;
 }
 
 .results {
@@ -43,17 +158,35 @@
   justify-content: space-around;
   max-width: 900px;
   margin: auto;
+
+  @media screen and (max-width: $breakPoint) {
+    flex-direction: column-reverse;
+  }
 }
 
 .leftResults {
   margin-right: 20px;
-  min-width: 400px;
-  //@TODO make this responsive, 400px wont work
+
+  @media screen and (max-width: $breakPoint) {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .kjorstadur {
   font-size: 2rem;
   font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+
+.votingInfo {
+  @media screen and (max-width: $breakPoint) {
+    text-align: center;
+  }
 }
 
 .itineriesBox h3 {
@@ -82,31 +215,96 @@
 
 .mapContainer {
   min-width: 350px;
+  max-width: 430px;
   width: 100%;
   height: 323px;
+
+  @media screen and (max-width: $breakPoint) {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    margin-left: -15px;
+    height: 220px;
+  }
 }
 
+.currentAddressBox form {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .currentAddressBox h3 {
   margin-bottom: 0.5em;
+  font-size: 1rem;
+  margin-top: 1rem;
 }
 
 .currentAddressContainer {
   display: flex;
+  width: 100%;
+  max-width: 300px;
+
+  @media screen and (max-width: $breakPoint) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .currentAddressContainer input {
-  width: 50%;
   min-width: 120px;
-  text-align: center;
+  max-width: 300px;
+  width: 100%;
+}
+
+.currentAddressContainer .input {
+  @media screen and (max-width: $breakPoint) {
+    height: 40px;
+    width: 100%;
+  }
 }
 
 .currentAddressContainer .submit {
-  min-width: 140px;
+  @media screen and (max-width: $breakPoint) {
+    margin-top: 10px;
+    height: 40px;
+    margin-left: 0;
+  }
+}
+
+.fetching {
+  font-weight: 800;
+  text-align: center;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -moz-animation: blink normal 1.5s infinite ease-in-out; /* Firefox */
+  -webkit-animation: blink normal 1.5s infinite ease-in-out; /* Webkit */
+  -ms-animation: blink normal 1.5s infinite ease-in-out; /* IE */
+  animation: blink normal 1.5s infinite ease-in-out; /* Opera */
+}
+
+.errormsg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  font-weight: 800;
+  text-align: center;
+  background: #fff;
+  transition: $transition-bezier;
+  box-shadow: 0 0 16px solid rgba(0, 0, 0, 0.2);
+}
+
+.fetchError {
+  color: red;
 }
 
 .disclaimer {
   font-size: 0.8rem;
-  font-style: italic;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 40px;
 }

@@ -2,34 +2,43 @@ import React from 'react';
 import Kjorskra from './Kjorskra';
 import Layout from '../../components/Layout';
 
-export default ({ params }) => {
+export default ({ params, url }) => {
   let { nidurstada } = params;
 
   let nidurstadaObj = null;
+  let ogImage = null;
 
   if (nidurstada) {
     try {
       if (process.env.BROWSER) {
         nidurstada = atob(nidurstada);
       } else {
-        //@TODO fix the server side rendering wrong text cuz lame encoding, need iso-8859-1
-        nidurstada = Buffer.from('nidurstada', 'base64').toString('utf-8');
+        nidurstada = Buffer.from(nidurstada, 'base64').toString('binary');
       }
 
       nidurstada = nidurstada.split('|');
-    } catch (e) {
-      //@TODO polyfil the base64 decoding
-      nidurstada = [];
-    }
 
-    const [fornafn, kjorstadur, kjordeild, kjordaemi] = nidurstada;
+      const [
+        fornafn,
+        kjorstadur,
+        kjordeild,
+        kjordaemi,
+        coordinates
+      ] = nidurstada;
 
-    nidurstadaObj = {
-      fornafn,
-      kjorstadur,
-      kjordeild,
-      kjordaemi
-    };
+      if (coordinates) {
+        ogImage = `https://kjosturett.is/og-image-kjorskra/${coordinates
+          .split(',')
+          .join('%2C')}`;
+      }
+
+      nidurstadaObj = {
+        fornafn,
+        kjorstadur,
+        kjordeild,
+        kjordaemi
+      };
+    } catch (e) {}
   }
 
   const title = nidurstadaObj
@@ -38,13 +47,18 @@ export default ({ params }) => {
   return {
     chunks: ['kjorskra'],
     title: `${title} - Kjóstu Rétt`,
-    path: '/kjorskra',
+    path: url,
+    ogImage,
     description:
       'Veist ekki HVAR þú átt að kjósa? Flettu upp þínum kjörstað með einföldu uppflettingartóli. Við finnum einnig út bestu leiðina fyrir þig til að komast á kjörstað!',
     component: (
-      <Layout page="kjorskra" title="Hvar á ég að Kjósa?">
-        <Kjorskra nidurstada={nidurstadaObj} />
+      <Layout page="kjorskra" title="Hvar á ég að kjósa?">
+        <Kjorskra
+          nidurstada={nidurstadaObj}
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDJ6iS5zhPH3xJQM6WPlx5YvgHSvgA3Ceo&libraries=geometry,drawing,places"
+          loadingElement={<div style={{ height: `100%` }} />}
+        />
       </Layout>
-    )
+    ),
   };
 };

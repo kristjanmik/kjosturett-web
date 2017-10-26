@@ -10,6 +10,7 @@ import logo from '../../logo.svg';
 class Header extends PureComponent {
   state = {
     isTop: true,
+    isOpen: false
   };
   componentDidMount() {
     window.addEventListener('scroll', this.scroll);
@@ -27,12 +28,63 @@ class Header extends PureComponent {
 
     this.lastScrollPos = scroll;
     this.setState({
-      isTop: scroll < 50,
+      isTop: scroll < 50
     });
   };
-  render() {
-    const { isTop } = this.state;
+  toggle(state) {
+    const force = state == null;
+    this.setState(({ isOpen }) => ({
+      isOpen: force ? !isOpen : state
+    }));
+  }
+  renderLinks() {
     const { page } = this.props;
+
+    return [
+      <Link
+        afterClick={() => this.toggle(false)}
+        href="/"
+        key="/"
+        className={cx(s.politics, page === 'flokkar' ? s.active : null)}
+      >
+        Stjórnmálaflokkar
+      </Link>,
+      <Link
+        afterClick={() => this.toggle(false)}
+        href="/malefni/atvinnumal"
+        key="/malefni/atvinnumal"
+        className={cx(page === 'malefni' ? s.active : null)}
+      >
+        Málefni
+      </Link>,
+      <Link
+        afterClick={() => this.toggle(false)}
+        href="/kjorskra"
+        key="/kjorskra"
+        className={cx(page === 'kjorskra' ? s.active : null)}
+      >
+        Kjörstaðir
+      </Link>,
+      <Link
+        afterClick={() => this.toggle(false)}
+        href="/kosningaprof"
+        key="/kosningaprof"
+        className={cx(page === 'kosningaprof' ? s.active : null)}
+      >
+        Kosningapróf
+      </Link>,
+      <Link
+        afterClick={() => this.toggle(false)}
+        className={cx(page === 'verkefnid' ? s.active : null)}
+        key="/verkefnid"
+        href={'/verkefnid'}
+      >
+        Um verkefnið
+      </Link>
+    ];
+  }
+  render() {
+    const { isTop, isOpen } = this.state;
     return (
       <div>
         <div className={s.fake} />
@@ -40,39 +92,30 @@ class Header extends PureComponent {
           <Container>
             <div className={s.wrap}>
               <div className={s.leftWrap}>
-                <Link href="/">
+                <Link afterClick={() => this.toggle(false)} href="/">
                   <img src={logo} className={s.logo} />
                 </Link>
                 <div className={cx(s.countdown)}>
                   <Countdown />
                 </div>
               </div>
-              <div className={s.links}>
-                <Link
-                  href="/"
-                  className={cx(
-                    s.politics,
-                    page === 'flokkar' ? s.active : null,
-                  )}
+              <nav className={cx(s.desktopNav)}>
+                <button
+                  className={cx(s.hamburgerBtn, isOpen && s.isOpen)}
+                  onClick={() => this.toggle()}
                 >
-                  <span className={s.politicsPrefix}>Stjórnmála</span>flokkar
-                </Link>
-                <Link
-                  href="/malefni/atvinnumal"
-                  className={cx(page === 'malefni' ? s.active : null)}
-                >
-                  Málefnin
-                </Link>
-                <Link
-                  className={cx(page === 'verkefnid' ? s.active : null)}
-                  href={'/verkefnid'}
-                >
-                  <span className={s.politicsPrefix}>Um </span>verkefnið
-                </Link>
-              </div>
+                  <i className={s.hamburger} /> Valmynd
+                </button>
+                <div className={s.links}>{this.renderLinks()}</div>
+              </nav>
             </div>
           </Container>
         </header>
+        <nav
+          className={cx(s.mobileNav, !isTop && s.sticky, isOpen && s.isOpen)}
+        >
+          <div className={s.links}>{this.renderLinks()}</div>
+        </nav>
       </div>
     );
   }

@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 import parties from '../../../data/build/parties.json';
 import { pleasantUrl } from '../../utils';
 
-export default ({ params }) => {
+export default ({ params, url }) => {
   const party = parties.filter(party => party.url === params.party)[0];
 
   if (!party) throw Error('Not found');
@@ -20,10 +20,11 @@ export default ({ params }) => {
     chunks: ['partysingle'],
     title: `${party.name} - Kjóstu Rétt`,
     description: `Upplýsingar um stefnumál ${party.nameDeflected} á mannamáli fyrir Alþingiskosningarnar 2017`,
-    path: `/flokkur/${party.url}`,
+    path: url,
     component: (
       <Layout
         title={party.name}
+        color={party.color}
         altTitle={
           <a href={party.website} target="_blank">
             {pleasantUrl(party.website)}
@@ -32,6 +33,6 @@ export default ({ params }) => {
       >
         <PartySingle party={party} categories={categories} />
       </Layout>
-    )
+    ),
   };
 };

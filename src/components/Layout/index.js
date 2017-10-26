@@ -7,13 +7,30 @@ import Container from '../Container';
 
 class Layout extends Component {
   render() {
-    const { page, title, altTitle, children, showHeader = true } = this.props;
+    const {
+      page,
+      title,
+      altTitle,
+      children,
+      color,
+      background,
+      showHeader = true,
+    } = this.props;
     return (
       <div className={s.root}>
         {showHeader && <Header page={page} />}
         <main className={s.main}>
           {title && (
-            <header className={s.subHeader}>
+            <header
+              className={s.subHeader}
+              style={
+                color == null
+                  ? undefined
+                  : {
+                      backgroundColor: color,
+                    }
+              }
+            >
               <Container>
                 <div className={s.subHeaderContent}>
                   <h2 className={s.title}>{title}</h2>

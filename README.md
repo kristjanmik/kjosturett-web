@@ -2,6 +2,8 @@
 
 ##Getting started
 
+### manual build
+
 ```bash
 npm install
 npm run build-data
@@ -14,6 +16,14 @@ You can then start the server at port 3000
 npm start
 ```
 
+### docker-compose
+
+Automatically build and run the app on port 3000
+
+```bash
+docker-compose up
+```
+
 ## Why do we build the data?
 We have some relations in the dataset that have to be hooked. This complicates the process but gives us the huge benefit of having all the data here in the repo, easily readable and flat. All data lives in the data folder. To build the data run ./build.sh inside that folder(**nodejs v8 required**). All the output goes to /data/build folder. **Some data needs to be built seperately.** We state this where needed.
 
@@ -21,11 +31,11 @@ Having trouble building the data? Check out the data/build-dump folder for archi
 
 ## How does the reply string work?
 When a person answers all the questions we generate a numerical sequence. Each number represent one question. You can think of this zero to one scale as 0 being extremely against(mjög á móti) and 1 being (mjög sammála). 0.5 is a neautral response.This is the format of each number in the sequence.
-- 1 stands for first option, with value of *0*
-- 2 stands for first option, with value of *0.25*
-- 3 stands for first option, with value of *0.5*
-- 4 stands for first option, with value of *0.75*
-- 5 stands for first option, with value of *1*
+- 1 stands for very much against option, with value of *0*
+- 2 stands for somewhat against option, with value of *0.25*
+- 3 stands for neutral option, with value of *0.5*
+- 4 stands for somewhat agree option, with value of *0.75*
+- 5 stands for very much agree with option, with value of *1*
 - 6 stands for no response
 
 ## Data sources

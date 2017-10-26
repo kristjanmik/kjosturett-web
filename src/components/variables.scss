@@ -6,4 +6,11 @@ $site-large: 1280px;
 $site-medium: 768px;
 $site-small: 320px;
 
+$color-primary: #7eb3d5;
+$color-gray: #ced5dc;
+$color-darkgray: #909dab;
+$color-dark: #0a2645;
+
 $mobile-breakpoint: 500px;
+
+$transition-bezier: all 250ms cubic-bezier(0.4, 0.15, 0, 0.975);

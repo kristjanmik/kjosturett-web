@@ -30,6 +30,8 @@ class About extends PureComponent {
           sendir inn sín svör og Kjóstu rétt endurbirtir þau án breytinga.
         </p>
 
+        <h3>Stofnendur kjósturétt.is</h3>
+
         <div className={s.we}>
           <div className={s.person}>
             <img className={s.img} src={'/kristjan.jpg'} alt="Kristján" />
@@ -50,6 +52,43 @@ class About extends PureComponent {
                 Aranja
               </a>.
             </p>
+          </div>
+        </div>
+
+        <h3>Að verkefninu koma einnig</h3>
+
+        <div className={s.contributors}>
+          <div className={s.person}>
+            <img
+              className={s.img}
+              src={require('./axel.jpg')}
+              alt="Axel Máni"
+            />
+            <p className={s.name}>Axel Máni</p>
+          </div>
+          <div className={s.person}>
+            <img
+              className={s.img}
+              src={require('./eirikur.jpg')}
+              alt="Eirikur Heiðar Nilsson"
+            />
+            <p className={s.name}>Eirikur Heiðar Nilsson</p>
+          </div>
+          <div className={s.person}>
+            <img
+              className={s.img}
+              src={require('./kristjan_lund.jpg')}
+              alt="Kristjan Broder Lund"
+            />
+            <p className={s.name}>Kristjan Broder Lund</p>
+          </div>
+          <div className={s.person}>
+            <img
+              className={s.img}
+              src={require('./thor.png')}
+              alt="Hlöðver Thor Árnason"
+            />
+            <p className={s.name}>Hlöðver Thor Árnason</p>
           </div>
         </div>
 

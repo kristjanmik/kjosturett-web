@@ -6,4 +6,4 @@ Við ætlum að vinna í og hrinda í framkvæmd heildaráætlun í uppbyggingu 
 
 Við ætlum að leysa vanda sauðfjárbænda til að tryggja að samfélögin á landsbyggðinni haldi styrk sínum
 
-Við ætlum að nýta sóknarfærin í íslenskum landbúnaði og þróa hann í samstarfi við góðar samgöngur
+Við ætlum að nýta sóknarfærin í íslenskum landbúnaði og þróa hann í samstarfi við hagaðila

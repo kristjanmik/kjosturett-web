@@ -1,0 +1,424 @@
+@import '../../components/functions.scss';
+@import '../../components/variables.scss';
+
+.root {
+  max-width: 768px;
+  margin: 0 auto;
+
+  @include between-property('padding-bottom', 44px, 0, 1200px, 0);
+  @include between-property('padding-top', 32px, 0, 1200px, 500px);
+  @include between-property('font-size', 17px, 13px, 1200px, 500px);
+
+  a {
+    color: inherit;
+  }
+
+  h2,
+  h3,
+  h4 {
+    line-height: 1.2;
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
+  h3 {
+    margin-top: 2.5em;
+  }
+
+  input {
+    margin-right: 15px;
+  }
+
+  button:not(.reset) {
+    background: #353535;
+    color: #fff;
+    border: none;
+    appearance: none;
+    font-size: 1rem;
+    padding: 1em 1.4em;
+    margin-top: 3rem;
+  }
+
+  .reset {
+    background: transparent;
+    color: inherit;
+    border: none;
+    appearance: none;
+    display: inline;
+    font: inherit;
+    text-decoration: underline;
+    white-space: normal;
+  }
+
+  .lead {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nonLead {
+    color: #666;
+    margin-bottom: 2em;
+    max-width: 600px;
+  }
+
+  .filters {
+    display: flex;
+    // flex-wrap: wrap;
+    margin-bottom: 30px;
+
+    @media screen and (max-width: 620px) {
+      flex-direction: column;
+    }
+  }
+
+  .kjordaemiFilter {
+    flex: 1;
+    min-width: 250px;
+
+    @media screen and (max-width: 620px) {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .topFilter {
+    flex: 1;
+    min-width: 200px;
+    margin-left: 15px;
+
+    @media screen and (max-width: 620px) {
+      min-width: 100%;
+      max-width: 100%;
+      margin-top: 15px;
+      margin-left: 0;
+    }
+  }
+
+  .showCount {
+    flex: 1;
+    min-width: 110px;
+    max-width: 110px;
+    margin-left: 15px;
+
+    @media screen and (max-width: 620px) {
+      min-width: 100%;
+      max-width: 100%;
+      margin-top: 15px;
+      margin-left: 0;
+    }
+  }
+
+  .takeTest {
+    background: #353535;
+    border-radius: 4px;
+    display: table;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.8em 1em;
+    text-align: center;
+  }
+
+  .shareButton {
+    background: #353535;
+    border-radius: 4px;
+    display: table;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.4em 0.7em;
+    text-align: center;
+
+    @media screen and (max-width: 420px) {
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.6em 1em;
+      margin-left: 0 !important;
+      margin-top: 12px;
+    }
+  }
+}
+
+.questions {
+  .lead {
+    margin-bottom: 3em;
+
+    p:first-of-type {
+      font-size: 1.2em;
+    }
+
+    p + p {
+      padding-top: 1.4em;
+      opacity: 0.7;
+    }
+  }
+}
+
+.question + .question {
+  margin-top: 4rem;
+}
+
+.question {
+  position: relative;
+  padding: 3em 4em;
+  transition: opacity 300ms ease-in-out;
+  text-align: center;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 550px;
+
+  h3 {
+    font-family: 'Lora', serif;
+    line-height: 1.7;
+    margin: 0 -40px 2em;
+  }
+
+  img {
+    height: auto;
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  label {
+    background-color: rgb(240, 240, 240);
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 1em 1.5em;
+    padding-left: 3em;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  input:checked + label {
+    background: #333;
+    color: #fff;
+  }
+}
+
+.hidden {
+  opacity: 0.2;
+}
+
+.party {
+  align-items: center;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  margin-bottom: 0.3em;
+  padding-bottom: 0.3em;
+  position: relative;
+  text-decoration: none;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid #fff;
+  }
+}
+
+.partyName {
+  font-weight: 700;
+}
+
+.partyProgress {
+  background: linear-gradient(90deg, rgba(#909dab, 0), rgba(#909dab, 0.2));
+  transform-origin: 0 0;
+  position: absolute;
+  bottom: 0;
+  top: -0.3em;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+
+  @for $index from 1 through 12 {
+    .party:nth-of-type(#{$index}) & {
+      opacity: 1 - $index / 12;
+    }
+  }
+}
+
+.partyPercentage {
+  color: #000;
+  margin-left: auto;
+  margin-right: 0.5em;
+}
+
+.partyLogo {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.candidates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.partyQuestion {
+  padding-left: 45px;
+
+  @include between-property('padding-bottom', 10px, 5px, 600px, 0);
+  @include between-property('padding-top', 20px, 5px, 600px, 0);
+
+  &:last-child {
+    margin-bottom: 2rem;
+  }
+
+  h4 {
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 0.4em;
+    position: relative;
+  }
+
+  .dot {
+    background-color: #aaa;
+    box-shadow: 0 0 4px 0 #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: content-box;
+    border: 2px solid #fff;
+    height: 6px;
+    position: absolute;
+    top: 0.45em;
+    left: -35px;
+    width: 6px;
+  }
+
+  .dot0 {
+    background-color: #7ed321;
+    box-shadow: 0 0 4px 0 #7ed321;
+  }
+
+  .dot1 {
+    background-color: #aedd32;
+    box-shadow: 0 0 4px 0 #aedd32;
+  }
+
+  .dot2 {
+    background-color: #c0c75e;
+    box-shadow: 0 0 4px 0 #c0c75e;
+  }
+
+  .dot3 {
+    background-color: #d39537;
+    box-shadow: 0 0 4px 0 #d39537;
+  }
+
+  .dot4 {
+    background-color: #c21716;
+    box-shadow: 0 0 4px 0 #c21716;
+  }
+
+  @media (min-width: 600px) {
+    h4 {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.candidate {
+  position: relative;
+  margin-bottom: 32px;
+  width: 48%;
+
+  @media (min-width: 600px) {
+    width: 31%;
+    margin-bottom: 38px;
+  }
+}
+
+.candidateImg {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.candidateInfo {
+  align-items: flex-end;
+  background: rgba(#000, 0.4);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  left: 0;
+  padding: 0.3em 0.5em;
+  position: absolute;
+  top: 0;
+  text-align: right;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    padding: 0.8em 1em 1em;
+  }
+}
+
+.candidateConstituency {
+  font-size: 0.8rem;
+  margin-top: auto;
+}
+
+.candidateName {
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.3;
+  padding-top: 0.5em;
+  padding-bottom: 0.4em;
+}
+
+.candidateParty {
+  font-size: 0.8em;
+  line-height: 1;
+}
+
+.candidatePercentage {
+  color: rgb(65, 65, 65);
+  font-size: 0.8em;
+  margin-top: 6px;
+  position: absolute;
+  transform-origin: 0 0;
+  left: 0;
+  width: 100%;
+  top: 100%;
+}
+
+.candidateProgressBar {
+  background: #555;
+  height: 6px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+
+.candidateProgress {
+  background: rgb(21, 206, 61);
+  height: 100%;
+  transform-origin: 0 0;
+  width: 100%;
+}
