@@ -20,10 +20,10 @@ for k in kjordaemi:
   trs = soup.find_all('tr')
   currentParty = ''
   cl = []
+  if k == 'reykjavik-sudur':
+      currentParty = 'A'
   for i, tr in enumerate(trs):
     if tr.find_all('h3'):
-      if currentParty:
-        d[k][currentParty] = cl
       partyText = tr.find_all('h3')[0].text.replace('\r\n','')
       currentParty = partyText[:1]
       cl = []
@@ -36,16 +36,18 @@ for k in kjordaemi:
           street = ''
         else:
           street = info_split[2]
-
         cl.append({
           'seat': tr.find_all('b')[0].text.replace('.',''),
-          'name': tr.find_all('b')[1].text.replace(',',''),
+          'name': tr.find_all('b')[1].text.replace(',','').replace('\r\n', ''),
           'ssn': info_split[0].replace('kt. ',''),
           'occupation': info_split[1].strip(),
           'street':  street.strip(),
           'place': info_split[-1].replace('.','').strip(),
         })
+    if currentParty:
+      d[k][currentParty] = cl
 
-f = open('candidates.json', 'w')
+
+f = open('candidates_v2.json', 'w')
 f.write(json.dumps(d, indent=2, sort_keys=True))
 f.close()
