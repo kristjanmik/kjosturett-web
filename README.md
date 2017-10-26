@@ -2,6 +2,8 @@
 
 ##Getting started
 
+### manual build
+
 ```bash
 npm install
 npm run build-data
@@ -12,6 +14,14 @@ You can then start the server at port 3000
 
 ```bash
 npm start
+```
+
+### docker-compose
+
+Automatically build and run the app on port 3000
+
+```bash
+docker-compose up
 ```
 
 ## Why do we build the data?
