@@ -26,7 +26,6 @@ const statFile = promisify(fs.stat);
         const fileInfo = await statFile(`./candidates-images/jpg/${slug}.jpg`);
         hasImage = fileInfo.isFile();
       } catch (e) {}
-      console.log(hasImage);
 
       return {
         ...candidate,
