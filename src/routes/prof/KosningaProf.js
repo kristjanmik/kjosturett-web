@@ -12,23 +12,52 @@ const answerMap = {
   3: 'Hlutlaus',
   4: 'Frekar sammála',
   5: 'Mjög sammála',
-  6: 'Vil ekki svara',
+  6: 'Vil ekki svara'
 };
 const areYouSure =
   'Ertu viss um að þú viljir yfirgefa síðuna núna? Öll svörin munu týnast.';
 const defaultAnswer = '3';
 
+class UploadCandidateImage extends PureComponent {
+  render() {
+    const { token } = this.props;
+    return (
+      <div className={s.uploadForm}>
+        <h3>Breyta um mynd</h3>
+        <p>
+          Hérna getur þú hlaðið upp nýrri mynd af þér sem verður notuð í
+          kosningaprófinu
+        </p>
+        <form
+          id="uploadForm"
+          action="http://46.101.57.130:5000/candidate/avatar"
+          method="post"
+          encType="multipart/form-data"
+        >
+          <input type="file" name="avatar" />
+          <input type="hidden" name="token" value={token} />
+          <input
+            type="submit"
+            value="Senda inn mynd"
+            className={s.uploadSubmit}
+          />
+        </form>
+      </div>
+    );
+  }
+}
+
 class Kosningaprof extends PureComponent {
   static contextTypes = {
-    fetch: PropTypes.func.isRequired,
+    fetch: PropTypes.func.isRequired
   };
   static propTypes = {
     questions: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        question: PropTypes.string.isRequired,
-      }),
-    ).isRequired,
+        question: PropTypes.string.isRequired
+      })
+    ).isRequired
   };
   state = {
     started: false,
@@ -38,7 +67,7 @@ class Kosningaprof extends PureComponent {
       // eslint-disable-next-line
       all[id] = defaultAnswer;
       return all;
-    }, {}),
+    }, {})
   };
   constructor(props) {
     super(props);
@@ -68,8 +97,8 @@ class Kosningaprof extends PureComponent {
         started: true,
         answers: {
           ...answers,
-          [id]: target.value,
-        },
+          [id]: target.value
+        }
       };
     });
   };
@@ -81,22 +110,34 @@ class Kosningaprof extends PureComponent {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         token,
-        reply: encodeAnswersToken(Object.keys(answers).map(x => answers[x])),
-      }),
+        reply: encodeAnswersToken(Object.keys(answers).map(x => answers[x]))
+      })
     });
 
     this.setState({ finished: true });
   }
   render() {
-    const { questions } = this.props;
+    const { questions, token } = this.props;
     const { answers, started, finished } = this.state;
     return (
       <div className={s.root}>
+        <UploadCandidateImage token={token} />
         {finished && <h3>Takk fyrir þátttökuna!</h3>}
+
+        {!finished && (
+          <div className={s.intro}>
+            <h1>Kosningapróf kjósturétt.is 2017</h1>
+            <p>
+              Svörin við prófinu birtast í niðurstöðusíðu kosningaprófsins. Það
+              getur tekið allt að 3 tíma fyrir svörin að uppfærast. Nýjasta
+              svarið gildir
+            </p>
+          </div>
+        )}
         {!finished &&
           questions.map(({ question, id }) => (
             <div key={id} className={s.question}>
