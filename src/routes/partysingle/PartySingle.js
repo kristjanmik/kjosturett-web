@@ -23,7 +23,6 @@ class PartySingle extends PureComponent {
         </div>
         <div className={s.topics}>
           <Collapsable
-            openByDefault
             items={
               categories &&
               categories.map(({ name, category, statement }) => ({
