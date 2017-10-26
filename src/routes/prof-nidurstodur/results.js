@@ -23,6 +23,7 @@ export default ({ params, url }) => {
     return party;
   });
   const candidates = getResultsByScore(replies, candidateReplies);
+  console.log(candidates);
   const questions = questionsBase.map(({ id, question }) => ({
     id,
     question,
