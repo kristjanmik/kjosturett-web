@@ -31,13 +31,27 @@ class KosningaprofResults extends PureComponent {
     topFilter: 5,
     candidateCount: 12
   };
-  toggle(party) {
-    this.setState(({ open }) => ({
-      open: {
-        ...open,
-        [party]: !open[party]
+  toggle(letter) {
+    this.setState(({ open }, { parties = [] }) => {
+      const isOpen = !open[letter];
+      const party = parties.find(x => x.letter === letter);
+
+      if (party && typeof window.ga === 'function') {
+        window.ga('send', {
+          hitType: 'event',
+          eventCategory: window.location.pathname,
+          eventAction: `Toggle ${party.name}`,
+          eventLabel: isOpen ? 'Open' : 'Close',
+        });
       }
-    }));
+
+      return {
+        open: {
+          ...open,
+          [letter]: isOpen,
+        },
+      };
+    });
   }
   render() {
     const { questions, answers, results, parties, url } = this.props;
