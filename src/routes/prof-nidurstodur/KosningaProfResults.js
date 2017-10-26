@@ -284,19 +284,30 @@ class KosningaprofResults extends PureComponent {
                   className={s.candidateImg}
                   src={[candidateImage(candidate.slug), transparent]}
                 />
-                <div className={s.candidateProgressBar}>
+                <div
+                  className={s.candidateProgressBar}
+                  style={{ display: candidate.score > 0 ? 'block' : 'none' }}
+                >
                   <div
                     className={s.candidateProgress}
                     style={{
                       transform: `scaleX(${scoreToFloatingPoint(
                         candidate.score
-                      )})`
+                      )})`,
+                      background: party && party.color ? party.color : '#555'
                     }}
                   />
                 </div>
-                <div className={s.candidatePercentage}>
-                  <span>{Math.ceil(candidate.score)}%</span>
-                </div>
+                {candidate.score > 0 && (
+                  <div className={s.candidatePercentage}>
+                    <span>{Math.ceil(candidate.score)}%</span>
+                  </div>
+                )}
+                {candidate.score === 0 && (
+                  <div className={s.candidateNoResponse}>
+                    <span>Frambjóðandi hefur ekki svarað</span>
+                  </div>
+                )}
                 <div className={s.candidateInfo}>
                   <div className={s.candidateName}>{candidate.name}</div>
                   {party && (

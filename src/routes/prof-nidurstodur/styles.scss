@@ -407,8 +407,17 @@
   top: 100%;
 }
 
+.candidateNoResponse {
+  color: rgb(65, 65, 65);
+  font-size: 0.8em;
+  position: absolute;
+  transform-origin: 0 0;
+  left: 0;
+  width: 100%;
+  top: 100%;
+}
+
 .candidateProgressBar {
-  background: #555;
   height: 6px;
   left: 0;
   position: absolute;
