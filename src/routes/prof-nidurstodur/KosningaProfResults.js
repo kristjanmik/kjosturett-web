@@ -31,27 +31,13 @@ class KosningaprofResults extends PureComponent {
     topFilter: 5,
     candidateCount: 12
   };
-  toggle(letter) {
-    this.setState(({ open }, { parties = [] }) => {
-      const isOpen = !open[letter];
-      const party = parties.find(x => x.letter === letter);
-
-      if (party && typeof window.ga === 'function') {
-        window.ga('send', {
-          hitType: 'event',
-          eventCategory: window.location.pathname,
-          eventAction: `Toggle ${party.name}`,
-          eventLabel: isOpen ? 'Open' : 'Close',
-        });
+  toggle(party) {
+    this.setState(({ open }) => ({
+      open: {
+        ...open,
+        [party]: !open[party]
       }
-
-      return {
-        open: {
-          ...open,
-          [letter]: isOpen,
-        },
-      };
-    });
+    }));
   }
   render() {
     const { questions, answers, results, parties, url } = this.props;
@@ -294,16 +280,10 @@ class KosningaprofResults extends PureComponent {
                   backgroundColor: party && party.color
                 }}
               >
-                {candidate.hasImage && (
-                  <Img
-                    className={s.candidateImg}
-                    src={[candidateImage(candidate.slug), transparent]}
-                  />
-                )}
-                {!candidate.hasImage && (
-                  <Img className={s.candidateImg} src={[transparent]} />
-                )}
-
+                <Img
+                  className={s.candidateImg}
+                  src={[candidateImage(candidate.slug), transparent]}
+                />
                 <div
                   className={s.candidateProgressBar}
                   style={{ display: candidate.score > 0 ? 'block' : 'none' }}
