@@ -90,6 +90,19 @@ class Kosningaprof extends PureComponent {
       .map(x => answers[x])
       .map(x => (x == null ? this.props.answers.default : x));
 
+    this.context
+      .fetch(`/konnun/replies/all?timestamp=${Date.now()}`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          reply: encodeAnswersToken(answerValues)
+        })
+      })
+      .catch(console.error);
+
     history.push(`/kosningaprof/${encodeAnswersToken(answerValues)}`);
   }
   loadAnswers() {
