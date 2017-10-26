@@ -5,7 +5,7 @@ import questions from '../../../data/poll/questions.json';
 import answers from '../../../data/poll/answers.json';
 
 export default ({ params, url, query }) => {
-  const { token } = query;
+  const { token, upload } = query;
 
   return {
     chunks: ['prof'],
@@ -13,7 +13,12 @@ export default ({ params, url, query }) => {
     path: url,
     component: (
       <Layout page="prof" showHeader={false}>
-        <KosningaProf answers={answers} questions={questions} token={token} />
+        <KosningaProf
+          answers={answers}
+          questions={questions}
+          token={token}
+          uploadSuccess={upload === 'success'}
+        />
       </Layout>
     )
   };

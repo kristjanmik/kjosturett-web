@@ -20,7 +20,11 @@ const defaultAnswer = '3';
 
 class UploadCandidateImage extends PureComponent {
   render() {
-    const { token } = this.props;
+    const { token, uploadSuccess } = this.props;
+
+    if (uploadSuccess) {
+      return <p className={s.uploadSuccess}>Innsending á mynd tókst!</p>;
+    }
     return (
       <div className={s.uploadForm}>
         <h3>Breyta um mynd</h3>
@@ -121,11 +125,13 @@ class Kosningaprof extends PureComponent {
     this.setState({ finished: true });
   }
   render() {
-    const { questions, token } = this.props;
+    const { questions, token, uploadSuccess } = this.props;
     const { answers, started, finished } = this.state;
     return (
       <div className={s.root}>
-        <UploadCandidateImage token={token} />
+        {!finished && (
+          <UploadCandidateImage token={token} uploadSuccess={uploadSuccess} />
+        )}
         {finished && <h3>Takk fyrir þátttökuna!</h3>}
 
         {!finished && (
