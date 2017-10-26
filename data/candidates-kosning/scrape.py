@@ -14,7 +14,7 @@ kjordaemi = [
 d = {}
 
 for k in kjordaemi:
-  page = requests.get('https://www.kosning.is/althingiskosningar-2017/althingiskosningar/kjordaemi/%s/' % k)
+  page = requests.get('http://www.kosning.is/althingiskosningar-2017/althingiskosningar/kjordaemi/%s/' % k)
   soup = BeautifulSoup(page.text, 'lxml')
   d[k] = {}
   trs = soup.find_all('tr')
@@ -45,6 +45,7 @@ for k in kjordaemi:
           'street':  street.strip(),
           'place': info_split[-1].replace('.','').strip(),
         })
+    d[k][currentParty] = cl
 
 f = open('candidates.json', 'w')
 f.write(json.dumps(d, indent=2, sort_keys=True))

@@ -3,7 +3,8 @@
     "A": [
       {
         "name": "Arngr\u00edmur Vi\u00f0ar \u00c1sgeirsson",
-        "occupation": "fer\u00f0a\u00fej\u00f3nustua\u00f0ili og \u00ed\u00fer\u00f3ttakennari",
+        "occupation":
+          "fer\u00f0a\u00fej\u00f3nustua\u00f0ili og \u00ed\u00fer\u00f3ttakennari",
         "place": "Borgarfir\u00f0i eystra",
         "seat": "1",
         "ssn": "150768-4979",
@@ -245,7 +246,8 @@
       },
       {
         "name": "Gunnlaugur Stef\u00e1nsson",
-        "occupation": "sveitarstj\u00f3rnarfulltr\u00fai og framkv\u00e6mdastj\u00f3ri",
+        "occupation":
+          "sveitarstj\u00f3rnarfulltr\u00fai og framkv\u00e6mdastj\u00f3ri",
         "place": "H\u00fasav\u00edk",
         "seat": "11",
         "ssn": "081063-7969",
@@ -375,7 +377,8 @@
       },
       {
         "name": "Fri\u00f0rik Sigur\u00f0sson",
-        "occupation": "fyrrv. forseti sveitarstj\u00f3rnar Nor\u00f0ur\u00feings",
+        "occupation":
+          "fyrrv. forseti sveitarstj\u00f3rnar Nor\u00f0ur\u00feings",
         "place": "Akureyri",
         "seat": "7",
         "ssn": "270370-3819",
@@ -383,7 +386,8 @@
       },
       {
         "name": "Hildigunnur Rut J\u00f3nsd\u00f3ttir",
-        "occupation": "sj\u00e1var\u00fatvegsfr\u00e6\u00f0ingur og vi\u00f0skiptafr\u00e6\u00f0ingur",
+        "occupation":
+          "sj\u00e1var\u00fatvegsfr\u00e6\u00f0ingur og vi\u00f0skiptafr\u00e6\u00f0ingur",
         "place": "Akureyri",
         "seat": "8",
         "ssn": "150678-4209",
@@ -415,7 +419,8 @@
       },
       {
         "name": "Lov\u00edsa Oktov\u00eda Eyvindsd\u00f3ttir",
-        "occupation": "stj\u00f3rnm\u00e1lafr\u00e6\u00f0ingur og verslunarstj\u00f3ri",
+        "occupation":
+          "stj\u00f3rnm\u00e1lafr\u00e6\u00f0ingur og verslunarstj\u00f3ri",
         "place": "Akureyri",
         "seat": "12",
         "ssn": "270591-3539",
@@ -471,7 +476,8 @@
       },
       {
         "name": "Gu\u00f0mundur \u00de\u00f3rarinn Tulinius",
-        "occupation": "skipaverkfr\u00e6\u00f0ingur og lei\u00f0s\u00f6guma\u00f0ur",
+        "occupation":
+          "skipaverkfr\u00e6\u00f0ingur og lei\u00f0s\u00f6guma\u00f0ur",
         "place": "Akureyri",
         "seat": "19",
         "ssn": "190843-4169",
@@ -982,7 +988,8 @@
         "street": "Sk\u00e1lateigi 3"
       },
       {
-        "name": "Gu\u00f0r\u00fan \u00c1g\u00fasta \u00de\u00f3rd\u00edsard\u00f3ttir",
+        "name":
+          "Gu\u00f0r\u00fan \u00c1g\u00fasta \u00de\u00f3rd\u00edsard\u00f3ttir",
         "occupation": "vara\u00feingma\u00f0ur",
         "place": "Akureyri",
         "seat": "2",
@@ -1339,7 +1346,8 @@
       },
       {
         "name": "Kjartan P\u00e1ll \u00de\u00f3rarinsson",
-        "occupation": "b\u00e6jarfulltr\u00fai og \u00ed\u00fer\u00f3tta- og t\u00f3mstundafulltr\u00fai",
+        "occupation":
+          "b\u00e6jarfulltr\u00fai og \u00ed\u00fer\u00f3tta- og t\u00f3mstundafulltr\u00fai",
         "place": "H\u00fasav\u00edk",
         "seat": "6",
         "ssn": "120182-4559",
@@ -1395,7 +1403,8 @@
       },
       {
         "name": "\u00dalfar Hauksson",
-        "occupation": "v\u00e9lfr\u00e6\u00f0ingur og stj\u00f3rnm\u00e1lafr\u00e6\u00f0ingur",
+        "occupation":
+          "v\u00e9lfr\u00e6\u00f0ingur og stj\u00f3rnm\u00e1lafr\u00e6\u00f0ingur",
         "place": "Akureyri",
         "seat": "13",
         "ssn": "090166-3019",
@@ -1457,13 +1466,181 @@
         "ssn": "101151-3019",
         "street": "Hafnarbraut 25"
       }
+    ],
+    "V": [
+      {
+        "name": "Steingr\u00edmur J. Sigf\u00fasson",
+        "occupation": "al\u00feingisma\u00f0ur",
+        "place": "\u00deistilfir\u00f0i",
+        "seat": "1",
+        "ssn": "040855-7349",
+        "street": "Gunnarsst\u00f6\u00f0um"
+      },
+      {
+        "name": "Bjarkey Olsen Gunnarsd\u00f3ttir",
+        "occupation": "al\u00feingisma\u00f0ur",
+        "place": "\u00d3lafsfir\u00f0i",
+        "seat": "2",
+        "ssn": "270265-4489",
+        "street": "Hl\u00ed\u00f0arvegi 71"
+      },
+      {
+        "name": "Ingibj\u00f6rg \u00de\u00f3r\u00f0ard\u00f3ttir",
+        "occupation": "framhaldssk\u00f3lakennari",
+        "place": "Neskaupsta\u00f0",
+        "seat": "3",
+        "ssn": "200572-5569",
+        "street": "Valsm\u00fdri 5"
+      },
+      {
+        "name": "Edward H. Huijbens",
+        "occupation": "pr\u00f3fessor",
+        "place": "Akureyri",
+        "seat": "4",
+        "ssn": "280376-3029",
+        "street": "Kringlum\u00fdri 35"
+      },
+      {
+        "name": "\u00d3li Halld\u00f3rsson",
+        "occupation":
+          "forst\u00f6\u00f0uma\u00f0ur og sveitarstj\u00f3rnarfulltr\u00fai",
+        "place": "H\u00fasav\u00edk",
+        "seat": "5",
+        "ssn": "100575-5079",
+        "street": "Uppsalavegi 8"
+      },
+      {
+        "name": "Berglind H\u00e4sler",
+        "occupation": "b\u00f3ndi og matv\u00e6laframlei\u00f0andi",
+        "place": "Dj\u00fapavogshreppi",
+        "seat": "6",
+        "ssn": "190478-3519",
+        "street": "Karlsst\u00f6\u00f0um"
+      },
+      {
+        "name": "S\u00f3ley Bj\u00f6rk Stef\u00e1nsd\u00f3ttir",
+        "occupation": "b\u00e6jarfulltr\u00fai",
+        "place": "Akureyri",
+        "seat": "7",
+        "ssn": "090773-3489",
+        "street": "Holtag\u00f6tu 9"
+      },
+      {
+        "name": "Sindri Geir \u00d3skarsson",
+        "occupation": "gu\u00f0fr\u00e6\u00f0ingur",
+        "place": "\u00deingeyjarsveit",
+        "seat": "8",
+        "ssn": "290891-2809",
+        "street": "D\u00e6li"
+      },
+      {
+        "name": "\u00deur\u00ed\u00f0ur Skarph\u00e9\u00f0insd\u00f3ttir",
+        "occupation": "hj\u00fakrunarfr\u00e6\u00f0ingur",
+        "place": "Fellab\u00e6",
+        "seat": "9",
+        "ssn": "180892-2819",
+        "street": "Fj\u00f3luhvammi 2"
+      },
+      {
+        "name": "Hj\u00f6rd\u00eds Helga Seljan \u00de\u00f3roddsd\u00f3ttir",
+        "occupation": "grunnsk\u00f3lakennari",
+        "place": "Rey\u00f0arfir\u00f0i",
+        "seat": "10",
+        "ssn": "150689-3099",
+        "street": "H\u00e6\u00f0arger\u00f0i 29"
+      },
+      {
+        "name": "A\u00f0albj\u00f6rn J\u00f3hannsson",
+        "occupation":
+          "verkefnastj\u00f3ri \u00e1 \u00e6skul\u00fd\u00f0ssvi\u00f0i og nemi",
+        "place": "Nor\u00f0ur\u00feingi",
+        "seat": "11",
+        "ssn": "220592-2869",
+        "street": "V\u00ed\u00f0iholti 1"
+      },
+      {
+        "name": "Helgi Hlynur \u00c1sgr\u00edmsson",
+        "occupation": "sj\u00f3ma\u00f0ur",
+        "place": "Borgarfir\u00f0i eystra",
+        "seat": "12",
+        "ssn": "011069-5259",
+        "street": "Svalbar\u00f0i"
+      },
+      {
+        "name": "J\u00f3na Bj\u00f6rg Hl\u00f6\u00f0versd\u00f3ttir",
+        "occupation": "b\u00f3ndi",
+        "place": "Kaldakinn",
+        "seat": "13",
+        "ssn": "171285-3649",
+        "street": "Bj\u00f6rgum"
+      },
+      {
+        "name": "Tryggvi Kristbj\u00f6rn Gu\u00f0mundsson",
+        "occupation": "smi\u00f0ur",
+        "place": "Dalv\u00edkurbygg\u00f0",
+        "seat": "14",
+        "ssn": "150267-4049",
+        "street": "\u00c6gisg\u00f6tu 5"
+      },
+      {
+        "name": "Sif J\u00f3hannesd\u00f3ttir",
+        "occupation":
+          "forst\u00f6\u00f0uma\u00f0ur og sveitarstj\u00f3rnarfulltr\u00fai",
+        "place": "H\u00fasav\u00edk",
+        "seat": "15",
+        "ssn": "310572-3739",
+        "street": "Ketilsbraut  17"
+      },
+      {
+        "name": "Bj\u00f6rn Halld\u00f3rsson",
+        "occupation": "b\u00f3ndi",
+        "place": "Vopnafir\u00f0i",
+        "seat": "16",
+        "ssn": "141256-5569",
+        "street": "Akri"
+      },
+      {
+        "name": "\u00de\u00f3runn Hrund \u00d3lad\u00f3ttir",
+        "occupation": "kennari",
+        "place": "Sey\u00f0isfir\u00f0i",
+        "seat": "17",
+        "ssn": "170771-4439",
+        "street": "Hl\u00ed\u00f0arvegi 15"
+      },
+      {
+        "name": "Hrafnkell Freyr L\u00e1russon",
+        "occupation": "doktorsnemi",
+        "place": "Brei\u00f0dalshreppi",
+        "seat": "18",
+        "ssn": "070677-4669",
+        "street": "Gils\u00e1"
+      },
+      {
+        "name": "\u00deorsteinn V. Gunnarsson",
+        "occupation":
+          "s\u00e9rfr\u00e6\u00f0ingur hj\u00e1 Rann\u00eds og fyrrv. rektor",
+        "place": "Akureyri",
+        "seat": "19",
+        "ssn": "211053-3059",
+        "street": "Lerkilundi 29"
+      },
+      {
+        "name": "Krist\u00edn Sigf\u00fasd\u00f3ttir",
+        "occupation":
+          "fyrrv. framhaldssk\u00f3lakennari og b\u00e6jarfulltr\u00fai",
+        "place": "Akureyri",
+        "seat": "20",
+        "ssn": "130349-4719",
+        "street": "Hjallalundi 20"
+      }
     ]
   },
   "nordvesturkjordaemi": {
     "A": [
       {
         "name": "Gu\u00f0laug Kristj\u00e1nsd\u00f3ttir",
-        "occupation": "sj\u00fakra\u00fej\u00e1lfari og forseti b\u00e6jarstj\u00f3rnar",
+        "occupation":
+          "sj\u00fakra\u00fej\u00e1lfari og forseti b\u00e6jarstj\u00f3rnar",
         "place": "Hafnarfir\u00f0i",
         "seat": "1",
         "ssn": "260772-5039",
@@ -1723,7 +1900,8 @@
     "C": [
       {
         "name": "Gylfi \u00d3lafsson",
-        "occupation": "heilsuhagfr\u00e6\u00f0ingur og a\u00f0sto\u00f0arma\u00f0ur r\u00e1\u00f0herra",
+        "occupation":
+          "heilsuhagfr\u00e6\u00f0ingur og a\u00f0sto\u00f0arma\u00f0ur r\u00e1\u00f0herra",
         "place": "Reykjav\u00edk",
         "seat": "1",
         "ssn": "020583-4879",
@@ -1860,7 +2038,8 @@
         "street": "Vestri-Reyni"
       },
       {
-        "name": "\u00de\u00f3rd\u00eds Kolbr\u00fan Reykfj\u00f6r\u00f0 Gylfad\u00f3ttir",
+        "name":
+          "\u00de\u00f3rd\u00eds Kolbr\u00fan Reykfj\u00f6r\u00f0 Gylfad\u00f3ttir",
         "occupation": "r\u00e1\u00f0herra",
         "place": "K\u00f3pavogi",
         "seat": "2",
@@ -1885,7 +2064,8 @@
       },
       {
         "name": "J\u00f3n\u00edna Erna Arnard\u00f3ttir",
-        "occupation": "t\u00f3nlistarkennari og sveitarstj\u00f3rnarfulltr\u00fai",
+        "occupation":
+          "t\u00f3nlistarkennari og sveitarstj\u00f3rnarfulltr\u00fai",
         "place": "Borgarnesi",
         "seat": "5",
         "ssn": "100267-4549",
@@ -1917,7 +2097,8 @@
       },
       {
         "name": "\u00c1sgeir Sveinsson",
-        "occupation": "forma\u00f0ur b\u00e6jarr\u00e1\u00f0s Vesturbygg\u00f0ar og b\u00f3ndi",
+        "occupation":
+          "forma\u00f0ur b\u00e6jarr\u00e1\u00f0s Vesturbygg\u00f0ar og b\u00f3ndi",
         "place": "Patreksfir\u00f0i",
         "seat": "9",
         "ssn": "010582-3699",
@@ -1941,7 +2122,8 @@
       },
       {
         "name": "B\u00f6\u00f0var Sturluson",
-        "occupation": "v\u00f6rubifrei\u00f0arstj\u00f3ri og framkv\u00e6mdastj\u00f3ri",
+        "occupation":
+          "v\u00f6rubifrei\u00f0arstj\u00f3ri og framkv\u00e6mdastj\u00f3ri",
         "place": "Stykkish\u00f3lmi",
         "seat": "12",
         "ssn": "120683-4899",
@@ -1949,7 +2131,8 @@
       },
       {
         "name": "P\u00e1lmi J\u00f3hannsson",
-        "occupation": "framkv\u00e6mdastj\u00f3ri og p\u00edpulagningama\u00f0ur",
+        "occupation":
+          "framkv\u00e6mdastj\u00f3ri og p\u00edpulagningama\u00f0ur",
         "place": "B\u00fa\u00f0ardal",
         "seat": "13",
         "ssn": "010379-5129",
@@ -2259,7 +2442,8 @@
       },
       {
         "name": "Rannveig Ernud\u00f3ttir",
-        "occupation": "virkni\u00fej\u00e1lfari og t\u00f3mstundafr\u00e6\u00f0ingur",
+        "occupation":
+          "virkni\u00fej\u00e1lfari og t\u00f3mstundafr\u00e6\u00f0ingur",
         "place": "Reykjav\u00edk",
         "seat": "3",
         "ssn": "171279-5779",
@@ -2499,6 +2683,138 @@
         "ssn": "171251-3979",
         "street": "Dalsfl\u00f6t 8"
       }
+    ],
+    "V": [
+      {
+        "name": "Lilja Rafney Magn\u00fasd\u00f3ttir",
+        "occupation": "al\u00feingisma\u00f0ur",
+        "place": "Su\u00f0ureyri",
+        "seat": "1",
+        "ssn": "240657-7919",
+        "street": "Hjallavegi 31"
+      },
+      {
+        "name": "Bjarni J\u00f3nsson",
+        "occupation":
+          "forst\u00f6\u00f0uma\u00f0ur og sveitarstj\u00f3rnarfulltr\u00fai",
+        "place": "Sau\u00f0\u00e1rkr\u00f3ki",
+        "seat": "2",
+        "ssn": "060666-3939",
+        "street": "Raftahl\u00ed\u00f0 70"
+      },
+      {
+        "name": "R\u00fanar G\u00edslason",
+        "occupation": "h\u00e1sk\u00f3lanemi",
+        "place": "Borgarnesi",
+        "seat": "3",
+        "ssn": "170496-3029",
+        "street": "Br\u00e1karbraut 4"
+      },
+      {
+        "name": "Dagr\u00fan \u00d3sk J\u00f3nsd\u00f3ttir",
+        "occupation":
+          "\u00fej\u00f3\u00f0fr\u00e6\u00f0ingur og yfirn\u00e1tt\u00farubarn",
+        "place": "H\u00f3lmav\u00edk",
+        "seat": "4",
+        "ssn": "131293-2329",
+        "street": "Kirkjub\u00f3li 1"
+      },
+      {
+        "name": "Dagn\u00fd R\u00f3sa \u00dalfarsd\u00f3ttir",
+        "occupation": "kennari og b\u00f3ndi",
+        "place": "Skagabygg\u00f0",
+        "seat": "5",
+        "ssn": "210176-3149",
+        "street": "Ytra-H\u00f3li 1"
+      },
+      {
+        "name": "Hj\u00f6rd\u00eds P\u00e1lsd\u00f3ttir",
+        "occupation": "safnstj\u00f3ri",
+        "place": "Stykkish\u00f3lmi",
+        "seat": "6",
+        "ssn": "080686-2699",
+        "street": "B\u00f3khl\u00f6\u00f0ust\u00edg 1"
+      },
+      {
+        "name": "Reynir \u00de\u00f3r Eyvindsson",
+        "occupation": "verkfr\u00e6\u00f0ingur",
+        "place": "Akranesi",
+        "seat": "7",
+        "ssn": "190363-4149",
+        "street": "Sk\u00f3garfl\u00f6t 25"
+      },
+      {
+        "name": "\u00der\u00f6stur \u00de\u00f3r \u00d3lafsson",
+        "occupation": "framhaldssk\u00f3lakennari",
+        "place": "Akranesi",
+        "seat": "8",
+        "ssn": "221265-5139",
+        "street": "Steinssta\u00f0afl\u00f6t 21"
+      },
+      {
+        "name": "Sigr\u00ed\u00f0ur G\u00edslad\u00f3ttir",
+        "occupation": "d\u00fdral\u00e6knir",
+        "place": "\u00cdsafir\u00f0i",
+        "seat": "9",
+        "ssn": "240881-4899",
+        "street": "T\u00fang\u00f6tu 12"
+      },
+      {
+        "name": "\u00de\u00f3ra Geirlaug Bjartmarsd\u00f3ttir",
+        "occupation": "kennari og l\u00edffr\u00e6\u00f0ingur",
+        "place": "Borgarbygg\u00f0",
+        "seat": "10",
+        "ssn": "260986-3259",
+        "street": "Kleppj\u00e1rnsreykjum"
+      },
+      {
+        "name": "Bjarki Hj\u00f6rleifsson",
+        "occupation": "athafnama\u00f0ur",
+        "place": "Stykkish\u00f3lmi",
+        "seat": "11",
+        "ssn": "220389-2439",
+        "street": "H\u00f6f\u00f0ag\u00f6tu 19"
+      },
+      {
+        "name": "Eyr\u00fan Baldursd\u00f3ttir",
+        "occupation": "hj\u00fakrunarfr\u00e6\u00f0inemi",
+        "place": "Borgarnesi",
+        "seat": "12",
+        "ssn": "130493-3359",
+        "street": "Borgarbraut 37"
+      },
+      {
+        "name": "Matth\u00edas S\u00e6var L\u00fd\u00f0sson",
+        "occupation": "b\u00f3ndi",
+        "place": "Strandabygg\u00f0",
+        "seat": "13",
+        "ssn": "190757-2859",
+        "street": "H\u00fasav\u00edk"
+      },
+      {
+        "name": "L\u00e1rus \u00c1stmar Hannesson",
+        "occupation": "kennari og sveitarstj\u00f3rnarfulltr\u00fai",
+        "place": "Stykkish\u00f3lmi",
+        "seat": "14",
+        "ssn": "150766-4199",
+        "street": "Nest\u00fani 4"
+      },
+      {
+        "name": "Gu\u00f0n\u00fd Hildur Magn\u00fasd\u00f3ttir",
+        "occupation": "f\u00e9lagsm\u00e1lastj\u00f3ri",
+        "place": "Bolungarv\u00edk",
+        "seat": "15",
+        "ssn": "130669-3019",
+        "street": "Hreggnasa"
+      },
+      {
+        "name": "Gu\u00f0brandur Brynj\u00falfsson",
+        "occupation": "b\u00f3ndi",
+        "place": "Borgarbygg\u00f0",
+        "seat": "16",
+        "ssn": "300448-8019",
+        "street": "Br\u00faarlandi 2"
+      }
     ]
   },
   "reykjavik-nordur": {
@@ -2617,7 +2933,8 @@
       },
       {
         "name": "Sigurj\u00f3n J\u00f3nasson",
-        "occupation": "flugumfer\u00f0arstj\u00f3ri og forma\u00f0ur F\u00e9lags \u00edslenskra  flugumfer\u00f0arstj\u00f3ra",
+        "occupation":
+          "flugumfer\u00f0arstj\u00f3ri og forma\u00f0ur F\u00e9lags \u00edslenskra  flugumfer\u00f0arstj\u00f3ra",
         "place": "Reykjav\u00edk",
         "seat": "15",
         "ssn": "280379-3019",
@@ -2637,7 +2954,8 @@
         "place": "Reykjav\u00edk",
         "seat": "17",
         "ssn": "250367-8219",
-        "street": "lei\u00f0s\u00f6guma\u00f0ur og  framhaldssk\u00f3lakennari , R\u00e1narg\u00f6tu 45"
+        "street":
+          "lei\u00f0s\u00f6guma\u00f0ur og  framhaldssk\u00f3lakennari , R\u00e1narg\u00f6tu 45"
       },
       {
         "name": "Bjarni Benediktsson",
@@ -2933,7 +3251,8 @@
       },
       {
         "name": "Margr\u00e9t Kaldal\u00f3ns J\u00f3nsd\u00f3ttir",
-        "occupation": "f\u00e9lagsr\u00e1\u00f0gjafi og stj\u00f3rns\u00fdslufr\u00e6\u00f0ingur",
+        "occupation":
+          "f\u00e9lagsr\u00e1\u00f0gjafi og stj\u00f3rns\u00fdslufr\u00e6\u00f0ingur",
         "place": "Reykjav\u00edk",
         "seat": "10",
         "ssn": "251055-5219",
@@ -3029,7 +3348,8 @@
       },
       {
         "name": "Gu\u00f0r\u00fan P\u00e9tursd\u00f3ttir",
-        "occupation": "framkv\u00e6mdastj\u00f3ri Stofnunar S\u00e6mundar fr\u00f3\u00f0a",
+        "occupation":
+          "framkv\u00e6mdastj\u00f3ri Stofnunar S\u00e6mundar fr\u00f3\u00f0a",
         "place": "Reykjav\u00edk",
         "seat": "22",
         "ssn": "141250-3969",
@@ -3159,7 +3479,8 @@
       },
       {
         "name": "Margr\u00e9t Krist\u00edn Sigur\u00f0ard\u00f3ttir",
-        "occupation": "vi\u00f0skiptafr\u00e6\u00f0ingur og h\u00fasm\u00f3\u00f0ir",
+        "occupation":
+          "vi\u00f0skiptafr\u00e6\u00f0ingur og h\u00fasm\u00f3\u00f0ir",
         "place": "Reykjav\u00edk",
         "seat": "16",
         "ssn": "270331-3869",
@@ -3167,7 +3488,8 @@
       },
       {
         "name": "Laufey R\u00fan Ketilsd\u00f3ttir",
-        "occupation": "l\u00f6gfr\u00e6\u00f0ingur og a\u00f0sto\u00f0arma\u00f0ur r\u00e1\u00f0herra",
+        "occupation":
+          "l\u00f6gfr\u00e6\u00f0ingur og a\u00f0sto\u00f0arma\u00f0ur r\u00e1\u00f0herra",
         "place": "Reykjav\u00edk",
         "seat": "17",
         "ssn": "180687-3009",
@@ -3241,7 +3563,8 @@
       },
       {
         "name": "Ingibj\u00f6rg Sigur\u00f0ard\u00f3ttir",
-        "occupation": "vi\u00f0skiptal\u00f6gfr\u00e6\u00f0ingur og lei\u00f0s\u00f6guma\u00f0ur",
+        "occupation":
+          "vi\u00f0skiptal\u00f6gfr\u00e6\u00f0ingur og lei\u00f0s\u00f6guma\u00f0ur",
         "place": "Reykjav\u00edk",
         "seat": "4",
         "ssn": "190378-3149",
@@ -3395,7 +3718,8 @@
     "M": [
       {
         "name": "Gu\u00f0finna J\u00f3hanna Gu\u00f0mundsd\u00f3ttir",
-        "occupation": "borgarfulltr\u00fai og h\u00e9ra\u00f0sd\u00f3msl\u00f6gma\u00f0ur",
+        "occupation":
+          "borgarfulltr\u00fai og h\u00e9ra\u00f0sd\u00f3msl\u00f6gma\u00f0ur",
         "place": "Reykjav\u00edk",
         "seat": "1",
         "ssn": "140469-3279",
@@ -3459,7 +3783,8 @@
       },
       {
         "name": "Gr\u00e9ta Bj\u00f6rg Egilsd\u00f3ttir",
-        "occupation": "varaborgarfulltr\u00fai og \u00ed\u00fer\u00f3ttafr\u00e6\u00f0ingur",
+        "occupation":
+          "varaborgarfulltr\u00fai og \u00ed\u00fer\u00f3ttafr\u00e6\u00f0ingur",
         "place": "Reykjav\u00edk",
         "seat": "9",
         "ssn": "060175-6089",
@@ -3563,7 +3888,8 @@
       },
       {
         "name": "Atli \u00c1smundsson",
-        "occupation": "l\u00edfeyris\u00feegi og fyrrv.\u00a0 r\u00e6\u00f0isma\u00f0ur",
+        "occupation":
+          "l\u00edfeyris\u00feegi og fyrrv.\u00a0 r\u00e6\u00f0isma\u00f0ur",
         "place": "Reykjav\u00edk",
         "seat": "22",
         "ssn": "220543-4049",
@@ -3621,7 +3947,8 @@
       },
       {
         "name": "Kjartan J\u00f3nsson",
-        "occupation": "framkv\u00e6mdastj\u00f3ri M\u00falt\u00edk\u00falt\u00ed",
+        "occupation":
+          "framkv\u00e6mdastj\u00f3ri M\u00falt\u00edk\u00falt\u00ed",
         "place": "Reykjav\u00edk",
         "seat": "7",
         "ssn": "020560-3639",
@@ -3953,7 +4280,8 @@
       },
       {
         "name": "\u00de\u00f3rarinn Snorri Sigurgeirsson",
-        "occupation": "forma\u00f0ur Ungra jafna\u00f0armanna og  stj\u00f3rnm\u00e1lafr\u00e6\u00f0ingur",
+        "occupation":
+          "forma\u00f0ur Ungra jafna\u00f0armanna og  stj\u00f3rnm\u00e1lafr\u00e6\u00f0ingur",
         "place": "Reykjav\u00edk",
         "seat": "4",
         "ssn": "221187-2969",
@@ -4033,7 +4361,8 @@
       },
       {
         "name": "Leifur Bj\u00f6rnsson",
-        "occupation": "r\u00fatub\u00edlstj\u00f3ri og lei\u00f0s\u00f6guma\u00f0ur",
+        "occupation":
+          "r\u00fatub\u00edlstj\u00f3ri og lei\u00f0s\u00f6guma\u00f0ur",
         "place": "Reykjav\u00edk",
         "seat": "14",
         "ssn": "201161-2829",
@@ -4065,7 +4394,8 @@
       },
       {
         "name": "\u00deorkell Hei\u00f0arsson",
-        "occupation": "n\u00e1tt\u00farufr\u00e6\u00f0ingur og t\u00f3nlistarma\u00f0ur",
+        "occupation":
+          "n\u00e1tt\u00farufr\u00e6\u00f0ingur og t\u00f3nlistarma\u00f0ur",
         "place": "Reykjav\u00edk",
         "seat": "18",
         "ssn": "030870-4769",
@@ -4103,9 +4433,370 @@
         "ssn": "190672-5739",
         "street": "\u00d3\u00f0insg\u00f6tu 8b"
       }
+    ],
+    "V": [
+      {
+        "name": "Katr\u00edn Jakobsd\u00f3ttir",
+        "occupation": "al\u00feingisma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "1",
+        "ssn": "010276-3149",
+        "street": "Dunhaga 17"
+      },
+      {
+        "name": "Steinunn \u00de\u00f3ra \u00c1rnad\u00f3ttir",
+        "occupation": "al\u00feingisma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "2",
+        "ssn": "180977-3849",
+        "street": "Eskihl\u00ed\u00f0 10a"
+      },
+      {
+        "name": "Andr\u00e9s Ingi J\u00f3nsson",
+        "occupation": "al\u00feingisma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "3",
+        "ssn": "160879-3519",
+        "street": "Rau\u00f0al\u00e6k 14"
+      },
+      {
+        "name": "Halla Gunnarsd\u00f3ttir",
+        "occupation":
+          "bla\u00f0ama\u00f0ur og al\u00fej\u00f3\u00f0astj\u00f3rnm\u00e1lafr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "4",
+        "ssn": "080181-2999",
+        "street": "Laugavegi 135"
+      },
+      {
+        "name": "\u00c1lfhei\u00f0ur Ingad\u00f3ttir",
+        "occupation": "ritstj\u00f3ri",
+        "place": "Reykjav\u00edk",
+        "seat": "5",
+        "ssn": "010551-4719",
+        "street": "Fj\u00f3lug\u00f6tu 7"
+      },
+      {
+        "name": "G\u00edsli Gar\u00f0arsson",
+        "occupation": "fornfr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "6",
+        "ssn": "171191-2709",
+        "street": "\u00c1svallag\u00f6tu 53"
+      },
+      {
+        "name": "\u00deorsteinn V.\u00a0\r\n  Einarsson",
+        "occupation":
+          "deildarstj\u00f3ri \u00ed fr\u00edstundami\u00f0st\u00f6\u00f0",
+        "place": "Reykjav\u00edk",
+        "seat": "7",
+        "ssn": "020485-3379",
+        "street": "H\u00e1ager\u00f0i 23"
+      },
+      {
+        "name": "Hildur Kn\u00fatsd\u00f3ttir",
+        "occupation": "rith\u00f6fundur",
+        "place": "Reykjav\u00edk",
+        "seat": "8",
+        "ssn": "160684-3139",
+        "street": "Holtsg\u00f6tu 25"
+      },
+      {
+        "name": "Ragnar Kjartansson",
+        "occupation": "listama\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "9",
+        "ssn": "030276-3539",
+        "street": "Tjarnarg\u00f6tu 16"
+      },
+      {
+        "name": "Jovana Pavlovic",
+        "occupation": "stj\u00f3rnm\u00e1la- og mannfr\u00e6\u00f0ingur",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "10",
+        "ssn": "140493-3769",
+        "street": "Hrauntungu 10"
+      },
+      {
+        "name": "Hreind\u00eds Ylva Gar\u00f0arsd\u00f3ttir Holm",
+        "occupation": "flugfreyja og leikkona",
+        "place": "Reykjav\u00edk",
+        "seat": "11",
+        "ssn": "010389-2249",
+        "street": "\u00c1lfalandi 8"
+      },
+      {
+        "name": "Ragnar Karl J\u00f3hannsson",
+        "occupation": "uppeldis- og menntunarfr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "12",
+        "ssn": "140682-5009",
+        "street": "J\u00f6klafold 1"
+      },
+      {
+        "name": "Gu\u00f0r\u00fan \u00c1g\u00fastsd\u00f3ttir",
+        "occupation":
+          "forma\u00f0ur \u00f6ldungar\u00e1\u00f0s Reykjav\u00edkur",
+        "place": "Reykjav\u00edk",
+        "seat": "13",
+        "ssn": "010147-3959",
+        "street": "M\u00e1vahl\u00ed\u00f0 30"
+      },
+      {
+        "name": "N\u00edels Alvin N\u00edelsson",
+        "occupation": "sj\u00f3ma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "14",
+        "ssn": "050968-4809",
+        "street": "\u00d6ldugranda 3"
+      },
+      {
+        "name": "L\u00e1ra Bj\u00f6rg Bj\u00f6rnsd\u00f3ttir",
+        "occupation": "r\u00e1\u00f0gjafi",
+        "place": "Seltjarnarnesi",
+        "seat": "15",
+        "ssn": "010277-3029",
+        "street": "Lambasta\u00f0abraut 4"
+      },
+      {
+        "name": "Torfi Tulinius",
+        "occupation": "pr\u00f3fessor",
+        "place": "Reykjav\u00edk",
+        "seat": "16",
+        "ssn": "110458-4529",
+        "street": "\u00deingholtsstr\u00e6ti 31"
+      },
+      {
+        "name": "Brynhildur Bj\u00f6rnsd\u00f3ttir",
+        "occupation": "leikstj\u00f3ri",
+        "place": "Reykjav\u00edk",
+        "seat": "17",
+        "ssn": "270470-5139",
+        "street": "Dr\u00e1puhl\u00ed\u00f0 28"
+      },
+      {
+        "name": "Valgeir J\u00f3nasson",
+        "occupation": "rafeindavirki",
+        "place": "Reykjav\u00edk",
+        "seat": "18",
+        "ssn": "270250-2709",
+        "street": "Borgarger\u00f0i 4"
+      },
+      {
+        "name": "Sigr\u00ed\u00f0ur Thorlacius",
+        "occupation": "s\u00f6ngkona",
+        "place": "Reykjav\u00edk",
+        "seat": "19",
+        "ssn": "211182-3429",
+        "street": "\u00de\u00f3rsg\u00f6tu 8b"
+      },
+      {
+        "name": "Erling \u00d3lafsson",
+        "occupation": "kennari",
+        "place": "Reykjav\u00edk",
+        "seat": "20",
+        "ssn": "030347-2939",
+        "street": "\u00c1lfheimum 32"
+      },
+      {
+        "name": "Birna \u00de\u00f3r\u00f0ard\u00f3ttir",
+        "occupation": "fer\u00f0askipuleggjandi",
+        "place": "Reykjav\u00edk",
+        "seat": "21",
+        "ssn": "260249-4529",
+        "street": "\u00d3\u00f0insg\u00f6tu 11"
+      },
+      {
+        "name": "Sj\u00f6fn Ing\u00f3lfsd\u00f3ttir",
+        "occupation":
+          "fyrrv. forma\u00f0ur Starfsmannaf\u00e9lags  Reykjav\u00edkurborgar",
+        "place": "Reykjav\u00edk",
+        "seat": "22",
+        "ssn": "170739-2139",
+        "street": "Langholtsvegi 202"
+      }
     ]
   },
   "reykjavik-sudur": {
+    "": [
+      {
+        "name": "Nichole Leigh Mosty",
+        "occupation": "\u00feingma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "1",
+        "ssn": "191072-2439",
+        "street": "Hei\u00f0nabergi 14"
+      },
+      {
+        "name": "H\u00f6r\u00f0ur \u00c1g\u00fastsson",
+        "occupation": "framkv\u00e6mdastj\u00f3ri",
+        "place": "Reykjav\u00edk",
+        "seat": "2",
+        "ssn": "241079-3849",
+        "street": "Hei\u00f0arger\u00f0i 22"
+      },
+      {
+        "name": "Starri Reynisson",
+        "occupation": "stj\u00f3rnm\u00e1lafr\u00e6\u00f0inemi",
+        "place": "Reykjav\u00edk",
+        "seat": "3",
+        "ssn": "060795-2669",
+        "street": "Nj\u00e1lsg\u00f6tu 8c"
+      },
+      {
+        "name": "\u00de\u00f3runn P\u00e9tursd\u00f3ttir",
+        "occupation": "landgr\u00e6\u00f0sluvistfr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "4",
+        "ssn": "291067-5069",
+        "street": "H\u00e1ager\u00f0i 25"
+      },
+      {
+        "name": "Dilj\u00e1 \u00c1mundad\u00f3ttir",
+        "occupation": "verkefnastj\u00f3ri",
+        "place": "Reykjav\u00edk",
+        "seat": "5",
+        "ssn": "060479-5429",
+        "street": "Baldursg\u00f6tu 26"
+      },
+      {
+        "name": "Steinunn \u00c1sa \u00deorvaldsd\u00f3ttir",
+        "occupation": "starfsma\u00f0ur Reykjav\u00edkurborgar",
+        "place": "Reykjav\u00edk",
+        "seat": "6",
+        "ssn": "241083-5279",
+        "street": "Hringbraut 119"
+      },
+      {
+        "name": "Magn\u00fas \u00de\u00f3r J\u00f3nsson",
+        "occupation": "sk\u00f3lastj\u00f3ri",
+        "place": "Reykjav\u00edk",
+        "seat": "7",
+        "ssn": "140471-3999",
+        "street": "Dalseli 23"
+      },
+      {
+        "name": "Ilmur Kristj\u00e1nsd\u00f3ttir",
+        "occupation": "varaborgarfulltr\u00fai og leikkona",
+        "place": "Reykjav\u00edk",
+        "seat": "8",
+        "ssn": "190378-2929",
+        "street": "Rau\u00f0al\u00e6k 16"
+      },
+      {
+        "name": "Gu\u00f0r\u00fan Eir\u00edksd\u00f3ttir",
+        "occupation": "fer\u00f0ar\u00e1\u00f0gjafi",
+        "place": "Reykjav\u00edk",
+        "seat": "9",
+        "ssn": "161277-4019",
+        "street": "Brekkuseli 6"
+      },
+      {
+        "name": "Magnea \u00de\u00f3ra Gu\u00f0mundsd\u00f3ttir",
+        "occupation": "arkitekt",
+        "place": "Reykjav\u00edk",
+        "seat": "10",
+        "ssn": "170378-3779",
+        "street": "Skeljanesi 4"
+      },
+      {
+        "name": "Hrefna Gu\u00f0mundsd\u00f3ttir",
+        "occupation": "f\u00e9lagss\u00e1lfr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "11",
+        "ssn": "131166-3629",
+        "street": "B\u00f3lsta\u00f0arhl\u00ed\u00f0 32"
+      },
+      {
+        "name": "Kristinn P\u00e9tursson",
+        "occupation": "kvikmyndager\u00f0arma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "12",
+        "ssn": "121069-4159",
+        "street": "Einholti 12"
+      },
+      {
+        "name": "Au\u00f0ur Hermannsd\u00f3ttir",
+        "occupation": "a\u00f0j\u00fankt",
+        "place": "Reykjav\u00edk",
+        "seat": "13",
+        "ssn": "030479-4599",
+        "street": "F\u00e1lkag\u00f6tu 24"
+      },
+      {
+        "name": "Hallveig H\u00f6rn \u00deorbjargard\u00f3ttir",
+        "occupation": "stu\u00f0ningsfulltr\u00fai og nemi",
+        "place": "Reykjav\u00edk",
+        "seat": "14",
+        "ssn": "151080-3759",
+        "street": "Hvassaleiti 8"
+      },
+      {
+        "name": "\u00c1rni Tryggvason",
+        "occupation": "h\u00f6nnu\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "15",
+        "ssn": "300363-5479",
+        "street":
+          "lei\u00f0s\u00f6guma\u00f0ur og rith\u00f6fundur ,  Gr\u00e6nuhl\u00ed\u00f0 12"
+      },
+      {
+        "name": "Axel Vi\u00f0arsson",
+        "occupation": "verkfr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "16",
+        "ssn": "040789-2439",
+        "street": "Kvisthaga 29"
+      },
+      {
+        "name": "Svala Hj\u00f6rleifsd\u00f3ttir",
+        "occupation": "graf\u00edskur h\u00f6nnu\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "17",
+        "ssn": "100384-2649",
+        "street": "Hei\u00f0arger\u00f0i 22"
+      },
+      {
+        "name": "Baldvin \u00d3smann",
+        "occupation": "t\u00e6knima\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "18",
+        "ssn": "291082-4329",
+        "street": "H\u00e1teigsvegi 18"
+      },
+      {
+        "name": "Helgi Gunnarsson",
+        "occupation": "framkv\u00e6mdastj\u00f3ri",
+        "place": "Reykjav\u00edk",
+        "seat": "19",
+        "ssn": "310173-5099",
+        "street": "H\u00e1lsaseli 48"
+      },
+      {
+        "name": "Eva Ingibj\u00f6rg \u00c1g\u00fastsd\u00f3ttir",
+        "occupation": "t\u00f6lvunarfr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "20",
+        "ssn": "060592-2259",
+        "street": "Bakkager\u00f0i 10"
+      },
+      {
+        "name": "Brynhildur S. Bj\u00f6rnsd\u00f3ttir",
+        "occupation": "framkv\u00e6mdastj\u00f3ri",
+        "place": "Reykjav\u00edk",
+        "seat": "21",
+        "ssn": "270677-4609",
+        "street": "H\u00e1lsaseli 48"
+      },
+      {
+        "name": "Svanborg \u00de. Sigur\u00f0ard\u00f3ttir",
+        "occupation": "b\u00f3ksali",
+        "place": "Reykjav\u00edk",
+        "seat": "22",
+        "ssn": "050267-4829",
+        "street": "Gar\u00f0astr\u00e6ti 17"
+      }
+    ],
     "B": [
       {
         "name": "Lilja D\u00f6gg Alfre\u00f0sd\u00f3ttir",
@@ -4829,7 +5520,8 @@
       },
       {
         "name": "Valger\u00f0ur Sveinsd\u00f3ttir",
-        "occupation": "lyfjafr\u00e6\u00f0ingur og s\u00e9rfr\u00e6\u00f0ingur hj\u00e1 S\u00cd",
+        "occupation":
+          "lyfjafr\u00e6\u00f0ingur og s\u00e9rfr\u00e6\u00f0ingur hj\u00e1 S\u00cd",
         "place": "Reykjav\u00edk",
         "seat": "2",
         "ssn": "190372-5459",
@@ -4845,7 +5537,8 @@
       },
       {
         "name": "Steinunn Anna Baldvinsd\u00f3ttir",
-        "occupation": "gu\u00f0fr\u00e6\u00f0ingur og \u00e6skul\u00fd\u00f0sfulltr\u00fai",
+        "occupation":
+          "gu\u00f0fr\u00e6\u00f0ingur og \u00e6skul\u00fd\u00f0sfulltr\u00fai",
         "place": "Reykjav\u00edk",
         "seat": "4",
         "ssn": "040891-2429",
@@ -4853,7 +5546,8 @@
       },
       {
         "name": "G\u00edgja Sveinsd\u00f3ttir",
-        "occupation": "lj\u00f3sm\u00f3\u00f0ir og hj\u00fakrunarfr\u00e6\u00f0ingur",
+        "occupation":
+          "lj\u00f3sm\u00f3\u00f0ir og hj\u00fakrunarfr\u00e6\u00f0ingur",
         "place": "Reykjav\u00edk",
         "seat": "5",
         "ssn": "100361-4859",
@@ -4981,7 +5675,8 @@
       },
       {
         "name": "Gunnar Kristinn \u00de\u00f3r\u00f0arson",
-        "occupation": "gu\u00f0fr\u00e6\u00f0ingur og stj\u00f3rns\u00fdslufr\u00e6\u00f0ingur",
+        "occupation":
+          "gu\u00f0fr\u00e6\u00f0ingur og stj\u00f3rns\u00fdslufr\u00e6\u00f0ingur",
         "place": "Reykjav\u00edk",
         "seat": "21",
         "ssn": "150774-5359",
@@ -4993,7 +5688,8 @@
         "place": "Reykjav\u00edk",
         "seat": "22",
         "ssn": "240839-4079",
-        "street": "f\u00e9lagsfr\u00f6mu\u00f0ur og eldri borgari , Hraunb\u00e6  92"
+        "street":
+          "f\u00e9lagsfr\u00f6mu\u00f0ur og eldri borgari , Hraunb\u00e6  92"
       }
     ],
     "P": [
@@ -5039,7 +5735,8 @@
       },
       {
         "name": "Arnaldur Sigur\u00f0arson",
-        "occupation": "fulltr\u00fai\u00a0  \u00ed mannr\u00e9ttindar\u00e1\u00f0i",
+        "occupation":
+          "fulltr\u00fai\u00a0  \u00ed mannr\u00e9ttindar\u00e1\u00f0i",
         "place": "Reykjav\u00edk",
         "seat": "6",
         "ssn": "141087-3479",
@@ -5087,7 +5784,8 @@
       },
       {
         "name": "Bj\u00f6rn Ragnar Bj\u00f6rnsson",
-        "occupation": "s\u00e9rfr\u00e6\u00f0ingur \u00e1 Hagstofu \u00cdslands",
+        "occupation":
+          "s\u00e9rfr\u00e6\u00f0ingur \u00e1 Hagstofu \u00cdslands",
         "place": "Reykjav\u00edk",
         "seat": "12",
         "ssn": "160458-5699",
@@ -5095,7 +5793,8 @@
       },
       {
         "name": "\u00c6var Rafn Haf\u00fe\u00f3rsson",
-        "occupation": "fj\u00e1rm\u00e1lahagfr\u00e6\u00f0ingur og i\u00f0na\u00f0arma\u00f0ur",
+        "occupation":
+          "fj\u00e1rm\u00e1lahagfr\u00e6\u00f0ingur og i\u00f0na\u00f0arma\u00f0ur",
         "place": "Reykjav\u00edk",
         "seat": "13",
         "ssn": "300673-5629",
@@ -5123,7 +5822,8 @@
         "place": "Reykjav\u00edk",
         "seat": "16",
         "ssn": "050487-2379",
-        "street": "stu\u00f0ningsfulltr\u00fai og borgarb\u00f3ndi ,  Engjaseli 43"
+        "street":
+          "stu\u00f0ningsfulltr\u00fai og borgarb\u00f3ndi ,  Engjaseli 43"
       },
       {
         "name": "Karl Brynjar Magn\u00fasson",
@@ -5159,7 +5859,8 @@
       },
       {
         "name": "\u00c1g\u00fasta Erlingsd\u00f3ttir",
-        "occupation": "n\u00e1msbrautarstj\u00f3ri skr\u00fa\u00f0gar\u00f0yrkju vi\u00f0 LBH\u00cd",
+        "occupation":
+          "n\u00e1msbrautarstj\u00f3ri skr\u00fa\u00f0gar\u00f0yrkju vi\u00f0 LBH\u00cd",
         "place": "Reykjav\u00edk",
         "seat": "21",
         "ssn": "280780-3169",
@@ -5249,7 +5950,8 @@
       },
       {
         "name": "\u00c1sgeir R\u00fanar Helgason",
-        "occupation": "d\u00f3sent \u00ed s\u00e1lfr\u00e6\u00f0i og l\u00fd\u00f0heilsuv\u00edsindum",
+        "occupation":
+          "d\u00f3sent \u00ed s\u00e1lfr\u00e6\u00f0i og l\u00fd\u00f0heilsuv\u00edsindum",
         "place": "Sv\u00ed\u00fej\u00f3\u00f0",
         "seat": "10",
         "ssn": "051157-3549",
@@ -5379,7 +6081,8 @@
       },
       {
         "name": "Ellert B. Schram",
-        "occupation": "forma\u00f0ur F\u00e9lags eldri borgara \u00ed Reykjav\u00edk",
+        "occupation":
+          "forma\u00f0ur F\u00e9lags eldri borgara \u00ed Reykjav\u00edk",
         "place": "Reykjav\u00edk",
         "seat": "4",
         "ssn": "101039-3749",
@@ -5387,7 +6090,8 @@
       },
       {
         "name": "Vilborg Krist\u00edn Oddsd\u00f3ttir",
-        "occupation": "f\u00e9lagsr\u00e1\u00f0gjafi hj\u00e1 Hj\u00e1lparstarfi kirkjunnar",
+        "occupation":
+          "f\u00e9lagsr\u00e1\u00f0gjafi hj\u00e1 Hj\u00e1lparstarfi kirkjunnar",
         "place": "Reykjav\u00edk",
         "seat": "5",
         "ssn": "280760-5959",
@@ -5411,7 +6115,8 @@
       },
       {
         "name": "Gu\u00f0mundur Gunnarsson",
-        "occupation": "fyrrv. forma\u00f0ur Rafi\u00f0na\u00f0arsambands \u00cdslands",
+        "occupation":
+          "fyrrv. forma\u00f0ur Rafi\u00f0na\u00f0arsambands \u00cdslands",
         "place": "Reykjav\u00edk",
         "seat": "8",
         "ssn": "291045-4139",
@@ -5435,7 +6140,8 @@
       },
       {
         "name": "Sigr\u00ed\u00f0ur Arnd\u00eds J\u00f3hannsd\u00f3ttir",
-        "occupation": "verkefnastj\u00f3ri \u00e1 \u00fej\u00f3nustumi\u00f0st\u00f6\u00f0 Vesturb\u00e6jar",
+        "occupation":
+          "verkefnastj\u00f3ri \u00e1 \u00fej\u00f3nustumi\u00f0st\u00f6\u00f0 Vesturb\u00e6jar",
         "place": "Reykjav\u00edk",
         "seat": "11",
         "ssn": "070172-5349",
@@ -5475,7 +6181,8 @@
       },
       {
         "name": "Reynir Vilhj\u00e1lmsson",
-        "occupation": "e\u00f0lisfr\u00e6\u00f0ingur og framhaldssk\u00f3lakennari",
+        "occupation":
+          "e\u00f0lisfr\u00e6\u00f0ingur og framhaldssk\u00f3lakennari",
         "place": "Reykjav\u00edk",
         "seat": "16",
         "ssn": "300941-3709",
@@ -5491,7 +6198,8 @@
       },
       {
         "name": "\u00cdda Finnbogad\u00f3ttir",
-        "occupation": "mannfr\u00e6\u00f0ingur og varaforma\u00f0ur Hallveigar \u2212  ungra jafna\u00f0armanna \u00ed Reykjav\u00edk",
+        "occupation":
+          "mannfr\u00e6\u00f0ingur og varaforma\u00f0ur Hallveigar \u2212  ungra jafna\u00f0armanna \u00ed Reykjav\u00edk",
         "place": "Reykjav\u00edk",
         "seat": "18",
         "ssn": "181090-3919",
@@ -5515,7 +6223,8 @@
       },
       {
         "name": "Bj\u00f6rgvin Gu\u00f0mundsson",
-        "occupation": "vi\u00f0skiptafr\u00e6\u00f0ingur og fyrrv. borgarfulltr\u00fai",
+        "occupation":
+          "vi\u00f0skiptafr\u00e6\u00f0ingur og fyrrv. borgarfulltr\u00fai",
         "place": "Mosfellsb\u00e6",
         "seat": "21",
         "ssn": "130932-3639",
@@ -5528,6 +6237,185 @@
         "seat": "22",
         "ssn": "041042-4869",
         "street": "Hjar\u00f0arhaga 17"
+      }
+    ],
+    "V": [
+      {
+        "name": "Svand\u00eds Svavarsd\u00f3ttir",
+        "occupation": "al\u00feingiskona",
+        "place": "Reykjav\u00edk",
+        "seat": "1",
+        "ssn": "240864-2239",
+        "street": "Hjar\u00f0arhaga 28"
+      },
+      {
+        "name": "Kolbeinn \u00d3ttarsson Propp\u00e9",
+        "occupation": "al\u00feingisma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "2",
+        "ssn": "191272-3589",
+        "street": "Nj\u00e1lsg\u00f6tu 22"
+      },
+      {
+        "name": "Orri P\u00e1ll J\u00f3hannsson",
+        "occupation": "landv\u00f6r\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "3",
+        "ssn": "190578-3999",
+        "street": "Ur\u00f0arst\u00edg 11"
+      },
+      {
+        "name": "Eyd\u00eds Bl\u00f6ndal",
+        "occupation": "lj\u00f3\u00f0sk\u00e1ld og heimspekinemi",
+        "place": "Reykjav\u00edk",
+        "seat": "4",
+        "ssn": "030194-2099",
+        "street": "Eggertsg\u00f6tu 6"
+      },
+      {
+        "name": "Ugla Stefan\u00eda J\u00f3nsd\u00f3ttir",
+        "occupation": "trans-a\u00f0ger\u00f0asinni",
+        "place": "H\u00fanavatnshreppi",
+        "seat": "5",
+        "ssn": "060191-2719",
+        "street": "St\u00f3ra-B\u00farfelli"
+      },
+      {
+        "name": "Ren\u00e9 Biasone",
+        "occupation": "teymisstj\u00f3ri hj\u00e1 Umhverfisstofnun",
+        "place": "Reykjav\u00edk",
+        "seat": "6",
+        "ssn": "020170-2209",
+        "street": "V\u00ed\u00f0imel 44"
+      },
+      {
+        "name": "Dr\u00edfa Sn\u00e6dal",
+        "occupation":
+          "framkv\u00e6mdast\u00fdra Starfsgreinasambands \u00cdslands",
+        "place": "Reykjav\u00edk",
+        "seat": "7",
+        "ssn": "050673-4139",
+        "street": "Br\u00e6\u00f0raborgarst\u00edg  9"
+      },
+      {
+        "name": "Steinar Har\u00f0arson",
+        "occupation": "vinnuverndarr\u00e1\u00f0gjafi",
+        "place": "Reykjav\u00edk",
+        "seat": "8",
+        "ssn": "080444-3629",
+        "street": "Sogavegi 198"
+      },
+      {
+        "name": "El\u00edsabet Indra Ragnarsd\u00f3ttir",
+        "occupation": "t\u00f3nlistarfr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "9",
+        "ssn": "210870-3509",
+        "street": "Grundarst\u00edg 12"
+      },
+      {
+        "name": "Sveinn R\u00fanar Hauksson",
+        "occupation": "l\u00e6knir",
+        "place": "Reykjav\u00edk",
+        "seat": "10",
+        "ssn": "100547-2369",
+        "street": "Depluh\u00f3lum 9"
+      },
+      {
+        "name": "Edda Bj\u00f6rnsd\u00f3ttir",
+        "occupation": "kennari",
+        "place": "Reykjav\u00edk",
+        "seat": "11",
+        "ssn": "120882-5389",
+        "street": "Dunhaga 17"
+      },
+      {
+        "name": "Karl Olgeirsson",
+        "occupation": "t\u00f3nlistarma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "12",
+        "ssn": "211072-4669",
+        "street": "M\u00e1vahl\u00ed\u00f0 10"
+      },
+      {
+        "name": "D\u00f3ra Svavarsd\u00f3ttir",
+        "occupation": "matrei\u00f0slumeistari",
+        "place": "Reykjav\u00edk",
+        "seat": "13",
+        "ssn": "090377-3299",
+        "street": "R\u00e1narg\u00f6tu 46"
+      },
+      {
+        "name": "Atli Sig\u00fe\u00f3rsson",
+        "occupation": "sk\u00e1ld",
+        "place": "Reykjav\u00edk",
+        "seat": "14",
+        "ssn": "200683-3669",
+        "street": "H\u00f3lmgar\u00f0i 16"
+      },
+      {
+        "name": "Gu\u00f0r\u00fan Yrsa \u00d3marsd\u00f3ttir",
+        "occupation": "hj\u00fakrunarfr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "15",
+        "ssn": "190564-5179",
+        "street": "L\u00e1gholtsvegi 14"
+      },
+      {
+        "name": "\u00d3li Gneisti S\u00f3leyjarson",
+        "occupation": "b\u00f3kasafns- og uppl\u00fdsingafr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "16",
+        "ssn": "040279-3779",
+        "street": "Gr\u00fdtubakka  18"
+      },
+      {
+        "name": "Indri\u00f0i H. \u00deorl\u00e1ksson",
+        "occupation": "hagfr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "17",
+        "ssn": "280940-4619",
+        "street": "N\u00f6kkvavogi 60"
+      },
+      {
+        "name": "\u00de\u00f3rhildur El\u00edsabet \u00de\u00f3rsd\u00f3ttir",
+        "occupation": "framhaldssk\u00f3lanemi",
+        "place": "Reykjav\u00edk",
+        "seat": "18",
+        "ssn": "170899-2619",
+        "street": "S\u00e6vi\u00f0arsundi 80"
+      },
+      {
+        "name": "J\u00f3n Axel Sellgren",
+        "occupation": "mannfr\u00e6\u00f0inemi",
+        "place": "Reykjav\u00edk",
+        "seat": "19",
+        "ssn": "040394-2819",
+        "street": "Langholtsvegi 3"
+      },
+      {
+        "name": "Halld\u00f3ra Bj\u00f6rt Ewen",
+        "occupation": "kennari",
+        "place": "Reykjav\u00edk",
+        "seat": "20",
+        "ssn": "010674-4099",
+        "street": "Bug\u00f0ul\u00e6k 15"
+      },
+      {
+        "name": "\u00dalfar \u00deorm\u00f3\u00f0sson",
+        "occupation": "rith\u00f6fundur",
+        "place": "Reykjav\u00edk",
+        "seat": "21",
+        "ssn": "190644-2949",
+        "street": "Sk\u00f3lav\u00f6r\u00f0ust\u00edg 12"
+      },
+      {
+        "name": "Gu\u00f0r\u00fan Hallgr\u00edmsd\u00f3ttir",
+        "occupation": "verkfr\u00e6\u00f0ingur",
+        "place": "Reykjav\u00edk",
+        "seat": "22",
+        "ssn": "051141-3779",
+        "street": "Hjar\u00f0arhaga 29"
       }
     ]
   },
@@ -5907,7 +6795,8 @@
       },
       {
         "name": "\u00de\u00f3ra G. Ingimarsd\u00f3ttir",
-        "occupation": "framkv\u00e6mdastj\u00f3ri \u00ed fer\u00f0a\u00fej\u00f3nustu",
+        "occupation":
+          "framkv\u00e6mdastj\u00f3ri \u00ed fer\u00f0a\u00fej\u00f3nustu",
         "place": "Gar\u00f0ab\u00e6",
         "seat": "7",
         "ssn": "220953-3789",
@@ -6003,7 +6892,8 @@
       },
       {
         "name": "Hei\u00f0a Bj\u00f6rg G\u00fastafsd\u00f3ttir",
-        "occupation": "sj\u00fakrali\u00f0i og hj\u00fakrunarfr\u00e6\u00f0ingur",
+        "occupation":
+          "sj\u00fakrali\u00f0i og hj\u00fakrunarfr\u00e6\u00f0ingur",
         "place": "Reykjanesb\u00e6",
         "seat": "19",
         "ssn": "120278-4609",
@@ -6183,7 +7073,8 @@
     "F": [
       {
         "name": "Karl Gauti Hjaltason",
-        "occupation": "l\u00f6gfr\u00e6\u00f0ingur og fyrrv. s\u00fdsluma\u00f0ur",
+        "occupation":
+          "l\u00f6gfr\u00e6\u00f0ingur og fyrrv. s\u00fdsluma\u00f0ur",
         "place": "K\u00f3pavogi",
         "seat": "1",
         "ssn": "310559-5559",
@@ -6345,7 +7236,8 @@
     "M": [
       {
         "name": "Birgir \u00de\u00f3rarinsson",
-        "occupation": "s\u00e9rfr\u00e6\u00f0ingur \u00ed al\u00fej\u00f3\u00f0asamskiptum og  gu\u00f0fr\u00e6\u00f0ingur",
+        "occupation":
+          "s\u00e9rfr\u00e6\u00f0ingur \u00ed al\u00fej\u00f3\u00f0asamskiptum og  gu\u00f0fr\u00e6\u00f0ingur",
         "place": "Vogum",
         "seat": "1",
         "ssn": "230665-5919",
@@ -6547,7 +7439,8 @@
       },
       {
         "name": "Kolbr\u00fan Valbergsd\u00f3ttir",
-        "occupation": "s\u00e9rfr\u00e6\u00f0ingur \u00ed uppl\u00fdsingat\u00e6kni",
+        "occupation":
+          "s\u00e9rfr\u00e6\u00f0ingur \u00ed uppl\u00fdsingat\u00e6kni",
         "place": "Reykjanesb\u00e6",
         "seat": "6",
         "ssn": "080675-3489",
@@ -6685,7 +7578,8 @@
       },
       {
         "name": "Arna \u00cdr Gunnarsd\u00f3ttir",
-        "occupation": "f\u00e9lagsr\u00e1\u00f0gjafi og b\u00e6jarfulltr\u00fai",
+        "occupation":
+          "f\u00e9lagsr\u00e1\u00f0gjafi og b\u00e6jarfulltr\u00fai",
         "place": "Selfossi",
         "seat": "3",
         "ssn": "270870-3339",
@@ -6749,7 +7643,8 @@
       },
       {
         "name": "J\u00f3runn Alda Gu\u00f0mundsd\u00f3ttir",
-        "occupation": "stj\u00f3rnarma\u00f0ur \u00f6ldungar\u00e1\u00f0s Su\u00f0urnesja",
+        "occupation":
+          "stj\u00f3rnarma\u00f0ur \u00f6ldungar\u00e1\u00f0s Su\u00f0urnesja",
         "place": "Sandger\u00f0i",
         "seat": "11",
         "ssn": "091241-2429",
@@ -6781,7 +7676,8 @@
       },
       {
         "name": "J\u00f3hanna Bj\u00f6rk Sigurbj\u00f6rnsd\u00f3ttir",
-        "occupation": "f\u00f3taa\u00f0ger\u00f0arfr\u00e6\u00f0ingur og h\u00e1sk\u00f3lanemi",
+        "occupation":
+          "f\u00f3taa\u00f0ger\u00f0arfr\u00e6\u00f0ingur og h\u00e1sk\u00f3lanemi",
         "place": "Reykjanesb\u00e6",
         "seat": "15",
         "ssn": "200172-5909",
@@ -6797,7 +7693,8 @@
       },
       {
         "name": "Krist\u00edn \u00c1. Gu\u00f0mundsd\u00f3ttir",
-        "occupation": "forma\u00f0ur Sj\u00fakrali\u00f0af\u00e9lags \u00cdslands",
+        "occupation":
+          "forma\u00f0ur Sj\u00fakrali\u00f0af\u00e9lags \u00cdslands",
         "place": "Selfossi",
         "seat": "17",
         "ssn": "070350-4679",
@@ -6895,7 +7792,8 @@
       },
       {
         "name": "J\u00f3hanna \u00c1sta \u00de\u00f3rarinsd\u00f3ttir",
-        "occupation": "BA \u00ed s\u00e1lfr\u00e6\u00f0i og nemi vi\u00f0 H\u00cd",
+        "occupation":
+          "BA \u00ed s\u00e1lfr\u00e6\u00f0i og nemi vi\u00f0 H\u00cd",
         "place": "Hafnarfir\u00f0i",
         "seat": "9",
         "ssn": "020392-3479",
@@ -6988,6 +7886,169 @@
         "seat": "20",
         "ssn": "170341-4659",
         "street": "Faxabraut 3"
+      }
+    ],
+    "V": [
+      {
+        "name": "Ari Trausti Gu\u00f0mundsson",
+        "occupation": "al\u00feingisma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "1",
+        "ssn": "031248-7369",
+        "street": "Fannafold 132"
+      },
+      {
+        "name": "Hei\u00f0a Gu\u00f0n\u00fd \u00c1sgeirsd\u00f3ttir",
+        "occupation": "sau\u00f0fj\u00e1rb\u00f3ndi",
+        "place": "Skaft\u00e1rhreppi",
+        "seat": "2",
+        "ssn": "260478-4279",
+        "street": "Lj\u00f3tarst\u00f6\u00f0um"
+      },
+      {
+        "name": "Dan\u00edel E. Arnarsson",
+        "occupation": "framkv\u00e6mdastj\u00f3ri",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "3",
+        "ssn": "280290-2629",
+        "street": "Su\u00f0urg\u00f6tu 11"
+      },
+      {
+        "name": "Dagn\u00fd Alda Steinsd\u00f3ttir",
+        "occupation": "innanh\u00fassarkitekt",
+        "place": "Reykjanesb\u00e6",
+        "seat": "4",
+        "ssn": "290162-2119",
+        "street": "T\u00fang\u00f6tu 18"
+      },
+      {
+        "name": "Helga Tryggvad\u00f3ttir",
+        "occupation": "n\u00e1ms- og starfsr\u00e1\u00f0gjafi",
+        "place": "Vestmannaeyjum",
+        "seat": "5",
+        "ssn": "220266-4789",
+        "street": "Brekkug\u00f6tu 9"
+      },
+      {
+        "name": "Gunnar Marel Eggertsson",
+        "occupation": "skipasmi\u00f0ur",
+        "place": "Reykjanesb\u00e6",
+        "seat": "6",
+        "ssn": "111154-4659",
+        "street": "Brekadal 2"
+      },
+      {
+        "name":
+          "Sigr\u00ed\u00f0ur \u00de\u00f3runn \u00deorvar\u00f0ard\u00f3ttir",
+        "occupation": "nemi",
+        "place": "H\u00f6fn \u00ed Hornafir\u00f0i",
+        "seat": "7",
+        "ssn": "211195-2909",
+        "street": "Kirkjubraut 5"
+      },
+      {
+        "name": "Gunnar \u00de\u00f3r\u00f0arson",
+        "occupation": "t\u00f3nsk\u00e1ld",
+        "place": "Reykjav\u00edk",
+        "seat": "8",
+        "ssn": "040145-4199",
+        "street": "\u00c6gisg\u00f6tu 10"
+      },
+      {
+        "name": "Hildur \u00c1g\u00fastsd\u00f3ttir",
+        "occupation": "kennari",
+        "place": "Hvolsvelli",
+        "seat": "9",
+        "ssn": "181088-2309",
+        "street": "Hvolst\u00fani 1a"
+      },
+      {
+        "name": "Gunnhildur \u00de\u00f3r\u00f0ard\u00f3ttir",
+        "occupation": "myndlistarma\u00f0ur",
+        "place": "Reykjanesb\u00e6",
+        "seat": "10",
+        "ssn": "100379-3419",
+        "street": "Greniteigi 10"
+      },
+      {
+        "name": "Einar Sindri \u00d3lafsson",
+        "occupation": "nemi",
+        "place": "Selfossi",
+        "seat": "11",
+        "ssn": "120993-2919",
+        "street": "Sl\u00e9ttuvegi 2"
+      },
+      {
+        "name": "Ida L\u00f6n",
+        "occupation": "framhaldssk\u00f3lakennari",
+        "place": "\u00d6lfusi",
+        "seat": "12",
+        "ssn": "241279-2009",
+        "street": "\u00c1snesi"
+      },
+      {
+        "name": "H\u00f3lmfr\u00ed\u00f0ur \u00c1rnad\u00f3ttir",
+        "occupation": "sk\u00f3lastj\u00f3ri",
+        "place": "Sandger\u00f0i",
+        "seat": "13",
+        "ssn": "280373-4279",
+        "street": "Bogabraut 12"
+      },
+      {
+        "name": "Einar B. \u00deorger\u00f0arson B\u00f3asarson",
+        "occupation": "\u00fer\u00f3unarstj\u00f3ri",
+        "place": "\u00d6lfusi",
+        "seat": "14",
+        "ssn": "240760-7119",
+        "street": "Alvi\u00f0ru"
+      },
+      {
+        "name": "Anna J\u00f3na Gunnarsd\u00f3ttir",
+        "occupation": "hj\u00fakrunarfr\u00e6\u00f0ingur",
+        "place": "Selfossi",
+        "seat": "15",
+        "ssn": "090364-4489",
+        "street": "Sp\u00f3arima 31"
+      },
+      {
+        "name": "J\u00f3nas H\u00f6skuldsson",
+        "occupation": "\u00f6ryggisv\u00f6r\u00f0ur",
+        "place": "Vestmannaeyjum",
+        "seat": "16",
+        "ssn": "130388-2999",
+        "street": "H\u00e1steinsvegi 64"
+      },
+      {
+        "name": "Steinarr B. Gu\u00f0mundsson",
+        "occupation": "verkama\u00f0ur",
+        "place": "H\u00f6fn \u00ed Hornafir\u00f0i",
+        "seat": "17",
+        "ssn": "041061-3249",
+        "street": "Hagat\u00fani 20"
+      },
+      {
+        "name": "Svanborg Rannveig J\u00f3nsd\u00f3ttir",
+        "occupation": "d\u00f3sent",
+        "place": "Skei\u00f0a- og  Gn\u00fapverjahreppi",
+        "seat": "18",
+        "ssn": "070253-4459",
+        "street": "St\u00f3ra-N\u00fapi 1"
+      },
+      {
+        "name": "Ragnar \u00d3skarsson",
+        "occupation": "eftirlaunama\u00f0ur",
+        "place": "Vestmannaeyjum",
+        "seat": "19",
+        "ssn": "170148-7119",
+        "street": "Hraunt\u00fani 22"
+      },
+      {
+        "name": "Gu\u00f0finnur Jakobsson",
+        "occupation": "b\u00f3ndi",
+        "place": "Skei\u00f0a- og  Gn\u00fapverjahreppi",
+        "seat": "20",
+        "ssn": "131243-7669",
+        "street": "Skaftholti 2"
       }
     ]
   },
@@ -7083,7 +8144,8 @@
       },
       {
         "name": "Halld\u00f3r Hl\u00f6\u00f0versson",
-        "occupation": "forst\u00f6\u00f0uma\u00f0ur f\u00e9lagsmi\u00f0st\u00f6\u00f0var",
+        "occupation":
+          "forst\u00f6\u00f0uma\u00f0ur f\u00e9lagsmi\u00f0st\u00f6\u00f0var",
         "place": "K\u00f3pavogi",
         "seat": "12",
         "ssn": "101073-3869",
@@ -7107,7 +8169,8 @@
       },
       {
         "name": "Andr\u00e9s P\u00e9tursson",
-        "occupation": "r\u00e1\u00f0gjafi og forst\u00f6\u00f0uma\u00f0ur Evr\u00f3pusamtakanna",
+        "occupation":
+          "r\u00e1\u00f0gjafi og forst\u00f6\u00f0uma\u00f0ur Evr\u00f3pusamtakanna",
         "place": "K\u00f3pavogi",
         "seat": "15",
         "ssn": "110861-5409",
@@ -7293,7 +8356,8 @@
       },
       {
         "name": "El\u00edn J\u00f3hannsd\u00f3ttir",
-        "occupation": "h\u00e1sk\u00f3lanemi og leiksk\u00f3lalei\u00f0beinandi",
+        "occupation":
+          "h\u00e1sk\u00f3lanemi og leiksk\u00f3lalei\u00f0beinandi",
         "place": "\u00c1lftanesi",
         "seat": "12",
         "ssn": "030286-3249",
@@ -7697,7 +8761,8 @@
       },
       {
         "name": "Hrefna Kristmannsd\u00f3ttir",
-        "occupation": "jar\u00f0efnafr\u00e6\u00f0ingur og pr\u00f3fessor emeritus",
+        "occupation":
+          "jar\u00f0efnafr\u00e6\u00f0ingur og pr\u00f3fessor emeritus",
         "place": "Seltjarnarnesi",
         "seat": "10",
         "ssn": "200544-3319",
@@ -7705,7 +8770,8 @@
       },
       {
         "name": "Dav\u00ed\u00f0 \u00de\u00f3r Vi\u00f0arsson",
-        "occupation": "vi\u00f0skiptafr\u00e6\u00f0ingur og knattspyrnuma\u00f0ur",
+        "occupation":
+          "vi\u00f0skiptafr\u00e6\u00f0ingur og knattspyrnuma\u00f0ur",
         "place": "\u00c1lftanesi",
         "seat": "11",
         "ssn": "240484-2509",
@@ -7843,7 +8909,8 @@
       },
       {
         "name": "J\u00f3n\u00edna Bj\u00f6rk \u00d3skarsd\u00f3ttir",
-        "occupation": "forst\u00f6\u00f0uma\u00f0ur f\u00e9lagsstarfs aldra\u00f0ra  Hafnarfir\u00f0i",
+        "occupation":
+          "forst\u00f6\u00f0uma\u00f0ur f\u00e9lagsstarfs aldra\u00f0ra  Hafnarfir\u00f0i",
         "place": "K\u00f3pavogi",
         "seat": "2",
         "ssn": "250153-2799",
@@ -8363,7 +9430,8 @@
         "place": "K\u00f3pavogi",
         "seat": "14",
         "ssn": "080556-4119",
-        "street": "mark\u00fej\u00e1lfi og framhaldssk\u00f3lakennari ,  Hl\u00ed\u00f0arvegi 50"
+        "street":
+          "mark\u00fej\u00e1lfi og framhaldssk\u00f3lakennari ,  Hl\u00ed\u00f0arvegi 50"
       },
       {
         "name": "Sigur\u00f0ur Erlendsson",
@@ -8699,7 +9767,8 @@
       },
       {
         "name": "Finnur Beck",
-        "occupation": "l\u00f6gfr\u00e6\u00f0ingur og stj\u00f3rnm\u00e1lafr\u00e6\u00f0ingur",
+        "occupation":
+          "l\u00f6gfr\u00e6\u00f0ingur og stj\u00f3rnm\u00e1lafr\u00e6\u00f0ingur",
         "place": "Reykjav\u00edk",
         "seat": "4",
         "ssn": "150675-5539",
@@ -8843,7 +9912,8 @@
       },
       {
         "name": "Stef\u00e1n Bergmann",
-        "occupation": "l\u00edffr\u00e6\u00f0ingur og fyrrv. d\u00f3sent vi\u00f0 H\u00cd",
+        "occupation":
+          "l\u00edffr\u00e6\u00f0ingur og fyrrv. d\u00f3sent vi\u00f0 H\u00cd",
         "place": "Seltjarnarnesi",
         "seat": "22",
         "ssn": "020742-4889",
@@ -8859,7 +9929,8 @@
       },
       {
         "name": "Ingvar J\u00fal\u00edus Viktorsson",
-        "occupation": "kennari og fyrrv. b\u00e6jarstj\u00f3ri \u00ed Hafnarfir\u00f0i",
+        "occupation":
+          "kennari og fyrrv. b\u00e6jarstj\u00f3ri \u00ed Hafnarfir\u00f0i",
         "place": "Hafnarfir\u00f0i",
         "seat": "24",
         "ssn": "090442-7599",
@@ -8871,7 +9942,8 @@
         "place": "K\u00f3pavogi",
         "seat": "25",
         "ssn": "150940-4789",
-        "street": "al\u00feingisma\u00f0ur og  r\u00e1\u00f0herra , Hl\u00ed\u00f0arvegi 61"
+        "street":
+          "al\u00feingisma\u00f0ur og  r\u00e1\u00f0herra , Hl\u00ed\u00f0arvegi 61"
       },
       {
         "name": "\u00c1rni P\u00e1ll \u00c1rnason",
@@ -8879,7 +9951,219 @@
         "place": "Reykjav\u00edk",
         "seat": "26",
         "ssn": "230566-5939",
-        "street": "fyrrv. al\u00feingisma\u00f0ur og r\u00e1\u00f0herra ,  T\u00fang\u00f6tu 36a"
+        "street":
+          "fyrrv. al\u00feingisma\u00f0ur og r\u00e1\u00f0herra ,  T\u00fang\u00f6tu 36a"
+      }
+    ],
+    "V": [
+      {
+        "name": "R\u00f3sa Bj\u00f6rk Brynj\u00f3lfsd\u00f3ttir",
+        "occupation": "al\u00feingisma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "1",
+        "ssn": "090275-5189",
+        "street": "\u00c1svallag\u00f6tu 23"
+      },
+      {
+        "name": "\u00d3lafur \u00de\u00f3r Gunnarsson",
+        "occupation": "\u00f6ldrunarl\u00e6knir",
+        "place": "K\u00f3pavogi",
+        "seat": "2",
+        "ssn": "170763-4409",
+        "street": "\u00deingh\u00f3lsbraut 32"
+      },
+      {
+        "name": "Una Hildard\u00f3ttir",
+        "occupation": "uppl\u00fdsingafulltr\u00fai",
+        "place": "Mosfellsb\u00e6",
+        "seat": "3",
+        "ssn": "030891-2529",
+        "street": "\u00c1lafossvegi 31"
+      },
+      {
+        "name": "Fj\u00f6lnir S\u00e6mundsson",
+        "occupation": "l\u00f6greglufulltr\u00fai",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "4",
+        "ssn": "260170-5709",
+        "street": "L\u00e6kjarkinn 10"
+      },
+      {
+        "name": "Ester B\u00edb\u00ed \u00c1sgeirsd\u00f3ttir",
+        "occupation": "starfsma\u00f0ur Kvikmyndasafns \u00cdslands",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "5",
+        "ssn": "301275-5879",
+        "street": "Langeyrarvegi 3"
+      },
+      {
+        "name": "Margr\u00e9t P\u00e9tursd\u00f3ttir",
+        "occupation": "a\u00f0sto\u00f0arma\u00f0ur tannl\u00e6knis",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "6",
+        "ssn": "031166-2929",
+        "street": "Hringbraut 63"
+      },
+      {
+        "name": "Amid Derayat",
+        "occupation": "l\u00edffr\u00e6\u00f0ingur",
+        "place": "K\u00f3pavogi",
+        "seat": "7",
+        "ssn": "050664-3099",
+        "street": "M\u00e1nabraut 15"
+      },
+      {
+        "name": "Gunnar \u00c1rnason",
+        "occupation": "framkv\u00e6mdastj\u00f3ri",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "8",
+        "ssn": "040569-3919",
+        "street": "Brekkug\u00f6tu 14"
+      },
+      {
+        "name": "Kristr\u00fan Birgisd\u00f3ttir",
+        "occupation":
+          "s\u00e9rfr\u00e6\u00f0ingur \u00ed framhaldssk\u00f3lam\u00e1lum",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "9",
+        "ssn": "291067-8679",
+        "street": "Smyrlahrauni 28"
+      },
+      {
+        "name": "Kristj\u00e1n Ketill Stef\u00e1nsson",
+        "occupation": "framkv\u00e6mdastj\u00f3ri",
+        "place": "K\u00f3pavogi",
+        "seat": "10",
+        "ssn": "110279-5909",
+        "street": "\u00c1st\u00fani 10"
+      },
+      {
+        "name": "\u00de\u00f3rd\u00eds Dr\u00f6fn Andr\u00e9sd\u00f3ttir",
+        "occupation": "h\u00e1sk\u00f3lanemi og ritst\u00fdra UVG",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "11",
+        "ssn": "110597-2159",
+        "street": "Stekkjarhvammi 15"
+      },
+      {
+        "name": "Helgi Hrafn \u00d3lafsson",
+        "occupation": "\u00ed\u00fer\u00f3ttafr\u00e6\u00f0ingur",
+        "place": "K\u00f3pavogi",
+        "seat": "12",
+        "ssn": "240188-2289",
+        "street": "\u00c1sbraut 19"
+      },
+      {
+        "name": "Krist\u00edn Helga Gunnarsd\u00f3ttir",
+        "occupation": "rith\u00f6fundur",
+        "place": "Gar\u00f0ab\u00e6",
+        "seat": "13",
+        "ssn": "241163-2459",
+        "street": "Einilundi 8"
+      },
+      {
+        "name": "Kristbj\u00f6rn Gunnarsson",
+        "occupation": "t\u00f6lvunarfr\u00e6\u00f0ingur",
+        "place": "Gar\u00f0ab\u00e6",
+        "seat": "14",
+        "ssn": "080774-3119",
+        "street": "Mel\u00e1si 5"
+      },
+      {
+        "name": "Gu\u00f0bj\u00f6rg Sveinsd\u00f3ttir",
+        "occupation": "ge\u00f0hj\u00fakrunarfr\u00e6\u00f0ingur",
+        "place": "K\u00f3pavogi",
+        "seat": "15",
+        "ssn": "110854-4639",
+        "street": "Tr\u00f6nuhjalla 13"
+      },
+      {
+        "name": "\u00c1rni Stef\u00e1n J\u00f3nsson",
+        "occupation": "forma\u00f0ur SFR",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "16",
+        "ssn": "191251-3349",
+        "street": "Stu\u00f0labergi 110"
+      },
+      {
+        "name": "Brynd\u00eds Brynjarsd\u00f3ttir",
+        "occupation": "myndlistarma\u00f0ur",
+        "place": "Mosfellsb\u00e6",
+        "seat": "17",
+        "ssn": "300368-4259",
+        "street": "Fells\u00e1si 9a"
+      },
+      {
+        "name": "Sigurbj\u00f6rn Hjaltason",
+        "occupation": "b\u00f3ndi",
+        "place": "Kj\u00f3sarhreppi",
+        "seat": "18",
+        "ssn": "100658-5429",
+        "street": "Ki\u00f0afelli 2"
+      },
+      {
+        "name": "Ragnhei\u00f0ur Gestsd\u00f3ttir",
+        "occupation": "rith\u00f6fundur",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "19",
+        "ssn": "010553-3269",
+        "street": "L\u00e6kjarg\u00f6tu 12"
+      },
+      {
+        "name": "\u00de\u00f3rir Steingr\u00edmsson",
+        "occupation": "forma\u00f0ur Heilaheilla",
+        "place": "K\u00f3pavogi",
+        "seat": "20",
+        "ssn": "240846-3579",
+        "street": "Hraunbraut 22"
+      },
+      {
+        "name": "Elva D\u00f6gg \u00c1sud\u00f3ttir Kristinsd\u00f3ttir",
+        "occupation": "b\u00e6jarfulltr\u00fai og l\u00f6gma\u00f0ur",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "21",
+        "ssn": "210369-5979",
+        "street": "Austurg\u00f6tu 41"
+      },
+      {
+        "name": "Magn\u00fas J\u00f3el J\u00f3nsson",
+        "occupation": "h\u00e1sk\u00f3lanemi",
+        "place": "Hafnarfir\u00f0i",
+        "seat": "22",
+        "ssn": "051089-2009",
+        "street": "Hafrav\u00f6llum 3"
+      },
+      {
+        "name": "\u00de\u00f3ra Elfa Bj\u00f6rnsson",
+        "occupation": "setjari",
+        "place": "K\u00f3pavogi",
+        "seat": "23",
+        "ssn": "050639-7469",
+        "street": "Sk\u00f3lager\u00f0i 41"
+      },
+      {
+        "name": "Gr\u00edmur H\u00e1konarson",
+        "occupation": "leikstj\u00f3ri",
+        "place": "Reykjav\u00edk",
+        "seat": "24",
+        "ssn": "080377-4019",
+        "street": "Framnesvegi 34"
+      },
+      {
+        "name": "\u00deur\u00ed\u00f0ur Backman",
+        "occupation": "fyrrv. al\u00feingisma\u00f0ur",
+        "place": "K\u00f3pavogi",
+        "seat": "25",
+        "ssn": "080148-4539",
+        "street": "Bjarnh\u00f3last\u00edg 2"
+      },
+      {
+        "name": "\u00d6gmundur J\u00f3nasson",
+        "occupation": "fyrrv. al\u00feingisma\u00f0ur",
+        "place": "Reykjav\u00edk",
+        "seat": "26",
+        "ssn": "170748-4099",
+        "street": "Gr\u00edmshaga 6"
       }
     ]
   }
