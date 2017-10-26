@@ -4485,7 +4485,7 @@
         "street": "\u00c1svallag\u00f6tu 53"
       },
       {
-        "name": "\u00deorsteinn V.\u00a0\r\n  Einarsson",
+        "name": "\u00deorsteinn V.\u00a0 Einarsson",
         "occupation":
           "deildarstj\u00f3ri \u00ed fr\u00edstundami\u00f0st\u00f6\u00f0",
         "place": "Reykjav\u00edk",
@@ -4618,7 +4618,7 @@
     ]
   },
   "reykjavik-sudur": {
-    "": [
+    "A": [
       {
         "name": "Nichole Leigh Mosty",
         "occupation": "\u00feingma\u00f0ur",
