@@ -3,6 +3,8 @@ const { promisify } = require('util');
 const globby = require('globby');
 const slugify = require('slugify');
 const writeFile = promisify(fs.writeFile);
+const statFile = promisify(fs.stat);
+
 const replies = require('./poll/replies_candidates.json');
 const repliesObj = {};
 
@@ -19,7 +21,7 @@ replies.forEach(({ kennitala, reply }) => {
   paths.forEach(path => {
     let candidates = require(path);
 
-    candidates = candidates.map(candidate => {
+    candidates = candidates.map(async candidate => {
       const reply = repliesObj[candidate.ssn];
 
       if (reply) candidate.reply = reply;
@@ -31,6 +33,16 @@ replies.forEach(({ kennitala, reply }) => {
       delete candidate.place;
       delete candidate.street;
       candidate.seat = parseInt(candidate.seat, 10);
+
+      let hasImage = false;
+      try {
+        const fileInfo = await statFile(
+          `./candidates-images/jpg/${candidate.slug}.jpg`
+        );
+        hasImage = fileInfo.isFile();
+      } catch (e) {}
+
+      candidate.hasImage = hasImage;
 
       return candidate;
     });
