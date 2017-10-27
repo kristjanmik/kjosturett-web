@@ -111,6 +111,11 @@ class CompareParties extends PureComponent {
             Veldu einn flokk í viðbót
           </p>
         )}
+        {filterParties.length === 2 && (
+          <p style={{ textAlign: 'center', marginTop: '20px' }}>
+            Hægt er að bæta við fleiri stjórnmálaflokkum
+          </p>
+        )}
         {filterParties.length > 1 && (
           <div className={s.scoreContainer}>{`Flokkarnir eiga ${score.toFixed(
             0
@@ -163,7 +168,8 @@ class CompareParties extends PureComponent {
                         {filterParties.map(party => (
                           <div key={party.name}>
                             <p>
-                              <span>{party.name}</span> er{' '}
+                              <span>{party.name}</span>{' '}
+                              {`${party.name === 'Píratar' ? 'eru' : 'er'} `}
                               <b>
                                 {answers.textMap[
                                   party.reply[id - 1]

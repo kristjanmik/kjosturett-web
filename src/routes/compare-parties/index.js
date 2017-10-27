@@ -8,10 +8,11 @@ export default ({ url }) => {
   return {
     chunks: ['compare-parties'],
     title: 'Hversu líkir eru flokkarnir?',
-    description: 'Nú getur þú borið saman flokkana í ýmsum málum',
+    description:
+      'Nú getur þú borið saman flokkana í ýmsum málum. Hvaða stjórnarmeirihlutar eru líklegir? Prófaðu þig áfram!',
     path: url,
     component: (
-      <Layout page="compare-parties" title="Hversu líkir eru flokkarnir?">
+      <Layout page="bera-saman" title="Hversu líkir eru flokkarnir?">
         <CompareParties parties={parties} questions={questions} />
       </Layout>
     )
