@@ -280,10 +280,15 @@ class KosningaprofResults extends PureComponent {
                   backgroundColor: party && party.color
                 }}
               >
-                <Img
-                  className={s.candidateImg}
-                  src={[candidateImage(candidate.slug), transparent]}
-                />
+                {candidate.hasImage && (
+                  <Img
+                    className={s.candidateImg}
+                    src={[candidateImage(candidate.slug), transparent]}
+                  />
+                )}
+                {!candidate.hasImage && (
+                  <Img className={s.candidateImg} src={[transparent]} />
+                )}
                 <div
                   className={s.candidateProgressBar}
                   style={{ display: candidate.score > 0 ? 'block' : 'none' }}
