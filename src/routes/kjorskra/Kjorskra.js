@@ -161,13 +161,8 @@ class Kjorskra extends PureComponent {
       costing
     };
 
-    const api_key =
-      costing === 'pedestrian' ? 'mapzen-8S2Nh1w' : 'mapzen-pRTGdQw';
-
     const url = [
-      'https://valhalla.mapzen.com/route?api_key=',
-      api_key,
-      '&json=',
+      'https://valhalla.mapzen.com/route?api_key=mapzen-pRTGdQw&json=',
       JSON.stringify(json)
     ].join('');
 
