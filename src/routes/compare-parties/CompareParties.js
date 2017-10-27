@@ -99,10 +99,13 @@ class CompareParties extends PureComponent {
                 });
               }}
             >
-              <img
-                src={getAssetUrl('party-icons', party.url)}
-                className={s.selectLogo}
-              />
+              <div>
+                <img
+                  src={getAssetUrl('party-icons', party.url)}
+                  className={s.selectLogo}
+                />
+              </div>
+              <p>{party.name}</p>
             </div>
           ))}
         </div>
