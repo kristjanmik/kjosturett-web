@@ -147,6 +147,11 @@ class Kjorskra extends PureComponent {
     //   // }, 3000);
     // }
   }
+  trackEvent(...args) {
+    if (window.ga) {
+      window.ga('send', 'event', 'Kjorskra', ...args);
+    }
+  }
   isKennitalaValid() {
     return isPerson(this.state.kennitala);
   }
@@ -267,10 +272,12 @@ class Kjorskra extends PureComponent {
             results.length === 0 ||
             results[0].formatted_address === 'Iceland'
           ) {
+            this.trackEvent('Geocode fail', address);
             return resolve({
               invalidLocation: true,
             });
           }
+          this.trackEvent('Geocode success', address);
           resolve({
             center: {
               lat: results[0].geometry.location.lat(),
@@ -330,6 +337,8 @@ class Kjorskra extends PureComponent {
       }
 
       this.setState(newState);
+
+      this.trackEvent('Kennitala lookup fail', `year:${cleanKennitala(kennitala).substr(4,2)}`);
       return;
     }
 
@@ -359,6 +368,7 @@ class Kjorskra extends PureComponent {
     );
 
     history.replace(`/kjorskra/${encodeURIComponent(hash)}`);
+    this.trackEvent('Kennitala lookup success', `year:${cleanKennitala(kennitala).substr(4,2)}`);
   }
   async submitCurrentAddress(event) {
     if (event && event.preventDefault) {
@@ -383,12 +393,15 @@ class Kjorskra extends PureComponent {
       this.setState({
         fetchError: 'Heimilisfang fannst ekki!',
       });
+      this.trackEvent('Address lookup fail');
       return;
     }
 
     this.setState({
       currentAddress: location.center,
     });
+
+    this.trackEvent('Address lookup success');
 
     const position = {
       from: new window.google.maps.LatLng(
