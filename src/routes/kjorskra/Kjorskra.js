@@ -148,8 +148,11 @@ class Kjorskra extends PureComponent {
   }
   async getDistance({ from, to, costing }) {
     const json = {
-      sources: [{ lat: from.lat(), lon: from.lng() }],
-      targets: [{ lat: to.lat(), lon: to.lng() }],
+      locations: [
+        { lat: from.lat(), lon: from.lng() },
+        { lat: to.lat(), lon: to.lng() }
+      ],
+      directions_options: { narrative: false },
       costing
     };
 
@@ -157,7 +160,7 @@ class Kjorskra extends PureComponent {
       costing === 'pedestrian' ? 'mapzen-8S2Nh1w' : 'mapzen-pRTGdQw';
 
     const url = [
-      'http://matrix.mapzen.com/one_to_many?api_key=',
+      'https://valhalla.mapzen.com/route?api_key=',
       api_key,
       '&json=',
       JSON.stringify(json)
@@ -175,10 +178,10 @@ class Kjorskra extends PureComponent {
 
     const data = await response.json();
 
-    const result = data.one_to_many[0][0];
+    const result = data.trip.summary;
 
     return {
-      distance: result.distance * 1000,
+      distance: result.length * 1000,
       duration: result.time
     };
   }
