@@ -90,18 +90,15 @@ class About extends PureComponent {
             />
             <p className={s.name}>Hlöðver Thor Árnason</p>
           </div>
+          <div className={s.person}>
+            <img
+              className={s.img}
+              src={require('./borgar.jpg')}
+              alt="Borgar Þorsteinsson"
+            />
+            <p className={s.name}>Borgar Þorsteinsson</p>
+          </div>
         </div>
-
-        <h3>Styrkja verkefnið</h3>
-        <p>
-          Verkefnið þiggur ekki neina styrki frá fyrirtækjum, né stjórnmála
-          öflum og hefur ekki tekjur af auglýsingum. Hægt er að styrkja okkur
-          með millifærslu á kennitölu: <em>520612-0250</em>, reikningsnúmer:{' '}
-          <em>0114-26-006120</em>, eða með snjallforritunum Aur og Kass í
-          númerið <a href="tel:6964523">696-4523</a>.
-        </p>
-
-        <p>Við þökkum kærlega fyrir allan stuðning!</p>
 
         <h3>Hafa samband</h3>
         <p>
