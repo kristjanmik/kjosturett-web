@@ -41,11 +41,9 @@ class CompareParties extends PureComponent {
     // const second = partyB;
     // const secondReply = second.reply.split('');
 
-    const filterParties = parties.filter(party =>
-      selected.includes(party.name)
-    );
+    let filterParties = parties.filter(party => selected.includes(party.name));
 
-    console.log('filterParties', filterParties);
+    filterParties.sort();
 
     const replies = filterParties.map(party => party.reply.split(''));
 
@@ -67,9 +65,9 @@ class CompareParties extends PureComponent {
       maxReplies.push(max);
       replyDistance.push(Math.abs(min - max));
     }
-    console.log('minReplies', minReplies);
-    console.log('maxReplies', maxReplies);
-    console.log('replyDistance', replyDistance);
+    // console.log('minReplies', minReplies);
+    // console.log('maxReplies', maxReplies);
+    // console.log('replyDistance', replyDistance);
 
     const score = match(minReplies, maxReplies);
 
@@ -108,10 +106,15 @@ class CompareParties extends PureComponent {
             </div>
           ))}
         </div>
+        {filterParties.length === 1 && (
+          <p style={{ textAlign: 'center', marginTop: '20px' }}>
+            Veldu einn flokk í viðbót
+          </p>
+        )}
         {filterParties.length > 1 && (
           <div className={s.scoreContainer}>{`Flokkarnir eiga ${score.toFixed(
             0
-          )}% saman`}</div>
+          )}% samleið`}</div>
         )}
 
         {filterParties.length > 1 && (
@@ -131,7 +134,6 @@ class CompareParties extends PureComponent {
                 return 0;
               })
               .map(({ id, question, replies, distance }, qIndex) => {
-                console.log('d', distance, replies);
                 return (
                   <div className={s.partyQuestion} key={id}>
                     <h4>
@@ -161,7 +163,12 @@ class CompareParties extends PureComponent {
                         {filterParties.map(party => (
                           <div key={party.name}>
                             <p>
-                              {party.name}: <span>{party.reply[id - 1]}</span>
+                              <span>{party.name}</span> er{' '}
+                              <b>
+                                {answers.textMap[
+                                  party.reply[id - 1]
+                                ].toLowerCase()}
+                              </b>
                             </p>
                           </div>
                         ))}
