@@ -171,24 +171,24 @@ class Kjorskra extends PureComponent {
       JSON.stringify(json)
     ].join('');
 
-    const response = await this.context.fetch(url);
+    let response;
 
-    if (response.status !== 200) {
-      console.error('Error fetching distance', response.status);
+    try {
+      response = await this.context.fetch(url);
+      const data = await response.json();
+      const result = data.trip.summary;
+
+      return {
+        distance: result.length * 1000,
+        duration: result.time
+      };
+    } catch (error) {
+      console.error('Error fetching distance', response && response.status, error);
       return {
         distance: null,
         duration: null
       };
     }
-
-    const data = await response.json();
-
-    const result = data.trip.summary;
-
-    return {
-      distance: result.length * 1000,
-      duration: result.time
-    };
   }
   async getBusDistance({ from, to }) {
     console.log('getBusDistance', from, to);
