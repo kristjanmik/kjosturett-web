@@ -14,7 +14,7 @@ class OpeningHours extends PureComponent {
 
     const showCountdown =
       now.getTime() > openReykjavik.getTime() &&
-      getTime.getTime() < closeReykjavik.getTime();
+      now.getTime() < closeReykjavik.getTime();
 
     return (
       <div>
