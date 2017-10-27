@@ -1,0 +1,343 @@
+@import '../../components/functions.scss';
+@import '../../components/variables.scss';
+
+.root {
+  max-width: 768px;
+  margin: 0 auto;
+
+  @include between-property('padding-bottom', 44px, 0, 1200px, 0);
+  @include between-property('padding-top', 32px, 0, 1200px, 500px);
+  @include between-property('font-size', 17px, 13px, 1200px, 500px);
+
+  a {
+    color: inherit;
+  }
+
+  h2,
+  h3,
+  h4 {
+    line-height: 1.2;
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
+  h3 {
+    margin-top: 2.5em;
+  }
+
+  input {
+    margin-right: 15px;
+  }
+
+  button:not(.reset) {
+    background: #353535;
+    color: #fff;
+    border: none;
+    appearance: none;
+    font-size: 1rem;
+    padding: 1em 1.4em;
+    margin-top: 3rem;
+  }
+
+  .reset {
+    background: transparent;
+    color: inherit;
+    border: none;
+    appearance: none;
+    display: inline;
+    font: inherit;
+    text-decoration: underline;
+    white-space: normal;
+  }
+
+  .lead {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nonLead {
+    color: #666;
+    margin-bottom: 2em;
+    max-width: 600px;
+  }
+
+  .filters {
+    display: flex;
+    // flex-wrap: wrap;
+    margin-bottom: 30px;
+
+    @media screen and (max-width: 620px) {
+      flex-direction: column;
+    }
+  }
+
+  .kjordaemiFilter {
+    flex: 1;
+    min-width: 250px;
+
+    @media screen and (max-width: 620px) {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .topFilter {
+    flex: 1;
+    min-width: 200px;
+    margin-left: 15px;
+
+    @media screen and (max-width: 620px) {
+      min-width: 100%;
+      max-width: 100%;
+      margin-top: 15px;
+      margin-left: 0;
+    }
+  }
+
+  .showCount {
+    flex: 1;
+    min-width: 110px;
+    max-width: 110px;
+    margin-left: 15px;
+
+    @media screen and (max-width: 620px) {
+      min-width: 100%;
+      max-width: 100%;
+      margin-top: 15px;
+      margin-left: 0;
+    }
+  }
+
+  .takeTest {
+    background: #353535;
+    border-radius: 4px;
+    display: table;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.8em 1em;
+    text-align: center;
+  }
+
+  .shareButton {
+    background: #353535;
+    border-radius: 4px;
+    display: table;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.4em 0.7em;
+    text-align: center;
+
+    @media screen and (max-width: 420px) {
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.6em 1em;
+      margin-left: 0 !important;
+      margin-top: 12px;
+    }
+  }
+}
+
+.questions {
+  .lead {
+    margin-bottom: 3em;
+
+    p:first-of-type {
+      font-size: 1.2em;
+    }
+
+    p + p {
+      padding-top: 1.4em;
+      opacity: 0.7;
+    }
+  }
+}
+
+.question + .question {
+  margin-top: 4rem;
+}
+
+.question {
+  position: relative;
+  padding: 3em 4em;
+  transition: opacity 300ms ease-in-out;
+  text-align: center;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 550px;
+
+  h3 {
+    font-family: 'Lora', serif;
+    line-height: 1.7;
+    margin: 0 -40px 2em;
+  }
+
+  img {
+    height: auto;
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  label {
+    background-color: rgb(240, 240, 240);
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 1em 1.5em;
+    padding-left: 3em;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  input:checked + label {
+    background: #333;
+    color: #fff;
+  }
+}
+
+.partyQuestion {
+  padding-left: 45px;
+
+  @include between-property('padding-bottom', 10px, 5px, 600px, 0);
+  @include between-property('padding-top', 20px, 5px, 600px, 0);
+
+  &:last-child {
+    margin-bottom: 2rem;
+  }
+
+  h4 {
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 0.4em;
+    position: relative;
+  }
+
+  .dot {
+    background-color: #aaa;
+    box-shadow: 0 0 4px 0 #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: content-box;
+    border: 2px solid #fff;
+    height: 13px;
+    position: absolute;
+    top: 0.3em;
+    left: -35px;
+    width: 13px;
+  }
+
+  .dot0 {
+    background-color: #7ed321;
+    box-shadow: 0 0 4px 0 #7ed321;
+  }
+
+  .dot1 {
+    background-color: #aedd32;
+    box-shadow: 0 0 4px 0 #aedd32;
+  }
+
+  .dot2 {
+    background-color: #c0c75e;
+    box-shadow: 0 0 4px 0 #c0c75e;
+  }
+
+  .dot3 {
+    background-color: #d39537;
+    box-shadow: 0 0 4px 0 #d39537;
+  }
+
+  .dot4 {
+    background-color: #c21716;
+    box-shadow: 0 0 4px 0 #c21716;
+  }
+
+  @media (min-width: 600px) {
+    h4 {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.selectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 2.1rem;
+  font-weight: 300;
+}
+
+.chooseContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 10px;
+  max-width: 650px;
+}
+
+.selectLogo {
+  width: auto;
+  height: auto;
+  max-width: 80px;
+  max-height: 80px;
+  margin: 10px 15px;
+
+  @media screen and (max-width: 800px) {
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  @media screen and (max-width: 600px) {
+    max-width: 50px;
+    max-height: 50px;
+  }
+
+  @media screen and (max-width: 500px) {
+    max-width: 40px;
+    max-height: 40px;
+    margin: 5px 7.5px;
+  }
+}
+
+.selected {
+  background: #eaeaea;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 0;
+  font-weight: 400;
+}

@@ -13,7 +13,7 @@ function mapToValues(answers) {
   return answers.map(value => valueMap[value]);
 }
 
-function match(answers, matchersAnswers) {
+export function match(answers, matchersAnswers) {
   if (!matchersAnswers) {
     return 0;
   }
@@ -37,7 +37,6 @@ const sortByRating = (a, b) => b.score - a.score;
 
 export default function getResultsByScore(answers, dataset) {
   const answerValues = mapToValues(answers);
-
   return dataset
     .map(data => ({
       ...data,
