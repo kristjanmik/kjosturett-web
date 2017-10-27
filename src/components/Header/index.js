@@ -75,6 +75,14 @@ class Header extends PureComponent {
       </Link>,
       <Link
         afterClick={() => this.toggle(false)}
+        href="/flokkar/bera-saman"
+        key="/flokkar/bera-saman"
+        className={cx(page === 'bera-saman' ? s.active : null)}
+      >
+        Samanburður
+      </Link>,
+      <Link
+        afterClick={() => this.toggle(false)}
         className={cx(page === 'verkefnid' ? s.active : null)}
         key="/verkefnid"
         href={'/verkefnid'}
