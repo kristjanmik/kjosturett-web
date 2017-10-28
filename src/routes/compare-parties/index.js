@@ -98,7 +98,7 @@ export default ({ url, params }) => {
       title = `${currentParties
         .map(p => p.name)
         .join(' og ')} eru ${percentage} samstíga`;
-      description = `Skoðaðu málið betur ásamt fleiri möguleikum á kjósturétt.is`;
+      description = `Skoðaðu málið betur ásamt fleiri möguleikum á kjósturétt.is.`;
     } else {
       let stjorn = currentParties
         .map(p => partyDeflections[p.letter])

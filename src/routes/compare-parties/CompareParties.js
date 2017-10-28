@@ -86,7 +86,7 @@ class CompareParties extends PureComponent {
               className={s.shareButton}
               style={{ background: '#4760a5' }}
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                url
+                'https://kjosturett.is' + url
               )}`}
               target="_blank"
             >
@@ -96,7 +96,8 @@ class CompareParties extends PureComponent {
               className={s.shareButton}
               style={{ background: '#1da0f2', marginLeft: '15px' }}
               href={`https://twitter.com/home?status=${encodeURIComponent(
-                'Samanburður flokka á kjósturétt.is: ' + url
+                'Samanburður flokka á kjósturétt.is: https://kjosturett.is' +
+                  url
               )}`}
               target="_blank"
             >
