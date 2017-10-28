@@ -110,8 +110,6 @@ export default ({ url, params }) => {
     }
   }
 
-  console.log('title', title);
-  console.log('description', description);
   return {
     chunks: ['compare-parties'],
     title,
