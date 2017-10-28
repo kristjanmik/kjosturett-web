@@ -47,7 +47,7 @@ export default ({ url, params }) => {
 
   if (!letters) letters = '';
 
-  letters = letters.split('');
+  letters = letters.split('').filter(letter => !!partyDeflections[letter]);
 
   //Begin calculations
   let filterParties = letters.map(
