@@ -2,6 +2,7 @@
 
 import React, { PureComponent, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import cx from 'classnames';
 import s from './Kjorskra.scss';
 import walkingIcon from './walking.png';
 import drivingIcon from './driving.png';
@@ -19,11 +20,11 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
-  InfoWindow,
+  InfoWindow
 } from 'react-google-maps';
 
 const PLACE_OVERRIDE = {
-  Smárinn: 'Dalsmára 5, Kópavogur',
+  Smárinn: 'Dalsmára 5, Kópavogur'
 };
 
 const Map = withGoogleMap(({ mapOptions, kjorstadur }) => {
@@ -46,26 +47,26 @@ const getItineryInfo = ({ duration, distance, type, from, to }) => {
       text: 'að labba',
       icon: walkingIcon,
       link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=walking`,
-      linkText: 'Google Maps',
+      linkText: 'Google Maps'
     },
     driving: {
       text: 'að keyra',
       icon: drivingIcon,
       link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=driving`,
-      linkText: 'Google Maps',
+      linkText: 'Google Maps'
     },
     bicycling: {
       text: 'að hjóla',
       icon: bicyclingIcon,
       link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=bicycling`,
-      linkText: 'Google Maps',
+      linkText: 'Google Maps'
     },
     bussing: {
       text: 'með strætó',
       icon: busIcon,
       link: `https://straeto.is`,
-      linkText: 'Strætó.is',
-    },
+      linkText: 'Strætó.is'
+    }
   }[type];
 };
 
@@ -76,13 +77,17 @@ class Itinery extends PureComponent {
     const { text, icon, link, linkText } = getItineryInfo(this.props);
 
     return (
-      <li className={duration ? '' : s.faded}>
+      <li className={cx(!duration ? s.faded : null)}>
         <div className={s.icon} style={{ backgroundImage: `url(${icon})` }} />
-        <b>{duration ? Math.round(duration / 60) : '...'} mínútur</b>&nbsp;{text}.
-        Sjá nánar á &nbsp;
-        <a href={link} target="_blank">
-          {linkText}
-        </a>
+        <div>
+          <b>{duration ? Math.round(duration / 60) : '...'} mínútur</b>&nbsp;{text}.
+          <div>
+            Sjá nánar á &nbsp;
+            <a href={link} target="_blank">
+              {linkText}
+            </a>
+          </div>
+        </div>
       </li>
     );
   }
@@ -90,7 +95,7 @@ class Itinery extends PureComponent {
 
 class Kjorskra extends PureComponent {
   static contextTypes = {
-    fetch: PropTypes.func.isRequired,
+    fetch: PropTypes.func.isRequired
   };
   state = {
     kennitala: '',
@@ -99,13 +104,13 @@ class Kjorskra extends PureComponent {
     fetchError: '',
     mapOptions: {
       zoom: 13,
-      center: { lat: 65.7, lng: -19.6 },
+      center: { lat: 65.7, lng: -19.6 }
     },
     currentAddress: null,
     driving: {},
     walking: {},
     bicycling: {},
-    bussing: {}, //Stupid, but consistency
+    bussing: {} //Stupid, but consistency
   };
   constructor(props) {
     super(props);
@@ -157,7 +162,7 @@ class Kjorskra extends PureComponent {
         {
           origins: [from],
           destinations: [to],
-          travelMode: mode, //BICYCLING,WALKING,DRIVING
+          travelMode: mode //BICYCLING,WALKING,DRIVING
         },
         results => {
           if (results.rows.length === 0) {
@@ -181,9 +186,9 @@ class Kjorskra extends PureComponent {
 
           resolve({
             distance,
-            duration,
+            duration
           });
-        },
+        }
       );
     });
   }
@@ -191,7 +196,7 @@ class Kjorskra extends PureComponent {
     console.log('getBusDistance', from, to);
     const now = new Date();
     const timestamp = `${now.getHours()}:${('0' + now.getMinutes()).substr(
-      -2,
+      -2
     )}`;
 
     const date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
@@ -205,13 +210,13 @@ class Kjorskra extends PureComponent {
       timestamp,
       '&date=',
       date,
-      '&mode=TRANSIT,WALK&arriveBy=false&wheelchair=false&showIntermediateStops=false&numItineraries=1&locale=is',
+      '&mode=TRANSIT,WALK&arriveBy=false&wheelchair=false&showIntermediateStops=false&numItineraries=1&locale=is'
     ].join('');
 
     const response = await this.context.fetch(url, {
       headers: {
-        Accept: 'application/json',
-      },
+        Accept: 'application/json'
+      }
     });
     const data = await response.json();
 
@@ -220,7 +225,7 @@ class Kjorskra extends PureComponent {
       console.error('Error fetching bus data', response.status, response);
       return {
         distance: null,
-        duration: null,
+        duration: null
       };
     }
 
@@ -237,7 +242,7 @@ class Kjorskra extends PureComponent {
 
     return {
       distance,
-      duration,
+      duration
     };
   }
   async locationFromPlace(place) {
@@ -245,8 +250,8 @@ class Kjorskra extends PureComponent {
       return {
         center: {
           lat: place.geometry.location.lat(),
-          lng: place.geometry.location.lng(),
-        },
+          lng: place.geometry.location.lng()
+        }
       };
     }
     return this.locationFromAddress(place.name);
@@ -259,8 +264,8 @@ class Kjorskra extends PureComponent {
         {
           address,
           componentRestrictions: {
-            country: 'is',
-          },
+            country: 'is'
+          }
         },
         results => {
           if (
@@ -268,16 +273,16 @@ class Kjorskra extends PureComponent {
             results[0].formatted_address === 'Iceland'
           ) {
             return resolve({
-              invalidLocation: true,
+              invalidLocation: true
             });
           }
           resolve({
             center: {
               lat: results[0].geometry.location.lat(),
-              lng: results[0].geometry.location.lng(),
-            },
+              lng: results[0].geometry.location.lng()
+            }
           });
-        },
+        }
       );
     });
   }
@@ -286,7 +291,7 @@ class Kjorskra extends PureComponent {
   };
   onInputChange(type, e) {
     this.setState({
-      [type]: e.target.value,
+      [type]: e.target.value
     });
   }
   async submit(event) {
@@ -303,14 +308,14 @@ class Kjorskra extends PureComponent {
 
     this.setState({
       isFetching: true,
-      fetchError: '',
+      fetchError: ''
     });
 
     let data;
 
     try {
       const response = await this.context.fetch(
-        `https://kjorskra.kjosturett.is/leita/${cleanKennitala(kennitala)}`,
+        `https://kjorskra.kjosturett.is/leita/${cleanKennitala(kennitala)}`
       );
       data = await response.json();
 
@@ -322,7 +327,7 @@ class Kjorskra extends PureComponent {
 
       const newState = {
         isFetching: false,
-        fetchError: 'Villa kom upp!',
+        fetchError: 'Villa kom upp!'
       };
 
       if (e.success === false && e.message === 'Kennitala not found') {
@@ -335,7 +340,7 @@ class Kjorskra extends PureComponent {
 
     this.setState({
       isFetching: false,
-      data,
+      data
     });
 
     const address = PLACE_OVERRIDE[data.kjorstadur] || data.kjorstadur;
@@ -344,8 +349,8 @@ class Kjorskra extends PureComponent {
     this.setState({
       mapOptions: {
         zoom: 13,
-        ...options,
-      },
+        ...options
+      }
     });
 
     const { nafn, kjorstadur, kjordeild, kjordaemi } = data;
@@ -370,55 +375,55 @@ class Kjorskra extends PureComponent {
 
     this.setState({
       isFetching: true,
-      fetchError: '',
+      fetchError: ''
     });
 
     const location = await this.locationFromPlace(lookupPlace);
 
     this.setState({
-      isFetching: false,
+      isFetching: false
     });
 
     if (location.invalidLocation) {
       this.setState({
-        fetchError: 'Heimilisfang fannst ekki!',
+        fetchError: 'Heimilisfang fannst ekki!'
       });
       return;
     }
 
     this.setState({
-      currentAddress: location.center,
+      currentAddress: location.center
     });
 
     const position = {
       from: new window.google.maps.LatLng(
         location.center.lat,
-        location.center.lng,
+        location.center.lng
       ),
       to: new window.google.maps.LatLng(
         mapOptions.center.lat,
-        mapOptions.center.lng,
-      ),
+        mapOptions.center.lng
+      )
     };
 
     //Look up all the itineries and emit them asynchronous
     this.getDistance({
       ...position,
-      mode: 'WALKING',
+      mode: 'WALKING'
     }).then(data => this.setState({ walking: data }));
 
     this.getDistance({
       ...position,
-      mode: 'BICYCLING',
+      mode: 'BICYCLING'
     }).then(data => this.setState({ bicycling: data }));
 
     this.getDistance({
       ...position,
-      mode: 'DRIVING',
+      mode: 'DRIVING'
     }).then(data => this.setState({ driving: data }));
 
     this.getBusDistance({
-      ...position,
+      ...position
     }).then(data => this.setState({ bussing: data }));
   }
   getItineriesByDistance({ from, to, types }) {
@@ -426,12 +431,12 @@ class Kjorskra extends PureComponent {
       'walking',
       'bicycling',
       'driving',
-      'bussing',
+      'bussing'
     ].map(type => ({
       type,
       data: types[type],
       from,
-      to,
+      to
     }));
 
     itineries.sort((a, b) => {
@@ -455,7 +460,7 @@ class Kjorskra extends PureComponent {
       walking,
       driving,
       bicycling,
-      bussing,
+      bussing
     } = this.state;
 
     return (
@@ -544,8 +549,8 @@ class Kjorskra extends PureComponent {
                         walking,
                         bicycling,
                         driving,
-                        bussing,
-                      },
+                        bussing
+                      }
                     }).map(itinery => (
                       <Itinery
                         key={itinery.type}

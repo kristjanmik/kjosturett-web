@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Countdown from 'react-countdown-now';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import s from './OpeningHours.scss';
 
 class OpeningHours extends PureComponent {
   static propTypes = {
-    sveitafelag: PropTypes.string.isRequired,
+    sveitafelag: PropTypes.string.isRequired
   };
   render() {
     const { sveitafelag } = this.props;
@@ -22,11 +24,11 @@ class OpeningHours extends PureComponent {
       { municipality: 'Kópavogur', open: '9:00', close: '22:00' },
       { municipality: 'Mosfellsbær', open: '9:00', close: '22:00' },
       { municipality: 'Seltjarnarnes', open: '9:00', close: '22:00' },
-      { municipality: 'Reykjavík', open: '9:00', close: '22:00' },
+      { municipality: 'Reykjavík', open: '9:00', close: '22:00' }
     ];
 
     const pollingStation = pollingStations.find(station =>
-      station.municipality.includes(sveitafelag),
+      station.municipality.includes(sveitafelag)
     );
     let start;
     let end;
@@ -34,10 +36,10 @@ class OpeningHours extends PureComponent {
 
     if (pollingStation) {
       start = new Date(
-        `Saturday, October 28, 2017 ${pollingStation.open}:00 AM`,
+        `Saturday, October 28, 2017 ${pollingStation.open}:00 AM`
       );
       end = new Date(
-        `Saturday, October 28, 2017 ${pollingStation.close}:00 PM`,
+        `Saturday, October 28, 2017 ${pollingStation.close}:00 PM`
       );
       showCountdown =
         now.getTime() > start.getTime() && now.getTime() < end.getTime();
@@ -46,7 +48,7 @@ class OpeningHours extends PureComponent {
       <div>
         {pollingStation && (
           <div>
-            <div>
+            <div className={s.centerTextSmall}>
               Kjörstaðurinn þinn verður opinn frá klukkan
               <b>
                 {' '}
@@ -64,9 +66,9 @@ class OpeningHours extends PureComponent {
                     }
                     let out = '';
                     if (hours > 0) {
-                      out = `og þú hefur enn ${hours} klukkustundir og ${minutes} mínútur til stefnu!`;
+                      out = `Þú hefur enn ${hours} klukkustundir og ${minutes} mínútur til stefnu!`;
                     }
-                    return <span>{out}</span>;
+                    return <span className={s.centerTextSmall}>{out}</span>;
                   }}
                 />
               )}
@@ -78,4 +80,4 @@ class OpeningHours extends PureComponent {
   }
 }
 
-export default OpeningHours;
+export default withStyles(s)(OpeningHours);

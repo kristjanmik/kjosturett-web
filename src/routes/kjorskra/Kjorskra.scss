@@ -181,6 +181,10 @@ $breakPoint: 850px;
   line-height: 1.2;
   margin-bottom: 0.2em;
   margin-top: 0.2em;
+
+  @media screen and (max-width: $breakPoint) {
+    text-align: center;
+  }
 }
 
 .votingInfo {
@@ -191,6 +195,10 @@ $breakPoint: 850px;
 
 .itineriesBox h3 {
   margin-top: 15px;
+
+  @media screen and (max-width: 850px) {
+    text-align: center;
+  }
 }
 
 .itineries li {
@@ -238,6 +246,10 @@ $breakPoint: 850px;
   margin-bottom: 0.5em;
   font-size: 1rem;
   margin-top: 1rem;
+
+  @media screen and (max-width: 850px) {
+    text-align: center;
+  }
 }
 
 .currentAddressContainer {
