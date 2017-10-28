@@ -5,18 +5,10 @@ import Img from 'react-image';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import s from './styles.scss';
+import history from '../../history';
 import answers from '../../../data/poll/answers.json';
 import { getAssetUrl } from '../../utils';
-import { match } from '../../process-replies';
-
-const valueMap = {
-  1: -1,
-  2: -0.8,
-  3: 0,
-  4: 0.8,
-  5: 1,
-  6: null
-};
+import Link from '../../Link';
 
 const distanceValueMap = {
   '0': 0,
@@ -33,41 +25,15 @@ class CompareParties extends PureComponent {
     selected: []
   };
   render() {
-    const { questions, parties } = this.props;
-    const { selected } = this.state;
-
-    // const first = partyA;
-    // const firstReply = first.reply.split('');
-    // const second = partyB;
-    // const secondReply = second.reply.split('');
-
-    let filterParties = parties.filter(party => selected.includes(party.name));
-
-    filterParties.sort();
-
-    const replies = filterParties.map(party => party.reply.split(''));
-
-    const minReplies = [];
-    const maxReplies = [];
-    const replyDistance = [];
-
-    for (let i = 0; i <= 38; i++) {
-      let max;
-      let min;
-      replies.forEach(reply => {
-        let part = valueMap[reply[i]];
-
-        if (max < part || (!max && max !== 0)) max = part;
-        if (min > part || (!min && min !== 0)) min = part;
-      });
-
-      minReplies.push(min);
-      maxReplies.push(max);
-
-      replyDistance.push(Math.abs(min - max));
-    }
-
-    const score = match(minReplies, maxReplies);
+    const {
+      questions,
+      parties,
+      filterParties,
+      replies,
+      replyDistance,
+      score,
+      url
+    } = this.props;
 
     return (
       <div className={s.root}>
@@ -83,18 +49,14 @@ class CompareParties extends PureComponent {
                   : null
               )}
               onClick={() => {
-                let out = [...selected];
-                if (out.indexOf(party.name) !== -1) {
-                  out = out.filter(o => o !== party.name);
+                let out = filterParties.map(p => p.letter);
+                if (out.indexOf(party.letter) !== -1) {
+                  out = out.filter(o => o !== party.letter);
                 } else {
-                  out.push(party.name);
+                  out.push(party.letter);
                 }
 
-                out.sort();
-
-                this.setState({
-                  selected: out
-                });
+                history.push(`/flokkar/bera-saman/${out.join('')}`);
               }}
             >
               <div>
@@ -115,6 +77,31 @@ class CompareParties extends PureComponent {
         {filterParties.length === 2 && (
           <p style={{ textAlign: 'center', marginTop: '20px' }}>
             Hægt er að bæta við fleiri stjórnmálaflokkum
+          </p>
+        )}
+
+        {filterParties.length > 1 && (
+          <p className={s.buttons}>
+            <Link
+              className={s.shareButton}
+              style={{ background: '#4760a5' }}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                url
+              )}`}
+              target="_blank"
+            >
+              Deila á Facebook
+            </Link>
+            <Link
+              className={s.shareButton}
+              style={{ background: '#1da0f2', marginLeft: '15px' }}
+              href={`https://twitter.com/home?status=${encodeURIComponent(
+                'Samanburður flokka á kjósturétt.is: ' + url
+              )}`}
+              target="_blank"
+            >
+              Deila á Twitter
+            </Link>
           </p>
         )}
         {filterParties.length > 1 && (

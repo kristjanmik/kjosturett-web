@@ -65,8 +65,18 @@ const routes = {
     },
     {
       path: '/flokkar/bera-saman',
-      load: () =>
-        import(/* webpackChunkName: 'compare-parties' */ './compare-parties')
+      children: [
+        {
+          path: '',
+          load: () =>
+            import(/* webpackChunkName: 'compare-parties' */ './compare-parties')
+        },
+        {
+          path: '/:letters',
+          load: () =>
+            import(/* webpackChunkName: 'compare-parties' */ './compare-parties')
+        }
+      ]
     },
     {
       path: '/flokkur/:party',

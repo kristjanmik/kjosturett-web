@@ -137,9 +137,9 @@
     text-decoration: none;
     color: #fff;
     border: none;
-    font-size: 0.8125rem;
+    font-size: 1rem;
     font-weight: 500;
-    padding: 0.4em 0.7em;
+    padding: 0.6em 1em;
     text-align: center;
 
     @media screen and (max-width: 420px) {
@@ -355,4 +355,11 @@
   margin-bottom: 30px;
   margin-top: 0;
   font-weight: 400;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
