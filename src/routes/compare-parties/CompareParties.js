@@ -51,23 +51,21 @@ class CompareParties extends PureComponent {
     const maxReplies = [];
     const replyDistance = [];
 
-    for (let i = 0; i < 38; i++) {
+    for (let i = 0; i <= 38; i++) {
       let max;
       let min;
       replies.forEach(reply => {
-        const part = valueMap[reply[i]];
+        let part = valueMap[reply[i]];
 
-        if (max < part || !max) max = part;
-        if (min > part || !min) min = part;
+        if (max < part || (!max && max !== 0)) max = part;
+        if (min > part || (!min && min !== 0)) min = part;
       });
 
       minReplies.push(min);
       maxReplies.push(max);
+
       replyDistance.push(Math.abs(min - max));
     }
-    // console.log('minReplies', minReplies);
-    // console.log('maxReplies', maxReplies);
-    // console.log('replyDistance', replyDistance);
 
     const score = match(minReplies, maxReplies);
 
@@ -141,7 +139,7 @@ class CompareParties extends PureComponent {
                 if (a.distance < b.distance) return -1;
                 return 0;
               })
-              .map(({ id, question, replies, distance }, qIndex) => {
+              .map(({ id, question, replies, distance }) => {
                 return (
                   <div className={s.partyQuestion} key={id}>
                     <h4>
@@ -160,11 +158,23 @@ class CompareParties extends PureComponent {
                     </h4>
                     {distance === 0 &&
                       filterParties.length === 2 && (
-                        <div>Báðir flokkarnir eru sammála fullyrðingunni</div>
+                        <div>
+                          {`Báðir flokkarnir eru ${answers.textMap[
+                            replies[0]
+                          ].toLowerCase()}${['3', '6'].includes(replies[0])
+                            ? 'ir gagnvart'
+                            : ''} fullyrðingunni`}
+                        </div>
                       )}
                     {distance === 0 &&
                       filterParties.length > 2 && (
-                        <div>Allir flokkarnir eru sammála fullyrðingunni</div>
+                        <div>
+                          {`Allir flokkarnir eru ${answers.textMap[
+                            replies[0]
+                          ].toLowerCase()}${['3', '6'].includes(replies[0])
+                            ? 'ir gagnvart'
+                            : ''} fullyrðingunni`}
+                        </div>
                       )}
                     {distance > 0 && (
                       <div>
@@ -172,7 +182,11 @@ class CompareParties extends PureComponent {
                           <div key={party.name}>
                             <p>
                               <span>{party.name}</span>{' '}
-                              {`${party.name === 'Píratar' ? 'eru' : 'er'} `}
+                              {`${['Píratar', 'Vinstri Græn'].includes(
+                                party.name
+                              )
+                                ? 'eru'
+                                : 'er'} `}
                               <b>
                                 {answers.textMap[
                                   party.reply[id - 1]
