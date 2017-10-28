@@ -23,10 +23,6 @@ import {
   InfoWindow
 } from 'react-google-maps';
 
-const PLACE_OVERRIDE = {
-  Smárinn: 'Dalsmára 5, Kópavogur'
-};
-
 const Map = withGoogleMap(({ mapOptions, kjorstadur }) => {
   return (
     <GoogleMap defaultZoom={mapOptions.zoom} center={mapOptions.center}>
@@ -155,42 +151,39 @@ class Kjorskra extends PureComponent {
   isKennitalaValid() {
     return isPerson(this.state.kennitala);
   }
-  async getDistance({ from, to, mode }) {
-    if (!process.env.BROWSER) return { distance: null, duration: null };
-    return new Promise(resolve => {
-      new window.google.maps.DistanceMatrixService().getDistanceMatrix(
-        {
-          origins: [from],
-          destinations: [to],
-          travelMode: mode //BICYCLING,WALKING,DRIVING
-        },
-        results => {
-          if (results.rows.length === 0) {
-            console.error('No results from distance matrix');
-            return;
-          }
+  async getDistance({ from, to, costing }) {
+    const json = {
+      locations: [
+        { lat: from.lat(), lon: from.lng() },
+        { lat: to.lat(), lon: to.lng() }
+      ],
+      directions_options: { narrative: false },
+      costing
+    };
 
-          let distance = null;
-          let duration = null;
+    const url = [
+      'https://valhalla.mapzen.com/route?api_key=mapzen-pRTGdQw&json=',
+      JSON.stringify(json)
+    ].join('');
 
-          results.rows.forEach(row => {
-            row.elements.forEach(element => {
-              if (element && element.distance) {
-                distance = element.distance.value;
-              }
-              if (element && element.duration) {
-                duration = element.duration.value;
-              }
-            });
-          });
+    let response;
 
-          resolve({
-            distance,
-            duration
-          });
-        }
-      );
-    });
+    try {
+      response = await this.context.fetch(url);
+      const data = await response.json();
+      const result = data.trip.summary;
+
+      return {
+        distance: result.length * 1000,
+        duration: result.time
+      };
+    } catch (error) {
+      console.error('Error fetching distance', response && response.status, error);
+      return {
+        distance: null,
+        duration: null
+      };
+    }
   }
   async getBusDistance({ from, to }) {
     console.log('getBusDistance', from, to);
@@ -256,10 +249,39 @@ class Kjorskra extends PureComponent {
     }
     return this.locationFromAddress(place.name);
   }
-  async locationFromAddress(address) {
+  locationFromAddress(address) {
+    return this.locationFromAddressUsingMapzen(address)
+      .catch(() => this.locationFromAddressUsingGoogle(address))
+      .catch(() => ({
+        invalidLocation: true,
+      }));
+  }
+  async locationFromAddressUsingMapzen(address) {
+    const url = [
+      'https://search.mapzen.com/v1/search',
+      '?api_key=mapzen-pRTGdQw',
+      '&size=1',
+      '&layers=venue,address',
+      '&boundary.country=is',
+      '&text=',
+      address
+    ].join('');
+    const response = await this.context.fetch(url);
+    const data = await response.json();
+
+    const { coordinates } = data.features[0].geometry;
+
+    return {
+      center: {
+        lat: coordinates[1],
+        lng: coordinates[0]
+      }
+    }
+  }
+  async locationFromAddressUsingGoogle(address) {
     if (!process.env.BROWSER) return this.state.mapOptions.center;
 
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       new window.google.maps.Geocoder().geocode(
         {
           address,
@@ -272,9 +294,7 @@ class Kjorskra extends PureComponent {
             results.length === 0 ||
             results[0].formatted_address === 'Iceland'
           ) {
-            return resolve({
-              invalidLocation: true
-            });
+            return reject();
           }
           resolve({
             center: {
@@ -343,8 +363,7 @@ class Kjorskra extends PureComponent {
       data
     });
 
-    const address = PLACE_OVERRIDE[data.kjorstadur] || data.kjorstadur;
-    const options = await this.locationFromAddress(address);
+    const options = await this.locationFromAddress(`${data.kjorstadur}, ${data.sveitafelag}`);
 
     this.setState({
       mapOptions: {
@@ -352,6 +371,10 @@ class Kjorskra extends PureComponent {
         ...options
       }
     });
+
+    if (options.invalidLocation === true) {
+      return;
+    }
 
     const { nafn, kjorstadur, kjordeild, kjordaemi } = data;
 
@@ -409,17 +432,20 @@ class Kjorskra extends PureComponent {
     //Look up all the itineries and emit them asynchronous
     this.getDistance({
       ...position,
-      mode: 'WALKING'
-    }).then(data => this.setState({ walking: data }));
+      costing: 'pedestrian'
+    }).then(data => {
+      this.setState({
+        walking: data,
+        bicycling: {
+          distance: data.distance,
+          duration: data.duration / 2.6
+        }
+      });
+    });
 
     this.getDistance({
       ...position,
-      mode: 'BICYCLING'
-    }).then(data => this.setState({ bicycling: data }));
-
-    this.getDistance({
-      ...position,
-      mode: 'DRIVING'
+      costing: 'auto'
     }).then(data => this.setState({ driving: data }));
 
     this.getBusDistance({
@@ -527,7 +553,6 @@ class Kjorskra extends PureComponent {
                       <Autocomplete
                         ref={this.onAutocompleteMounted}
                         type="text"
-                        onChange={this.submitCurrentAddress}
                         placeholder="Núverandi heimilisfang"
                         className={s.input}
                       />
