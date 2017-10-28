@@ -249,7 +249,14 @@ class Kjorskra extends PureComponent {
     }
     return this.locationFromAddress(place.name);
   }
-  async locationFromAddress(address) {
+  locationFromAddress(address) {
+    return this.locationFromAddressUsingMapzen(address)
+      .catch(() => this.locationFromAddressUsingGoogle(address))
+      .catch(() => ({
+        invalidLocation: true,
+      }));
+  }
+  async locationFromAddressUsingMapzen(address) {
     const url = [
       'https://search.mapzen.com/v1/search',
       '?api_key=mapzen-pRTGdQw',
@@ -260,24 +267,44 @@ class Kjorskra extends PureComponent {
       address
     ].join('');
     const response = await this.context.fetch(url);
+    const data = await response.json();
 
-    try {
-      const data = await response.json();
+    const { coordinates } = data.features[0].geometry;
 
-      const { coordinates } = data.features[0].geometry;
-
-      return {
-        center: {
-          lat: coordinates[1],
-          lng: coordinates[0]
-        }
+    return {
+      center: {
+        lat: coordinates[1],
+        lng: coordinates[0]
       }
-    } catch (e) {
-      console.error('Error geocoding address', response.status);
-      return {
-        invalidLocation: true,
-      };
     }
+  }
+  async locationFromAddressUsingGoogle(address) {
+    if (!process.env.BROWSER) return this.state.mapOptions.center;
+
+    return new Promise((resolve, reject) => {
+      new window.google.maps.Geocoder().geocode(
+        {
+          address,
+          componentRestrictions: {
+            country: 'is'
+          }
+        },
+        results => {
+          if (
+            results.length === 0 ||
+            results[0].formatted_address === 'Iceland'
+          ) {
+            return reject();
+          }
+          resolve({
+            center: {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng()
+            }
+          });
+        }
+      );
+    });
   }
   onAutocompleteMounted = ref => {
     this.autocomplete = ref;
@@ -344,6 +371,10 @@ class Kjorskra extends PureComponent {
         ...options
       }
     });
+
+    if (options.invalidLocation === true) {
+      return;
+    }
 
     const { nafn, kjorstadur, kjordeild, kjordaemi } = data;
 
