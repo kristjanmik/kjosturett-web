@@ -1,5 +1,3 @@
-# We are having a hackathon on the 22nd of October: [https://www.facebook.com/events/1493507597370764/](https://www.facebook.com/events/1493507597370764/)
-
 ##Getting started
 
 ### manual build
