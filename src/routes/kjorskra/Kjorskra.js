@@ -433,12 +433,15 @@ class Kjorskra extends PureComponent {
     this.getDistance({
       ...position,
       costing: 'pedestrian'
-    }).then(data => this.setState({ walking: data }));
-
-    this.getDistance({
-      ...position,
-      costing: 'bicycle'
-    }).then(data => this.setState({ bicycling: data }));
+    }).then(data => {
+      this.setState({
+        walking: data,
+        bicycling: {
+          distance: data.distance,
+          duration: data.duration / 2.6
+        }
+      });
+    });
 
     this.getDistance({
       ...position,
