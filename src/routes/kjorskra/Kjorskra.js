@@ -178,7 +178,11 @@ class Kjorskra extends PureComponent {
         duration: result.time
       };
     } catch (error) {
-      console.error('Error fetching distance', response && response.status, error);
+      console.error(
+        'Error fetching distance',
+        response && response.status,
+        error
+      );
       return {
         distance: null,
         duration: null
@@ -249,14 +253,7 @@ class Kjorskra extends PureComponent {
     }
     return this.locationFromAddress(place.name);
   }
-  locationFromAddress(address) {
-    return this.locationFromAddressUsingMapzen(address)
-      .catch(() => this.locationFromAddressUsingGoogle(address))
-      .catch(() => ({
-        invalidLocation: true,
-      }));
-  }
-  async locationFromAddressUsingMapzen(address) {
+  async locationFromAddress(address) {
     const url = [
       'https://search.mapzen.com/v1/search',
       '?api_key=mapzen-pRTGdQw',
@@ -266,45 +263,26 @@ class Kjorskra extends PureComponent {
       '&text=',
       address
     ].join('');
+
     const response = await this.context.fetch(url);
-    const data = await response.json();
 
-    const { coordinates } = data.features[0].geometry;
+    try {
+      const data = await response.json();
 
-    return {
-      center: {
-        lat: coordinates[1],
-        lng: coordinates[0]
-      }
-    }
-  }
-  async locationFromAddressUsingGoogle(address) {
-    if (!process.env.BROWSER) return this.state.mapOptions.center;
+      const { coordinates } = data.features[0].geometry;
 
-    return new Promise((resolve, reject) => {
-      new window.google.maps.Geocoder().geocode(
-        {
-          address,
-          componentRestrictions: {
-            country: 'is'
-          }
-        },
-        results => {
-          if (
-            results.length === 0 ||
-            results[0].formatted_address === 'Iceland'
-          ) {
-            return reject();
-          }
-          resolve({
-            center: {
-              lat: results[0].geometry.location.lat(),
-              lng: results[0].geometry.location.lng()
-            }
-          });
+      return {
+        center: {
+          lat: coordinates[1],
+          lng: coordinates[0]
         }
-      );
-    });
+      };
+    } catch (e) {
+      console.error('Error geocoding address', response.status);
+      return {
+        invalidLocation: true
+      };
+    }
   }
   onAutocompleteMounted = ref => {
     this.autocomplete = ref;
@@ -363,7 +341,9 @@ class Kjorskra extends PureComponent {
       data
     });
 
-    const options = await this.locationFromAddress(`${data.kjorstadur}, ${data.sveitafelag}`);
+    const options = await this.locationFromAddress(
+      `${data.kjorstadur}, ${data.sveitafelag}`
+    );
 
     this.setState({
       mapOptions: {
@@ -433,15 +413,12 @@ class Kjorskra extends PureComponent {
     this.getDistance({
       ...position,
       costing: 'pedestrian'
-    }).then(data => {
-      this.setState({
-        walking: data,
-        bicycling: {
-          distance: data.distance,
-          duration: data.duration / 2.6
-        }
-      });
-    });
+    }).then(data => this.setState({ walking: data }));
+
+    this.getDistance({
+      ...position,
+      costing: 'bicycle'
+    }).then(data => this.setState({ bicycling: data }));
 
     this.getDistance({
       ...position,
