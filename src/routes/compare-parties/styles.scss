@@ -27,107 +27,11 @@
     margin-top: 2.5em;
   }
 
-  input {
-    margin-right: 15px;
-  }
-
-  button:not(.reset) {
-    background: #353535;
-    color: #fff;
-    border: none;
-    appearance: none;
-    font-size: 1rem;
-    padding: 1em 1.4em;
-    margin-top: 3rem;
-  }
-
-  .reset {
-    background: transparent;
-    color: inherit;
-    border: none;
-    appearance: none;
-    display: inline;
-    font: inherit;
-    text-decoration: underline;
-    white-space: normal;
-  }
-
-  .lead {
-    font-size: 1.2em;
-    text-align: center;
-  }
-
   .buttons {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-  }
-
-  .nonLead {
-    color: #666;
-    margin-bottom: 2em;
-    max-width: 600px;
-  }
-
-  .filters {
-    display: flex;
-    // flex-wrap: wrap;
-    margin-bottom: 30px;
-
-    @media screen and (max-width: 620px) {
-      flex-direction: column;
-    }
-  }
-
-  .kjordaemiFilter {
-    flex: 1;
-    min-width: 250px;
-
-    @media screen and (max-width: 620px) {
-      min-width: 100%;
-      max-width: 100%;
-    }
-  }
-
-  .topFilter {
-    flex: 1;
-    min-width: 200px;
-    margin-left: 15px;
-
-    @media screen and (max-width: 620px) {
-      min-width: 100%;
-      max-width: 100%;
-      margin-top: 15px;
-      margin-left: 0;
-    }
-  }
-
-  .showCount {
-    flex: 1;
-    min-width: 110px;
-    max-width: 110px;
-    margin-left: 15px;
-
-    @media screen and (max-width: 620px) {
-      min-width: 100%;
-      max-width: 100%;
-      margin-top: 15px;
-      margin-left: 0;
-    }
-  }
-
-  .takeTest {
-    background: #353535;
-    border-radius: 4px;
-    display: table;
-    text-decoration: none;
-    color: #fff;
-    border: none;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.8em 1em;
-    text-align: center;
   }
 
   .shareButton {
@@ -305,7 +209,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 130px;
+  width: 145px;
   margin: 10px;
   cursor: pointer;
 

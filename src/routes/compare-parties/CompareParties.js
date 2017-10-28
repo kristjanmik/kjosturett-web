@@ -38,6 +38,22 @@ class CompareParties extends PureComponent {
     return (
       <div className={s.root}>
         <h1 className={s.heading}>Veldu stjórnmálaflokka til að bera saman</h1>
+        {filterParties.length === 2 && (
+          <p
+            style={{
+              textAlign: 'center',
+              marginTop: '20px',
+              fontSize: '1.2rem',
+              maxWidth: '500px',
+              margin: 'auto'
+            }}
+          >
+            <b>
+              Hægt er að bæta við fleiri en tveimur stjórnmálaflokkum til að sjá
+              samstöðu margra flokka.
+            </b>
+          </p>
+        )}
         <div className={s.chooseContainer}>
           {parties.map(party => (
             <div
@@ -65,18 +81,13 @@ class CompareParties extends PureComponent {
                   className={s.selectLogo}
                 />
               </div>
-              <p>{party.name}</p>
+              <p>{`${party.letter} - ${party.name}`}</p>
             </div>
           ))}
         </div>
         {filterParties.length === 1 && (
           <p style={{ textAlign: 'center', marginTop: '20px' }}>
             Veldu einn flokk í viðbót
-          </p>
-        )}
-        {filterParties.length === 2 && (
-          <p style={{ textAlign: 'center', marginTop: '20px' }}>
-            Hægt er að bæta við fleiri stjórnmálaflokkum
           </p>
         )}
 
@@ -90,7 +101,7 @@ class CompareParties extends PureComponent {
               )}`}
               target="_blank"
             >
-              Deila á Facebook
+              {`Deila ${filterParties.map(p => p.letter).join('')} á Facebook`}
             </Link>
             <Link
               className={s.shareButton}
@@ -101,7 +112,7 @@ class CompareParties extends PureComponent {
               )}`}
               target="_blank"
             >
-              Deila á Twitter
+              {`Deila ${filterParties.map(p => p.letter).join('')} á Twitter`}
             </Link>
           </p>
         )}
