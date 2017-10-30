@@ -312,9 +312,17 @@ class Kjorskra extends PureComponent {
     let data;
 
     try {
-      const response = await this.context.fetch(
-        `https://kjorskra.kjosturett.is/leita/${cleanKennitala(kennitala)}`
-      );
+      let url = `https://kjosturett.is/kjorskra-lookup/${cleanKennitala(
+        kennitala
+      )}`;
+
+      if (__DEV__) {
+        url = `http://localhost:3000/kjorskra-lookup/${cleanKennitala(
+          kennitala
+        )}`;
+      }
+
+      const response = await this.context.fetch(url);
       data = await response.json();
 
       if (!data.success) {

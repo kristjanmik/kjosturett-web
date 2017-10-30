@@ -17,6 +17,7 @@ import router from './router';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import configureStore from './store/configureStore';
 import config from './config';
+import kjorskra from './lib/kjorskra';
 import { setRuntimeVariable } from './actions/runtime';
 
 const app = express();
@@ -42,6 +43,10 @@ app.get('/og-image-kjorskra/:coordinates', (req, res) => {
   const { coordinates } = req.params;
   const url = `https://kjosturett-is.imgix.net/og_kjorskra3.png?markalign=right%2Cmiddle&mark=https%3A%2F%2Fmaps.googleapis.com%2Fmaps%2Fapi%2Fstaticmap%3Fcenter%3D${coordinates}%26zoom%3D14%26size%3D600x630%26maptype%3Droadmap%26markers%3Dicon%3Ahttps%3A%2F%2Fimgix.kjosturett.is%2Fmap_marker3.png%7C${coordinates}`;
   res.redirect(301, url);
+});
+
+app.get('/kjorskra-lookup/:kennitala', (req, res, next) => {
+  kjorskra(req.params.kennitala).then(d => res.json(d), next);
 });
 
 //This is an append only file

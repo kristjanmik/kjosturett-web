@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "bluebird": "^3.5.0",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.17.2",
     "classnames": "^2.2.5",
     "core-js": "^2.4.1",
@@ -47,7 +47,7 @@
     "redux": "^3.7.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "request": "^2.81.0",
+    "request": "^2.83.0",
     "sass-loader": "^6.0.6",
     "serialize-javascript": "^1.4.0",
     "source-map-support": "^0.4.15",
