@@ -38,80 +38,69 @@ if (__DEV__) {
   app.enable('trust proxy');
 }
 
-app.get('/open-kjosturett-2017-live', (req, res) => {
-  res.redirect('/');
-});
-
 app.get('/og-image-kjorskra/:coordinates', (req, res) => {
   const { coordinates } = req.params;
   const url = `https://kjosturett-is.imgix.net/og_kjorskra3.png?markalign=right%2Cmiddle&mark=https%3A%2F%2Fmaps.googleapis.com%2Fmaps%2Fapi%2Fstaticmap%3Fcenter%3D${coordinates}%26zoom%3D14%26size%3D600x630%26maptype%3Droadmap%26markers%3Dicon%3Ahttps%3A%2F%2Fimgix.kjosturett.is%2Fmap_marker3.png%7C${coordinates}`;
   res.redirect(301, url);
 });
 
-const hackRoute = (req, res) => {
-  res.redirect('https://github.com/kristjanmik/kjosturett-web');
-};
-
-app.get('/hakk', hackRoute);
-app.get('/hack', hackRoute);
-app.get('/hackaton', hackRoute);
-app.get('/hackathon', hackRoute);
-
 //This is an append only file
-const repliesPath = path.resolve(__dirname, '../../replies.log');
-const repliesVotersPath = path.resolve(__dirname, '../../replies-voters.log');
+// const repliesPath = path.resolve(__dirname, '../../replies.log');
+// const repliesVotersPath = path.resolve(__dirname, '../../replies-voters.log');
 
-let currentAllReplies = [];
+// let currentAllReplies = [];
 
-//Write to replies file every 10 seconds
-setInterval(() => {
-  const out = currentAllReplies.splice(0, currentAllReplies.length);
+// Write voter replies to file
+// setInterval(() => {
+//   const out = currentAllReplies.splice(0, currentAllReplies.length);
+//
+//   if (out.length > 0) {
+//     appendFile(
+//       repliesVotersPath,
+//       out.map(o => `${JSON.stringify(o)}\n`).join(''),
+//       error => {
+//         if (error) return console.error(error);
+//
+//         console.log('Wrote to replies file');
+//       }
+//     );
+//   }
+// }, 10000);
 
-  if (out.length > 0) {
-    appendFile(
-      repliesVotersPath,
-      out.map(o => `${JSON.stringify(o)}\n`).join(''),
-      error => {
-        if (error) return console.error(error);
+// Used to gather replies from candidates and parties
+// app.post('/konnun/replies', (req, res) => {
+//   const { token, reply } = req.body;
+//
+//   const obj = {
+//     token,
+//     reply,
+//     timestamp: Math.round(Date.now() / 1000)
+//   };
+//
+//   appendFile(repliesPath, `${JSON.stringify(obj)}\n`, error => {
+//     if (error) return next(error);
+//
+//     res.json({
+//       success: true
+//     });
+//   });
+// });
 
-        console.log('Wrote to replies file');
-      }
-    );
-  }
-}, 10000);
-
-app.post('/konnun/replies', (req, res) => {
-  const { token, reply } = req.body;
-
-  const obj = {
-    token,
-    reply,
-    timestamp: Math.round(Date.now() / 1000)
-  };
-
-  appendFile(repliesPath, `${JSON.stringify(obj)}\n`, error => {
-    if (error) return next(error);
-
-    res.json({
-      success: true
-    });
-  });
-});
-
-app.post('/konnun/replies/all', (req, res) => {
-  const { reply } = req.body;
-
-  const obj = {
-    reply,
-    timestamp: Math.round(Date.now() / 1000)
-  };
-
-  currentAllReplies.push(obj);
-
-  res.json({
-    success: true
-  });
-});
+// Used to gather replies from voters
+// app.post('/konnun/replies/all', (req, res) => {
+//   const { reply } = req.body;
+//
+//   const obj = {
+//     reply,
+//     timestamp: Math.round(Date.now() / 1000)
+//   };
+//
+//   currentAllReplies.push(obj);
+//
+//   res.json({
+//     success: true
+//   });
+// });
 
 //
 // Register server-side rendering middleware
