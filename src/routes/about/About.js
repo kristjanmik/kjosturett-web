@@ -9,38 +9,33 @@ class About extends PureComponent {
     return (
       <div className={s.root}>
         <p>
-          Algengt er að fólk viti ekki hvað hver og einn stjórnmálaflokkur
-          stendur fyrir og hvaða málefni eru höfð í fyrirrúmi. Mikilvægt er að
-          geta nálgast þær upplýsingar hjá óháðum miðli sem er ekki að biðla til
-          kjósenda.
+          Kjósturétt.is er óháður upplýsingavefur í aðdraganda kosninga sem fór
+          fyrst í loftið fyrir alþingiskosningarnar árið 2013. Í gegnum þrennar
+          kosningar hefur vefurinn því verið þjóðinni innan handar. Allar
+          upplýsingarnar á vefnum eru fengnar frá stjórnmálaflokkunum sjálfum og
+          eru þær settar fram óbreyttar. Verkefnið er unnið í góðgerðarstarfi af
+          Íslendingum og er öll vinnan aðgengileg á{' '}
+          <a
+            href="https://github.com/kristjanmik/kjosturett-web"
+            target="_blank"
+          >
+            Github
+          </a>
+          . Við vonum að vefurinn hjálpi þér, kæri kjósandi, og skili þér með
+          gott veganesti á kjörstaði.
         </p>
 
-        <p>
-          Níu dögum fyrir Alþingiskosningarnar 2013 fór fyrsta útgáfa Kjóstu
-          rétt síðunnar í loftið. Verkefnið varð til af illri nauðsyn því erfitt
-          var að átta sig á stefnumálum allra 15 stjórnmálaflokkanna sem þá buðu
-          sig fram. Í ár er einnig mikið um framboð og eru 11 flokkar að bjóða
-          sig fram til kosninga 2017.
-        </p>
-
-        <h3>Framkvæmd verkefnisins</h3>
-        <p>
-          Haft var samband við alla stjórnmálaflokkana sem eru í framboði og
-          þeim boðið að senda svör við 13 málefnum. Hver stjórnmálaflokkur
-          sendir inn sín svör og Kjóstu rétt endurbirtir þau án breytinga.
-        </p>
-
-        <h3>Stofnendur kjósturétt.is</h3>
+        <h3>Stofnendur verkefnisins</h3>
 
         <div className={s.we}>
           <div className={s.person}>
             <img className={s.img} src={'/kristjan.jpg'} alt="Kristján" />
             <p className={s.name}>Kristján Ingi Mikaelsson</p>
             <p className={s.title}>
-              Frumkvöðull og stofnandi{' '}
-              <a href="https://watchboxapp.com/" target="_blank">
-                Watchbox
-              </a>.
+              Framkvæmdastjóri{' '}
+              <a href="https://ibf.is" target="_blank">
+                Rafmyntaráðs
+              </a>
             </p>
           </div>
           <div className={s.person}>
@@ -50,12 +45,12 @@ class About extends PureComponent {
               Meðeigandi og forritari hjá{' '}
               <a href="https://aranja.com" target="_blank">
                 Aranja
-              </a>.
+              </a>
             </p>
           </div>
         </div>
 
-        <h3>Að verkefninu koma einnig</h3>
+        <h3>Að verkefninu hafa einnig komið</h3>
 
         <div className={s.contributors}>
           <div className={s.person}>
