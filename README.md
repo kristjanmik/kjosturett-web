@@ -36,7 +36,7 @@ docker-compose up
 
 We have some relations in the dataset that have to be linked together. These relations complicate the project a bit but give us the benefit of having all the repo data in an easily readable and flat format. All data lives in the data folder. To build the dataset run ./build.sh inside the /data folder. All the output goes to /data/build folder. **Some data needs to be built separately.** We state this where needed.
 
-Are you having trouble building the data? Check out the data/build-dump folder for archives. You can unzip the most recent folder into data/build, and the project should run just fine.
+Are you having trouble building the data? Check out the data/build_dump-22-10-17-09-58.zip for an older archive that can be unzipped into data/build, and the project should run just fine.
 
 ## Data sources
 
