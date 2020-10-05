@@ -27,7 +27,7 @@
     "marked": "^0.3.6",
     "metaphor": "^3.8.3",
     "node-fetch": "^1.7.1",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.14.1",
     "normalize.css": "^7.0.0",
     "pretty-error": "^2.1.1",
     "prop-types": "^15.5.10",
