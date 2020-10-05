@@ -1,4 +1,14 @@
-##Getting started
+# Kjósturétt.is / Vote Right - A one-stop for Parliament elections in Iceland
+
+_Citizens have the right to non-biased information to cast an informed vote. We, the people of Iceland, built this project to solve this problem for local elections._
+
+### The process
+
+Each party is given the same list of questions where they can fill out as pleased within a word count limit. This ensures that all parties are represented equally. Responses are then compiled and listed on our platform. KJósturétt builds on a trusted and proven track record since 2013 and holds integrity and transparency above all.
+
+## Technical information
+
+The master branch is currently being worked on in time for the 2021 parliamentary elections. Refer to other branches for snapshots of older elections.
 
 ### manual build
 
@@ -22,121 +32,156 @@ Automatically build and run the app on port 3000
 docker-compose up
 ```
 
-## Why do we build the data?
-We have some relations in the dataset that have to be hooked. This complicates the process but gives us the huge benefit of having all the data here in the repo, easily readable and flat. All data lives in the data folder. To build the data run ./build.sh inside that folder(**nodejs v8 required**). All the output goes to /data/build folder. **Some data needs to be built seperately.** We state this where needed.
+## Information on our Datasets
 
-Having trouble building the data? Check out the data/build-dump folder for archives. You can unzip the most recent folder into data/build and the project should run just fine
+We have some relations in the dataset that have to be linked together. These relations complicate the project a bit but give us the benefit of having all the repo data in an easily readable and flat format. All data lives in the data folder. To build the dataset run ./build.sh inside the /data folder. All the output goes to /data/build folder. **Some data needs to be built separately.** We state this where needed.
 
-## How does the reply string work?
-When a person answers all the questions we generate a numerical sequence. Each number represent one question. You can think of this zero to one scale as 0 being extremely against(mjög á móti) and 1 being (mjög sammála). 0.5 is a neautral response.This is the format of each number in the sequence.
-- 1 stands for very much against option, with value of *0*
-- 2 stands for somewhat against option, with value of *0.25*
-- 3 stands for neutral option, with value of *0.5*
-- 4 stands for somewhat agree option, with value of *0.75*
-- 5 stands for very much agree with option, with value of *1*
-- 6 stands for no response
+Are you having trouble building the data? Check out the data/build-dump folder for archives. You can unzip the most recent folder into data/build, and the project should run just fine.
 
 ## Data sources
+
 We have various data sources. Described below are data sources that are available after the build step, but the raw data is also available in /build
 
-## Thingmenn.is
+### Thingmenn.is
+
 [Thingmenn.is](http://thingmenn.is) is a great project where you can see all the discussion by people in Alþingi, ranked by how they vote.
 
 ### Where do I vote?
-You can query the kjorskra endpoint at: https://kjorskra.kjosturett.is/leita/{{VALID-KENNITALA}}. This endpoint can take up to 2-4 seconds to load since we are using a very slow screenscraper. Second request to this endpoint with the same kennitala is cached heavily for 1 month. *If .success is false, the kennitala is most likely invalid*
+
+You can query the kjorskra endpoint at https://kjorskra.kjosturett.is/leita/{{VALID-KENNITALA}}. This endpoint can take up to 2-4 seconds to load since we are using a very slow screen scraper. The second request to this endpoint with the same kennitala is cached heavily for one month. _If .success is false, the kennitala is most likely invalid_
 
 ```json
 {
-	"success": true,
-	"kennitala": "1234567890",
-	"nafn": "Jón Jónsson",
-	"logheimili": "Melbær 14",
-	"kjordaemi": "Reykjavíkurkjördæmi suður",
-	"sveitafelag": "Reykjavík",
-	"kjorstadur": "Árbæjarskóli",
-	"kjordeild": "1"
+  "success": true,
+  "kennitala": "1234567890",
+  "nafn": "Jón Jónsson",
+  "logheimili": "Melbær 14",
+  "kjordaemi": "Reykjavíkurkjördæmi suður",
+  "sveitafelag": "Reykjavík",
+  "kjorstadur": "Árbæjarskóli",
+  "kjordeild": "1"
 }
 ```
 
 ### /data/build/{{party}}.json
-Lists all categories for a party. *Likely to change to include party specific data as well*
+
+A file that lists all catagories and their statement for a party. _Likely to change to include party-specific data as well_
 
 ```json
-[{
-	"category": "atvinnumal",
-	"name": "Atvinnumál",
-	"statement": "<p>Alþýðufylkingin hafnar framsali á samningsrétti einstakra verkalýðsfélaga...</p>\n"
-},{}]
+[
+  {
+    "category": "atvinnumal",
+    "name": "Atvinnumál",
+    "statement": "<p>Alþýðufylkingin hafnar framsali á samningsrétti einstakra verkalýðsfélaga...</p>\n"
+  },
+  {}
+]
 ```
 
-
 ### /data/build/{{category}}.json
+
 ```json
-[{
-	"letter": "A",
-	"url": "bjort-framtid",
-	"name": "Björt Framtíð",
-	"nameDeflected": "Bjartrar Framtíðar",
-	"website": "http://www.bjortframtid.is",
-	"leader": "Óttarr Proppé",
-	"leaderTitle": "Formaður",
-	"statement": "<p>Björt framtíð hefur þegar beitt sér fyrir setningu fjárfestingaáætlunar...</p>"
-},{}]
+[
+  {
+    "letter": "A",
+    "url": "bjort-framtid",
+    "name": "Björt Framtíð",
+    "nameDeflected": "Bjartrar Framtíðar",
+    "website": "http://www.bjortframtid.is",
+    "leader": "Óttarr Proppé",
+    "leaderTitle": "Formaður",
+    "statement": "<p>Björt framtíð hefur þegar beitt sér fyrir setningu fjárfestingaáætlunar...</p>"
+  },
+  {}
+]
 ```
 
 ### /data/build/candidates.json
+
 First 6 people from every party in every region
 
 ```json
-[{
-	"saeti": 1,
-	"nafn": "Erna Lína Örnudóttir Baldvinsdóttir",
-	"kjordaemi": "sudvestur",
-	"slug": "erna-lina-ornudottir-baldvinsdottir",
-	"bokstafur": "R",
-	"svar": "112541123451234512345123451234"
-},{}]
+[
+  {
+    "saeti": 1,
+    "nafn": "Erna Lína Örnudóttir Baldvinsdóttir",
+    "kjordaemi": "sudvestur",
+    "slug": "erna-lina-ornudottir-baldvinsdottir",
+    "bokstafur": "R",
+    "svar": "112541123451234512345123451234"
+  },
+  {}
+]
 ```
 
-See *How does the reply string work?* for .svar clarification
+See _How does the reply string work?_ for .svar clarification.
 
 ### /data/build/categories.json
-All categories, aka málefnaflokkar(should be topics but we are just to deep :P)
+
+All categories, aka málefnaflokkar(should be topics, but we are just too deep :P)
 
 ```json
-[{
-  "name":"Atvinnumál",
-  "url":"atvinnumal"
-},{}]
+[
+  {
+    "name": "Atvinnumál",
+    "url": "atvinnumal"
+  },
+  {}
+]
 ```
 
 ### /data/build/parties.json
+
 ```json
-[{
-	"letter": "A",
-	"url": "bjort-framtid",
-	"name": "Björt Framtíð",
-	"nameDeflected": "Bjartrar Framtíðar",
-	"website": "http://www.bjortframtid.is",
-	"leader": "Óttarr Proppé",
-	"leaderTitle": "Formaður"
-},{}]
+[
+  {
+    "letter": "A",
+    "url": "bjort-framtid",
+    "name": "Björt Framtíð",
+    "nameDeflected": "Bjartrar Framtíðar",
+    "website": "http://www.bjortframtid.is",
+    "leader": "Óttarr Proppé",
+    "leaderTitle": "Formaður"
+  },
+  {}
+]
 ```
 
 ### /data/build/replies-candidates.json
+
 ```json
-[{
-  "n":"Alþýðufylkingin",
-  "r":"112541123451234512345123451234"
-},{}]
+[
+  {
+    "n": "Alþýðufylkingin",
+    "r": "112541123451234512345123451234"
+  },
+  {}
+]
 ```
-.n represents name where .r represents the reply.
+
+.n represents the name where .r represents the reply.
 
 ### /data/build/replies-parties.json
+
 ```json
-[{
-  "n":"Alþýðufylkingin",
-  "r":"112541123451234512345123451234"
-},{}]
+[
+  {
+    "n": "Alþýðufylkingin",
+    "r": "112541123451234512345123451234"
+  },
+  {}
+]
 ```
-.n represents name where .r represents the reply.
+
+.n represents the name where .r represents the reply.
+
+### How does the reply string work?
+
+When a person answers all the questions, we generate a numerical sequence. Each number represents one question. You can think of this zero to one scale as 0 being extremely against(mjög á móti) and 1 being (mjög sammála). 0.5 is a neutral response. This is the format of each number in the sequence.
+
+- 1 stands for very much against, with the value of _0_
+- 2 stands for somewhat against, with a value of _0.25_
+- 3 stands for neutral, with a value of _0.5_
+- 4 stands for somewhat agree, with a value of _0.75_
+- 5 stands for very much agree, with value of _1_
+- 6 stands for no response
