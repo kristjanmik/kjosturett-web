@@ -23,7 +23,7 @@
     "history": "^4.10.1",
     "isomorphic-style-loader": "^3.0.0",
     "kennitala": "^1.2.4",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.19",
     "marked": "^0.3.19",
     "metaphor": "^3.8.3",
     "node-fetch": "^1.7.1",
