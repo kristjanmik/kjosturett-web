@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "engines": {
-    "node": ">=6.5",
-    "npm": ">=3.10"
+    "node": "12.18.4"
   },
   "browserslist": [
     ">1%",
@@ -18,6 +17,7 @@
     "body-parser": "^1.19.0",
     "classnames": "^2.2.6",
     "core-js": "^2.6.11",
+    "cheerio": "^1.0.0-rc.3",
     "debug": "^3.2.6",
     "express": "^4.17.1",
     "history": "^4.10.1",
@@ -71,7 +71,6 @@
     "babel-template": "^6.25.0",
     "babel-types": "^6.25.0",
     "browser-sync": "^2.26.12",
-    "cheerio": "^1.0.0-rc.3",
     "chokidar": "^1.7.0",
     "cross-env": "^5.2.1",
     "css-loader": "^0.28.11",
@@ -187,8 +186,8 @@
     "coverage": "yarn run test-cover && opn coverage/lcov-report/index.html",
     "clean": "babel-node tools/run clean",
     "copy": "babel-node tools/run copy",
-    "bundle": "babel-node tools/run bundle",
-    "build": "babel-node tools/run build",
+    "bundle": "yarn run babel-node tools/run bundle",
+    "build":"yarn run build-data && yarn run babel-node tools/run build",
     "build-data": "cd data && ./build.sh",
     "build-stats": "yarn run build -- --release --analyse",
     "deploy": "babel-node tools/run deploy",
