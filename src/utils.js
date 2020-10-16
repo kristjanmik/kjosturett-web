@@ -7,7 +7,7 @@ exports.getAssetUrl = (...assets) => {
 };
 
 exports.candidateImage = slug => {
-  return `https://kjosturett-is.imgix.net/${slug}.jpg?fit=facearea&facepad=2.0&w=500&h=500`;
+  return `https://kjosturett.imgix.net/${slug}.jpg?fit=facearea&facepad=2.0&w=500&h=500`;
 };
 
 exports.pleasantUrl = url => {
