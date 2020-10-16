@@ -9,7 +9,11 @@ const Countdown = () => (
     renderer={({ days, completed }) => {
       if (completed) {
         // Render a completed state
-        return <div>Kosningar eru hafnar!</div>;
+        return (
+          <div style={{ marginRight: -53 }}>
+            Niðurstöður alþingiskosninga 2017
+          </div>
+        );
       }
       let out = '';
       if (days > 0) {
