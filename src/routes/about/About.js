@@ -31,12 +31,6 @@ class About extends PureComponent {
           <div className={s.person}>
             <img className={s.img} src={'/kristjan.jpg'} alt="Kristján" />
             <p className={s.name}>Kristján Ingi Mikaelsson</p>
-            <p className={s.title}>
-              Framkvæmdastjóri{' '}
-              <a href="https://ibf.is" target="_blank">
-                Rafmyntaráðs
-              </a>
-            </p>
           </div>
           <div className={s.person}>
             <img className={s.img} src={'/ragnar.jpg'} alt="Ragnar" />
