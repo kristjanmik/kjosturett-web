@@ -1,1 +1,0 @@
-Að mati Bjartrar framtíðar er mikilvægt að sú vinna sem er í gangi á vegum sjávarútvegsráðherra um að kanna kosti þess að í auknum mæli verði byggt á langtímasamningum við úthlutun aflaheimilda og að tryggja betur að gjald fyrir aðgang að sameiginlegri auðlind verði í eðlilegu hlutfalli við afrakstur veiðanna ljúki sem fyrst og hafist verði handa við tillögugerð og útfærslur.

@@ -1,1 +1,0 @@
-Sjálfstæðisstefnan grundvallast á frelsi og ábyrgð, jafnrétti og samkennd. Hún er víðsýn og frjálslynd framfarastefna. Sjálfstæðismenn hafa einstaklingsfrelsi, atvinnufrelsi og séreignarrétt í hávegum, með hagsmuni allra fyrir augum. Sjálfstæðisflokkurinn vill tryggja jöfn tækifæri allra. Við teljum það grundvallaratriði að tryggja jafna stöðu og jöfn tækifæri kvenna og karla.

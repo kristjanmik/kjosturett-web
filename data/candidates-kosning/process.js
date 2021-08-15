@@ -2,17 +2,15 @@ const data = require('./candidates.json');
 const fs = require('fs');
 
 const partyMap = {
-  A: 'bjort-framtid',
   B: 'framsoknarflokkurinn',
   C: 'vidreisn',
   D: 'sjalfstaedisflokkurinn',
   F: 'flokkur-folksins',
   M: 'midflokkurinn',
   P: 'piratar',
-  R: 'althydufylkingin',
   S: 'samfylkingin',
-  T: 'dogun',
-  V: 'vinstri-graen'
+  V: 'vinstri-graen',
+  J: 'sosialistaflokkurinn'
 };
 
 (() => {

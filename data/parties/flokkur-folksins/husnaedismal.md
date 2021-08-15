@@ -1,1 +1,0 @@
-Komið verði á fót félagslegu kaupleigukerfi sem tryggi að ungu fólki sé gert kleift að eignast eigið heimili. Um 30 þúsund Íslendingar hafa yfirgefið landið í leit að betri lífsgæðum. Við viljum fólkið okkar aftur heim með því að greiða götu þess m.a með hagræðingu og lækkun húsnæðis- og leigukostnaðar.

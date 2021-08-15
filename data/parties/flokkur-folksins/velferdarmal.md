@@ -1,2 +1,0 @@
-Flokkurinn vill tafarlausa löggildingu sáttmála Sameinuðu þjóðanna um réttindi fatlaðs fólks. Hann vill endurreisa stoðkerfi landsins sem m.a. verði kostað með staðgreiðslu af inngreiðslum í lífeyrissjóði.
-Einnig með komugjöldum og afnámi undanþága af virðisaukaskatti. Fullt verð fáist fyrir aðgang að öllum auðlindum og sparnaður náist með hagræðingu. Grunnheilbrigðisþjónusta verði gjaldfrjáls fyrir alla. Framlög til heilbrigðisþjónustu í hlutfalli við landsframleiðslu verði aukin. Nýr Landspítali rísi á nýjum stað.

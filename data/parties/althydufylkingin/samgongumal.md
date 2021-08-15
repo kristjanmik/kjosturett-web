@@ -1,5 +1,0 @@
-Tryggja þarf almenningi aðgang að góðu, tíðum og ódýrum almenningssamgöngum í lofti, á láði eða legi. Mikilvægt er að þær séu félagslega reknar. Þetta er ekki bara velferðarmál, heldur líka umhverfismál því góðar almenningssamgöngur ættu að minnka notkun einkabílsins. Auk þess þarf að félagsvæða alla orkusölu og aðra innviði samgöngukerfisins. Hindra þarf einkavæðingu og gjaldtöku á vegum.
-
-Samgöngur þarf að rafvæða eins og kostur er með nauðsynlegu þjónustuneti við rafbíla. Ríkið á að gefa rafmagn á rafbíla til að hvetja fólk til að eignast þá, enda er rafmagnið innanlands en einnota orkugjafar innfluttir og borgaðir með erlendum gjaldeyri. Byggja þarf rafknúið lestakerfi á höfuðborgarsvæðinu, sem gæti teygt sig til nágrannasvæða. Öflugar og rafknúnar almenningssamgöngur munu bæta ásýnd þéttbýlisins og loftgæði og spara á mörgum sviðum.
-
-Aðgengi að upplýsingum, got símasamband og aðstaða til fjarskipta eru einnig samgöngumál. Tryggja verður öllum góðan, öruggan og ódýran aðgang að fjarskiptum óháð búsetu en til þess verður að félagsvæða símkerfið.
