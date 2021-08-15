@@ -150,7 +150,6 @@ class Kosningaprof extends PureComponent {
                 onChange={this.onChange(id)}
                 dotStyle={{
                   borderColor: '#e9e9e9',
-                  marginLeft: -9,
                   marginBottom: -5,
                   width: 18,
                   height: 18
@@ -158,7 +157,7 @@ class Kosningaprof extends PureComponent {
                 handleStyle={{
                   backgroundColor: '#333',
                   borderColor: '#999',
-                  marginLeft: -9,
+                  marginLeft: 4,
                   marginTop: -7,
                   width: 18,
                   height: 18
