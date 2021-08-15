@@ -8,9 +8,12 @@ import s from './Frontpage.scss';
 
 class FrontPage extends PureComponent {
   render() {
+    var showElectionDayMessage =
+      Date.now() > 1632528000000 && Date.now() < 1632614400000;
+
     return (
       <div>
-        {Date.now() < 1509235200000 && (
+        {showElectionDayMessage && (
           <div className={s.voteCTA}>
             <p>Kæri kjósandi, til hamingju með daginn!</p>
             <div className={s.ctaButtons}>
@@ -28,6 +31,18 @@ class FrontPage extends PureComponent {
             </div>
           </div>
         )}
+        <div className={s.voteCTA}>
+          <p>Vefurinn er í vinnslu fyrir komandi kosningar</p>
+          <div className={s.ctaButtons}>
+            <Link
+              href="https://2017.kjosturett.is"
+              target="_blank"
+              className={s.button}
+            >
+              Skoða kosningavef 2017
+            </Link>
+          </div>
+        </div>
         <section className={s.parties}>
           {parties.map(party => (
             <Link
