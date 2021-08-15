@@ -57,30 +57,30 @@ class Header extends PureComponent {
       >
         Málefni
       </Link>,
-      <Link
-        afterClick={() => this.toggle(false)}
-        href="/kjorskra"
-        key="/kjorskra"
-        className={cx(page === 'kjorskra' ? s.active : null)}
-      >
-        Kjörstaðir
-      </Link>,
-      <Link
-        afterClick={() => this.toggle(false)}
-        href="/kosningaprof"
-        key="/kosningaprof"
-        className={cx(page === 'kosningaprof' ? s.active : null)}
-      >
-        Kosningapróf
-      </Link>,
-      <Link
-        afterClick={() => this.toggle(false)}
-        href="/flokkar/bera-saman"
-        key="/flokkar/bera-saman"
-        className={cx(page === 'bera-saman' ? s.active : null)}
-      >
-        Samanburður
-      </Link>,
+      // <Link
+      //   afterClick={() => this.toggle(false)}
+      //   href="/kjorskra"
+      //   key="/kjorskra"
+      //   className={cx(page === 'kjorskra' ? s.active : null)}
+      // >
+      //   Kjörstaðir
+      // </Link>,
+      // <Link
+      //   afterClick={() => this.toggle(false)}
+      //   href="/kosningaprof"
+      //   key="/kosningaprof"
+      //   className={cx(page === 'kosningaprof' ? s.active : null)}
+      // >
+      //   Kosningapróf
+      // </Link>,
+      // <Link
+      //   afterClick={() => this.toggle(false)}
+      //   href="/flokkar/bera-saman"
+      //   key="/flokkar/bera-saman"
+      //   className={cx(page === 'bera-saman' ? s.active : null)}
+      // >
+      //   Samanburður
+      // </Link>,
       <Link
         afterClick={() => this.toggle(false)}
         className={cx(page === 'verkefnid' ? s.active : null)}
@@ -88,6 +88,14 @@ class Header extends PureComponent {
         href={'/verkefnid'}
       >
         Um verkefnið
+      </Link>,
+      <Link
+        afterClick={() => this.toggle(false)}
+        href="https://2017.kjosturett.is"
+        target="_blank"
+        key="2017"
+      >
+        Kosningarnar 2017
       </Link>
     ];
   }
