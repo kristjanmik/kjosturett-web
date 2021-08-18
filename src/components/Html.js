@@ -85,7 +85,10 @@ class Html extends React.Component {
 
           {ogImage && <meta property="og:image" content={ogImage} />}
           {!ogImage && (
-            <meta property="og:image" content="https://kjosturett.is/og.png" />
+            <meta
+              property="og:image"
+              content="https://kjosturett.is/og_2021.png"
+            />
           )}
 
           <meta name="twitter:card" content="summary_large_image" />
