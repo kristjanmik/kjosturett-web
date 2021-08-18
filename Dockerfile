@@ -5,6 +5,7 @@ WORKDIR /usr/src/app
 
 COPY ./build/package.json .
 COPY ./build/yarn.lock .
+ENV NODE_ENV=production
 
 # Install Node.js dependencies
 RUN yarn install --production --no-progress
