@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "engines": {
-    "node": "12.18.4"
+    "node": "14"
   },
   "browserslist": [
     ">1%",
@@ -187,7 +187,7 @@
     "clean": "babel-node tools/run clean",
     "copy": "babel-node tools/run copy",
     "bundle": "yarn run babel-node tools/run bundle",
-    "build":"yarn run build-data && yarn run babel-node tools/run build",
+    "build":"yarn run build-data && yarn run babel-node tools/run build --release",
     "build-data": "cd data && ./build.sh",
     "build-stats": "yarn run build -- --release --analyse",
     "deploy": "babel-node tools/run deploy",
