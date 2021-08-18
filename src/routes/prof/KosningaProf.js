@@ -136,7 +136,7 @@ class Kosningaprof extends PureComponent {
 
         {!finished && (
           <div className={s.intro}>
-            <h1>Kosningapróf kjósturétt.is 2017</h1>
+            <h1>Kosningapróf kjósturétt.is 2021</h1>
             <p>
               Svörin við prófinu birtast í niðurstöðusíðu kosningaprófsins. Það
               getur tekið allt að 3 tíma fyrir svörin að uppfærast. Nýjasta

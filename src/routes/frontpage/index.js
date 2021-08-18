@@ -4,8 +4,8 @@ import Layout from '../../components/Layout';
 
 export default ({ url }) => ({
   chunks: ['frontpage'],
-  title: 'Kjóstu rétt - Alþingiskosningar 2017',
-  description: 'Allir stjórnmálaflokkarnir í Alþingiskosningunum 2017',
+  title: 'Kjóstu rétt - Alþingiskosningar 2021',
+  description: 'Allir stjórnmálaflokkarnir í Alþingiskosningunum 2021',
   path: url,
   component: (
     <Layout page="flokkar">

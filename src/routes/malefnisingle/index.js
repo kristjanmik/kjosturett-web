@@ -21,7 +21,7 @@ export default ({ params, url }) => {
     chunks: ['malefnisingle'],
     title: `${category.name} - Kjóstu Rétt`,
     path: url,
-    description: `Svör stjórnmálaflokkanna í ${category.name.toLowerCase()}um fyrir Alþingiskosningarnar 2017`,
+    description: `Svör stjórnmálaflokkanna í ${category.name.toLowerCase()}um fyrir Alþingiskosningarnar 2021`,
     component: (
       <Layout page="malefni" title={category.name}>
         <MalefniSingle

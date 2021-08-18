@@ -9,7 +9,7 @@ const Countdown = () => (
     renderer={({ days, completed }) => {
       if (completed) {
         // Render a completed state
-        return <div>Niðurstöður alþingiskosninga 2017</div>;
+        return <div>Alþingiskosningarnar 2021</div>;
       }
       let out = '';
       if (days > 0) {

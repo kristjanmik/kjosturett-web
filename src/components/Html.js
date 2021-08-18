@@ -28,7 +28,7 @@ class Html extends React.Component {
 
   render() {
     const {
-      title = 'Kjóstu Rétt 2017',
+      title = 'Kjóstu Rétt 2021',
       description = 'Upplýsingar um stjórnmálaflokka og kosningarmálefni þeirra gerð aðgengileg almenningi.',
       path = '/',
       styles,
@@ -54,10 +54,10 @@ class Html extends React.Component {
           <meta name="description" content={description} />
           <meta
             name="keywords"
-            content="kosningar,alþingi 2017,alþingiskosningar,frambjóðendur,málefni,björt framtíð,framsóknarflokkurinn,píratar,samfylkingin,sjálfstæðisflokkurinn,viðreisn,vinstri græn,flokkur fólksins,alþýðufylkingin"
+            content="kosningar,alþingi 2021,alþingiskosningar,frambjóðendur,málefni,björt framtíð,framsóknarflokkurinn,píratar,samfylkingin,sjálfstæðisflokkurinn,viðreisn,vinstri græn,flokkur fólksins,alþýðufylkingin"
           />
           <meta property="og:title" content={title} />
-          <meta property="og:site_name" content="Kjóstu rétt 2017" />
+          <meta property="og:site_name" content="Kjóstu rétt 2021" />
           <meta property="og:url" content={`https://kjosturett.is${path}`} />
           <meta property="og:description" content={description} />
           <meta property="og:type" content="website" />
@@ -89,7 +89,7 @@ class Html extends React.Component {
           )}
 
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Kjóstu Rétt 2017" />
+          <meta name="twitter:title" content="Kjóstu Rétt 2021" />
           <meta name="twitter:description" content={description} />
 
           <link
@@ -113,14 +113,15 @@ class Html extends React.Component {
           <script
             dangerouslySetInnerHTML={{ __html: `window.App=${serialize(app)}` }}
           />
-          {scripts.map(script => <script key={script} src={script} />)}
+          {scripts.map(script => (
+            <script key={script} src={script} />
+          ))}
           {config.analytics.googleTrackingId && (
             <script
               dangerouslySetInnerHTML={{
                 __html:
                   'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' +
-                  `ga('create','${config.analytics
-                    .googleTrackingId}','auto');ga('send','pageview')`
+                  `ga('create','${config.analytics.googleTrackingId}','auto');ga('send','pageview')`
               }}
             />
           )}
