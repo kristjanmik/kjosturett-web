@@ -8,7 +8,7 @@ export default ({ url }) => ({
   description: 'Skoðaðu fyrri kosningar, málefni og stjórnmálaflokka.',
   path: url,
   component: (
-    <Layout title="Fyrri kosningar">
+    <Layout page="fyrri-kosningar" title="Fyrri kosningar">
       <FyrriKosningar />
     </Layout>
   ),

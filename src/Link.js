@@ -27,6 +27,9 @@ function isProtocol(href) {
 const Link = ({ href, afterClick, ...rest }) => (
   <a
     href={href}
+    {...(rest.target === '_blank' && {
+      rel: 'noreferrer noopener',
+    })}
     {...rest}
     onClick={event => {
       if (history == null) {

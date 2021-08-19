@@ -28,7 +28,7 @@ class Header extends PureComponent {
 
     this.lastScrollPos = scroll;
     this.setState({
-      isTop: scroll < 50
+      isTop: scroll < 120
     });
   };
   toggle(state) {
@@ -91,11 +91,12 @@ class Header extends PureComponent {
       </Link>,
       <Link
         afterClick={() => this.toggle(false)}
+        className={cx(page === 'fyrri-kosningar' ? s.active : null)}
         href="/fyrri-kosningar"
-        key="previous"
+        key="fyrri-kosningar"
       >
         Fyrri kosningar
-      </Link>
+      </Link>,
     ];
   }
   render() {
@@ -103,7 +104,7 @@ class Header extends PureComponent {
     return (
       <div>
         <div className={s.fake} />
-        <header className={cx(s.root, !isTop && s.sticky)}>
+        <header className={cx(s.root, isOpen && s.isOpen, !isTop && s.sticky)}>
           <Container>
             <div className={s.wrap}>
               <div className={s.leftWrap}>

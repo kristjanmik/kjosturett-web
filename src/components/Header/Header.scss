@@ -2,13 +2,19 @@
 @import '../../components/variables.scss';
 
 .root {
-  background: rgba(255, 255, 255, 0.95);
+  background: #fff;
+  backdrop-filter: blur(5px);
   left: 0;
   position: fixed;
   top: 0;
-  transition: box-shadow 250ms, transform 250ms;
+  transition: background-color 300ms, box-shadow 250ms, transform 250ms;
   width: 100%;
   z-index: 10;
+
+  &.isOpen {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: none;
+  }
 }
 
 .hamburgerBtn,
@@ -27,6 +33,7 @@
 }
 
 .sticky {
+  background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
   transform: translateY(-30px);
 
@@ -70,7 +77,8 @@
 
 .mobileNav {
   align-items: center;
-  background: linear-gradient(180deg, rgba(#fff, 0.95), rgba(#fff, 1) 60%);
+  background: rgba(#fff, 0.9);
+  backdrop-filter: blur(5px);
   display: flex;
   bottom: -30px;
   flex-direction: column;
