@@ -1,4 +1,4 @@
-# Kjósturétt.is / Vote Right - A one-stop for Parliament elections in Iceland
+# Kjósturétt.is / Vote Correctly - A one-stop for Parliament elections in Iceland
 
 _Citizens have the right to non-biased information to cast an informed vote. We, the people of Iceland, built this project to solve this problem for local elections._
 
