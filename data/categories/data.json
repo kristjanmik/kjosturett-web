@@ -28,6 +28,10 @@
     "url": "menntamal"
   },
   {
+    "name": "Loftslagsmál",
+    "url": "loftslagsmal"
+  },
+  {
     "name": "Samgöngumál",
     "url": "samgongumal"
   },
@@ -40,12 +44,20 @@
     "url": "skattamal"
   },
   {
+    "name": "Sóttvarnarmál",
+    "url": "sottvarnarmal"
+  },
+  {
     "name": "Stjórnarskrármál",
     "url": "stjornarskrarmal"
   },
   {
     "name": "Umhverfismál",
     "url": "umhverfismal"
+  },
+  {
+    "name": "Útlendingamál",
+    "url": "utlendingamal"
   },
   {
     "name": "Velferðarmál",
