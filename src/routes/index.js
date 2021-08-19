@@ -44,7 +44,7 @@ const routes = {
     },
     {
       path: '/fyrri-kosningar',
-      load: () => import(/* webpackChunkName: 'malefni' */ './fyrri-kosningar')
+      load: () => import(/* webpackChunkName: 'fyrri-kosningar' */ './fyrri-kosningar')
     },
     {
       path: '/malefni',
