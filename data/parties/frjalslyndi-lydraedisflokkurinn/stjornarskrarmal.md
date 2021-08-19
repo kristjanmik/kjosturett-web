@@ -1,0 +1,1 @@
+Flokkurinn aðhyllist að tillögur stjórnlagaráðs verði notaðar til grundvallar frumvarpi að nýrri stjórnarskrá. Flokkurinn vill notast við þjóðfundafyrirkomulag á þessari vegferð þar sem þátttakendur eru valdir með slembiúrtaki. Flokkurinn vill tryggja fullveldi landsins í stjórnarskrá lýðveldisins. Þjóðin verði stjórnarskrárgjafinn.
