@@ -1,0 +1,40 @@
+@import '../../components/functions.scss';
+
+.root {
+  color: #585858;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  max-width: 768px;
+
+  @include between-property('padding-bottom', 44px, 0, 1200px, 0);
+  @include between-property('padding-top', 32px, 0, 1200px, 500px);
+  @include between-property('font-size', 17px, 13px, 1200px, 500px);
+
+  * + * {
+    margin-top: 1em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.list {
+  list-style-type: none;
+}
+
+.election {
+  font-family: $font-serif;
+
+  @include between-property('font-size', 28px, 16px, 1200px, 500px);
+  @include between-property('padding-bottom', 28px, 16px, 1200px, 500px);
+
+}
+
+.election:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}

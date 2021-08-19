@@ -35,11 +35,10 @@ class FrontPage extends PureComponent {
           <p>Vefurinn er í vinnslu fyrir komandi kosningar</p>
           <div className={s.ctaButtons}>
             <Link
-              href="https://2017.kjosturett.is"
-              target="_blank"
+              href="/fyrri-kosningar"
               className={s.button}
             >
-              Skoða kosningavef 2017
+              Skoða gögn fyrri ára
             </Link>
           </div>
         </div>
@@ -54,6 +53,7 @@ class FrontPage extends PureComponent {
                 <img
                   src={getAssetUrl('party-icons', party.url)}
                   className={s.image}
+                  alt={`${party.name}'s logo`}
                 />
               </span>
               <span className={s.info}>

@@ -91,11 +91,10 @@ class Header extends PureComponent {
       </Link>,
       <Link
         afterClick={() => this.toggle(false)}
-        href="https://2017.kjosturett.is"
-        target="_blank"
-        key="2017"
+        href="/fyrri-kosningar"
+        key="previous"
       >
-        Kosningarnar 2017
+        Fyrri kosningar
       </Link>
     ];
   }
