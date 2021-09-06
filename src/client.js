@@ -22,7 +22,7 @@ import router from './router';
 
 /* eslint-disable global-require */
 const customFetch = createFetch(self.fetch, {
-  baseUrl: window.App.apiUrl,
+  baseUrl: window.App.apiUrl
 });
 // Global (context) variables that can be easily accessed from any React component
 // https://facebook.github.io/react/docs/context.html
@@ -41,7 +41,7 @@ const context = {
   // Initialize a new Redux store
   // http://redux.js.org/docs/basics/UsageWithReact.html
   store: configureStore(window.App.state, { history, fetch: customFetch }),
-  storeSubscription: null,
+  storeSubscription: null
 };
 
 // Switch off the native scroll restoration behavior and handle it manually
@@ -88,7 +88,7 @@ let onRenderComplete = function initialRenderComplete() {
 
     // Google Analytics tracking. Don't send 'pageview' event after
     // the initial rendering, as it was already sent
-    if (window.ga) {
+    if (window.ga && createPath) {
       window.ga('send', 'pageview', createPath(location));
     }
   };
@@ -103,7 +103,7 @@ async function onLocationChange(location, action) {
   // Remember the latest scroll position for the previous location
   scrollPositionsHistory[currentLocation.key] = {
     scrollX: window.pageXOffset,
-    scrollY: window.pageYOffset,
+    scrollY: window.pageYOffset
   };
   // Delete stored scroll position for next page if any
   if (action === 'PUSH') {
@@ -118,7 +118,7 @@ async function onLocationChange(location, action) {
     const route = await router.resolve({
       ...context,
       path: location.pathname,
-      query: queryString.parse(location.search),
+      query: queryString.parse(location.search)
     });
 
     // Prevent multiple page renders during the routing process
@@ -134,7 +134,7 @@ async function onLocationChange(location, action) {
     appInstance = ReactDOM.render(
       <App context={context}>{route.component}</App>,
       container,
-      () => onRenderComplete(route, location),
+      () => onRenderComplete(route, location)
     );
   } catch (error) {
     if (__DEV__) {
