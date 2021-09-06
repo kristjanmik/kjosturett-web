@@ -36,9 +36,9 @@ class OpeningHours extends PureComponent {
 
     if (pollingStation) {
       start = new Date(
-        Date.UTC(2017, 9, 28, pollingStation.open.split(':')[0])
+        Date.UTC(2021, 9, 25, pollingStation.open.split(':')[0])
       );
-      end = new Date(Date.UTC(2017, 9, 28, pollingStation.close.split(':')[0]));
+      end = new Date(Date.UTC(2021, 9, 25, pollingStation.close.split(':')[0]));
       showCountdown =
         now.getTime() > start.getTime() && now.getTime() < end.getTime();
     }
@@ -51,7 +51,8 @@ class OpeningHours extends PureComponent {
               <b>
                 {' '}
                 {pollingStation.open} - {pollingStation.close}
-              </b>
+              </b>{' '}
+              á kjördag.
             </div>
             <div>
               {showCountdown && (
@@ -63,6 +64,7 @@ class OpeningHours extends PureComponent {
                       return <div>Kosningum er lokið</div>;
                     }
                     let out = '';
+
                     if (hours > 0) {
                       out = `Þú hefur enn ${hours} klukkustundir og ${minutes} mínútur til stefnu!`;
                     }

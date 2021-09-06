@@ -55,10 +55,10 @@ export default ({ params, url }) => {
       <Layout page="kjorskra" title="Hvar á ég að kjósa?">
         <Kjorskra
           nidurstada={nidurstadaObj}
-          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDJ6iS5zhPH3xJQM6WPlx5YvgHSvgA3Ceo&libraries=geometry,drawing,places"
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAWfToca-SwGGN9_2MnUHL1V5xSESYoAAk&libraries=geometry,drawing,places"
           loadingElement={<div style={{ height: `100%` }} />}
         />
       </Layout>
-    ),
+    )
   };
 };

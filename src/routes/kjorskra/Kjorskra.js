@@ -42,19 +42,19 @@ const getItineryInfo = ({ duration, distance, type, from, to }) => {
     walking: {
       text: 'að labba',
       icon: walkingIcon,
-      link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=walking`,
+      link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=WALKING`,
       linkText: 'Google Maps'
     },
     driving: {
       text: 'að keyra',
       icon: drivingIcon,
-      link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=driving`,
+      link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=DRIVING`,
       linkText: 'Google Maps'
     },
     bicycling: {
       text: 'að hjóla',
       icon: bicyclingIcon,
-      link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=bicycling`,
+      link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=BICYCLING`,
       linkText: 'Google Maps'
     },
     bussing: {
@@ -76,7 +76,8 @@ class Itinery extends PureComponent {
       <li className={cx(!duration ? s.faded : null)}>
         <div className={s.icon} style={{ backgroundImage: `url(${icon})` }} />
         <div>
-          <b>{duration ? Math.round(duration / 60) : '...'} mínútur</b>&nbsp;{text}.
+          <b>{duration ? Math.round(duration / 60) : '...'} mínútur</b>&nbsp;
+          {text}.
           <div>
             Sjá nánar á &nbsp;
             <a href={link} target="_blank">
@@ -154,40 +155,79 @@ class Kjorskra extends PureComponent {
   async getDistance({ from, to, costing }) {
     const json = {
       locations: [
-        { lat: from.lat(), lon: from.lng() },
-        { lat: to.lat(), lon: to.lng() }
-      ],
-      directions_options: { narrative: false },
-      costing
+        {
+          lat: from.lat(),
+          lon: from.lng()
+        },
+        {
+          lat: to.lat(),
+          lon: to.lng()
+        }
+      ]
     };
 
-    const url = [
-      'https://valhalla.mapzen.com/route?api_key=mapzen-pRTGdQw&json=',
-      JSON.stringify(json)
-    ].join('');
+    console.log('json', json);
 
-    let response;
+    const directionsService = new window.google.maps.DirectionsService();
 
-    try {
-      response = await this.context.fetch(url);
-      const data = await response.json();
-      const result = data.trip.summary;
+    console.log('sending', {
+      origin: from,
+      destination: to,
+      travelMode: costing.toUpperCase()
+    });
 
-      return {
-        distance: result.length * 1000,
-        duration: result.time
-      };
-    } catch (error) {
-      console.error(
-        'Error fetching distance',
-        response && response.status,
-        error
-      );
+    const response = await directionsService.route({
+      origin: from,
+      destination: to,
+      travelMode: costing.toUpperCase()
+    });
+
+    if (
+      !response ||
+      !response.routes ||
+      !response.routes[0] ||
+      !response.routes[0].legs[0]
+    ) {
       return {
         distance: null,
         duration: null
       };
     }
+
+    console.log('response', response.routes[0].legs[0]);
+
+    return {
+      distance: response.routes[0].legs[0].distance.value,
+      duration: response.routes[0].legs[0].duration.value
+    };
+
+    // const url = [
+    //   'https://valhalla.mapzen.com/route?api_key=mapzen-pRTGdQw&json=',
+    //   JSON.stringify(json)
+    // ].join('');
+
+    // let response;
+
+    // try {
+    //   response = await this.context.fetch(url);
+    //   const data = await response.json();
+    //   const result = data.trip.summary;
+
+    //   return {
+    //     distance: result.length * 1000,
+    //     duration: result.time
+    //   };
+    // } catch (error) {
+    //   console.error(
+    //     'Error fetching distance',
+    //     response && response.status,
+    //     error
+    //   );
+    //   return {
+    //     distance: null,
+    //     duration: null
+    //   };
+    // }
   }
   async getBusDistance({ from, to }) {
     console.log('getBusDistance', from, to);
@@ -210,12 +250,15 @@ class Kjorskra extends PureComponent {
       '&mode=TRANSIT,WALK&arriveBy=false&wheelchair=false&showIntermediateStops=false&numItineraries=1&locale=is'
     ].join('');
 
+    console.log('bus url', url);
+
     const response = await this.context.fetch(url, {
       headers: {
         Accept: 'application/json'
       }
     });
     const data = await response.json();
+    console.log('bus data', data);
 
     if (response.status !== 200 || !data.plan) {
       //@TODO handle bus error
@@ -254,35 +297,27 @@ class Kjorskra extends PureComponent {
     return this.locationFromAddress(place.name);
   }
   async locationFromAddress(address) {
-    const url = [
-      'https://search.mapzen.com/v1/search',
-      '?api_key=mapzen-pRTGdQw',
-      '&size=1',
-      '&layers=venue,address',
-      '&boundary.country=is',
-      '&text=',
-      address
-    ].join('');
+    const geocoder = new window.google.maps.Geocoder();
 
-    const response = await this.context.fetch(url);
+    const { results } = await geocoder.geocode({ address: address });
 
-    try {
-      const data = await response.json();
-
-      const { coordinates } = data.features[0].geometry;
-
+    if (!results || results.length === 0) {
       return {
         center: {
-          lat: coordinates[1],
-          lng: coordinates[0]
+          lat: 64,
+          lng: -21
         }
       };
-    } catch (e) {
-      console.error('Error geocoding address', response.status);
-      return {
-        invalidLocation: true
-      };
     }
+
+    const coords = results[0].geometry.location;
+
+    return {
+      center: {
+        lat: coords.lat(),
+        lng: coords.lng()
+      }
+    };
   }
   onAutocompleteMounted = ref => {
     this.autocomplete = ref;
@@ -296,7 +331,6 @@ class Kjorskra extends PureComponent {
     if (event && event.preventDefault) {
       event.preventDefault();
     }
-    console.log('doing submit');
     const { kennitala } = this.state;
 
     if (!this.isKennitalaValid(kennitala)) {
@@ -367,9 +401,9 @@ class Kjorskra extends PureComponent {
     const { nafn, kjorstadur, kjordeild, kjordaemi } = data;
 
     const hash = btoa(
-      `${nafn.split(
-        ' '
-      )[0]}|${kjorstadur}|${kjordeild}|${kjordaemi}|${options.center.lat.toFixed(
+      `${
+        nafn.split(' ')[0]
+      }|${kjorstadur}|${kjordeild}|${kjordaemi}|${options.center.lat.toFixed(
         4
       )},${options.center.lng.toFixed(4)}`
     );
@@ -420,17 +454,17 @@ class Kjorskra extends PureComponent {
     //Look up all the itineries and emit them asynchronous
     this.getDistance({
       ...position,
-      costing: 'pedestrian'
+      costing: 'walking'
     }).then(data => this.setState({ walking: data }));
 
     this.getDistance({
       ...position,
-      costing: 'bicycle'
+      costing: 'bicycling'
     }).then(data => this.setState({ bicycling: data }));
 
     this.getDistance({
       ...position,
-      costing: 'auto'
+      costing: 'driving'
     }).then(data => this.setState({ driving: data }));
 
     this.getBusDistance({
@@ -438,17 +472,14 @@ class Kjorskra extends PureComponent {
     }).then(data => this.setState({ bussing: data }));
   }
   getItineriesByDistance({ from, to, types }) {
-    let itineries = [
-      'walking',
-      'bicycling',
-      'driving',
-      'bussing'
-    ].map(type => ({
-      type,
-      data: types[type],
-      from,
-      to
-    }));
+    let itineries = ['walking', 'bicycling', 'driving', 'bussing'].map(
+      type => ({
+        type,
+        data: types[type],
+        from,
+        to
+      })
+    );
 
     itineries.sort((a, b) => {
       if (a.data.duration > b.data.duration) return 1;
@@ -526,8 +557,8 @@ class Kjorskra extends PureComponent {
                 {data.kjorstadur}, {data.sveitafelag}
               </p>
               <p className={s.votingInfo}>
-                Þú ert í <b>kjördeild</b> <i>{data.kjordeild}</i> og þú greiðir
-                atkvæði í <b>kjördæminu</b> <i>{data.kjordaemi}</i>.
+                Þú ert í <b>kjördeild {data.kjordeild}</b> og þú greiðir atkvæði
+                í <i>kjördæminu</i> <b>{data.kjordaemi}</b>.
               </p>
               <OpeningHours sveitafelag={data.sveitafelag} />
               {!currentAddress && (
@@ -601,7 +632,16 @@ class Kjorskra extends PureComponent {
                 {fetchError}
               </div>
             )}
-            {/* <p>Uppflettingar eru gerðar í Kjörskrá. Gögn eru ekki geymd.</p> */}
+            <p>
+              Uppflettingar eru gerðar í{' '}
+              <a
+                href="https://www.skra.is/folk/kjorskra-og-kosningar/hvar-a-eg-ad-kjosa/"
+                target="_blank"
+              >
+                Kjörskrá
+              </a>
+              . Gögn eru ekki geymd.
+            </p>
           </div>
         }
       </div>
