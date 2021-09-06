@@ -58,7 +58,6 @@ class Collapsable extends React.Component {
   }
   toggle = (key: string) => event => {
     const target = event.currentTarget;
-    event.preventDefault();
 
     this.setState(state => {
       const open = { ...state.open };
@@ -67,7 +66,6 @@ class Collapsable extends React.Component {
       // Scroll to collapseable only when opening.
       if (nextState && target.offsetParent) {
         this.scrollTo(target);
-        history.push(target.hash);
       }
 
       return { open };
