@@ -299,9 +299,9 @@ class Kjorskra extends PureComponent {
   async locationFromAddress(address) {
     const geocoder = new window.google.maps.Geocoder();
 
-    const { results } = await geocoder.geocode({ address: address });
+    const response = await geocoder.geocode({ address: address });
 
-    if (!results || results.length === 0) {
+    if (!response.results || response.results.length === 0) {
       return {
         center: {
           lat: 64,
@@ -310,7 +310,7 @@ class Kjorskra extends PureComponent {
       };
     }
 
-    const coords = results[0].geometry.location;
+    const coords = response.results[0].geometry.location;
 
     return {
       center: {
