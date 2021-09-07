@@ -34,6 +34,10 @@ if (process.env.REDIS_URL) {
         }
       : {}
   );
+} else {
+  console.error(
+    'WARNING YOU ARE RUNNING THIS PROJECT WITHOUT PERMANENTLY STORING REPLY DATA'
+  );
 }
 
 const app = express();
