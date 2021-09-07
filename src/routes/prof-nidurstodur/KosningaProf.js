@@ -119,7 +119,7 @@ class Kosningaprof extends PureComponent {
       <div className={cx(s.root, s.questions)}>
         <div className={s.voteCTA}>
           <p>
-            Kosningaprófið er í vinnslu. Hér fyrir neðan má sjá kosnignaprófið
+            Kosningaprófið er í vinnslu. Hér fyrir neðan má sjá kosningaprófið
             frá árinu 2017.
           </p>
         </div>
