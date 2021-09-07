@@ -117,6 +117,12 @@ class Kosningaprof extends PureComponent {
     const { answers, showReset, visible } = this.state;
     return (
       <div className={cx(s.root, s.questions)}>
+        <div className={s.voteCTA}>
+          <p>
+            Kosningaprófið er í vinnslu. Hér fyrir neðan má sjá kosnignaprófið
+            frá árinu 2017.
+          </p>
+        </div>
         <div className={s.lead}>
           <p>
             Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá

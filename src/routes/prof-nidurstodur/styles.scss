@@ -117,6 +117,55 @@
     }
   }
 
+  .voteCTA {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #efefef;
+    margin-bottom: 1em;
+    padding: 1em;
+    font-size: 1.1rem;
+    text-align: center;
+    background: #fafafa;
+
+    .ctaButtons {
+      display: flex;
+      margin-top: 10px;
+
+      $breakPoint: 850px;
+
+      @media (max-width: $breakPoint) {
+        flex-direction: column;
+      }
+
+      .button {
+        padding: 0.45em 0.8em;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        color: #343434;
+
+        @media (max-width: $breakPoint) {
+          padding: 0.3em 0.5em;
+        }
+      }
+
+      .arrow {
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+
+        @media (max-width: $breakPoint) {
+          display: none;
+        }
+      }
+
+      .button:hover {
+        background: #eaeaea;
+      }
+    }
+  }
+
   .takeTest {
     background: #353535;
     border-radius: 4px;
