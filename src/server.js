@@ -24,8 +24,8 @@ import { setRuntimeVariable } from './actions/runtime';
 
 let redis;
 
-if (process.env.REDIS) {
-  redis = new Redis(process.env.REDIS);
+if (process.env.REDIS_URL) {
+  redis = new Redis(process.env.REDIS_URL);
 }
 
 const app = express();
