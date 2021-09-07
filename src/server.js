@@ -6,6 +6,8 @@ import nodeFetch from 'node-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
+import Redis from 'ioredis';
+import * as uuid from 'uuid';
 
 import App from './components/App';
 import Html from './components/Html';
@@ -19,6 +21,12 @@ import configureStore from './store/configureStore';
 import config from './config';
 import kjorskra from './lib/kjorskra';
 import { setRuntimeVariable } from './actions/runtime';
+
+let redis;
+
+if (process.env.REDIS) {
+  redis = new Redis(process.env.REDIS);
+}
 
 const app = express();
 
@@ -49,63 +57,33 @@ app.get('/kjorskra-lookup/:kennitala', (req, res, next) => {
   kjorskra(req.params.kennitala).then(d => res.json(d), next);
 });
 
-//This is an append only file
-// const repliesPath = path.resolve(__dirname, '../../replies.log');
-// const repliesVotersPath = path.resolve(__dirname, '../../replies-voters.log');
-
-// let currentAllReplies = [];
-
-// Write voter replies to file
-// setInterval(() => {
-//   const out = currentAllReplies.splice(0, currentAllReplies.length);
-//
-//   if (out.length > 0) {
-//     appendFile(
-//       repliesVotersPath,
-//       out.map(o => `${JSON.stringify(o)}\n`).join(''),
-//       error => {
-//         if (error) return console.error(error);
-//
-//         console.log('Wrote to replies file');
-//       }
-//     );
-//   }
-// }, 10000);
-
 // Used to gather replies from candidates and parties
-// app.post('/konnun/replies', (req, res) => {
-//   const { token, reply } = req.body;
-//
-//   const obj = {
-//     token,
-//     reply,
-//     timestamp: Math.round(Date.now() / 1000)
-//   };
-//
-//   appendFile(repliesPath, `${JSON.stringify(obj)}\n`, error => {
-//     if (error) return next(error);
-//
-//     res.json({
-//       success: true
-//     });
-//   });
-// });
+app.post('/konnun/replies', async (req, res) => {
+  if (Date.now() > 1632700800000) {
+    return res.json({
+      success: false,
+      error: 'Kosningarnar eru búnar'
+    });
+  }
 
-// Used to gather replies from voters
-// app.post('/konnun/replies/all', (req, res) => {
-//   const { reply } = req.body;
-//
-//   const obj = {
-//     reply,
-//     timestamp: Math.round(Date.now() / 1000)
-//   };
-//
-//   currentAllReplies.push(obj);
-//
-//   res.json({
-//     success: true
-//   });
-// });
+  const { token, reply } = req.body;
+
+  const timestamp = Math.round(Date.now() / 1000);
+
+  await redis.set(`poll:private:${token}:${timestamp}`, reply);
+  res.json({ success: true });
+});
+
+// Used to gather replies from voters in an anonymous way
+app.post('/konnun/replies/all', async (req, res) => {
+  const { reply } = req.body;
+
+  const token = uuid.v4();
+  const timestamp = Math.round(Date.now() / 1000);
+
+  await redis.set(`poll:public:${token}:${timestamp}`, reply);
+  res.json({ success: true });
+});
 
 //
 // Register server-side rendering middleware
