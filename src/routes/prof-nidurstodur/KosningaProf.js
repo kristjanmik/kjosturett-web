@@ -21,7 +21,7 @@ const initialAnswers = questions =>
 const marks = {
   1: 'Mjög ósammála',
   3: 'Hlutlaus',
-  5: 'Mjög sammála'
+  5: 'Mjög sammála'
 };
 
 class Kosningaprof extends PureComponent {
