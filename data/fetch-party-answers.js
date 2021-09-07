@@ -3,8 +3,10 @@ const fs = require('fs');
 const { promisify } = require('util');
 const globby = require('globby');
 const writeFile = promisify(fs.writeFile);
+const { decodeAnswersToken } = require('../src/utils');
 
 const partyMap = require('./party-answer-map.json');
+const { val } = require('cheerio/lib/api/attributes');
 
 let redis;
 
@@ -13,11 +15,16 @@ const reversePartyMap = Object.assign(
   ...Object.entries(partyMap).map(([a, b]) => ({ [b]: a }))
 );
 if (process.env.REDIS_URL) {
-  redis = new Redis(process.env.REDIS_URL, {
-    tls: {
-      rejectUnauthorized: false
-    }
-  });
+  redis = new Redis(
+    process.env.REDIS_URL,
+    process.env.REDIS_URL.includes('rediss://')
+      ? {
+          tls: {
+            rejectUnauthorized: false
+          }
+        }
+      : {}
+  );
 }
 
 function tokenToParty(token) {
@@ -40,7 +47,11 @@ function tokenToParty(token) {
     const split = key.split(':');
     const token = tokenToParty(split[2]);
     const timestamp = split[3];
-    const reply = values[index];
+    let reply = '';
+
+    if (values[index]) {
+      reply = (decodeAnswersToken(values[index]) || []).join('');
+    }
 
     if (!out[token] || out[token].timestamp < timestamp) {
       out[token] = {
@@ -52,11 +63,11 @@ function tokenToParty(token) {
 
   const paths = await globby(['./parties/**/data.json']);
 
-  console.log('out', out);
   paths.forEach(async path => {
     const data = require(path);
     if (out[data.url]) {
       data.reply = out[data.url].reply || '';
+      console.log(`-- ${data.name} has responded`);
     } else {
       data.reply = '';
     }

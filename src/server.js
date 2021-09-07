@@ -23,13 +23,17 @@ import kjorskra from './lib/kjorskra';
 import { setRuntimeVariable } from './actions/runtime';
 
 let redis;
-
 if (process.env.REDIS_URL) {
-  redis = new Redis(process.env.REDIS_URL, {
-    tls: {
-      rejectUnauthorized: false
-    }
-  });
+  redis = new Redis(
+    process.env.REDIS_URL,
+    process.env.REDIS_URL.includes('rediss://')
+      ? {
+          tls: {
+            rejectUnauthorized: false
+          }
+        }
+      : {}
+  );
 }
 
 const app = express();
