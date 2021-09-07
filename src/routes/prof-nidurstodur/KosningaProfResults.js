@@ -63,6 +63,18 @@ class KosningaprofResults extends PureComponent {
     const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
     return (
       <div className={s.root}>
+        <div className={s.voteCTA}>
+          <p>
+            Kosningaprófið er í vinnslu þar sem við bíðum svara frá flokkunum.
+          </p>
+          <Link
+            href="https://2017.kjosturett.is"
+            className={s.button}
+            target="_blank"
+          >
+            Skoða kosningaprófið 2017
+          </Link>
+        </div>
         <div className={s.lead}>
           Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Þú getur
           lesið <Link href="/malefni/atvinnumal">stefnumál flokkana</Link> í
@@ -104,108 +116,116 @@ class KosningaprofResults extends PureComponent {
           við þín svör. <strong>Smelltu á stjórnmálaflokk</strong> til þess að
           skoða samanburð einstakra spurninga.
         </p>
-        {parties.filter(party => party.score).map(party => (
-          <div key={party.letter}>
-            <div
-              className={s.party}
-              key={party.url}
-              role="button"
-              onClick={() => this.toggle(party.letter)}
-            >
+        {parties
+          .filter(party => party.score)
+          .map(party => (
+            <div key={party.letter}>
               <div
-                className={s.partyProgress}
-                style={{
-                  transform: `scaleX(${scoreToFloatingPoint(
-                    party.score,
-                    partyScoreScalar
-                  )})`
+                className={s.party}
+                key={party.url}
+                role="button"
+                onClick={() => this.toggle(party.letter)}
+              >
+                <div
+                  className={s.partyProgress}
+                  style={{
+                    transform: `scaleX(${scoreToFloatingPoint(
+                      party.score,
+                      partyScoreScalar
+                    )})`
+                  }}
+                />
+                <img
+                  src={getAssetUrl('party-icons', party.url)}
+                  className={s.partyLogo}
+                />
+                <div className={s.partyName}>{party.name}</div>
+                <div className={s.partyPercentage}>
+                  {Math.ceil(party.score)}%
+                </div>
+              </div>
+              <Collapse
+                isOpened={this.state.open[party.letter] === true}
+                springConfig={{
+                  stiffness: 100,
+                  damping: 20
                 }}
-              />
-              <img
-                src={getAssetUrl('party-icons', party.url)}
-                className={s.partyLogo}
-              />
-              <div className={s.partyName}>{party.name}</div>
-              <div className={s.partyPercentage}>{Math.ceil(party.score)}%</div>
+              >
+                {questions
+                  .map(question => ({
+                    ...question,
+                    myAnswer: question.myAnswer || 3,
+                    partyAnswer: party.reply[question.id] || 3
+                  }))
+                  .sort((a, b) => {
+                    const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
+                    const bAgree = Math.abs(b.myAnswer - b.partyAnswer);
+                    if (a.myAnswer === 3 || a.myAnswer === 6) {
+                      return 1;
+                    }
+                    if (
+                      b.myAnswer === 3 ||
+                      b.myAnswer === 6 ||
+                      isNaN(aAgree) ||
+                      isNaN(bAgree)
+                    ) {
+                      return -1;
+                    }
+                    return aAgree - bAgree;
+                  })
+                  .map(({ id, myAnswer, question, partyAnswer }) => {
+                    const iAmIndiffrent = !(myAnswer !== 3 && myAnswer !== 6);
+                    const pluralParty = party.name === 'Píratar';
+                    const partyIndiffrent = !(
+                      partyAnswer !== 3 && partyAnswer !== 6
+                    );
+                    const difference = Math.abs(myAnswer - partyAnswer);
+
+                    return (
+                      <div className={s.partyQuestion} key={id}>
+                        <h4>
+                          <i
+                            className={cx(
+                              s.dot,
+                              !iAmIndiffrent && s[`dot${difference}`]
+                            )}
+                          />
+                          {question}
+                        </h4>
+
+                        {difference === 0 ? (
+                          <div>
+                            Bæði ég og {party.name} erum{' '}
+                            <strong>
+                              {answers.textMap[myAnswer].toLowerCase()}
+                            </strong>{' '}
+                            {iAmIndiffrent && 'gagnvart '} þessari staðhæfingu.
+                          </div>
+                        ) : (
+                          <div>
+                            Ég er{' '}
+                            <strong>
+                              {(
+                                answers.textMap[myAnswer] || 'hlutlaus'
+                              ).toLowerCase()}
+                            </strong>{' '}
+                            en {party.name} {pluralParty ? 'eru ' : 'er '}
+                            <strong>
+                              {(
+                                answers.textMap[partyAnswer] || 'hlutlaus'
+                              ).toLowerCase()}
+                              {(partyIndiffrent && pluralParty && 'ir ') || ' '}
+                            </strong>{' '}
+                            {partyIndiffrent && 'gagnvart '} þessari
+                            staðhæfingu.
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+              </Collapse>
             </div>
-            <Collapse
-              isOpened={this.state.open[party.letter] === true}
-              springConfig={{
-                stiffness: 100,
-                damping: 20
-              }}
-            >
-              {questions
-                .map(question => ({
-                  ...question,
-                  myAnswer: question.myAnswer || 3,
-                  partyAnswer: party.reply[question.id] || 3
-                }))
-                .sort((a, b) => {
-                  const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
-                  const bAgree = Math.abs(b.myAnswer - b.partyAnswer);
-                  if (a.myAnswer === 3 || a.myAnswer === 6) {
-                    return 1;
-                  }
-                  if (
-                    b.myAnswer === 3 ||
-                    b.myAnswer === 6 ||
-                    (isNaN(aAgree) || isNaN(bAgree))
-                  ) {
-                    return -1;
-                  }
-                  return aAgree - bAgree;
-                })
-                .map(({ id, myAnswer, question, partyAnswer }) => {
-                  const iAmIndiffrent = !(myAnswer !== 3 && myAnswer !== 6);
-                  const pluralParty = party.name === 'Píratar';
-                  const partyIndiffrent = !(
-                    partyAnswer !== 3 && partyAnswer !== 6
-                  );
-                  const difference = Math.abs(myAnswer - partyAnswer);
-
-                  return (
-                    <div className={s.partyQuestion} key={id}>
-                      <h4>
-                        <i
-                          className={cx(
-                            s.dot,
-                            !iAmIndiffrent && s[`dot${difference}`]
-                          )}
-                        />
-                        {question}
-                      </h4>
-
-                      {difference === 0 ? (
-                        <div>
-                          Bæði ég og {party.name} erum{' '}
-                          <strong>
-                            {answers.textMap[myAnswer].toLowerCase()}
-                          </strong>{' '}
-                          {iAmIndiffrent && 'gagnvart '} þessari staðhæfingu.
-                        </div>
-                      ) : (
-                        <div>
-                          Ég er{' '}
-                          <strong>
-                            {(answers.textMap[myAnswer] || 'hlutlaus'
-                            ).toLowerCase()}
-                          </strong>{' '}
-                          en {party.name} {pluralParty ? 'eru ' : 'er '}
-                          <strong>
-                            {(answers.textMap[partyAnswer] || 'hlutlaus'
-                            ).toLowerCase()}
-                            {(partyIndiffrent && pluralParty && 'ir ') || ' '}
-                          </strong>{' '}
-                          {partyIndiffrent && 'gagnvart '} þessari staðhæfingu.
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-            </Collapse>
-          </div>
-        ))}
+          ))}
         <h3>Frambjóðendur</h3>
         <p className={s.nonLead}>
           Svör fólks í framboði fyrir alla flokka í öllum kjördæmum

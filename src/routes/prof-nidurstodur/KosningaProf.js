@@ -7,6 +7,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './styles.scss';
 import history from '../../history';
+import Link from '../../Link';
 
 const storageKey = 'prof:answers';
 
@@ -119,9 +120,15 @@ class Kosningaprof extends PureComponent {
       <div className={cx(s.root, s.questions)}>
         <div className={s.voteCTA}>
           <p>
-            Kosningaprófið er í vinnslu. Hér fyrir neðan má sjá kosningaprófið
-            frá árinu 2017.
+            Kosningaprófið er í vinnslu þar sem við bíðum svara frá flokkunum.
           </p>
+          <Link
+            href="https://2017.kjosturett.is"
+            className={s.button}
+            target="_blank"
+          >
+            Skoða kosningaprófið 2017
+          </Link>
         </div>
         <div className={s.lead}>
           <p>
