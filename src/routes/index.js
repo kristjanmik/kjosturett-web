@@ -24,27 +24,28 @@ const routes = {
       load: () => import(/* webpackChunkName: 'prof' */ './prof')
     },
     {
-      path: '/pr',
-      load: () => import(/* webpackChunkName: 'prof' */ './prof')
-    },
-    {
       path: '/kosningaprof',
       children: [
         {
           path: '',
           load: () =>
-            import(/* webpackChunkName: 'prof-nidurstodur' */ './prof-nidurstodur')
+            import(
+              /* webpackChunkName: 'prof-nidurstodur' */ './prof-nidurstodur'
+            )
         },
         {
           path: '/:nidurstodur',
           load: () =>
-            import(/* webpackChunkName: 'prof-nidurstodur' */ './prof-nidurstodur/results')
+            import(
+              /* webpackChunkName: 'prof-nidurstodur' */ './prof-nidurstodur/results'
+            )
         }
       ]
     },
     {
       path: '/fyrri-kosningar',
-      load: () => import(/* webpackChunkName: 'fyrri-kosningar' */ './fyrri-kosningar')
+      load: () =>
+        import(/* webpackChunkName: 'fyrri-kosningar' */ './fyrri-kosningar')
     },
     {
       path: '/malefni',
@@ -73,12 +74,16 @@ const routes = {
         {
           path: '',
           load: () =>
-            import(/* webpackChunkName: 'compare-parties' */ './compare-parties')
+            import(
+              /* webpackChunkName: 'compare-parties' */ './compare-parties'
+            )
         },
         {
           path: '/:letters',
           load: () =>
-            import(/* webpackChunkName: 'compare-parties' */ './compare-parties')
+            import(
+              /* webpackChunkName: 'compare-parties' */ './compare-parties'
+            )
         }
       ]
     },

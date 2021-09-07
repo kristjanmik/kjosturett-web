@@ -129,18 +129,18 @@ class Kosningaprof extends PureComponent {
     const { answers, started, finished } = this.state;
     return (
       <div className={s.root}>
-        {!finished && (
+        {/* {!finished && (
           <UploadCandidateImage token={token} uploadSuccess={uploadSuccess} />
-        )}
+        )} */}
         {finished && <h3>Takk fyrir þátttökuna!</h3>}
 
         {!finished && (
           <div className={s.intro}>
-            <h1>Kosningapróf kjósturétt.is 2021</h1>
+            <h1>Kosningapróf Kjóstu rétt 2021</h1>
             <p>
-              Svörin við prófinu birtast í niðurstöðusíðu kosningaprófsins. Það
-              getur tekið allt að 3 tíma fyrir svörin að uppfærast. Nýjasta
-              svarið gildir
+              Svörin við prófinu birtast í niðurstöðusíðu kosningaprófsins fyrir
+              almenning. Það getur tekið allt að 30 mínútur fyrir svörin að
+              uppfærast. Nýjasta svarið gildir.
             </p>
           </div>
         )}
