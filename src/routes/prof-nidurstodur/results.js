@@ -33,7 +33,7 @@ export default ({ params, url }) => {
     .map(party => `${party.letter}:${party.score.toFixed(0)}`)
     .join('|');
 
-  const ogImage = `https://lx62q4zmz2.execute-api.us-east-1.amazonaws.com/test/${socialPayload}`;
+  const ogImage = `https://lx62q4zmz2.execute-api.us-east-1.amazonaws.com/production/${socialPayload}`;
 
   return {
     chunks: ['prof-nidurstodur'],
