@@ -114,7 +114,11 @@ class KosningaprofResults extends PureComponent {
         <p className={s.nonLead}>
           Flokkunum er raðað eftir afstöðu þeirra í kosningaprófinu samanborið
           við þín svör. <strong>Smelltu á stjórnmálaflokk</strong> til þess að
-          skoða samanburð einstakra spurninga.
+          skoða samanburð einstakra spurninga.{' '}
+          <i>
+            Athygli skal vakin á því að ekki allir flokkar hafa skilað inn
+            svörum.
+          </i>
         </p>
         {parties
           .filter(party => party.score)
@@ -228,7 +232,11 @@ class KosningaprofResults extends PureComponent {
           ))}
         <h3>Frambjóðendur</h3>
         <p className={s.nonLead}>
-          Svör fólks í framboði fyrir alla flokka í öllum kjördæmum
+          Svör fólks í framboði fyrir alla flokka í öllum kjördæmum.{' '}
+          <i>
+            Frambjóðendur fá senda spurningalista þegar Landskjörstjórn hefur
+            samþykkt framboðslista flokkanna.
+          </i>
         </p>
         <div className={s.filters}>
           <Select
