@@ -1,0 +1,3 @@
+Flokkur fólksins telur rétt að farið sé að ráðum fagfólks, þar með talið sóttvarnalæknis, varðandi aðgerðir gegn COVID-19. Ákvarðanataka og ábyrgð hlýtur þó ávallt að hvíla á framkvæmdavaldinu, ríkisstjórn og ráðherrum hennar.
+
+Við viljum sjá meira samráð við löggjafann, Alþingi, en verið hefur í þessum efnum. Hlutverk löggjafans er að koma með tillögur og veita stjórnvöldum aðhald m.a. með umræðu. Öll umræða um þessi mál er af hinu góða. Baráttan gegn COVID-19 er samfélagslegt verkefni. Flokkur fólksins hefur frá upphafi stutt strangar aðgerðir í þeirri vinnu svo halda megi smiti innanlands í algeru lágmarki og helst útrýma þeim.
