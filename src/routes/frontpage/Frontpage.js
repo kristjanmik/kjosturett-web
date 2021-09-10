@@ -31,14 +31,6 @@ class FrontPage extends PureComponent {
             </div>
           </div>
         )}
-        <div className={s.voteCTA}>
-          <p>Vefurinn er í vinnslu fyrir komandi kosningar</p>
-          <div className={s.ctaButtons}>
-            <Link href="/fyrri-kosningar" className={s.button}>
-              Skoða gögn fyrri ára
-            </Link>
-          </div>
-        </div>
         <section className={s.parties}>
           {parties.map(party => (
             <Link
