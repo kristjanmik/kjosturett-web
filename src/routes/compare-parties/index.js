@@ -6,16 +6,15 @@ import questions from '../../../data/poll/questions.json';
 import parties from '../../../data/build/replies-parties.json';
 
 const partyDeflections = {
-  A: 'Bjartrar framtíðar',
   B: 'Framsóknarflokksins',
   C: 'Viðreisnar',
   D: 'Sjálfstæðisflokksins',
   F: 'Flokki fólksins',
   M: 'Miðflokksins',
+  J: 'Sósíalistaflokksins',
   P: 'Pírata',
-  R: 'Alþýðufylkingarinnar',
   S: 'Samfylkingarinnar',
-  T: 'Dögunar',
+  O: 'Frjálslynda Lýðræðisflokksins',
   V: 'Vinstri grænna'
 };
 
@@ -26,10 +25,12 @@ const partyDeflectionsB = {
   D: 'Sjálfstæðisflokkinn',
   F: 'Flokk fólksins',
   M: 'Miðflokkinn',
+  J: 'Sósíalistaflokkinn',
   P: 'Pírata',
   R: 'Alþýðufylkinguna',
   S: 'Samfylkinguna',
   T: 'Dögun',
+  O: 'Frjálslynda Lýðræðisflokkinn',
   V: 'Vinstri græn'
 };
 
@@ -89,11 +90,10 @@ export default ({ url, params }) => {
     );
 
     if (letters.length === 1) {
-      title = `Berðu ${partyDeflectionsB[
-        currentParties[0].letter
-      ]} saman við aðra flokka`;
-      description = `Hversu samstíga eru ${currentParties[0]
-        .name} og aðrir flokkar? Þú getu skoðað málið betur hérna.`;
+      title = `Berðu ${
+        partyDeflectionsB[currentParties[0].letter]
+      } saman við aðra flokka`;
+      description = `Hversu samstíga eru ${currentParties[0].name} og aðrir flokkar? Þú getu skoðað málið betur hérna.`;
     } else if (letters.length === 2) {
       title = `${currentParties
         .map(p => p.name)

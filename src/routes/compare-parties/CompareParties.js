@@ -52,6 +52,10 @@ class CompareParties extends PureComponent {
               Hægt er að bæta við fleiri en tveimur stjórnmálaflokkum til að sjá
               samstöðu margra flokka.
             </b>
+            <i>
+              Athygli skal vakin á því að flokkar eru einungis birtir ef þeir
+              hafa skilað svörum við kosningaprófinu
+            </i>
           </p>
         )}
         <div className={s.chooseContainer}>
@@ -81,7 +85,9 @@ class CompareParties extends PureComponent {
                   className={s.selectLogo}
                 />
               </div>
-              <p>{`${party.letter} - ${party.name}`}</p>
+              <p>
+                <b>{party.letter}</b> - {party.name}
+              </p>
             </div>
           ))}
         </div>
@@ -147,45 +153,45 @@ class CompareParties extends PureComponent {
                           s.dot,
                           !distance !== 0 &&
                             s[
-                              `dot${distanceValueMap[
-                                Math.round(distance * 100) / 100
-                              ]}`
+                              `dot${
+                                distanceValueMap[
+                                  Math.round(distance * 100) / 100
+                                ]
+                              }`
                             ]
                         )}
                       />
                       {question}
                     </h4>
-                    {distance === 0 &&
-                      filterParties.length === 2 && (
-                        <div>
-                          {`Báðir flokkarnir eru ${answers.textMap[
-                            replies[0]
-                          ].toLowerCase()}${['3', '6'].includes(replies[0])
-                            ? 'ir gagnvart'
-                            : ''} fullyrðingunni`}
-                        </div>
-                      )}
-                    {distance === 0 &&
-                      filterParties.length > 2 && (
-                        <div>
-                          {`Allir flokkarnir eru ${answers.textMap[
-                            replies[0]
-                          ].toLowerCase()}${['3', '6'].includes(replies[0])
-                            ? 'ir gagnvart'
-                            : ''} fullyrðingunni`}
-                        </div>
-                      )}
+                    {distance === 0 && filterParties.length === 2 && (
+                      <div>
+                        {`Báðir flokkarnir eru ${answers.textMap[
+                          replies[0]
+                        ].toLowerCase()}${
+                          ['3', '6'].includes(replies[0]) ? 'ir gagnvart' : ''
+                        } fullyrðingunni`}
+                      </div>
+                    )}
+                    {distance === 0 && filterParties.length > 2 && (
+                      <div>
+                        {`Allir flokkarnir eru ${answers.textMap[
+                          replies[0]
+                        ].toLowerCase()}${
+                          ['3', '6'].includes(replies[0]) ? 'ir gagnvart' : ''
+                        } fullyrðingunni`}
+                      </div>
+                    )}
                     {distance > 0 && (
                       <div>
                         {filterParties.map(party => (
                           <div key={party.name}>
                             <p>
                               <span>{party.name}</span>{' '}
-                              {`${['Píratar', 'Vinstri Græn'].includes(
-                                party.name
-                              )
-                                ? 'eru'
-                                : 'er'} `}
+                              {`${
+                                ['Píratar', 'Vinstri Græn'].includes(party.name)
+                                  ? 'eru'
+                                  : 'er'
+                              } `}
                               <b>
                                 {answers.textMap[
                                   party.reply[id - 1]
