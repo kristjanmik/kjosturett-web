@@ -118,18 +118,6 @@ class Kosningaprof extends PureComponent {
     const { answers, showReset, visible } = this.state;
     return (
       <div className={cx(s.root, s.questions)}>
-        <div className={s.voteCTA}>
-          <p>
-            Kosningaprófið er í vinnslu þar sem við bíðum svara frá flokkunum.
-          </p>
-          <Link
-            href="https://2017.kjosturett.is"
-            className={s.button}
-            target="_blank"
-          >
-            Skoða kosningaprófið 2017
-          </Link>
-        </div>
         <div className={s.lead}>
           <p>
             Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá

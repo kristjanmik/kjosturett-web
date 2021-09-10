@@ -63,18 +63,6 @@ class KosningaprofResults extends PureComponent {
     const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
     return (
       <div className={s.root}>
-        <div className={s.voteCTA}>
-          <p>
-            Kosningaprófið er í vinnslu þar sem við bíðum svara frá flokkunum.
-          </p>
-          <Link
-            href="https://2017.kjosturett.is"
-            className={s.button}
-            target="_blank"
-          >
-            Skoða kosningaprófið 2017
-          </Link>
-        </div>
         <div className={s.lead}>
           Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Þú getur
           lesið <Link href="/malefni/atvinnumal">stefnumál flokkana</Link> í
