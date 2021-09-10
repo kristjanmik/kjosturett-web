@@ -10,6 +10,8 @@ class Html extends React.Component {
     title: PropTypes.string,
     description: PropTypes.string,
     ogImage: PropTypes.string,
+    ogImageWidth: PropTypes.number,
+    ogImageHeight: PropTypes.number,
     styles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -35,7 +37,9 @@ class Html extends React.Component {
       scripts,
       app,
       children,
-      ogImage
+      ogImage,
+      ogImageWidth,
+      ogImageHeight
     } = this.props;
 
     return (
@@ -83,6 +87,12 @@ class Html extends React.Component {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="theme-color" content="#ffffff" />
 
+          {ogImageWidth && (
+            <meta property="og:image:width" content={ogImageWidth} />
+          )}
+          {ogImageHeight && (
+            <meta property="og:image:height" content={ogImageHeight} />
+          )}
           {ogImage && <meta property="og:image" content={ogImage} />}
           {!ogImage && (
             <meta

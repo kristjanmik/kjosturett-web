@@ -40,6 +40,8 @@ export default ({ params, url }) => {
     title: `Kjóstu Rétt - Kosningapróf`,
     path: url,
     ogImage,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
     component: (
       <Layout page="prof-nidurstodur" title="Kosningapróf / Niðurstöður">
         <KosningaProfResults
