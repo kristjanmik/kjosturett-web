@@ -96,9 +96,9 @@ class KosningaprofResults extends PureComponent {
           <Link
             className={s.shareButton}
             style={{ background: '#1da0f2', marginLeft: '15px' }}
-            href={`https://twitter.com/home?status=${encodeURIComponent(
-              'Mínar niðurstöður úr kosningaprófi kjósturétt.is: ' + url
-            )}`}
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+              'Mínar niðurstöður úr kosningaprófi Kjóstu rétt: '
+            )}&&url=${encodeURIComponent(url)}`}
             target="_blank"
           >
             Deila niðurstöðum á Twitter
