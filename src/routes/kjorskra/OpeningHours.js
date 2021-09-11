@@ -10,7 +10,7 @@ class OpeningHours extends PureComponent {
   };
   render() {
     const { sveitafelag } = this.props;
-    const now = new Date(Date.UTC(2017, 9, 28, 21));
+    const now = new Date();
     const pollingStations = [
       { municipality: 'Ísafjörður', open: '9:00', close: '21:00' },
       { municipality: 'Bolungarvík', open: '10:00', close: '21:00' },
