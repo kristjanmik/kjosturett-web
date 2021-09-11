@@ -4,7 +4,7 @@ require('gm-base64');
 const partiesImport = require('./parties');
 
 exports.handler = (event, context, callback) => {
-  let payload = decodeURIComponent(event.text);
+  let payload = decodeURIComponent(event.pathParameters.text);
 
   let parties = payload.split('|').map(raw => {
     const [letter, score] = raw.split(':');
@@ -58,8 +58,14 @@ exports.handler = (event, context, callback) => {
     // });
     .toBase64('png', function(error, base64) {
       if (error) return callback(error);
-      console.log('got base64');
-      callback(null, base64);
+      callback(null, {
+        statusCode: 200,
+        headers: {
+          'Content-Type': 'image/png'
+        },
+        body: base64,
+        isBase64Encoded: true
+      });
     });
 };
 
