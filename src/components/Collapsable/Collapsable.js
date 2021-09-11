@@ -67,7 +67,7 @@ class Collapsable extends React.Component {
       // Scroll to collapsable only when opening.
       if (nextState && target.offsetParent) {
         this.scrollTo(target);
-        history.push(`#${key}`);
+        history.replace(`#${key}`);
       }
 
       return { open };
