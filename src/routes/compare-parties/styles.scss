@@ -2,7 +2,6 @@
 @import '../../components/variables.scss';
 
 .root {
-  max-width: 768px;
   margin: 0 auto;
 
   @include between-property('padding-bottom', 44px, 0, 1200px, 0);
@@ -55,6 +54,10 @@
       margin-top: 12px;
     }
   }
+}
+
+.center {
+  text-align: center;
 }
 
 .questions {
@@ -197,12 +200,7 @@
 }
 
 .chooseContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: auto;
-  margin-top: 10px;
-  max-width: 700px;
+  margin-top: 2rem;
 }
 
 .selectContainer {

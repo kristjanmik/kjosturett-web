@@ -1,0 +1,7 @@
+@import '../../components/variables.scss';
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

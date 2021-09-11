@@ -7,8 +7,9 @@ import cx from 'classnames';
 import s from './styles.scss';
 import history from '../../history';
 import answers from '../../../data/poll/answers.json';
-import { getAssetUrl } from '../../utils';
 import Link from '../../Link';
+import Party from '../../components/Party';
+import PartyGrid from '../../components/PartyGrid';
 
 const distanceValueMap = {
   '0': 0,
@@ -44,7 +45,6 @@ class CompareParties extends PureComponent {
               textAlign: 'center',
               marginTop: '20px',
               fontSize: '1.2rem',
-              maxWidth: '500px',
               margin: 'auto'
             }}
           >
@@ -52,44 +52,38 @@ class CompareParties extends PureComponent {
               Hægt er að bæta við fleiri en tveimur stjórnmálaflokkum til að sjá
               samstöðu margra flokka.
             </b>
-            <i>
-              Athygli skal vakin á því að flokkar eru einungis birtir ef þeir
-              hafa skilað svörum við kosningaprófinu
-            </i>
           </p>
         )}
+        <p className={s.center}>
+          Athygli skal vakin á því að flokkar eru einungis birtir ef þeir hafa
+          skilað svörum við kosningaprófinu
+        </p>
         <div className={s.chooseContainer}>
-          {parties.map(party => (
-            <div
-              key={party.letter}
-              className={cx(
-                s.selectContainer,
-                filterParties.filter(p => p.name === party.name)[0]
-                  ? s.selected
-                  : null
-              )}
-              onClick={() => {
-                let out = filterParties.map(p => p.letter);
-                if (out.indexOf(party.letter) !== -1) {
-                  out = out.filter(o => o !== party.letter);
-                } else {
-                  out.push(party.letter);
-                }
+          <PartyGrid>
+            {parties.map(party => {
+              const isSelected = filterParties.filter(
+                p => p.name === party.name
+              )[0];
+              return (
+                <Party
+                  {...party}
+                  key={party.letter}
+                  isSelected={isSelected}
+                  isFaded={filterParties.length && !isSelected}
+                  onClick={() => {
+                    let out = filterParties.map(p => p.letter);
+                    if (out.indexOf(party.letter) !== -1) {
+                      out = out.filter(o => o !== party.letter);
+                    } else {
+                      out.push(party.letter);
+                    }
 
-                history.push(`/flokkar/bera-saman/${out.join('')}`);
-              }}
-            >
-              <div>
-                <img
-                  src={getAssetUrl('party-icons', party.url)}
-                  className={s.selectLogo}
+                    history.push(`/flokkar/bera-saman/${out.join('')}`);
+                  }}
                 />
-              </div>
-              <p>
-                <b>{party.letter}</b> - {party.name}
-              </p>
-            </div>
-          ))}
+              );
+            })}
+          </PartyGrid>
         </div>
         {filterParties.length === 1 && (
           <p style={{ textAlign: 'center', marginTop: '20px' }}>
