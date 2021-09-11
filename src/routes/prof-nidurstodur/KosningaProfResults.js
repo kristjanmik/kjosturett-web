@@ -75,12 +75,7 @@ class KosningaprofResults extends PureComponent {
           </Link>
         </p>
 
-        {ogImage && (
-          <img
-            src="https://lx62q4zmz2.execute-api.us-east-1.amazonaws.com/production/P:82%7CV:67%7CB:64%7CF:62%7CO:60%7CD:52%7CM:43%7CC:0%7CJ:0%7CS:0"
-            className={s.resultImage}
-          />
-        )}
+        {ogImage && <img src={ogImage} className={s.resultImage} />}
 
         <p className={s.buttons}>
           <Link
