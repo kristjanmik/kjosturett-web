@@ -2,7 +2,6 @@
 @import '../../components/variables.scss';
 
 .root {
-  max-width: 768px;
   margin: 0 auto;
 
   @include between-property('padding-bottom', 44px, 0, 1200px, 0);
@@ -28,7 +27,7 @@
   }
 
   .buttons {
-    margin-top: 20px;
+    margin: 0 0 2rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -41,20 +40,42 @@
     text-decoration: none;
     color: #fff;
     border: none;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 500;
     padding: 0.6em 1em;
     text-align: center;
 
     @media screen and (max-width: 420px) {
       width: 100%;
-      font-size: 1rem;
       font-weight: 500;
       padding: 0.6em 1em;
       margin-left: 0 !important;
       margin-top: 12px;
     }
   }
+}
+
+.resultDisclaimer {
+  font-size: 1.5rem;
+  padding-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.edit {
+  appearance: none;
+  background: $color-darkgray;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 900;
+  display: block;
+  border: none;
+  padding: 1rem 1.5rem;
+  margin: 2rem auto 4rem;
+}
+
+.center {
+  text-align: center;
 }
 
 .questions {
@@ -191,18 +212,13 @@
   display: flex;
   justify-content: center;
   margin-top: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   font-size: 2.1rem;
   font-weight: 300;
 }
 
 .chooseContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: auto;
-  margin-top: 10px;
-  max-width: 700px;
+  margin-top: 2rem;
 }
 
 .selectContainer {

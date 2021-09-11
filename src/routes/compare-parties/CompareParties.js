@@ -7,8 +7,9 @@ import cx from 'classnames';
 import s from './styles.scss';
 import history from '../../history';
 import answers from '../../../data/poll/answers.json';
-import { getAssetUrl } from '../../utils';
 import Link from '../../Link';
+import Party from '../../components/Party';
+import PartyGrid from '../../components/PartyGrid';
 
 const distanceValueMap = {
   '0': 0,
@@ -22,81 +23,103 @@ const distanceValueMap = {
 
 class CompareParties extends PureComponent {
   state = {
-    selected: []
+    selected: [],
+    isEditing: false
   };
   render() {
     const {
       questions,
       parties,
       filterParties,
-      replies,
       replyDistance,
       score,
       url
     } = this.props;
 
-    return (
-      <div className={s.root}>
-        <h1 className={s.heading}>Veldu stjórnmálaflokka til að bera saman</h1>
-        {filterParties.length === 2 && (
-          <p
-            style={{
-              textAlign: 'center',
-              marginTop: '20px',
-              fontSize: '1.2rem',
-              maxWidth: '500px',
-              margin: 'auto'
-            }}
-          >
-            <b>
-              Hægt er að bæta við fleiri en tveimur stjórnmálaflokkum til að sjá
-              samstöðu margra flokka.
-            </b>
-            <i>
-              Athygli skal vakin á því að flokkar eru einungis birtir ef þeir
-              hafa skilað svörum við kosningaprófinu
-            </i>
-          </p>
-        )}
-        <div className={s.chooseContainer}>
-          {parties.map(party => (
-            <div
-              key={party.letter}
-              className={cx(
-                s.selectContainer,
-                filterParties.filter(p => p.name === party.name)[0]
-                  ? s.selected
-                  : null
-              )}
-              onClick={() => {
-                let out = filterParties.map(p => p.letter);
-                if (out.indexOf(party.letter) !== -1) {
-                  out = out.filter(o => o !== party.letter);
-                } else {
-                  out.push(party.letter);
-                }
+    if (this.state.isEditing || filterParties.length < 2) {
+      return (
+        <div className={s.root}>
+          <h1 className={s.heading}>
+            Veldu stjórnmálaflokka til að bera saman
+          </h1>
+          <div className={s.chooseContainer}>
+            <PartyGrid>
+              {parties.map(party => {
+                const isSelected = this.state.selected.includes(party.letter);
+                return (
+                  <Party
+                    {...party}
+                    key={party.letter}
+                    isSelected={isSelected}
+                    isFaded={this.state.selected.length && !isSelected}
+                    onClick={() => {
+                      this.setState(({ selected }) => {
+                        if (selected.includes(party.letter)) {
+                          return {
+                            selected: selected.filter(x => x !== party.letter)
+                          };
+                        }
 
-                history.push(`/flokkar/bera-saman/${out.join('')}`);
+                        return {
+                          selected: [...selected, party.letter]
+                        };
+                      });
+                    }}
+                  />
+                );
+              })}
+            </PartyGrid>
+          </div>
+          {this.state.selected.length === 1 && (
+            <p style={{ textAlign: 'center', marginTop: '20px' }}>
+              Veldu amk. einn flokk til viðbótar.
+            </p>
+          )}
+          {this.state.selected.length > 1 && (
+            <button
+              className={s.edit}
+              onClick={() => {
+                this.setState({ isEditing: false });
+                history.push(
+                  `/flokkar/bera-saman/${this.state.selected.join('')}`
+                );
               }}
             >
-              <div>
-                <img
-                  src={getAssetUrl('party-icons', party.url)}
-                  className={s.selectLogo}
-                />
-              </div>
-              <p>
-                <b>{party.letter}</b> - {party.name}
-              </p>
-            </div>
-          ))}
+              Bera Saman
+            </button>
+          )}
         </div>
-        {filterParties.length === 1 && (
-          <p style={{ textAlign: 'center', marginTop: '20px' }}>
-            Veldu einn flokk í viðbót
-          </p>
-        )}
+      );
+    }
 
+    return (
+      <div className={s.root}>
+        <h1 className={s.heading}>Samanburður eftirfarandi stjórnmálaflokka</h1>
+
+        <div className={s.chooseContainer}>
+          <PartyGrid>
+            {filterParties.map(party => {
+              return <Party {...party} key={party.letter} />;
+            })}
+          </PartyGrid>
+        </div>
+        <button
+          className={s.edit}
+          onClick={() =>
+            this.setState({
+              isEditing: true,
+              selected: filterParties.map(x => x.letter)
+            })
+          }
+        >
+          Velja aðra flokka
+        </button>
+        {filterParties.length > 1 && (
+          <h2
+            id="score"
+            className={s.scoreContainer}
+          >{`Flokkarnir eiga ${score.toFixed(0)}% samleið`}</h2>
+        )}
         {filterParties.length > 1 && (
           <p className={s.buttons}>
             <Link
@@ -107,7 +130,7 @@ class CompareParties extends PureComponent {
               )}`}
               target="_blank"
             >
-              {`Deila ${filterParties.map(p => p.letter).join('')} á Facebook`}
+              {`Deila samanburði á Facebook`}
             </Link>
             <Link
               className={s.shareButton}
@@ -118,19 +141,13 @@ class CompareParties extends PureComponent {
               )}`}
               target="_blank"
             >
-              {`Deila ${filterParties.map(p => p.letter).join('')} á Twitter`}
+              {`Deila samanburði á Twitter`}
             </Link>
           </p>
         )}
-        {filterParties.length > 1 && (
-          <div className={s.scoreContainer}>{`Flokkarnir eiga ${score.toFixed(
-            0
-          )}% samleið`}</div>
-        )}
-
-        {filterParties.length > 1 && (
-          <p>Niðurstöður eru reiknaðar út frá eftirfarandi fullyrðingum:</p>
-        )}
+        <p className={s.resultDisclaimer}>
+          Niðurstöður eru reiknaðar út frá eftirfarandi fullyrðingum:
+        </p>
         {filterParties.length > 1 && (
           <div className={s.questionsContainer}>
             {questions

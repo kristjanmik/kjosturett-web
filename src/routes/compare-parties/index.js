@@ -5,6 +5,12 @@ import Layout from '../../components/Layout';
 import questions from '../../../data/poll/questions.json';
 import parties from '../../../data/build/replies-parties.json';
 
+parties.sort(function(a, b) {
+  if (a.letter > b.letter) return 1;
+  if (a.letter < b.letter) return -1;
+  return 0;
+});
+
 const partyDeflections = {
   B: 'Framsóknarflokksins',
   C: 'Viðreisnar',
