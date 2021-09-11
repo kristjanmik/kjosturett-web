@@ -66,8 +66,7 @@ export default ({ url, params }) => {
   const minReplies = [];
   const maxReplies = [];
   const replyDistance = [];
-
-  for (let i = 0; i <= 38; i++) {
+  for (let i = 0; i <= questions.length - 1; i++) {
     let max;
     let min;
     replies.forEach(reply => {
