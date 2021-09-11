@@ -94,7 +94,7 @@ class CompareParties extends PureComponent {
 
     return (
       <div className={s.root}>
-        <h1 className={s.heading}>Samanburður eftitfarandi stjórnmálaflokka</h1>
+        <h1 className={s.heading}>Samanburður eftirfarandi stjórnmálaflokka</h1>
 
         <div className={s.chooseContainer}>
           <PartyGrid>
