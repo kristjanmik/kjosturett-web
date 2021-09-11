@@ -52,6 +52,7 @@ export default ({ params, url }) => {
           url={`https://kjosturett.is/kosningaprof/${encodeURIComponent(
             params.nidurstodur
           )}`}
+          ogImage={ogImage}
         />
       </Layout>
     )
