@@ -69,4 +69,8 @@ exports.handler = (event, context, callback) => {
     });
 };
 
-// exports.handler({ text: 'V:68|D:67|F:58|M:38|P:34' }, {}, console.log);
+exports.handler(
+  { pathParameters: { text: 'J:68|D:67|F:58|M:38|P:34' } },
+  {},
+  console.log
+);
