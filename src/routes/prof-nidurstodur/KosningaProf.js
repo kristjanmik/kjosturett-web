@@ -90,6 +90,7 @@ class Kosningaprof extends PureComponent {
     const answerValues = Object.keys(answers)
       .map(x => answers[x])
       .map(x => (x == null ? this.props.answers.default : x));
+    const answersToken = encodeAnswersToken(answerValues);
 
     this.context
       .fetch(`/konnun/replies/all?timestamp=${Date.now()}`, {
@@ -99,12 +100,12 @@ class Kosningaprof extends PureComponent {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          reply: encodeAnswersToken(answerValues)
+          reply: answersToken
         })
       })
       .catch(console.error);
 
-    history.push(`/kosningaprof/${encodeAnswersToken(answerValues)}`);
+    history.push(`/kosningaprof/${answersToken}`);
   }
   loadAnswers() {
     const answers = JSON.parse(localStorage.getItem(storageKey));
@@ -115,13 +116,16 @@ class Kosningaprof extends PureComponent {
   }
   render() {
     const { questions } = this.props;
-    const { answers, showReset, visible } = this.state;
+    const { answers, showReset } = this.state;
+    const hasData = Object.values(answers).some(value => value !== null);
+
     return (
       <div className={cx(s.root, s.questions)}>
         <div className={s.lead}>
           <p>
             Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá
-            hvaða flokkur passar best við þínar skoðanir.
+            hvaða flokkur passar best við þínar skoðanir. Því fleiri spurningum
+            sem þú svarar, því nákvæmari niðurstöður færðu.
           </p>
           {showReset && (
             <p>
@@ -146,7 +150,7 @@ class Kosningaprof extends PureComponent {
                 dots
                 min={1}
                 max={5}
-                value={answers[id] != null ? answers[id] : 3}
+                value={answers[id]}
                 marks={marks}
                 onChange={this.onChange(id)}
                 dotStyle={{
@@ -167,12 +171,24 @@ class Kosningaprof extends PureComponent {
                   backgroundColor: 'transparent'
                 }}
               />
+              {answers[id] !== null && (
+                <button
+                  className={s.skip}
+                  onClick={() => {
+                    this.onChange(id)(null);
+                  }}
+                >
+                  Sleppa þessari spurningu
+                </button>
+              )}
             </div>
           ))}
         </div>
-        <p style={{ textAlign: 'center' }}>
-          <button onClick={this.onSend}>Reikna niðurstöður</button>
-        </p>
+        {hasData && (
+          <p style={{ textAlign: 'center' }}>
+            <button onClick={this.onSend}>Reikna niðurstöður</button>
+          </p>
+        )}
       </div>
     );
   }
