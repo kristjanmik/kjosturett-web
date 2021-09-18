@@ -1,7 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { Collapse } from 'react-collapse';
-import Img from 'react-image';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import s from './styles.scss';
@@ -76,17 +73,28 @@ class CompareParties extends PureComponent {
             </p>
           )}
           {this.state.selected.length > 1 && (
-            <button
-              className={s.edit}
-              onClick={() => {
-                this.setState({ isEditing: false });
-                history.push(
-                  `/flokkar/bera-saman/${this.state.selected.join('')}`
-                );
-              }}
-            >
-              Bera Saman
-            </button>
+            <div className={s.buttonContainer}>
+              <button
+                className={s.edit}
+                onClick={() => {
+                  this.setState({ selected: [] });
+                  history.replace(`/flokkar/bera-saman/`);
+                }}
+              >
+                Hreinsa val
+              </button>
+              <button
+                className={s.edit}
+                onClick={() => {
+                  this.setState({ isEditing: false });
+                  history.push(
+                    `/flokkar/bera-saman/${this.state.selected.join('')}`
+                  );
+                }}
+              >
+                Bera Saman
+              </button>
+            </div>
           )}
         </div>
       );
@@ -104,7 +112,7 @@ class CompareParties extends PureComponent {
           </PartyGrid>
         </div>
         <button
-          className={s.edit}
+          className={cx(s.edit, s.newSelection)}
           onClick={() =>
             this.setState({
               isEditing: true,

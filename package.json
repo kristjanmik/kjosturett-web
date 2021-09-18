@@ -173,6 +173,7 @@
   },
   "lint-staged": {},
   "prettier": {
+    "trailingComma": "es5",
     "singleQuote": true
   },
   "scripts": {

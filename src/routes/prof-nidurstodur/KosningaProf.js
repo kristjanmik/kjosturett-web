@@ -7,9 +7,9 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './styles.scss';
 import history from '../../history';
-import Link from '../../Link';
 
-const storageKey = 'prof:answers';
+const answersKey = 'prof:answers';
+const indexKey = 'prof:answers:index';
 
 const initialAnswers = questions =>
   questions.reduce((all, { id }) => {
@@ -21,24 +21,29 @@ const initialAnswers = questions =>
 const marks = {
   1: 'Mjög ósammála',
   3: 'Hlutlaus',
-  5: 'Mjög sammála'
+  5: 'Mjög sammála',
 };
 
 class Kosningaprof extends PureComponent {
   static contextTypes = {
-    fetch: PropTypes.func.isRequired
+    fetch: PropTypes.func.isRequired,
+  };
+  static defaultProps = {
+    title: 'Kjóstu rétt',
   };
   static propTypes = {
     answers: PropTypes.shape({
       default: PropTypes.string.isRequired,
-      textMap: PropTypes.object.isRequired
+      textMap: PropTypes.object.isRequired,
     }).isRequired,
     questions: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        question: PropTypes.string.isRequired
+        question: PropTypes.string.isRequired,
       })
-    ).isRequired
+    ).isRequired,
+    isEmbedded: PropTypes.bool,
+    title: PropTypes.string,
   };
   constructor(props) {
     super(props);
@@ -49,13 +54,15 @@ class Kosningaprof extends PureComponent {
       finished: false,
       visible: {},
       showReset: false,
-      answers: initialAnswers(props.questions)
+      currentQuestionIndex: -1,
+      answers: initialAnswers(props.questions),
     };
 
     this.positions = {};
 
     this.onReset = this.onReset.bind(this);
     this.onSend = this.onSend.bind(this);
+    this.changeQuestion = this.changeQuestion.bind(this);
   }
   componentDidMount() {
     this.loadAnswers();
@@ -64,28 +71,29 @@ class Kosningaprof extends PureComponent {
     // eslint-disable-next-line
     if (window.confirm('Ertu viss um að þú byrja upp á nýtt?')) {
       const answers = initialAnswers(this.props.questions);
-      localStorage.removeItem(storageKey);
+      this.clearState();
       this.setState({
         answers,
-        showReset: false
+        showReset: false,
       });
     }
   }
+
   onChange = id => value => {
     this.setState(({ answers }) => {
       const newAnswers = {
         ...answers,
-        [id]: value
+        [id]: value,
       };
 
-      localStorage.setItem(storageKey, JSON.stringify(newAnswers));
       return {
         started: true,
-        answers: newAnswers
+        answers: newAnswers,
       };
-    });
+    }, this.saveState);
   };
   async onSend() {
+    const { isEmbedded } = this.props;
     const { answers } = this.state;
     const answerValues = Object.keys(answers)
       .map(x => answers[x])
@@ -97,98 +105,220 @@ class Kosningaprof extends PureComponent {
         method: 'POST',
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          reply: answersToken
-        })
+          reply: answersToken,
+        }),
       })
       .catch(console.error);
-
-    history.push(`/kosningaprof/${answersToken}`);
+    const segments = [isEmbedded && 'embed', 'kosningaprof', answersToken];
+    const path = segments.filter(Boolean).join('/');
+    history.push(`/${path}`);
   }
+
+  clearState = () => {
+    localStorage.removeItem(answersKey);
+    localStorage.removeItem(indexKey);
+  };
+  saveState = () => {
+    const { currentQuestionIndex, answers } = this.state;
+    localStorage.setItem(answersKey, JSON.stringify(answers));
+    localStorage.setItem(indexKey, currentQuestionIndex);
+  };
+
   loadAnswers() {
-    const answers = JSON.parse(localStorage.getItem(storageKey));
+    const answers = JSON.parse(localStorage.getItem(answersKey));
+    const currentQuestionIndex = Number(localStorage.getItem(indexKey));
 
     if (answers != null) {
-      this.setState({ answers, showReset: true });
+      this.setState({ answers, currentQuestionIndex, showReset: true });
     }
   }
-  render() {
-    const { questions } = this.props;
-    const { answers, showReset } = this.state;
-    const hasData = Object.values(answers).some(value => value !== null);
 
+  changeQuestion(nextOrPrev) {
+    this.setState(
+      ({ currentQuestionIndex }) => ({
+        currentQuestionIndex: currentQuestionIndex + nextOrPrev,
+      }),
+      this.saveState
+    );
+  }
+
+  renderQuestion(question, id, extraStyle) {
+    const { answers, currentQuestionIndex } = this.state;
+    const { isEmbedded, questions } = this.props;
+    const isLastQuestion = currentQuestionIndex === questions.length - 1;
+    const hasAnswer = answers[id] !== null;
+    const skipQuestion = () => {
+      this.onChange(id)(null);
+
+      if (isEmbedded && !isLastQuestion) {
+        this.changeQuestion(1);
+      }
+    };
     return (
-      <div className={cx(s.root, s.questions)}>
-        <div className={s.lead}>
-          <p>
-            Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá
-            hvaða flokkur passar best við þínar skoðanir. Því fleiri spurningum
-            sem þú svarar, því nákvæmari niðurstöður færðu.
-          </p>
-          {showReset && (
-            <p>
-              Þú getur tekið upp þráðinn frá því síðast og klárað prófið, eða{' '}
-              <button className={s.reset} onClick={this.onReset}>
-                byrjað
-              </button>{' '}
-              upp á nýtt.
-            </p>
-          )}
-        </div>
-
-        <div
-          ref={element => {
-            this.questionsEl = element;
+      <div key={id} id={id} className={cx(s.question, extraStyle)}>
+        <h3 className={s.questionText}>{question}</h3>
+        <Slider
+          dots
+          min={1}
+          max={5}
+          value={answers[id]}
+          marks={marks}
+          onChange={this.onChange(id)}
+          dotStyle={{
+            borderColor: '#e9e9e9',
+            marginBottom: -5,
+            width: 18,
+            height: 18,
           }}
-        >
-          {questions.map(({ question, id }) => (
-            <div key={id} id={id} className={cx(s.question)}>
-              <h3>{question}</h3>
-              <Slider
-                dots
-                min={1}
-                max={5}
-                value={answers[id]}
-                marks={marks}
-                onChange={this.onChange(id)}
-                dotStyle={{
-                  borderColor: '#e9e9e9',
-                  marginBottom: -5,
-                  width: 18,
-                  height: 18
-                }}
-                handleStyle={{
-                  backgroundColor: '#333',
-                  borderColor: '#999',
-                  marginLeft: 4,
-                  marginTop: -7,
-                  width: 18,
-                  height: 18
-                }}
-                trackStyle={{
-                  backgroundColor: 'transparent'
-                }}
-              />
-              {answers[id] !== null && (
+          handleStyle={{
+            backgroundColor: '#333',
+            borderColor: '#999',
+            marginLeft: 4,
+            marginTop: -7,
+            width: 18,
+            height: 18,
+          }}
+          trackStyle={{
+            backgroundColor: 'transparent',
+          }}
+        />
+        <div className={s.questionControls}>
+          {!isEmbedded && hasAnswer && (
+            <button className={s.skip} onClick={skipQuestion}>
+              <i>Sleppa spurningu</i>
+            </button>
+          )}
+          {isEmbedded && (
+            <div className={s.questionEmbedControls}>
+              {currentQuestionIndex >= 0 && (
                 <button
-                  className={s.skip}
-                  onClick={() => {
-                    this.onChange(id)(null);
-                  }}
+                  className={s.nextPrev}
+                  onClick={() => this.changeQuestion(-1)}
                 >
-                  <i>Sleppa spurningu</i>
+                  Til baka
+                </button>
+              )}
+              <button
+                className={s.nextPrev}
+                onClick={skipQuestion}
+                style={{ backgroundColor: 'rgb(102, 109, 117)' }}
+              >
+                Sleppa spurningu
+              </button>
+              {currentQuestionIndex < questions.length - 1 && (
+                <button
+                  className={s.nextPrev}
+                  onClick={() => this.changeQuestion(1)}
+                  style={{ backgroundColor: 'rgb(34,36,40)' }}
+                >
+                  Áfram
+                </button>
+              )}
+              {isLastQuestion && (
+                <button className={s.embedSubmit} onClick={() => this.onSend()}>
+                  Sjá niðurstöður
                 </button>
               )}
             </div>
-          ))}
+          )}
         </div>
+      </div>
+    );
+  }
+
+  renderAllQuestions() {
+    const { questions } = this.props;
+    const { answers } = this.state;
+    const hasData = Object.values(answers).some(value => value !== null);
+    return (
+      <div>
+        {questions.map(({ question, id }) => this.renderQuestion(question, id))}
         {hasData && (
           <p style={{ textAlign: 'center' }}>
             <button onClick={this.onSend}>Reikna niðurstöður</button>
           </p>
         )}
+      </div>
+    );
+  }
+
+  renderIntroText() {
+    const { title, isEmbedded } = this.props;
+    const { showReset } = this.state;
+
+    return (
+      <div className={s.lead}>
+        <p>
+          Taktu kosningarpróf <strong>{title}</strong> til þess að sjá hvaða
+          flokkur passar best við þínar skoðanir. Því fleiri spurningum sem þú
+          svarar, því nákvæmari niðurstöður færðu.
+        </p>
+        {showReset && (
+          <p>
+            Þú getur tekið upp þráðinn frá því síðast og klárað prófið, eða{' '}
+            <button className={s.reset} onClick={this.onReset}>
+              byrjað
+            </button>{' '}
+            upp á nýtt.
+          </p>
+        )}
+        {isEmbedded && (
+          <button onClick={() => this.changeQuestion(1)}>Áfram</button>
+        )}
+      </div>
+    );
+  }
+
+  render() {
+    const { isEmbedded, questions } = this.props;
+    const { currentQuestionIndex } = this.state;
+
+    if (isEmbedded) {
+      if (currentQuestionIndex === -1) {
+        return (
+          <div className={cx(s.root, s.questions)}>
+            {this.renderIntroText()}
+          </div>
+        );
+      }
+
+      const { question, id } = questions[currentQuestionIndex];
+
+      return (
+        <div className={cx(s.root, s.questions)}>
+          <div className={s.progress}>
+            <div
+              className={s.progressBar}
+              style={{
+                transform: `translateX(${-100 *
+                  (1 - (currentQuestionIndex + 1) / questions.length)}%)`,
+              }}
+            />
+          </div>
+          <div
+            ref={element => {
+              this.questionsEl = element;
+            }}
+          >
+            {this.renderQuestion(question, id, s.embeddedQuestion)}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className={cx(s.root, s.questions)}>
+        {this.renderIntroText()}
+        <div
+          ref={element => {
+            this.questionsEl = element;
+          }}
+        >
+          {this.renderAllQuestions()}
+        </div>
       </div>
     );
   }
