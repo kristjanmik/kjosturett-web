@@ -71,6 +71,10 @@
   display: block;
   border: none;
   padding: 1rem 1.5rem;
+  margin: 2rem 1rem 4rem;
+}
+
+.newSelection {
   margin: 2rem auto 4rem;
 }
 
@@ -284,4 +288,9 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
 }
