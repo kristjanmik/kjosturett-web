@@ -233,18 +233,6 @@
   margin-top: 4rem;
 }
 
-.embeddedQuestion {
-  box-sizing: border-box;
-
-  .questionText {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    font-size: 1.2rem;
-    min-height: 100px;
-  }
-}
-
 .question {
   position: relative;
   padding: 3em 4em;
@@ -289,6 +277,19 @@
   input:checked + label {
     background: #333;
     color: #fff;
+  }
+}
+
+.embeddedQuestion {
+  box-sizing: border-box;
+  padding-top: 0;
+
+  .questionText {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 1.2rem;
+    min-height: 100px;
   }
 }
 

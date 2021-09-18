@@ -1,13 +1,12 @@
 import React from 'react';
 import KosningaProfResults from '../../prof-nidurstodur/KosningaProfResults';
-import Container from '../../../components/Container';
 import questionsBase from '../../../../data/poll/questions.json';
 import answers from '../../../../data/poll/answers.json';
 import candidateReplies from '../../../../data/build/replies-candidates2.json';
 import partyReplies from '../../../../data/build/parties.json';
 import getResultsByScore from '../../../process-replies';
 import { decodeAnswersToken } from '../../../utils';
-import s from './Embed.scss';
+import Layout from '../../../components/Layout';
 
 function questionAnswer(reply = []) {
   return reply.reduce((all, answer, index) => {
@@ -35,20 +34,18 @@ export default ({ params, url }) => {
     title: `Kjóstu Rétt - Kosningapróf`,
     path: url,
     component: (
-      <Container>
-        <div className={s.root}>
-          <KosningaProfResults
-            isEmbedded
-            answers={answers}
-            questions={questions}
-            candidates={candidates}
-            parties={parties}
-            url={`https://kjosturett.is/embed/kosningaprof/${encodeURIComponent(
-              params.nidurstodur
-            )}`}
-          />
-        </div>
-      </Container>
+      <Layout isEmbed>
+        <KosningaProfResults
+          isEmbedded
+          answers={answers}
+          questions={questions}
+          candidates={candidates}
+          parties={parties}
+          url={`https://kjosturett.is/embed/kosningaprof/${encodeURIComponent(
+            params.nidurstodur
+          )}`}
+        />
+      </Layout>
     ),
   };
 };

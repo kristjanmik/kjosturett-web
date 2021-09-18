@@ -1,9 +1,8 @@
 import React from 'react';
 import KosningaProf from '../../prof-nidurstodur/KosningaProf';
 import questions from '../../../../data/poll/questions.json';
-import Container from '../../../components/Container';
 import answers from '../../../../data/poll/answers.json';
-import s from './Embed.scss';
+import Layout from '../../../components/Layout';
 
 export default ({ url }) => ({
   chunks: ['embed-prof'],
@@ -13,15 +12,13 @@ export default ({ url }) => ({
   path: url,
   ogImage: 'https://assets.kjosturett.is/og_prof.png',
   component: (
-    <Container>
-      <div className={s.root}>
-        <KosningaProf
-          isEmbedded
-          title="Kjóstu rétt og Vísis"
-          answers={answers}
-          questions={questions}
-        />
-      </div>
-    </Container>
+    <Layout isEmbed>
+      <KosningaProf
+        isEmbedded
+        title="Kjóstu rétt og Vísis"
+        answers={answers}
+        questions={questions}
+      />
+    </Layout>
   ),
 });
