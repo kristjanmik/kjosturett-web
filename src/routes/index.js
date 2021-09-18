@@ -34,9 +34,7 @@ const routes = {
         {
           path: '/:nidurstodur',
           load: () =>
-            import(
-              /* webpackChunkName: 'prof-nidurstodur' */ './prof-nidurstodur/results'
-            )
+            import(/* webpackChunkName: 'prof-nidurstodur' */ './embed/results')
         }
       ]
     },

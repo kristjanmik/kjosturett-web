@@ -7,7 +7,6 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './styles.scss';
 import history from '../../history';
-import Link from '../../Link';
 
 const storageKey = 'prof:answers';
 
@@ -54,7 +53,7 @@ class Kosningaprof extends PureComponent {
       finished: false,
       visible: {},
       showReset: false,
-      embeddedQuestion: -1,
+      embeddedQuestion: 39,
       answers: initialAnswers(props.questions)
     };
 
@@ -93,10 +92,12 @@ class Kosningaprof extends PureComponent {
     });
   };
   async onSend() {
+    const { isEmbedded } = this.props;
     const { answers } = this.state;
     const answerValues = Object.keys(answers)
       .map(x => answers[x])
       .map(x => (x == null ? this.props.answers.default : x));
+    const answersToken = encodeAnswersToken(answerValues);
 
     this.context
       .fetch(`/konnun/replies/all?timestamp=${Date.now()}`, {
@@ -106,12 +107,12 @@ class Kosningaprof extends PureComponent {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          reply: encodeAnswersToken(answerValues)
+          reply: answersToken
         })
       })
       .catch(console.error);
-
-    history.push(`/embed/${encodeAnswersToken(answerValues)}`);
+    const route = isEmbedded ? 'embed' : 'kosningaprof';
+    history.push(`/${route}/${answersToken}`);
   }
   loadAnswers() {
     const answers = JSON.parse(localStorage.getItem(storageKey));
@@ -131,12 +132,15 @@ class Kosningaprof extends PureComponent {
     const { embeddedQuestion } = this.state;
     let text = 'Næsta spurning';
     let onButtonClick = () => this.changeQuestion(1);
-    if (embeddedQuestion === questions.length - 1) {
+    const { answers } = this.state;
+    const hasData = Object.values(answers).some(value => value !== null);
+    if (hasData && embeddedQuestion === questions.length - 1) {
       text = 'Reikna niðurstöður';
       onButtonClick = this.onSend;
     } else if (embeddedQuestion === -1) {
       text = 'Hefja próf';
     }
+
     return (
       <div className={cx(s.buttonContainer)}>
         {embeddedQuestion < questions.length - 1 && embeddedQuestion > 0 && (
@@ -154,13 +158,13 @@ class Kosningaprof extends PureComponent {
   renderQuestion(question, id, extraStyle) {
     const { answers } = this.state;
     return (
-      <div className={cx(s.question, extraStyle)}>
+      <div key={id} id={id} className={cx(s.question, extraStyle)}>
         <h3>{question}</h3>
         <Slider
           dots
           min={1}
           max={5}
-          value={answers[id] != null ? answers[id] : 3}
+          value={answers[id]}
           marks={marks}
           onChange={this.onChange(id)}
           dotStyle={{
@@ -181,6 +185,16 @@ class Kosningaprof extends PureComponent {
             backgroundColor: 'transparent'
           }}
         />
+        {answers[id] !== null && (
+          <button
+            className={s.skip}
+            onClick={() => {
+              this.onChange(id)(null);
+            }}
+          >
+            <i>Sleppa spurningu</i>
+          </button>
+        )}
       </div>
     );
   }
@@ -203,12 +217,15 @@ class Kosningaprof extends PureComponent {
   renderAllQuestions() {
     const { questions } = this.props;
     const { answers } = this.state;
+    const hasData = Object.values(answers).some(value => value !== null);
     return (
       <div>
         {questions.map(({ question, id }) => this.renderQuestion(question, id))}
-        <p style={{ textAlign: 'center' }}>
-          <button onClick={this.onSend}>Reikna niðurstöður</button>
-        </p>
+        {hasData && (
+          <p style={{ textAlign: 'center' }}>
+            <button onClick={this.onSend}>Reikna niðurstöður</button>
+          </p>
+        )}
       </div>
     );
   }
@@ -221,7 +238,8 @@ class Kosningaprof extends PureComponent {
       <div className={s.lead}>
         <p>
           Taktu kosningarpróf <strong>{title}</strong> til þess að sjá hvaða
-          flokkur passar best við þínar skoðanir.
+          flokkur passar best við þínar skoðanir. Því fleiri spurningum sem þú
+          svarar, því nákvæmari niðurstöður færðu.
         </p>
         {showReset && (
           <p>

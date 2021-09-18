@@ -31,9 +31,10 @@
     margin-right: 15px;
   }
 
-  button:not(.reset) {
+  button:not(.reset):not(.skip) {
     background: #353535;
     color: #fff;
+    cursor: pointer;
     border: none;
     appearance: none;
     font-size: 1rem;
@@ -41,15 +42,26 @@
     margin-top: 3rem;
   }
 
+  .skip,
   .reset {
     background: transparent;
     color: inherit;
+    cursor: pointer;
     border: none;
     appearance: none;
     display: inline;
     font: inherit;
     text-decoration: underline;
     white-space: normal;
+  }
+
+  .skip {
+    font-size: 0.75rem;
+    bottom: -1rem;
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .lead {
@@ -236,7 +248,6 @@
   padding: 3em 4em;
   transition: opacity 300ms ease-in-out;
   text-align: center;
-  overflow: hidden;
   margin-left: auto;
   margin-right: auto;
   max-width: 550px;
@@ -338,15 +349,15 @@
   justify-content: space-between;
 }
 
+.partyQuestions {
+  padding-bottom: 2rem;
+}
+
 .partyQuestion {
   padding-left: 45px;
 
   @include between-property('padding-bottom', 10px, 5px, 600px, 0);
   @include between-property('padding-top', 20px, 5px, 600px, 0);
-
-  &:last-child {
-    margin-bottom: 2rem;
-  }
 
   h4 {
     line-height: 1.5;
@@ -375,8 +386,8 @@
   }
 
   .dot1 {
-    background-color: #aedd32;
-    box-shadow: 0 0 4px 0 #aedd32;
+    background-color: #e3ea0f;
+    box-shadow: 0 0 4px 0 #e3ea0f;
   }
 
   .dot2 {
