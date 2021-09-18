@@ -54,7 +54,7 @@ class Kosningaprof extends PureComponent {
       finished: false,
       visible: {},
       showReset: false,
-      embeddedQuestion: -1,
+      embeddedQuestion: 39,
       answers: initialAnswers(props.questions)
     };
 
@@ -151,43 +151,50 @@ class Kosningaprof extends PureComponent {
     );
   }
 
+  renderQuestion(question, id, extraStyle) {
+    const { answers } = this.state;
+    return (
+      <div className={cx(s.question, extraStyle)}>
+        <h3>{question}</h3>
+        <Slider
+          dots
+          min={1}
+          max={5}
+          value={answers[id] != null ? answers[id] : 3}
+          marks={marks}
+          onChange={this.onChange(id)}
+          dotStyle={{
+            borderColor: '#e9e9e9',
+            marginBottom: -5,
+            width: 18,
+            height: 18
+          }}
+          handleStyle={{
+            backgroundColor: '#333',
+            borderColor: '#999',
+            marginLeft: 4,
+            marginTop: -7,
+            width: 18,
+            height: 18
+          }}
+          trackStyle={{
+            backgroundColor: 'transparent'
+          }}
+        />
+      </div>
+    );
+  }
+
   renderEmbeddedForm() {
     const { questions } = this.props;
-    const { answers, embeddedQuestion } = this.state;
+    const { embeddedQuestion } = this.state;
     if (embeddedQuestion === -1) {
       return <div>{this.renderButton()}</div>;
     }
     const { question, id } = questions[embeddedQuestion];
     return (
       <div>
-        <div className={cx(s.question, s.embeddedQuestion)}>
-          <h3>{question}</h3>
-          <Slider
-            dots
-            min={1}
-            max={5}
-            value={answers[id] != null ? answers[id] : 3}
-            marks={marks}
-            onChange={this.onChange(id)}
-            dotStyle={{
-              borderColor: '#e9e9e9',
-              marginBottom: -5,
-              width: 18,
-              height: 18
-            }}
-            handleStyle={{
-              backgroundColor: '#333',
-              borderColor: '#999',
-              marginLeft: 4,
-              marginTop: -7,
-              width: 18,
-              height: 18
-            }}
-            trackStyle={{
-              backgroundColor: 'transparent'
-            }}
-          />
-        </div>
+        {this.renderQuestion(question, id, s.embeddedQuestion)}
         {this.renderButton()}
       </div>
     );
@@ -198,38 +205,7 @@ class Kosningaprof extends PureComponent {
     const { answers } = this.state;
     return (
       <div>
-        {questions.map(({ question, id }) => (
-          <div>
-            <div key={id} id={id} className={cx(s.question)}>
-              <h3>{question}</h3>
-              <Slider
-                dots
-                min={1}
-                max={5}
-                value={answers[id] != null ? answers[id] : 3}
-                marks={marks}
-                onChange={this.onChange(id)}
-                dotStyle={{
-                  borderColor: '#e9e9e9',
-                  marginBottom: -5,
-                  width: 18,
-                  height: 18
-                }}
-                handleStyle={{
-                  backgroundColor: '#333',
-                  borderColor: '#999',
-                  marginLeft: 4,
-                  marginTop: -7,
-                  width: 18,
-                  height: 18
-                }}
-                trackStyle={{
-                  backgroundColor: 'transparent'
-                }}
-              />
-            </div>
-          </div>
-        ))}
+        {questions.map(({ question, id }) => this.renderQuestion(question, id))}
         <p style={{ textAlign: 'center' }}>
           <button onClick={this.onSend}>Reikna niðurstöður</button>
         </p>
