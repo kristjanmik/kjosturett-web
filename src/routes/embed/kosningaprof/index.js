@@ -7,7 +7,7 @@ import s from './Embed.scss';
 
 export default ({ url }) => ({
   chunks: ['embed-prof'],
-  title: `Taktu kosningapróf Vísis og kjósturétt.is!`,
+  title: `Kosningapróf Kjóstu rétt`,
   description:
     'Hvaða flokkar og frambjóðendur eru þér algjörlega sammála? Þú getur þreytt prófið og komist að áreiðanlegri niðurstöðu.',
   path: url,

@@ -8,7 +8,8 @@ import { encodeAnswersToken } from '../../utils';
 import s from './styles.scss';
 import history from '../../history';
 
-const storageKey = 'prof:answers';
+const answersKey = 'prof:answers';
+const indexKey = 'prof:answers:index';
 
 const initialAnswers = questions =>
   questions.reduce((all, { id }) => {
@@ -53,7 +54,7 @@ class Kosningaprof extends PureComponent {
       finished: false,
       visible: {},
       showReset: false,
-      embeddedQuestion: 39,
+      currentQuestionIndex: -1,
       answers: initialAnswers(props.questions),
     };
 
@@ -70,13 +71,14 @@ class Kosningaprof extends PureComponent {
     // eslint-disable-next-line
     if (window.confirm('Ertu viss um að þú byrja upp á nýtt?')) {
       const answers = initialAnswers(this.props.questions);
-      localStorage.removeItem(storageKey);
+      this.clearState();
       this.setState({
         answers,
         showReset: false,
       });
     }
   }
+
   onChange = id => value => {
     this.setState(({ answers }) => {
       const newAnswers = {
@@ -84,12 +86,11 @@ class Kosningaprof extends PureComponent {
         [id]: value,
       };
 
-      localStorage.setItem(storageKey, JSON.stringify(newAnswers));
       return {
         started: true,
         answers: newAnswers,
       };
-    });
+    }, this.saveState);
   };
   async onSend() {
     const { isEmbedded } = this.props;
@@ -115,52 +116,42 @@ class Kosningaprof extends PureComponent {
     const path = segments.filter(Boolean).join('/');
     history.push(`/${path}`);
   }
+
+  clearState = () => {
+    localStorage.removeItem(answersKey);
+    localStorage.removeItem(indexKey);
+  };
+  saveState = () => {
+    const { currentQuestionIndex, answers } = this.state;
+    localStorage.setItem(answersKey, JSON.stringify(answers));
+    localStorage.setItem(indexKey, currentQuestionIndex);
+  };
+
   loadAnswers() {
-    const answers = JSON.parse(localStorage.getItem(storageKey));
+    const answers = JSON.parse(localStorage.getItem(answersKey));
+    const currentQuestionIndex = Number(localStorage.getItem(indexKey));
 
     if (answers != null) {
-      this.setState({ answers, showReset: true });
+      this.setState({ answers, currentQuestionIndex, showReset: true });
     }
   }
 
   changeQuestion(nextOrPrev) {
-    const { embeddedQuestion } = this.state;
-    this.setState({ embeddedQuestion: embeddedQuestion + nextOrPrev });
-  }
-
-  renderButton() {
-    const { questions } = this.props;
-    const { embeddedQuestion } = this.state;
-    let text = 'Næsta spurning';
-    let onButtonClick = () => this.changeQuestion(1);
-    const { answers } = this.state;
-    const hasData = Object.values(answers).some(value => value !== null);
-    if (hasData && embeddedQuestion === questions.length - 1) {
-      text = 'Reikna niðurstöður';
-      onButtonClick = this.onSend;
-    } else if (embeddedQuestion === -1) {
-      text = 'Hefja próf';
-    }
-
-    return (
-      <div className={cx(s.buttonContainer)}>
-        {embeddedQuestion < questions.length - 1 && embeddedQuestion > 0 && (
-          <p style={{ marginRight: '10px' }}>
-            <button onClick={() => this.changeQuestion(-1)}>Til baka</button>
-          </p>
-        )}
-        <p>
-          <button onClick={onButtonClick}>{text}</button>
-        </p>
-      </div>
+    this.setState(
+      ({ currentQuestionIndex }) => ({
+        currentQuestionIndex: currentQuestionIndex + nextOrPrev,
+      }),
+      this.saveState
     );
   }
 
   renderQuestion(question, id, extraStyle) {
-    const { answers } = this.state;
+    const { answers, currentQuestionIndex } = this.state;
+    const { isEmbedded, questions } = this.props;
+    const isLastQuestion = currentQuestionIndex === questions.length - 1;
     return (
       <div key={id} id={id} className={cx(s.question, extraStyle)}>
-        <h3>{question}</h3>
+        <h3 className={s.questionText}>{question}</h3>
         <Slider
           dots
           min={1}
@@ -186,31 +177,47 @@ class Kosningaprof extends PureComponent {
             backgroundColor: 'transparent',
           }}
         />
-        {answers[id] !== null && (
-          <button
-            className={s.skip}
-            onClick={() => {
-              this.onChange(id)(null);
-            }}
-          >
-            <i>Sleppa spurningu</i>
-          </button>
-        )}
-      </div>
-    );
-  }
+        <div className={s.questionControls}>
+          {answers[id] !== null && (
+            <button
+              className={s.skip}
+              onClick={() => {
+                this.onChange(id)(null);
 
-  renderEmbeddedForm() {
-    const { questions } = this.props;
-    const { embeddedQuestion } = this.state;
-    if (embeddedQuestion === -1) {
-      return <div>{this.renderButton()}</div>;
-    }
-    const { question, id } = questions[embeddedQuestion];
-    return (
-      <div>
-        {this.renderQuestion(question, id, s.embeddedQuestion)}
-        {this.renderButton()}
+                if (isEmbedded && !isLastQuestion) {
+                  this.changeQuestion(1);
+                }
+              }}
+            >
+              <i>Sleppa spurningu</i>
+            </button>
+          )}
+          {isEmbedded && (
+            <div className={s.questionEmbedControls}>
+              {currentQuestionIndex > 0 && (
+                <button
+                  className={s.nextPrev}
+                  onClick={() => this.changeQuestion(-1)}
+                >
+                  Til baka
+                </button>
+              )}
+              {currentQuestionIndex < questions.length - 1 && (
+                <button
+                  className={s.nextPrev}
+                  onClick={() => this.changeQuestion(1)}
+                >
+                  Næsta spurning
+                </button>
+              )}
+              {isLastQuestion && (
+                <button className={s.embedSubmit} onClick={() => this.onSend()}>
+                  Reikna niðurstöður
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     );
   }
@@ -232,7 +239,7 @@ class Kosningaprof extends PureComponent {
   }
 
   renderIntroText() {
-    const { title } = this.props;
+    const { title, isEmbedded } = this.props;
     const { showReset } = this.state;
 
     return (
@@ -251,23 +258,59 @@ class Kosningaprof extends PureComponent {
             upp á nýtt.
           </p>
         )}
+        {isEmbedded && (
+          <button onClick={() => this.changeQuestion(1)}>Áfram</button>
+        )}
       </div>
     );
   }
 
   render() {
-    const { isEmbedded } = this.props;
-    const { embeddedQuestion } = this.state;
+    const { isEmbedded, questions } = this.props;
+    const { currentQuestionIndex } = this.state;
+
+    if (isEmbedded) {
+      if (currentQuestionIndex === -1) {
+        return (
+          <div className={cx(s.root, s.questions)}>
+            {this.renderIntroText()}
+          </div>
+        );
+      }
+
+      const { question, id } = questions[currentQuestionIndex];
+
+      return (
+        <div className={cx(s.root, s.questions)}>
+          <div className={s.progress}>
+            <div
+              className={s.progressBar}
+              style={{
+                transform: `translateX(${-100 *
+                  (1 - (currentQuestionIndex + 1) / questions.length)}%)`,
+              }}
+            />
+          </div>
+          <div
+            ref={element => {
+              this.questionsEl = element;
+            }}
+          >
+            {this.renderQuestion(question, id, s.embeddedQuestion)}
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className={cx(s.root, s.questions)}>
-        {!isEmbedded && this.renderIntroText()}
-        {isEmbedded && embeddedQuestion < 0 && this.renderIntroText()}
+        {this.renderIntroText()}
         <div
           ref={element => {
             this.questionsEl = element;
           }}
         >
-          {isEmbedded ? this.renderEmbeddedForm() : this.renderAllQuestions()}
+          {this.renderAllQuestions()}
         </div>
       </div>
     );

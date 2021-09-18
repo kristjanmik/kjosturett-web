@@ -31,7 +31,7 @@
     margin-right: 15px;
   }
 
-  button:not(.reset):not(.skip) {
+  button:not(.reset):not(.skip):not(.nextPrev):not(.embedSubmit) {
     background: #353535;
     color: #fff;
     cursor: pointer;
@@ -57,11 +57,7 @@
 
   .skip {
     font-size: 0.75rem;
-    bottom: -1rem;
-    position: absolute;
     display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   .lead {
@@ -238,8 +234,14 @@
 }
 
 .embeddedQuestion {
-  h3 {
-    height: 75px;
+  box-sizing: border-box;
+
+  .questionText {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 1.2rem;
+    min-height: 100px;
   }
 }
 
@@ -290,8 +292,58 @@
   }
 }
 
+.questionControls {
+  padding-top: 4rem;
+}
+
+.questionEmbedControls {
+  display: grid;
+  justify-content: center;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+
+  .embedSubmit,
+  .nextPrev {
+    background: #909dab;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    appearance: none;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    margin-top: 2rem;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 4px 8px rgba(#909dab, 0.2);
+    }
+  }
+
+  .embedSubmit {
+    background-color: #353535;
+  }
+}
+
 .hidden {
   opacity: 0.2;
+}
+
+.progress {
+  background: rgba(#909dab, 0.2);
+  height: 5px;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+.progressBar {
+  background: #909dab;
+  height: 100%;
+  width: 100%;
+  transform: translate3d(0, 0, 0);
+  transition: transform 300ms;
 }
 
 .party {
