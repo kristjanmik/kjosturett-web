@@ -1,5 +1,5 @@
 import path from 'path';
-import { appendFile } from 'fs';
+import multer from 'multer';
 import express from 'express';
 import bodyParser from 'body-parser';
 import nodeFetch from 'node-fetch';
@@ -21,6 +21,8 @@ import configureStore from './store/configureStore';
 import config from './config';
 import kjorskra from './lib/kjorskra';
 import { setRuntimeVariable } from './actions/runtime';
+
+const upload = multer({ dest: 'uploads/' });
 
 let redis;
 if (process.env.REDIS_URL) {
@@ -67,6 +69,21 @@ app.get('/og-image-kjorskra/:coordinates', (req, res) => {
 
 app.get('/kjorskra-lookup/:kennitala', (req, res, next) => {
   kjorskra(req.params.kennitala).then(d => res.json(d), next);
+});
+
+/**
+ * Used to avatar profile upload
+ */
+app.post('/candidate/avatar', upload.single('avatar'), (req, res) => {
+  /**
+   * TODO
+   * Upload to S3
+   * Get correct token and redirect
+   */
+  // for testing purposes - hardcoded
+  res.redirect(
+    `/4e94afa38918c6f2dcc12fd8a04d3972?token=foobar&upload=successsss`
+  );
 });
 
 // Used to gather replies from candidates and parties

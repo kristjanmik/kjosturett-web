@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import cx from 'classnames';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
@@ -34,7 +33,7 @@ class UploadCandidateImage extends PureComponent {
         </p>
         <form
           id="uploadForm"
-          action="http://46.101.57.130:5000/candidate/avatar"
+          action="/candidate/avatar"
           method="post"
           encType="multipart/form-data"
         >
@@ -129,9 +128,9 @@ class Kosningaprof extends PureComponent {
     const { answers, started, finished } = this.state;
     return (
       <div className={s.root}>
-        {/* {!finished && (
+        {!finished && (
           <UploadCandidateImage token={token} uploadSuccess={uploadSuccess} />
-        )} */}
+        )}
         {finished && <h3>Takk fyrir þátttökuna!</h3>}
 
         {!finished && (
