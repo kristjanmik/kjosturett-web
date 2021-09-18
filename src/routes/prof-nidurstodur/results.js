@@ -30,7 +30,7 @@ export default ({ params, url }) => {
   }));
 
   const socialPayload = parties
-    .map(party => `${party.letter}:${party.score.toFixed(0)}`)
+    .map(party => `${party.letter}:${Math.ceil(party.score)}`)
     .join('|');
 
   const ogImage = `https://lx62q4zmz2.execute-api.us-east-1.amazonaws.com/production/${encodeURIComponent(

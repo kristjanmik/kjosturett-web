@@ -111,7 +111,7 @@ class KosningaprofResults extends PureComponent {
           </i>
         </p>
         {parties
-          .filter(party => party.score)
+          .filter(party => !isNaN(party.score))
           .map(party => (
             <div key={party.letter}>
               <div
@@ -145,78 +145,86 @@ class KosningaprofResults extends PureComponent {
                   damping: 20
                 }}
               >
-                {questions
-                  .map(question => ({
-                    ...question,
-                    myAnswer: question.myAnswer || 3,
-                    partyAnswer: party.reply[question.id] || 3
-                  }))
-                  .sort((a, b) => {
-                    const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
-                    const bAgree = Math.abs(b.myAnswer - b.partyAnswer);
-                    if (a.myAnswer === 3 || a.myAnswer === 6) {
-                      return 1;
-                    }
-                    if (
-                      b.myAnswer === 3 ||
-                      b.myAnswer === 6 ||
-                      isNaN(aAgree) ||
-                      isNaN(bAgree)
-                    ) {
-                      return -1;
-                    }
-                    return aAgree - bAgree;
-                  })
-                  .map(({ id, myAnswer, question, partyAnswer }) => {
-                    const iAmIndiffrent = !(myAnswer !== 3 && myAnswer !== 6);
-                    const pluralParty = party.name === 'Píratar';
-                    const partyIndiffrent = !(
-                      partyAnswer !== 3 && partyAnswer !== 6
-                    );
-                    const difference = Math.abs(myAnswer - partyAnswer);
+                <div className={s.partyQuestions}>
+                  {questions
+                    .map(question => ({
+                      ...question,
+                      myAnswer: question.myAnswer || 3,
+                      partyAnswer: party.reply[question.id] || 3
+                    }))
+                    .sort((a, b) => {
+                      const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
+                      const bAgree = Math.abs(b.myAnswer - b.partyAnswer);
+                      if (a.myAnswer === 3 || a.myAnswer === 6) {
+                        return 1;
+                      }
+                      if (
+                        b.myAnswer === 3 ||
+                        b.myAnswer === 6 ||
+                        isNaN(aAgree) ||
+                        isNaN(bAgree)
+                      ) {
+                        return -1;
+                      }
+                      return aAgree - bAgree;
+                    })
+                    .map(({ id, myAnswer, question, partyAnswer }) => {
+                      const iAmIndiffrent = !(myAnswer !== 3 && myAnswer !== 6);
+                      const pluralParty = party.name === 'Píratar';
+                      const partyIndiffrent = !(
+                        partyAnswer !== 3 && partyAnswer !== 6
+                      );
+                      const difference = Math.abs(myAnswer - partyAnswer);
 
-                    return (
-                      <div className={s.partyQuestion} key={id}>
-                        <h4>
-                          <i
-                            className={cx(
-                              s.dot,
-                              !iAmIndiffrent && s[`dot${difference}`]
-                            )}
-                          />
-                          {question}
-                        </h4>
+                      if (myAnswer === 6) {
+                        return null;
+                      }
 
-                        {difference === 0 ? (
-                          <div>
-                            Bæði ég og {party.name} erum{' '}
-                            <strong>
-                              {answers.textMap[myAnswer].toLowerCase()}
-                            </strong>{' '}
-                            {iAmIndiffrent && 'gagnvart '} þessari staðhæfingu.
-                          </div>
-                        ) : (
-                          <div>
-                            Ég er{' '}
-                            <strong>
-                              {(
-                                answers.textMap[myAnswer] || 'hlutlaus'
-                              ).toLowerCase()}
-                            </strong>{' '}
-                            en {party.name} {pluralParty ? 'eru ' : 'er '}
-                            <strong>
-                              {(
-                                answers.textMap[partyAnswer] || 'hlutlaus'
-                              ).toLowerCase()}
-                              {(partyIndiffrent && pluralParty && 'ir ') || ' '}
-                            </strong>{' '}
-                            {partyIndiffrent && 'gagnvart '} þessari
-                            staðhæfingu.
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
+                      return (
+                        <div className={s.partyQuestion} key={id}>
+                          <h4>
+                            <i
+                              className={cx(
+                                s.dot,
+                                !iAmIndiffrent && s[`dot${difference}`]
+                              )}
+                            />
+                            {question}
+                          </h4>
+
+                          {difference === 0 ? (
+                            <div>
+                              Bæði ég og {party.name} erum{' '}
+                              <strong>
+                                {answers.textMap[myAnswer].toLowerCase()}
+                              </strong>{' '}
+                              {iAmIndiffrent && 'gagnvart '} þessari
+                              staðhæfingu.
+                            </div>
+                          ) : (
+                            <div>
+                              Ég er{' '}
+                              <strong>
+                                {(
+                                  answers.textMap[myAnswer] || 'hlutlaus'
+                                ).toLowerCase()}
+                              </strong>{' '}
+                              en {party.name} {pluralParty ? 'eru ' : 'er '}
+                              <strong>
+                                {(
+                                  answers.textMap[partyAnswer] || 'hlutlaus'
+                                ).toLowerCase()}
+                                {(partyIndiffrent && pluralParty && 'ir ') ||
+                                  ' '}
+                              </strong>{' '}
+                              {partyIndiffrent && 'gagnvart '} þessari
+                              staðhæfingu.
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                </div>
               </Collapse>
             </div>
           ))}
