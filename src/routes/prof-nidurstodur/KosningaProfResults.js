@@ -48,43 +48,28 @@ class KosningaprofResults extends PureComponent {
     );
   }
 
-  render() {
-    const {
-      questions,
-      answers,
-      results,
-      parties,
-      url,
-      ogImage,
-      isEmbedded,
-    } = this.props;
-    const { kjordaemiFilter, topFilter, candidateCount } = this.state;
+  renderIntro() {
+    if (this.props.isEmbedded) {
+      return (
+        <div>
+          <p className={s.lead}>Niðurstöður úr kosningaprófi</p>
+          <p style={{ textAlign: 'center' }}>
+            Þú getur nálgast ýtarefni um flokkana og frambjóðendur á{' '}
+            <strong>www.kjosturett.is</strong>
+          </p>
+        </div>
+      );
+    }
 
-    const candidates = this.props.candidates
-      .filter(c => {
-        if (
-          kjordaemiFilter !== '' &&
-          kjordaemiFilter.indexOf(c.constituency) === -1
-        ) {
-          return false;
-        }
+    const { ogImage, url } = this.props;
 
-        if (c.seat > topFilter) {
-          return false;
-        }
-
-        return true;
-      })
-      .slice(0, candidateCount);
-
-    const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
     return (
-      <div className={s.root}>
-        <div className={s.lead}>
+      <div>
+        <p className={s.lead}>
           Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Þú getur
           lesið {this.renderLink('/malefni/atvinnumal', 'stefnumál flokkana')} í
           þeim málefnum sem þér þykir mikilvæg.
-        </div>
+        </p>
 
         <p className={s.buttons}>
           {this.renderLink('/kosningaprof', 'Taka kosningaprófið', {
@@ -116,8 +101,37 @@ class KosningaprofResults extends PureComponent {
             Deila niðurstöðum á Twitter
           </Link>
         </p>
+      </div>
+    );
+  }
 
-        <h3>Stjórnmálaflokkar</h3>
+  render() {
+    const { questions, answers, parties } = this.props;
+    const { kjordaemiFilter, topFilter, candidateCount } = this.state;
+
+    const candidates = this.props.candidates
+      .filter(c => {
+        if (
+          kjordaemiFilter !== '' &&
+          kjordaemiFilter.indexOf(c.constituency) === -1
+        ) {
+          return false;
+        }
+
+        if (c.seat > topFilter) {
+          return false;
+        }
+
+        return true;
+      })
+      .slice(0, candidateCount);
+
+    const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
+    return (
+      <div className={s.root}>
+        {this.renderIntro()}
+
+        <h3 className={s.partiesHeader}>Stjórnmálaflokkar</h3>
         <p className={s.nonLead}>
           Flokkunum er raðað eftir afstöðu þeirra í kosningaprófinu samanborið
           við þín svör. <strong>Smelltu á stjórnmálaflokk</strong> til þess að
