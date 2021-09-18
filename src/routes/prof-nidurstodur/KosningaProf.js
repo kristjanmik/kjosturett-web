@@ -54,7 +54,7 @@ class Kosningaprof extends PureComponent {
       finished: false,
       visible: {},
       showReset: false,
-      embeddedQuestion: 39,
+      embeddedQuestion: -1,
       answers: initialAnswers(props.questions)
     };
 
@@ -111,7 +111,7 @@ class Kosningaprof extends PureComponent {
       })
       .catch(console.error);
 
-    history.push(`/kosningaprof/${encodeAnswersToken(answerValues)}`);
+    history.push(`/embed/${encodeAnswersToken(answerValues)}`);
   }
   loadAnswers() {
     const answers = JSON.parse(localStorage.getItem(storageKey));
