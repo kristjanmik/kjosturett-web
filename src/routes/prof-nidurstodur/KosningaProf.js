@@ -194,7 +194,7 @@ class Kosningaprof extends PureComponent {
           )}
           {isEmbedded && (
             <div className={s.questionEmbedControls}>
-              {currentQuestionIndex > 0 && (
+              {currentQuestionIndex >= 0 && (
                 <button
                   className={s.nextPrev}
                   onClick={() => this.changeQuestion(-1)}
