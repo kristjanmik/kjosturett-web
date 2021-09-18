@@ -24,6 +24,10 @@ const routes = {
       load: () => import(/* webpackChunkName: 'prof' */ './prof')
     },
     {
+      path: '/svar',
+      load: () => import(/* webpackChunkName: 'prof' */ './prof')
+    },
+    {
       path: '/kosningaprof',
       children: [
         {
