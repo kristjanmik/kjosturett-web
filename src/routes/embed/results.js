@@ -38,6 +38,7 @@ export default ({ params, url }) => {
       <Container>
         <div className={s.root}>
           <KosningaProfResults
+            isEmbedded
             answers={answers}
             questions={questions}
             candidates={candidates}

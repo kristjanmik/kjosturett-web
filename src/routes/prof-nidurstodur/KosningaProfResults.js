@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Collapse } from 'react-collapse';
 import Img from 'react-image';
@@ -39,6 +38,23 @@ class KosningaprofResults extends PureComponent {
       }
     }));
   }
+
+  renderLink(href, title, extraProps) {
+    const { isEmbedded } = this.props;
+    if (isEmbedded) {
+      return (
+        <a href={`https://kjosturett.is${href}`} {...extraProps}>
+          {title}
+        </a>
+      );
+    }
+    return (
+      <Link href={href} {...extraProps}>
+        {title}
+      </Link>
+    );
+  }
+
   render() {
     const { questions, answers, results, parties, url, ogImage } = this.props;
     const { kjordaemiFilter, topFilter, candidateCount } = this.state;
@@ -65,14 +81,14 @@ class KosningaprofResults extends PureComponent {
       <div className={s.root}>
         <div className={s.lead}>
           Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Þú getur
-          lesið <Link href="/malefni/atvinnumal">stefnumál flokkana</Link> í
+          lesið {this.renderLink('/malefni/atvinnumal', 'stefnumál flokkana')} í
           þeim málefnum sem þér þykir mikilvæg.
         </div>
 
         <p className={s.buttons}>
-          <Link className={s.takeTest} href="/kosningaprof">
-            Taka kosningaprófið
-          </Link>
+          {this.renderLink('/kosningaprof', 'Taka kosningaprófið', {
+            className: s.takeTest
+          })}
         </p>
 
         {ogImage && <img src={ogImage} className={s.resultImage} />}

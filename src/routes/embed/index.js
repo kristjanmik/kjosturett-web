@@ -16,8 +16,8 @@ export default ({ url }) => ({
     <Container>
       <div className={s.root}>
         <KosningaProf
-          title="Kjóstu rétt og Vísis"
           isEmbedded
+          title="Kjóstu rétt og Vísis"
           answers={answers}
           questions={questions}
         />
