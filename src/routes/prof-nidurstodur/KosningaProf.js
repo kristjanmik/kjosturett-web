@@ -178,7 +178,7 @@ class Kosningaprof extends PureComponent {
                     this.onChange(id)(null);
                   }}
                 >
-                  Sleppa þessari spurningu
+                  <i>Sleppa spurningu</i>
                 </button>
               )}
             </div>
