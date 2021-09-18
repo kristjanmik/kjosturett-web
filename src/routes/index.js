@@ -24,6 +24,16 @@ const routes = {
       load: () => import(/* webpackChunkName: 'prof' */ './prof')
     },
     {
+      path: '/embed',
+      children: [
+        {
+          path: '',
+          load: () =>
+            import(/* webpackChunkName: 'prof-nidurstodur' */ './embed')
+        }
+      ]
+    },
+    {
       path: '/kosningaprof',
       children: [
         {

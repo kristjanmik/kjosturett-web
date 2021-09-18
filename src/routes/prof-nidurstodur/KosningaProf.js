@@ -38,7 +38,8 @@ class Kosningaprof extends PureComponent {
         id: PropTypes.number.isRequired,
         question: PropTypes.string.isRequired
       })
-    ).isRequired
+    ).isRequired,
+    isEmbedded: PropTypes.bool
   };
   constructor(props) {
     super(props);
@@ -49,6 +50,7 @@ class Kosningaprof extends PureComponent {
       finished: false,
       visible: {},
       showReset: false,
+      embeddedQuestion: 0,
       answers: initialAnswers(props.questions)
     };
 
@@ -113,33 +115,67 @@ class Kosningaprof extends PureComponent {
       this.setState({ answers, showReset: true });
     }
   }
-  render() {
-    const { questions } = this.props;
-    const { answers, showReset, visible } = this.state;
-    return (
-      <div className={cx(s.root, s.questions)}>
-        <div className={s.lead}>
-          <p>
-            Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá
-            hvaða flokkur passar best við þínar skoðanir.
-          </p>
-          {showReset && (
-            <p>
-              Þú getur tekið upp þráðinn frá því síðast og klárað prófið, eða{' '}
-              <button className={s.reset} onClick={this.onReset}>
-                byrjað
-              </button>{' '}
-              upp á nýtt.
-            </p>
-          )}
-        </div>
 
-        <div
-          ref={element => {
-            this.questionsEl = element;
-          }}
-        >
-          {questions.map(({ question, id }) => (
+  renderEmbeddedForm() {
+    const { questions } = this.props;
+    const { answers, embeddedQuestion } = this.state;
+    const { question, id } = questions[embeddedQuestion];
+    return (
+      <div>
+        <div className={cx(s.question)}>
+          <h3>{question}</h3>
+          <Slider
+            dots
+            min={1}
+            max={5}
+            value={answers[id] != null ? answers[id] : 3}
+            marks={marks}
+            onChange={this.onChange(id)}
+            dotStyle={{
+              borderColor: '#e9e9e9',
+              marginBottom: -5,
+              width: 18,
+              height: 18
+            }}
+            handleStyle={{
+              backgroundColor: '#333',
+              borderColor: '#999',
+              marginLeft: 4,
+              marginTop: -7,
+              width: 18,
+              height: 18
+            }}
+            trackStyle={{
+              backgroundColor: 'transparent'
+            }}
+          />
+        </div>
+        {embeddedQuestion === questions.length - 1 ? (
+          <p style={{ textAlign: 'center' }}>
+            <button onClick={this.onSend}>Reikna niðurstöður</button>
+          </p>
+        ) : (
+          <p style={{ textAlign: 'center' }}>
+            <button
+              onClick={() =>
+                this.setState({ embeddedQuestion: embeddedQuestion + 1 })
+              }
+            >
+              Næsta spurning
+            </button>
+          </p>
+        )}
+      </div>
+    );
+  }
+
+  renderAllQuestions() {
+    const { questions } = this.props;
+    const { answers } = this.state;
+    return (
+      <div>
+        {questions.map(({ question, id }) => (
+          <div>
             <div key={id} id={id} className={cx(s.question)}>
               <h3>{question}</h3>
               <Slider
@@ -168,11 +204,43 @@ class Kosningaprof extends PureComponent {
                 }}
               />
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
         <p style={{ textAlign: 'center' }}>
           <button onClick={this.onSend}>Reikna niðurstöður</button>
         </p>
+      </div>
+    );
+  }
+
+  render() {
+    const { isEmbedded } = this.props;
+    const { showReset } = this.state;
+    return (
+      <div className={cx(s.root, s.questions)}>
+        <div className={s.lead}>
+          <p>
+            Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá
+            hvaða flokkur passar best við þínar skoðanir.
+          </p>
+          {showReset && (
+            <p>
+              Þú getur tekið upp þráðinn frá því síðast og klárað prófið, eða{' '}
+              <button className={s.reset} onClick={this.onReset}>
+                byrjað
+              </button>{' '}
+              upp á nýtt.
+            </p>
+          )}
+        </div>
+
+        <div
+          ref={element => {
+            this.questionsEl = element;
+          }}
+        >
+          {isEmbedded ? this.renderEmbeddedForm() : this.renderAllQuestions()}
+        </div>
       </div>
     );
   }
