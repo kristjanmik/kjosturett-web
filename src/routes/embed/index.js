@@ -10,5 +10,12 @@ export default ({ url }) => ({
     'Hvaða flokkar og frambjóðendur eru þér algjörlega sammála? Þú getur þreytt prófið og komist að áreiðanlegri niðurstöðu.',
   path: url,
   ogImage: 'https://assets.kjosturett.is/og_prof.png',
-  component: <KosningaProf isEmbedded answers={answers} questions={questions} />
+  component: (
+    <KosningaProf
+      title="Kjóstu rétt og Vísis"
+      isEmbedded
+      answers={answers}
+      questions={questions}
+    />
+  )
 });
