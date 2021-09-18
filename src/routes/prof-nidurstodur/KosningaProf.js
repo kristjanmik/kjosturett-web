@@ -149,6 +149,14 @@ class Kosningaprof extends PureComponent {
     const { answers, currentQuestionIndex } = this.state;
     const { isEmbedded, questions } = this.props;
     const isLastQuestion = currentQuestionIndex === questions.length - 1;
+    const hasAnswer = answers[id] !== null;
+    const skipQuestion = () => {
+      this.onChange(id)(null);
+
+      if (isEmbedded && !isLastQuestion) {
+        this.changeQuestion(1);
+      }
+    };
     return (
       <div key={id} id={id} className={cx(s.question, extraStyle)}>
         <h3 className={s.questionText}>{question}</h3>
@@ -178,17 +186,8 @@ class Kosningaprof extends PureComponent {
           }}
         />
         <div className={s.questionControls}>
-          {answers[id] !== null && (
-            <button
-              className={s.skip}
-              onClick={() => {
-                this.onChange(id)(null);
-
-                if (isEmbedded && !isLastQuestion) {
-                  this.changeQuestion(1);
-                }
-              }}
-            >
+          {!isEmbedded && hasAnswer && (
+            <button className={s.skip} onClick={skipQuestion}>
               <i>Sleppa spurningu</i>
             </button>
           )}
@@ -202,17 +201,25 @@ class Kosningaprof extends PureComponent {
                   Til baka
                 </button>
               )}
+              <button
+                className={s.nextPrev}
+                onClick={skipQuestion}
+                style={{ backgroundColor: 'rgb(102, 109, 117)' }}
+              >
+                Sleppa spurningu
+              </button>
               {currentQuestionIndex < questions.length - 1 && (
                 <button
                   className={s.nextPrev}
                   onClick={() => this.changeQuestion(1)}
+                  style={{ backgroundColor: 'rgb(34,36,40)' }}
                 >
-                  Næsta spurning
+                  Áfram
                 </button>
               )}
               {isLastQuestion && (
                 <button className={s.embedSubmit} onClick={() => this.onSend()}>
-                  Reikna niðurstöður
+                  Sjá niðurstöður
                 </button>
               )}
             </div>
