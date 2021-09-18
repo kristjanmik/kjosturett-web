@@ -8,10 +8,19 @@ exports.handler = (event, context, callback) => {
 
   let parties = payload.split('|').map(raw => {
     const [letter, score] = raw.split(':');
+
+    let finalScore = 0;
+
+    try {
+      finalScore = parseInt(score, 10);
+    } catch (e) {
+      console.error(e);
+    }
+
     return {
       letter,
       slug: partiesImport[letter],
-      score
+      score: finalScore
     };
   });
 
