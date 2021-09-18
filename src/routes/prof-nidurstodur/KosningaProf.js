@@ -20,29 +20,29 @@ const initialAnswers = questions =>
 const marks = {
   1: 'Mjög ósammála',
   3: 'Hlutlaus',
-  5: 'Mjög sammála'
+  5: 'Mjög sammála',
 };
 
 class Kosningaprof extends PureComponent {
   static contextTypes = {
-    fetch: PropTypes.func.isRequired
+    fetch: PropTypes.func.isRequired,
   };
   static defaultProps = {
-    title: 'Kjóstu rétt'
+    title: 'Kjóstu rétt',
   };
   static propTypes = {
     answers: PropTypes.shape({
       default: PropTypes.string.isRequired,
-      textMap: PropTypes.object.isRequired
+      textMap: PropTypes.object.isRequired,
     }).isRequired,
     questions: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        question: PropTypes.string.isRequired
+        question: PropTypes.string.isRequired,
       })
     ).isRequired,
     isEmbedded: PropTypes.bool,
-    title: PropTypes.string
+    title: PropTypes.string,
   };
   constructor(props) {
     super(props);
@@ -54,7 +54,7 @@ class Kosningaprof extends PureComponent {
       visible: {},
       showReset: false,
       embeddedQuestion: 39,
-      answers: initialAnswers(props.questions)
+      answers: initialAnswers(props.questions),
     };
 
     this.positions = {};
@@ -73,7 +73,7 @@ class Kosningaprof extends PureComponent {
       localStorage.removeItem(storageKey);
       this.setState({
         answers,
-        showReset: false
+        showReset: false,
       });
     }
   }
@@ -81,13 +81,13 @@ class Kosningaprof extends PureComponent {
     this.setState(({ answers }) => {
       const newAnswers = {
         ...answers,
-        [id]: value
+        [id]: value,
       };
 
       localStorage.setItem(storageKey, JSON.stringify(newAnswers));
       return {
         started: true,
-        answers: newAnswers
+        answers: newAnswers,
       };
     });
   };
@@ -104,15 +104,16 @@ class Kosningaprof extends PureComponent {
         method: 'POST',
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          reply: answersToken
-        })
+          reply: answersToken,
+        }),
       })
       .catch(console.error);
-    const route = isEmbedded ? 'embed' : 'kosningaprof';
-    history.push(`/${route}/${answersToken}`);
+    const segments = [isEmbedded && 'embed', 'kosningaprof', answersToken];
+    const path = segments.filter(Boolean).join('/');
+    history.push(`/${path}`);
   }
   loadAnswers() {
     const answers = JSON.parse(localStorage.getItem(storageKey));
@@ -171,7 +172,7 @@ class Kosningaprof extends PureComponent {
             borderColor: '#e9e9e9',
             marginBottom: -5,
             width: 18,
-            height: 18
+            height: 18,
           }}
           handleStyle={{
             backgroundColor: '#333',
@@ -179,10 +180,10 @@ class Kosningaprof extends PureComponent {
             marginLeft: 4,
             marginTop: -7,
             width: 18,
-            height: 18
+            height: 18,
           }}
           trackStyle={{
-            backgroundColor: 'transparent'
+            backgroundColor: 'transparent',
           }}
         />
         {answers[id] !== null && (

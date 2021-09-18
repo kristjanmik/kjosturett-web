@@ -1,12 +1,12 @@
 import React from 'react';
-import KosningaProfResults from '../prof-nidurstodur/KosningaProfResults';
-import Container from '../../components/Container';
-import questionsBase from '../../../data/poll/questions.json';
-import answers from '../../../data/poll/answers.json';
-import candidateReplies from '../../../data/build/replies-candidates2.json';
-import partyReplies from '../../../data/build/parties.json';
-import getResultsByScore from '../../process-replies';
-import { decodeAnswersToken } from '../../utils';
+import KosningaProfResults from '../../prof-nidurstodur/KosningaProfResults';
+import Container from '../../../components/Container';
+import questionsBase from '../../../../data/poll/questions.json';
+import answers from '../../../../data/poll/answers.json';
+import candidateReplies from '../../../../data/build/replies-candidates2.json';
+import partyReplies from '../../../../data/build/parties.json';
+import getResultsByScore from '../../../process-replies';
+import { decodeAnswersToken } from '../../../utils';
 import s from './Embed.scss';
 
 function questionAnswer(reply = []) {
@@ -27,11 +27,11 @@ export default ({ params, url }) => {
   const questions = questionsBase.map(({ id, question }) => ({
     id,
     question,
-    myAnswer: myAnswers[id]
+    myAnswer: myAnswers[id],
   }));
 
   return {
-    chunks: ['prof-nidurstodur'],
+    chunks: ['embed-prof'],
     title: `Kjóstu Rétt - Kosningapróf`,
     path: url,
     component: (
@@ -43,12 +43,12 @@ export default ({ params, url }) => {
             questions={questions}
             candidates={candidates}
             parties={parties}
-            url={`https://kjosturett.is/kosningaprof/${encodeURIComponent(
+            url={`https://kjosturett.is/embed/kosningaprof/${encodeURIComponent(
               params.nidurstodur
             )}`}
           />
         </div>
       </Container>
-    )
+    ),
   };
 };
