@@ -324,6 +324,11 @@
     &:focus {
       box-shadow: 0 4px 8px rgba(#909dab, 0.2);
     }
+
+    &:disabled {
+      cursor: auto;
+      opacity: 0.5;
+    }
   }
 
   .embedSubmit {
