@@ -22,7 +22,9 @@ class Layout extends Component {
       return (
         <div className={s.root}>
           <header>
-            <img className={s.logo} src={logo} alt="Kjóstu rétt" />
+            <a href="https://kjosturett.is/" target="_blank">
+              <img className={s.logo} src={logo} alt="Kjóstu rétt" />
+            </a>
           </header>
           <main className={s.main}>
             <Container>{children}</Container>

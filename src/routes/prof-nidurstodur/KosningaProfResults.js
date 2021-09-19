@@ -55,7 +55,11 @@ class KosningaprofResults extends PureComponent {
           <p className={s.lead}>Niðurstöður úr kosningaprófi</p>
           <p style={{ textAlign: 'center' }}>
             Þú getur nálgast ýtarefni um flokkana og frambjóðendur á{' '}
-            <strong>www.kjosturett.is</strong>
+            <strong>
+              <a href="https://kjosturett.is/" target="_blank">
+                www.kjosturett.is
+              </a>
+            </strong>
           </p>
         </div>
       );
