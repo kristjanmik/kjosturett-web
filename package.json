@@ -30,7 +30,7 @@
     "metaphor": "^3.8.3",
     "multer": "^1.4.3",
     "multer-s3": "^2.9.0",
-    "node-fetch": "^1.7.1",
+    "node-fetch": "^1.7.3",
     "node-sass": "^4.14.1",
     "normalize.css": "^7.0.0",
     "pretty-error": "^2.1.1",
@@ -55,6 +55,7 @@
     "sass-loader": "^6.0.7",
     "serialize-javascript": "^1.9.1",
     "source-map-support": "^0.4.15",
+    "twilio": "^3.67.2",
     "universal-router": "^3.2.0",
     "uuid": "^8.3.2",
     "whatwg-fetch": "^2.0.4"
@@ -175,6 +176,7 @@
   },
   "lint-staged": {},
   "prettier": {
+    "trailingComma": "es5",
     "singleQuote": true
   },
   "scripts": {

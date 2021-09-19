@@ -4,6 +4,7 @@ import s from './Layout.scss';
 import Header from '../Header';
 import Footer from '../Footer';
 import Container from '../Container';
+import logo from '../../logo.svg';
 
 class Layout extends Component {
   render() {
@@ -13,9 +14,25 @@ class Layout extends Component {
       altTitle,
       children,
       color,
-      background,
+      isEmbed = false,
       showHeader = true,
     } = this.props;
+
+    if (isEmbed) {
+      return (
+        <div className={s.root}>
+          <header>
+            <a href="https://kjosturett.is/" target="_blank">
+              <img className={s.logo} src={logo} alt="Kjóstu rétt" />
+            </a>
+          </header>
+          <main className={s.main}>
+            <Container>{children}</Container>
+          </main>
+        </div>
+      );
+    }
+
     return (
       <div className={s.root}>
         {showHeader && <Header page={page} />}

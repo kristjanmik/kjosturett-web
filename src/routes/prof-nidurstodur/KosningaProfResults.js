@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Collapse } from 'react-collapse';
 import Img from 'react-image';
@@ -18,7 +17,7 @@ const constituencies = {
   nordvesturkjordaemi: 'Norðvesturkjördæmi',
   nordausturkjordaemi: 'Norðausturkjördæmi',
   sudurkjordaemi: 'Suðurkjördæmi',
-  sudvesturkjordaemi: 'Suðvesturkjördæmi'
+  sudvesturkjordaemi: 'Suðvesturkjördæmi',
 };
 
 const scoreToFloatingPoint = (score, scalar = 1) =>
@@ -29,50 +28,57 @@ class KosningaprofResults extends PureComponent {
     open: {},
     kjordaemiFilter: '',
     topFilter: 5,
-    candidateCount: 12
+    candidateCount: 12,
   };
   toggle(party) {
     this.setState(({ open }) => ({
       open: {
         ...open,
-        [party]: !open[party]
-      }
+        [party]: !open[party],
+      },
     }));
   }
-  render() {
-    const { questions, answers, results, parties, url, ogImage } = this.props;
-    const { kjordaemiFilter, topFilter, candidateCount } = this.state;
 
-    const candidates = this.props.candidates
-      .filter(c => {
-        if (
-          kjordaemiFilter !== '' &&
-          kjordaemiFilter.indexOf(c.constituency) === -1
-        ) {
-          return false;
-        }
-
-        if (c.seat > topFilter) {
-          return false;
-        }
-
-        return true;
-      })
-      .slice(0, candidateCount);
-
-    const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
+  renderLink(href, title, extraProps) {
+    const { isEmbedded } = this.props;
     return (
-      <div className={s.root}>
-        <div className={s.lead}>
-          Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Þú getur
-          lesið <Link href="/malefni/atvinnumal">stefnumál flokkana</Link> í
-          þeim málefnum sem þér þykir mikilvæg.
+      <Link href={(isEmbedded ? '/embed' : '') + href} {...extraProps}>
+        {title}
+      </Link>
+    );
+  }
+
+  renderIntro() {
+    if (this.props.isEmbedded) {
+      return (
+        <div>
+          <p className={s.lead}>Niðurstöður úr kosningaprófi</p>
+          <p style={{ textAlign: 'center' }}>
+            Þú getur nálgast ýtarefni um flokkana og frambjóðendur á{' '}
+            <strong>
+              <a href="https://kjosturett.is/" target="_blank">
+                www.kjosturett.is
+              </a>
+            </strong>
+          </p>
         </div>
+      );
+    }
+
+    const { ogImage, url } = this.props;
+
+    return (
+      <div>
+        <p className={s.lead}>
+          Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Þú getur
+          lesið {this.renderLink('/malefni/atvinnumal', 'stefnumál flokkana')} í
+          þeim málefnum sem þér þykir mikilvæg.
+        </p>
 
         <p className={s.buttons}>
-          <Link className={s.takeTest} href="/kosningaprof">
-            Taka kosningaprófið
-          </Link>
+          {this.renderLink('/kosningaprof', 'Taka kosningaprófið', {
+            className: s.takeTest,
+          })}
         </p>
 
         {ogImage && <img src={ogImage} className={s.resultImage} />}
@@ -99,16 +105,41 @@ class KosningaprofResults extends PureComponent {
             Deila niðurstöðum á Twitter
           </Link>
         </p>
+      </div>
+    );
+  }
 
-        <h3>Stjórnmálaflokkar</h3>
+  render() {
+    const { questions, answers, parties } = this.props;
+    const { kjordaemiFilter, topFilter, candidateCount } = this.state;
+
+    const candidates = this.props.candidates
+      .filter(c => {
+        if (
+          kjordaemiFilter !== '' &&
+          kjordaemiFilter.indexOf(c.constituency) === -1
+        ) {
+          return false;
+        }
+
+        if (c.seat > topFilter) {
+          return false;
+        }
+
+        return true;
+      })
+      .slice(0, candidateCount);
+
+    const partyScoreScalar = parties.length ? parties[0].score / 100 : 1;
+    return (
+      <div className={s.root}>
+        {this.renderIntro()}
+
+        <h3 className={s.partiesHeader}>Stjórnmálaflokkar</h3>
         <p className={s.nonLead}>
           Flokkunum er raðað eftir afstöðu þeirra í kosningaprófinu samanborið
           við þín svör. <strong>Smelltu á stjórnmálaflokk</strong> til þess að
           skoða samanburð einstakra spurninga.{' '}
-          <i>
-            Athygli skal vakin á því að ekki allir flokkar hafa skilað inn
-            svörum.
-          </i>
         </p>
         {parties
           .filter(party => !isNaN(party.score))
@@ -126,7 +157,7 @@ class KosningaprofResults extends PureComponent {
                     transform: `scaleX(${scoreToFloatingPoint(
                       party.score,
                       partyScoreScalar
-                    )})`
+                    )})`,
                   }}
                 />
                 <img
@@ -142,7 +173,7 @@ class KosningaprofResults extends PureComponent {
                 isOpened={this.state.open[party.letter] === true}
                 springConfig={{
                   stiffness: 100,
-                  damping: 20
+                  damping: 20,
                 }}
               >
                 <div className={s.partyQuestions}>
@@ -150,7 +181,7 @@ class KosningaprofResults extends PureComponent {
                     .map(question => ({
                       ...question,
                       myAnswer: question.myAnswer || 3,
-                      partyAnswer: party.reply[question.id] || 3
+                      partyAnswer: party.reply[question.id] || 3,
                     }))
                     .sort((a, b) => {
                       const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
@@ -228,134 +259,142 @@ class KosningaprofResults extends PureComponent {
               </Collapse>
             </div>
           ))}
-        <h3>Frambjóðendur</h3>
-        <p className={s.nonLead}>
-          Svör fólks í framboði fyrir alla flokka í öllum kjördæmum.{' '}
-          <i>
-            Frambjóðendur fá senda spurningalista þegar Landskjörstjórn hefur
-            samþykkt framboðslista flokkanna.
-          </i>
-        </p>
-        <div className={s.filters}>
-          <Select
-            multi={true}
-            name="kjordaemi"
-            value={kjordaemiFilter}
-            placeholder="Kjördæmi"
-            className={s.kjordaemiFilter}
-            options={Object.keys(constituencies).map(value => ({
-              value,
-              label: constituencies[value]
-            }))}
-            onChange={val => {
-              this.setState({
-                kjordaemiFilter: val.map(v => v.value).join(',')
-              });
-            }}
-          />
-          <Select
-            name="top"
-            value={topFilter}
-            className={s.topFilter}
-            clearable={false}
-            options={[
-              {
-                value: 30,
-                label: 'Allir frambjóðendur'
-              },
-              { value: 1, label: 'Oddvitar' },
-              { value: 2, label: 'Efst 2 á lista' },
-              { value: 5, label: 'Efstu 5 á lista' },
-              { value: 10, label: 'Efstu 10 á lista' }
-            ]}
-            onChange={val => {
-              this.setState({
-                topFilter: val.value
-              });
-            }}
-          />
-          <Select
-            name="show"
-            value={candidateCount}
-            className={s.showCount}
-            clearable={false}
-            options={[
-              {
-                value: 12,
-                label: 'Sýna 12'
-              },
-              { value: 24, label: 'Sýna 24' },
-              { value: 72, label: 'Sýna 72' },
-              { value: 144, label: 'Sýna 144' }
-            ]}
-            onChange={val => {
-              this.setState({
-                candidateCount: val.value
-              });
-            }}
-          />
-        </div>
-        <div className={s.candidates}>
-          {candidates.map(candidate => {
-            const party = parties.find(x => x.letter === candidate.party);
-            return (
-              <div
-                key={candidate.slug}
-                className={s.candidate}
-                style={{
-                  backgroundColor: party && party.color
+        {/* Not included for the 2021 election */}
+        {false && (
+          <div>
+            <h3>Frambjóðendur</h3>
+            <p className={s.nonLead}>
+              Svör fólks í framboði fyrir alla flokka í öllum kjördæmum.{' '}
+              <i>
+                Frambjóðendur fá senda spurningalista þegar Landskjörstjórn
+                hefur samþykkt framboðslista flokkanna.
+              </i>
+            </p>
+            <div className={s.filters}>
+              <Select
+                multi={true}
+                name="kjordaemi"
+                value={kjordaemiFilter}
+                placeholder="Kjördæmi"
+                className={s.kjordaemiFilter}
+                options={Object.keys(constituencies).map(value => ({
+                  value,
+                  label: constituencies[value],
+                }))}
+                onChange={val => {
+                  this.setState({
+                    kjordaemiFilter: val.map(v => v.value).join(','),
+                  });
                 }}
-              >
-                {candidate.hasImage && (
-                  <Img
-                    className={s.candidateImg}
-                    src={[candidateImage(candidate.slug), transparent]}
-                  />
-                )}
-                {!candidate.hasImage && (
-                  <Img className={s.candidateImg} src={[transparent]} />
-                )}
-                <div
-                  className={s.candidateProgressBar}
-                  style={{ display: candidate.score > 0 ? 'block' : 'none' }}
-                >
+              />
+              <Select
+                name="top"
+                value={topFilter}
+                className={s.topFilter}
+                clearable={false}
+                options={[
+                  {
+                    value: 30,
+                    label: 'Allir frambjóðendur',
+                  },
+                  { value: 1, label: 'Oddvitar' },
+                  { value: 2, label: 'Efst 2 á lista' },
+                  { value: 5, label: 'Efstu 5 á lista' },
+                  { value: 10, label: 'Efstu 10 á lista' },
+                ]}
+                onChange={val => {
+                  this.setState({
+                    topFilter: val.value,
+                  });
+                }}
+              />
+              <Select
+                name="show"
+                value={candidateCount}
+                className={s.showCount}
+                clearable={false}
+                options={[
+                  {
+                    value: 12,
+                    label: 'Sýna 12',
+                  },
+                  { value: 24, label: 'Sýna 24' },
+                  { value: 72, label: 'Sýna 72' },
+                  { value: 144, label: 'Sýna 144' },
+                ]}
+                onChange={val => {
+                  this.setState({
+                    candidateCount: val.value,
+                  });
+                }}
+              />
+            </div>
+            <div className={s.candidates}>
+              {candidates.map(candidate => {
+                const party = parties.find(x => x.letter === candidate.party);
+                return (
                   <div
-                    className={s.candidateProgress}
+                    key={candidate.slug}
+                    className={s.candidate}
                     style={{
-                      transform: `scaleX(${scoreToFloatingPoint(
-                        candidate.score
-                      )})`,
-                      background: party && party.color ? party.color : '#555'
+                      backgroundColor: party && party.color,
                     }}
-                  />
-                </div>
-                {candidate.score > 0 && (
-                  <div className={s.candidatePercentage}>
-                    <span>{Math.ceil(candidate.score)}%</span>
-                  </div>
-                )}
-                {candidate.score === 0 && (
-                  <div className={s.candidateNoResponse}>
-                    <span>Frambjóðandi hefur ekki svarað</span>
-                  </div>
-                )}
-                <div className={s.candidateInfo}>
-                  <div className={s.candidateName}>{candidate.name}</div>
-                  {party && (
-                    <div className={s.candidateParty}>
-                      {party.name} (x{candidate.party})
+                  >
+                    {candidate.hasImage && (
+                      <Img
+                        className={s.candidateImg}
+                        src={[candidateImage(candidate.slug), transparent]}
+                      />
+                    )}
+                    {!candidate.hasImage && (
+                      <Img className={s.candidateImg} src={[transparent]} />
+                    )}
+                    <div
+                      className={s.candidateProgressBar}
+                      style={{
+                        display: candidate.score > 0 ? 'block' : 'none',
+                      }}
+                    >
+                      <div
+                        className={s.candidateProgress}
+                        style={{
+                          transform: `scaleX(${scoreToFloatingPoint(
+                            candidate.score
+                          )})`,
+                          background:
+                            party && party.color ? party.color : '#555',
+                        }}
+                      />
                     </div>
-                  )}
-                  <div className={s.candidateConstituency}>
-                    {candidate.seat}. sæti
-                    <br />
-                    {constituencies[candidate.constituency]}
+                    {candidate.score > 0 && (
+                      <div className={s.candidatePercentage}>
+                        <span>{Math.ceil(candidate.score)}%</span>
+                      </div>
+                    )}
+                    {candidate.score === 0 && (
+                      <div className={s.candidateNoResponse}>
+                        <span>Frambjóðandi hefur ekki svarað</span>
+                      </div>
+                    )}
+                    <div className={s.candidateInfo}>
+                      <div className={s.candidateName}>{candidate.name}</div>
+                      {party && (
+                        <div className={s.candidateParty}>
+                          {party.name} (x{candidate.party})
+                        </div>
+                      )}
+                      <div className={s.candidateConstituency}>
+                        {candidate.seat}. sæti
+                        <br />
+                        {constituencies[candidate.constituency]}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
