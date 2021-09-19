@@ -18,6 +18,7 @@ export default ({ params, url, query }) => {
           questions={questions}
           token={token}
           uploadSuccess={upload === 'success'}
+          uploadFailure={upload === 'failure'}
         />
       </Layout>
     )

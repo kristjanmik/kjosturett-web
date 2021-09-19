@@ -1,5 +1,7 @@
 import path from 'path';
-import { appendFile } from 'fs';
+import multer from 'multer';
+import multerS3 from 'multer-s3';
+import aws from 'aws-sdk';
 import express from 'express';
 import bodyParser from 'body-parser';
 import nodeFetch from 'node-fetch';
@@ -40,6 +42,40 @@ if (process.env.REDIS_URL) {
   );
 }
 
+const s3 = new aws.S3({
+  accessKeyId: process.env.S3_ACCESS_KEY,
+  secretAccessKey: process.env.S3_SECRET_KEY
+});
+
+// const upload = multer({ dest: 'uploads/' });
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: process.env.S3_BUCKET,
+    acl: 'public-read',
+    key: async function(req, file, cb) {
+      if (!['image/png', 'image/jpg', 'image/jpeg'].includes(file.mimetype))
+        return cb(new Error('Wrong filetype'));
+
+      const token = req.query.token;
+      if (!uuid.validate(token))
+        throw Error(
+          'Rangt auðkenni. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+        );
+      const ssn = await redis.get(`candidate-token:${token}`);
+
+      if (!ssn)
+        return cb(
+          new Error(
+            'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+          )
+        );
+
+      cb(null, `candidates/${ssn}.jpg`);
+    }
+  })
+});
+
 const app = express();
 
 // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the
@@ -67,6 +103,19 @@ app.get('/og-image-kjorskra/:coordinates', (req, res) => {
 
 app.get('/kjorskra-lookup/:kennitala', (req, res, next) => {
   kjorskra(req.params.kennitala).then(d => res.json(d), next);
+});
+
+/**
+ * Used to candidate profile upload
+ */
+app.post('/candidate/avatar', upload.single('avatar'), (req, res) => {
+  if (!req.query.token)
+    return res.json({
+      success: false,
+      error: 'Failed to upload photo, missing token'
+    });
+
+  res.redirect(`/svar?token=${req.query.token}&upload=success`);
 });
 
 // Used to gather replies from candidates and parties
