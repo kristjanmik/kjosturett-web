@@ -19,10 +19,13 @@ const defaultAnswer = '3';
 
 class UploadCandidateImage extends PureComponent {
   render() {
-    const { token, uploadSuccess } = this.props;
+    const { token, uploadSuccess, uploadFailure } = this.props;
 
     if (uploadSuccess) {
       return <p className={s.uploadSuccess}>Innsending á mynd tókst!</p>;
+    }
+    if (uploadFailure) {
+      return <p className={s.uploadFailure}>Innsending á mynd tókst ekki.</p>;
     }
     return (
       <div className={s.uploadForm}>
@@ -33,7 +36,7 @@ class UploadCandidateImage extends PureComponent {
         </p>
         <form
           id="uploadForm"
-          action="/candidate/avatar"
+          action={`/candidate/avatar?token=${token}`}
           method="post"
           encType="multipart/form-data"
         >
@@ -124,12 +127,16 @@ class Kosningaprof extends PureComponent {
     this.setState({ finished: true });
   }
   render() {
-    const { questions, token, uploadSuccess } = this.props;
+    const { questions, token, uploadSuccess, uploadFailure } = this.props;
     const { answers, started, finished } = this.state;
     return (
       <div className={s.root}>
         {!finished && (
-          <UploadCandidateImage token={token} uploadSuccess={uploadSuccess} />
+          <UploadCandidateImage
+            token={token}
+            uploadSuccess={uploadSuccess}
+            uploadFailure={uploadFailure}
+          />
         )}
         {finished && <h3>Takk fyrir þátttökuna!</h3>}
 
