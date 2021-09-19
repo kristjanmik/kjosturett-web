@@ -31,8 +31,8 @@ if (process.env.REDIS_URL) {
     process.env.REDIS_URL.includes('rediss://')
       ? {
           tls: {
-            rejectUnauthorized: false
-          }
+            rejectUnauthorized: false,
+          },
         }
       : {}
   );
@@ -42,39 +42,44 @@ if (process.env.REDIS_URL) {
   );
 }
 
-const s3 = new aws.S3({
-  accessKeyId: process.env.S3_ACCESS_KEY,
-  secretAccessKey: process.env.S3_SECRET_KEY
-});
+let s3;
+let upload;
 
-// const upload = multer({ dest: 'uploads/' });
-const upload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: process.env.S3_BUCKET,
-    acl: 'public-read',
-    key: async function(req, file, cb) {
-      if (!['image/png', 'image/jpg', 'image/jpeg'].includes(file.mimetype))
-        return cb(new Error('Wrong filetype'));
+if (process.env.NODE_ENV === 'production') {
+  s3 = new aws.S3({
+    accessKeyId: process.env.S3_ACCESS_KEY,
+    secretAccessKey: process.env.S3_SECRET_KEY,
+  });
+  upload = multer({
+    storage: multerS3({
+      s3: s3,
+      bucket: process.env.S3_BUCKET,
+      acl: 'public-read',
+      key: async function(req, file, cb) {
+        if (!['image/png', 'image/jpg', 'image/jpeg'].includes(file.mimetype))
+          return cb(new Error('Wrong filetype'));
 
-      const token = req.query.token;
-      if (!uuid.validate(token))
-        throw Error(
-          'Rangt auðkenni. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
-        );
-      const ssn = await redis.get(`candidate-token:${token}`);
+        const token = req.query.token;
+        if (!uuid.validate(token))
+          throw Error(
+            'Rangt auðkenni. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+          );
+        const ssn = await redis.get(`candidate-token:${token}`);
 
-      if (!ssn)
-        return cb(
-          new Error(
-            'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
-          )
-        );
+        if (!ssn)
+          return cb(
+            new Error(
+              'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+            )
+          );
 
-      cb(null, `candidates/${ssn}.jpg`);
-    }
-  })
-});
+        cb(null, `candidates/${ssn}.jpg`);
+      },
+    }),
+  });
+} else {
+  upload = multer({ dest: 'uploads/' });
+}
 
 const app = express();
 
@@ -112,7 +117,7 @@ app.post('/candidate/avatar', upload.single('avatar'), (req, res) => {
   if (!req.query.token)
     return res.json({
       success: false,
-      error: 'Failed to upload photo, missing token'
+      error: 'Failed to upload photo, missing token',
     });
 
   res.redirect(`/svar?token=${req.query.token}&upload=success`);
@@ -120,10 +125,10 @@ app.post('/candidate/avatar', upload.single('avatar'), (req, res) => {
 
 // Used to gather replies from candidates and parties
 app.post('/konnun/replies', async (req, res) => {
-  if (Date.now() > 1632700800000) {
+  if (Date.now() > 1632614400000) {
     return res.json({
       success: false,
-      error: 'Kosningarnar eru búnar'
+      error: 'Kosningarnar eru búnar',
     });
   }
 
@@ -156,19 +161,19 @@ app.get('*', async (req, res, next) => {
     // Universal HTTP client
     const fetch = createFetch(nodeFetch, {
       baseUrl: config.api.serverUrl,
-      cookie: req.headers.cookie
+      cookie: req.headers.cookie,
     });
 
     const initialState = {};
 
     const store = configureStore(initialState, {
-      fetch
+      fetch,
     });
 
     store.dispatch(
       setRuntimeVariable({
         name: 'initialNow',
-        value: Date.now()
+        value: Date.now(),
       })
     );
 
@@ -186,13 +191,13 @@ app.get('*', async (req, res, next) => {
       fetch,
       // You can access redux through react-redux connect
       store,
-      storeSubscription: null
+      storeSubscription: null,
     };
 
     const route = await router.resolve({
       ...context,
       path: req.path,
-      query: req.query
+      query: req.query,
     });
 
     if (route.redirect) {
@@ -214,7 +219,7 @@ app.get('*', async (req, res, next) => {
     data.scripts.push(assets.client.js);
     data.app = {
       apiUrl: config.api.clientUrl,
-      state: context.store.getState()
+      state: context.store.getState(),
     };
 
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
