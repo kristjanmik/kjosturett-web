@@ -1,0 +1,1 @@
+Sósíalistaflokkurinn er ekki með stefnu í sóttvörnum, enda er það hlutverk sóttvarnaryfirvalda að móta stefnu í sóttvörnum.
