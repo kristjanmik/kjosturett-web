@@ -259,13 +259,13 @@ class Kosningaprof extends PureComponent {
   }
 
   renderIntroText() {
-    const { title, isEmbedded } = this.props;
+    const { isEmbedded } = this.props;
     const { showReset } = this.state;
 
     return (
       <div className={s.lead}>
         <p>
-          Taktu kosningarpróf <strong>{title}</strong> til þess að sjá hvaða
+          Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá hvaða
           flokkur passar best við þínar skoðanir. Því fleiri spurningum sem þú
           svarar, því nákvæmari niðurstöður færðu.
         </p>
