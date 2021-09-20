@@ -150,6 +150,8 @@ class Kosningaprof extends PureComponent {
     const { isEmbedded, questions } = this.props;
     const isLastQuestion = currentQuestionIndex === questions.length - 1;
     const hasAnswer = answers[id] !== null;
+    const hasSomeAnswers = Object.values(answers).some(value => value !== null);
+
     const skipQuestion = () => {
       this.onChange(id)(null);
 
@@ -213,16 +215,27 @@ class Kosningaprof extends PureComponent {
                   className={s.nextPrev}
                   onClick={() => this.changeQuestion(1)}
                   style={{ backgroundColor: 'rgb(34,36,40)' }}
+                  disabled={!hasAnswer}
                 >
                   Áfram
                 </button>
               )}
               {isLastQuestion && (
-                <button className={s.embedSubmit} onClick={() => this.onSend()}>
+                <button
+                  disabled={!hasSomeAnswers}
+                  className={s.embedSubmit}
+                  onClick={() => this.onSend()}
+                >
                   Sjá niðurstöður
                 </button>
               )}
             </div>
+          )}
+          {isLastQuestion && !hasSomeAnswers && (
+            <p style={{ margin: '1rem 0' }}>
+              Til að sjá niðurstöður verður þú að taka afstöðu með eða móti
+              allavega einni fullyrðingu.
+            </p>
           )}
         </div>
       </div>
@@ -246,13 +259,13 @@ class Kosningaprof extends PureComponent {
   }
 
   renderIntroText() {
-    const { title, isEmbedded } = this.props;
+    const { isEmbedded } = this.props;
     const { showReset } = this.state;
 
     return (
       <div className={s.lead}>
         <p>
-          Taktu kosningarpróf <strong>{title}</strong> til þess að sjá hvaða
+          Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá hvaða
           flokkur passar best við þínar skoðanir. Því fleiri spurningum sem þú
           svarar, því nákvæmari niðurstöður færðu.
         </p>

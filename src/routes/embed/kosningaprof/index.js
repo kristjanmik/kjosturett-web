@@ -15,7 +15,7 @@ export default ({ url }) => ({
     <Layout isEmbed>
       <KosningaProf
         isEmbedded
-        title="Kjóstu rétt og Vísis"
+        title="Kosningapróf Kjóstu rétt"
         answers={answers}
         questions={questions}
       />

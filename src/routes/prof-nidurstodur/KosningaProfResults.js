@@ -23,6 +23,13 @@ const constituencies = {
 const scoreToFloatingPoint = (score, scalar = 1) =>
   Math.max(1, Math.ceil(score / scalar)) / 100;
 
+function pluralize(count, singular, plural, zero = '') {
+  if (count === 0 && zero) {
+    return zero;
+  }
+  return count > 1 ? plural : singular;
+}
+
 class KosningaprofResults extends PureComponent {
   state = {
     open: {},
@@ -110,9 +117,11 @@ class KosningaprofResults extends PureComponent {
   }
 
   render() {
-    const { questions, answers, parties } = this.props;
+    const { isEmbedded, questions, answers, parties } = this.props;
     const { kjordaemiFilter, topFilter, candidateCount } = this.state;
-
+    const answeredQuestions = questions.filter(
+      ({ myAnswer }) => myAnswer && myAnswer !== 6
+    );
     const candidates = this.props.candidates
       .filter(c => {
         if (
@@ -141,6 +150,22 @@ class KosningaprofResults extends PureComponent {
           við þín svör. <strong>Smelltu á stjórnmálaflokk</strong> til þess að
           skoða samanburð einstakra spurninga.{' '}
         </p>
+
+        {answeredQuestions.length / questions.length < 0.5 && (
+          <p className={s.nonLead}>
+            Einungis {answeredQuestions.length}{' '}
+            {pluralize(answeredQuestions.length, 'spurningu', 'spurningum')} var
+            svarað og því gætu niðurstöðurnar ekki veitt fullkomna mynd. Því
+            fleiri spurningum sem þú svarar, því nákvæmari niðurstöður færðu.
+          </p>
+        )}
+
+        {isEmbedded && (
+          <p className={s.nonLead}>
+            {this.renderLink('/kosningaprof', 'Taka prófið aftur')}
+          </p>
+        )}
+
         {parties
           .filter(party => !isNaN(party.score))
           .map(party => (
@@ -177,7 +202,7 @@ class KosningaprofResults extends PureComponent {
                 }}
               >
                 <div className={s.partyQuestions}>
-                  {questions
+                  {answeredQuestions
                     .map(question => ({
                       ...question,
                       myAnswer: question.myAnswer || 3,
@@ -206,10 +231,6 @@ class KosningaprofResults extends PureComponent {
                         partyAnswer !== 3 && partyAnswer !== 6
                       );
                       const difference = Math.abs(myAnswer - partyAnswer);
-
-                      if (myAnswer === 6) {
-                        return null;
-                      }
 
                       return (
                         <div className={s.partyQuestion} key={id}>

@@ -74,8 +74,12 @@
 
   .nonLead {
     color: #666;
-    margin-bottom: 2em;
+    margin-bottom: 1rem;
     max-width: 600px;
+
+    &:last-of-type {
+      margin-bottom: 2em;
+    }
   }
 
   .filters {
@@ -323,6 +327,11 @@
     &:hover,
     &:focus {
       box-shadow: 0 4px 8px rgba(#909dab, 0.2);
+    }
+
+    &:disabled {
+      cursor: auto;
+      opacity: 0.5;
     }
   }
 
