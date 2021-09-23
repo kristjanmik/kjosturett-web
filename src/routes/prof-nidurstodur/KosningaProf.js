@@ -7,6 +7,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './styles.scss';
 import history from '../../history';
+import marks from './marks';
 
 const answersKey = 'prof:answers';
 const indexKey = 'prof:answers:index';
@@ -17,12 +18,6 @@ const initialAnswers = questions =>
     all[id] = null;
     return all;
   }, {});
-
-const marks = {
-  1: 'Mjög ósammála',
-  3: 'Hlutlaus',
-  5: 'Mjög sammála',
-};
 
 class Kosningaprof extends PureComponent {
   static contextTypes = {

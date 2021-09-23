@@ -8,8 +8,11 @@ import Select from 'react-select';
 import Link from '../../Link';
 import transparent from './transparent.png';
 import { getAssetUrl, candidateImage } from '../../utils';
-
 import SelectStyles from '../../../node_modules/react-select/dist/react-select.css';
+import Slider from 'rc-slider';
+import SliderStyles from '../../../node_modules/rc-slider/assets/index.css';
+import ReactTooltip from 'react-tooltip';
+import marks from './marks';
 
 const constituencies = {
   'reykjavik-sudur': 'Reykjavíkurkjördæmi suður',
@@ -280,6 +283,73 @@ class KosningaprofResults extends PureComponent {
               </Collapse>
             </div>
           ))}
+        <div>
+          <div className={cx(s.root, s.questions)}>
+            {answeredQuestions.map(({ question, id }) => (
+              <div key={id} className={cx(s.question)}>
+                <h3 className={s.questionText}>{question}</h3>
+                <div className={s.partyReplies}>
+                  {Object.keys(marks).map((option, index) => (
+                    <div
+                      key={option}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column-reverse',
+                        width: '30px',
+                      }}
+                    >
+                      {parties.map(party =>
+                        index + 1 === party.reply[id] ? (
+                          <div key={party.name}>
+                            <img
+                              data-tip={party.name}
+                              className={s.partyLogo}
+                              src={getAssetUrl('party-icons', party.url)}
+                            />
+                            <ReactTooltip />
+                          </div>
+                        ) : null
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <div
+                  style={{
+                    marginLeft: '8px',
+                    marginRight: '22px',
+                  }}
+                >
+                  <Slider
+                    dots
+                    min={1}
+                    max={5}
+                    value={answers[id]}
+                    marks={marks}
+                    disabled
+                    dotStyle={{
+                      borderColor: '#e9e9e9',
+                      marginBottom: -5,
+                      width: 18,
+                      height: 18,
+                    }}
+                    handleStyle={{
+                      backgroundColor: '#333',
+                      borderColor: '#999',
+                      marginLeft: 4,
+                      marginTop: -7,
+                      width: 18,
+                      height: 18,
+                    }}
+                    trackStyle={{
+                      backgroundColor: 'transparent',
+                      height: '1px',
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
         {/* Not included for the 2021 election */}
         {false && (
           <div>
@@ -421,4 +491,4 @@ class KosningaprofResults extends PureComponent {
   }
 }
 
-export default withStyles(s, SelectStyles)(KosningaprofResults);
+export default withStyles(s, SelectStyles, SliderStyles)(KosningaprofResults);
