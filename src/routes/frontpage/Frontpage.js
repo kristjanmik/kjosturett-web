@@ -21,11 +21,11 @@ class FrontPage extends PureComponent {
               <Link href="/kosningaprof" className={s.button}>
                 1. Taktu kosningaprófið
               </Link>
-              <div className={s.arrow}>-></div>
+              <div className={s.arrow}>→</div>
               <Link href="/malefni/atvinnumal" className={s.button}>
                 2. Kynntu þér málefnin
               </Link>
-              <div className={s.arrow}>-></div>
+              <div className={s.arrow}>→</div>
               <Link href="/kjorskra" className={s.button}>
                 3. Finndu út hvar þú átt að kjósa
               </Link>
