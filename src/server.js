@@ -113,24 +113,28 @@ app.get('/kjorskra-lookup/:kennitala', (req, res, next) => {
 /**
  * Used to candidate profile upload
  */
-app.post('/candidate/avatar', upload.single('avatar'), (req, res) => {
-  if (!req.query.token)
-    return res.json({
-      success: false,
-      error: 'Failed to upload photo, missing token',
-    });
-
-  res.redirect(`/svar?token=${req.query.token}&upload=success`);
+app.post('/candidate/avatar', (req, res) => {
+  return res.status(500).json({
+    success: false,
+    error: 'Kosningarnar eru búnar',
+  });
 });
+// app.post('/candidate/avatar', upload.single('avatar'), (req, res) => {
+//   if (!req.query.token)
+//     return res.json({
+//       success: false,
+//       error: 'Failed to upload photo, missing token',
+//     });
+
+//   res.redirect(`/svar?token=${req.query.token}&upload=success`);
+// });
 
 // Used to gather replies from candidates and parties
 app.post('/konnun/replies', async (req, res) => {
-  if (Date.now() > 1632614400000) {
-    return res.json({
-      success: false,
-      error: 'Kosningarnar eru búnar',
-    });
-  }
+  return res.status(500).json({
+    success: false,
+    error: 'Kosningarnar eru búnar',
+  });
 
   const { token, reply } = req.body;
 
@@ -142,6 +146,10 @@ app.post('/konnun/replies', async (req, res) => {
 
 // Used to gather replies from voters in an anonymous way
 app.post('/konnun/replies/all', async (req, res) => {
+  return res.status(500).json({
+    success: false,
+    error: 'Kosningarnar eru búnar',
+  });
   const { reply } = req.body;
 
   const token = uuid.v4();
