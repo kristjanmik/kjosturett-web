@@ -8,7 +8,23 @@ Each party is given the same list of questions where they can fill out as please
 
 ## Technical information
 
-The master branch is currently being worked on in time for the 2021 parliamentary elections. Refer to other branches for snapshots of older elections.
+The master branch is currently being worked on in time for the 2024 parliamentary elections. Refer to other branches for snapshots of older elections.
+
+The project is over a decade old now, quite impressive that the code still runs in its original form! However nothing comes without its drawbacks, and you need to use node v14.21.3 to build the project 😅
+
+The deployment pipeline on Heroku uses Heroku-22 but uses the engine variable from package.json.
+
+[FNM](https://github.com/Schniz/fnm) is used to install and switch between node versions.
+
+### Install dependencies
+
+```bash
+fnm install v14.21.3
+fnm use v14.21.3
+yarn
+yarn build
+yarn start
+```
 
 ### manual build
 
