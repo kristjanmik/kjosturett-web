@@ -5,11 +5,11 @@ import s from './Countdown.scss';
 
 const Countdown = () => (
   <CountdownNow
-    date={new Date('Saturday, September 25, 2021 8:00:00 AM')}
+    date={new Date('Saturday, November 30, 2024 8:00:00 AM')}
     renderer={({ days, completed }) => {
       if (completed) {
         // Render a completed state
-        return <div>Alþingiskosningarnar 2021</div>;
+        return <div>Alþingiskosningarnar 2024</div>;
       }
       let out = '';
       if (days > 0) {

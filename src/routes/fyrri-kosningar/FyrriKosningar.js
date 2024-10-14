@@ -5,6 +5,11 @@ import Link from '../../Link';
 
 const ELECTIONS = [
   {
+    year: 2021,
+    link: 'https://2021.kjosturett.is',
+    title: 'Kosningarnar 2021',
+  },
+  {
     year: 2017,
     link: 'https://2017.kjosturett.is',
     title: 'Kosningarnar 2017',

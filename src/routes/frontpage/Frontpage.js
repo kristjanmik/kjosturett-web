@@ -32,6 +32,13 @@ class FrontPage extends PureComponent {
             </div>
           </div>
         )}
+        <div className={s.voteCTA}>
+          <p className={s.maintainance}>
+            Kæru landsmenn. <br /> Við vinnum hörðum höndum að koma síðunni í
+            gang fyrir kosningarnar 2024. <br />
+            Þangað til birtast hér gögn úr alþingiskosningunum 2021.
+          </p>
+        </div>
         <PartyGrid>
           {parties.map(party => (
             <Party
