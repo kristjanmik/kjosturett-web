@@ -19,7 +19,7 @@ export default ({ params, url }) => {
   return {
     chunks: ['partysingle'],
     title: `${party.name} - Kjóstu Rétt`,
-    description: `Upplýsingar um stefnumál ${party.nameDeflected} á mannamáli fyrir Alþingiskosningarnar 2021`,
+    description: `Upplýsingar um stefnumál ${party.nameDeflected} á mannamáli fyrir Alþingiskosningarnar 2024`,
     path: url,
     component: (
       <Layout
@@ -33,6 +33,6 @@ export default ({ params, url }) => {
       >
         <PartySingle party={party} categories={categories} />
       </Layout>
-    )
+    ),
   };
 };

@@ -11,7 +11,7 @@ const answerMap = {
   3: 'Hlutlaus',
   4: 'Frekar sammála',
   5: 'Mjög sammála',
-  6: 'Vil ekki svara'
+  6: 'Vil ekki svara',
 };
 const areYouSure =
   'Ertu viss um að þú viljir yfirgefa síðuna núna? Öll svörin munu týnast.';
@@ -55,15 +55,15 @@ class UploadCandidateImage extends PureComponent {
 
 class Kosningaprof extends PureComponent {
   static contextTypes = {
-    fetch: PropTypes.func.isRequired
+    fetch: PropTypes.func.isRequired,
   };
   static propTypes = {
     questions: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        question: PropTypes.string.isRequired
+        question: PropTypes.string.isRequired,
       })
-    ).isRequired
+    ).isRequired,
   };
   state = {
     started: false,
@@ -73,7 +73,7 @@ class Kosningaprof extends PureComponent {
       // eslint-disable-next-line
       all[id] = defaultAnswer;
       return all;
-    }, {})
+    }, {}),
   };
   constructor(props) {
     super(props);
@@ -103,8 +103,8 @@ class Kosningaprof extends PureComponent {
         started: true,
         answers: {
           ...answers,
-          [id]: target.value
-        }
+          [id]: target.value,
+        },
       };
     });
   };
@@ -116,12 +116,12 @@ class Kosningaprof extends PureComponent {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         token,
-        reply: encodeAnswersToken(Object.keys(answers).map(x => answers[x]))
-      })
+        reply: encodeAnswersToken(Object.keys(answers).map(x => answers[x])),
+      }),
     });
 
     this.setState({ finished: true });
@@ -142,7 +142,7 @@ class Kosningaprof extends PureComponent {
 
         {!finished && (
           <div className={s.intro}>
-            <h1>Kosningapróf Kjóstu rétt 2021</h1>
+            <h1>Kosningapróf Kjóstu rétt 2024</h1>
             <p>
               Svörin við prófinu birtast í niðurstöðusíðu kosningaprófsins fyrir
               almenning. Það getur tekið allt að 30 mínútur fyrir svörin að

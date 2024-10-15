@@ -15,23 +15,23 @@ class Html extends React.Component {
     styles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        cssText: PropTypes.string.isRequired
+        cssText: PropTypes.string.isRequired,
       }).isRequired
     ),
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
-    children: PropTypes.string.isRequired
+    children: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
     styles: [],
-    scripts: []
+    scripts: [],
   };
 
   render() {
     const {
-      title = 'Kjóstu Rétt 2021',
-      description = 'Upplýsingar um stjórnmálaflokka og kosningarmálefni þeirra gerð aðgengileg almenningi.',
+      title = 'Kjóstu Rétt 2024',
+      description = 'Upplýsingar um stjórnmálaflokka og málefni þeirra gerð aðgengileg almenningi.',
       path = '/',
       styles,
       scripts,
@@ -39,7 +39,7 @@ class Html extends React.Component {
       children,
       ogImage,
       ogImageWidth,
-      ogImageHeight
+      ogImageHeight,
     } = this.props;
 
     return (
@@ -58,10 +58,10 @@ class Html extends React.Component {
           <meta name="description" content={description} />
           <meta
             name="keywords"
-            content="kosningar,alþingi 2021,alþingiskosningar,frambjóðendur,málefni,björt framtíð,framsóknarflokkurinn,píratar,samfylkingin,sjálfstæðisflokkurinn,viðreisn,vinstri græn,flokkur fólksins,alþýðufylkingin"
+            content="kosningar,alþingi 2021, alþingi 2024,alþingiskosningar,frambjóðendur,málefni,björt framtíð,framsóknarflokkurinn,píratar,samfylkingin,sjálfstæðisflokkurinn,viðreisn,vinstri græn,flokkur fólksins,alþýðufylkingin, miðflokkurinn,"
           />
           <meta property="og:title" content={title} />
-          <meta property="og:site_name" content="Kjóstu rétt 2021" />
+          <meta property="og:site_name" content="Kjóstu rétt 2024" />
           <meta property="og:url" content={`https://kjosturett.is${path}`} />
           <meta property="og:description" content={description} />
           <meta property="og:type" content="website" />
@@ -97,12 +97,12 @@ class Html extends React.Component {
           {!ogImage && (
             <meta
               property="og:image"
-              content="https://kjosturett.is/og_2021.png"
+              content="https://kjosturett.is/og_2024.png"
             />
           )}
 
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Kjóstu Rétt 2021" />
+          <meta name="twitter:title" content="Kjóstu Rétt 2024" />
           <meta name="twitter:description" content={description} />
 
           <link
@@ -134,7 +134,7 @@ class Html extends React.Component {
               dangerouslySetInnerHTML={{
                 __html:
                   'window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;' +
-                  `ga('create','${config.analytics.googleTrackingId}','auto');ga('send','pageview')`
+                  `ga('create','${config.analytics.googleTrackingId}','auto');ga('send','pageview')`,
               }}
             />
           )}

@@ -6,7 +6,7 @@ import s from './OpeningHours.scss';
 
 class OpeningHours extends PureComponent {
   static propTypes = {
-    sveitafelag: PropTypes.string.isRequired
+    sveitafelag: PropTypes.string.isRequired,
   };
   render() {
     const { sveitafelag } = this.props;
@@ -24,7 +24,7 @@ class OpeningHours extends PureComponent {
       { municipality: 'Kópavogur', open: '9:00', close: '22:00' },
       { municipality: 'Mosfellsbær', open: '9:00', close: '22:00' },
       { municipality: 'Seltjarnarnes', open: '9:00', close: '22:00' },
-      { municipality: 'Reykjavík', open: '9:00', close: '22:00' }
+      { municipality: 'Reykjavík', open: '9:00', close: '22:00' },
     ];
 
     const pollingStation = pollingStations.find(station =>
@@ -36,9 +36,11 @@ class OpeningHours extends PureComponent {
 
     if (pollingStation) {
       start = new Date(
-        Date.UTC(2021, 9, 25, pollingStation.open.split(':')[0])
+        Date.UTC(2024, 11, 30, pollingStation.open.split(':')[0])
       );
-      end = new Date(Date.UTC(2021, 9, 25, pollingStation.close.split(':')[0]));
+      end = new Date(
+        Date.UTC(2024, 11, 30, pollingStation.close.split(':')[0])
+      );
       showCountdown =
         now.getTime() > start.getTime() && now.getTime() < end.getTime();
     }
