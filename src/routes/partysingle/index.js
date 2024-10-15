@@ -21,6 +21,8 @@ export default ({ params, url }) => {
     title: `${party.name} - Kjóstu Rétt`,
     description: `Upplýsingar um stefnumál ${party.nameDeflected} á mannamáli fyrir Alþingiskosningarnar 2024`,
     path: url,
+    styles: ['https://vjs.zencdn.net/8.16.1/video-js.css'],
+    scripts: ['https://vjs.zencdn.net/8.16.1/video.min.js'],
     component: (
       <Layout
         title={party.name}
