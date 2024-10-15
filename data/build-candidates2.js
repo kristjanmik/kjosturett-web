@@ -21,15 +21,23 @@ const statFile = promisify(fs.stat);
   out = await Promise.all(
     out.map(async candidate => {
       let hasImage = false;
+      let hasVideo = false;
       const slug = slugify(candidate.name).toLowerCase();
       try {
         const fileInfo = await statFile(`./candidates-images/jpg/${slug}.jpg`);
         hasImage = fileInfo.isFile();
       } catch (e) {}
 
+      try {
+        const fileInfo = await statFile(`./candidates-videos/mp4/${slug}.mp4`);
+        hasVideo = fileInfo.isFile();
+      } catch (e) {}
+
+      //@TODO compress variables to save space
       return {
         ...candidate,
-        hasImage
+        hasImage,
+        hasVideo,
       };
     })
   );
