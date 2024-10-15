@@ -1,12 +1,13 @@
-var gm = require('gm').subClass({ imageMagick: true });
+var gm = require('gm');
 require('gm-base64');
+const path = require('path');
 
 const partiesImport = require('./parties');
 
 exports.handler = (event, context, callback) => {
-  let payload = decodeURIComponent(event.pathParameters.text);
+  const payload = decodeURIComponent(event.pathParameters.text);
 
-  let parties = payload.split('|').map(raw => {
+  const parties = payload.split('|').map(raw => {
     const [letter, score] = raw.split(':');
 
     let finalScore = 0;
@@ -20,7 +21,7 @@ exports.handler = (event, context, callback) => {
     return {
       letter,
       slug: partiesImport[letter],
-      score: finalScore
+      score: finalScore,
     };
   });
 
@@ -32,9 +33,12 @@ exports.handler = (event, context, callback) => {
 
   parties = parties.slice(0, 5);
 
-  const image = gm()
+  let image = gm()
     .in('-page', '+0+0')
-    .in('./prof.png');
+    .in('./prof.png')
+    .fontSize(44)
+    .fill('#000000')
+    .font(path.join(__dirname, './Roboto-Bold.ttf'));
 
   parties.forEach((party, index) => {
     let pos = [0, 0];
@@ -55,31 +59,35 @@ exports.handler = (event, context, callback) => {
     image
       .in('-page', '+' + pos[0] + '+' + pos[1])
       .in('./party-icons/' + party.slug + '.png')
-      .font('./Roboto-Bold.ttf')
-      .fontSize(44)
       .drawText(pos[0] + 55, pos[1] + 225, party.score + '%');
   });
 
-  image
-    .mosaic()
-    // .write('./out.png', function(err) {
-    //   if (!err) console.log('done');
-    // });
-    .toBase64('png', function(error, base64) {
+  if (process.env.NODE_ENV === 'development') {
+    image.mosaic().write('./out.png', function(err) {
+      if (err) console.error(err);
+      if (!err) console.log('Wrote to out.png');
+    });
+  }
+
+  if (process.env.NODE_ENV !== 'development') {
+    image.mosaic().toBase64('png', function(error, base64) {
       if (error) return callback(error);
       callback(null, {
         statusCode: 200,
         headers: {
-          'Content-Type': 'image/png'
+          'Content-Type': 'image/png',
         },
         body: base64,
-        isBase64Encoded: true
+        isBase64Encoded: true,
       });
     });
+  }
 };
 
-// exports.handler(
-//   { pathParameters: { text: 'J:68|D:67|F:58|M:38|P:34' } },
-//   {},
-//   console.log
-// );
+if (process.env.NODE_ENV === 'development') {
+  exports.handler(
+    { pathParameters: { text: 'J:68|D:67|F:58|M:38|P:34' } },
+    {},
+    console.log
+  );
+}

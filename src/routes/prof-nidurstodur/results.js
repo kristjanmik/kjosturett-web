@@ -26,14 +26,14 @@ export default ({ params, url }) => {
   const questions = questionsBase.map(({ id, question }) => ({
     id,
     question,
-    myAnswer: myAnswers[id]
+    myAnswer: myAnswers[id],
   }));
 
   const socialPayload = parties
     .map(party => `${party.letter}:${Math.ceil(party.score)}`)
     .join('|');
 
-  const ogImage = `https://lx62q4zmz2.execute-api.us-east-1.amazonaws.com/production/${encodeURIComponent(
+  const ogImage = `https://3t4zkdq6qr6llg66jfm7gaeog40fbpty.lambda-url.eu-west-1.on.aws/${encodeURIComponent(
     socialPayload
   )}`;
 
@@ -57,6 +57,6 @@ export default ({ params, url }) => {
           ogImage={ogImage}
         />
       </Layout>
-    )
+    ),
   };
 };
