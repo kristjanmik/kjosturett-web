@@ -8,28 +8,38 @@ class About extends PureComponent {
   render() {
     return (
       <div className={s.root}>
-        <p>
+        <h3>Um verkefnið</h3>
+
+        <p className={s.about}>
           Kjósturétt.is er óháður upplýsingavefur í aðdraganda kosninga sem fór
-          fyrst í loftið fyrir alþingiskosningarnar árið 2013. Í gegnum þrennar
-          kosningar hefur vefurinn því verið þjóðinni innan handar. Allar
-          upplýsingarnar á vefnum eru fengnar frá stjórnmálaflokkunum sjálfum og
-          eru þær settar fram óbreyttar. Verkefnið er unnið í góðgerðarstarfi af
-          Íslendingum og er öll vinnan aðgengileg á{' '}
+          fyrst í loftið fyrir alþingiskosningarnar árið 2013. Í gegnum fimm
+          kosningar (2013, 2016, 2017, 2021, 2024) hefur vefurinn því verið
+          þjóðinni innan handar. Allar upplýsingarnar á vefnum eru fengnar frá
+          stjórnmálaflokkunum sjálfum og eru þær settar fram óbreyttar. Flokkum
+          er raðað eftir listabókstaf. Verkefnið er unnið áfram af
+          sjálfboðaliðum og er öll vinnan (ásamt gagnapökkum) aðgengileg á{' '}
           <a
             href="https://github.com/kristjanmik/kjosturett-web"
             target="_blank"
           >
             Github
           </a>
-          . Við vonum að vefurinn hjálpi þér, kæri kjósandi, og skili þér með
-          gott veganesti á kjörstaði.
+          .
+        </p>
+        <p className={s.about2}>
+          Við vonum að vefurinn hjálpi þér, kæri kjósandi, og skili þér með gott
+          veganesti á kjörstaði.
         </p>
 
-        <h3>Stofnendur verkefnisins</h3>
+        <h3>Stofnendur</h3>
 
         <div className={s.we}>
           <div className={s.person}>
-            <img className={s.img} src={'/kristjan.jpg'} alt="Kristján" />
+            <img
+              className={s.img}
+              src={'/kristjan.jpg'}
+              alt="Kristján Ingi Mikaelsson"
+            />
             <p className={s.name}>Kristján Ingi Mikaelsson</p>
           </div>
           <div className={s.person}>
