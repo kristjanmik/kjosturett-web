@@ -70,7 +70,7 @@ class UploadCandidateVideo extends PureComponent {
         <h3>Hlaða upp myndbandi</h3>
         <p>
           Hérna getur þú hlaðið upp myndbandi sem birtist í kosningaprófinu
-          (hámark 60 sek)
+          (hámark 60 sek og með .mp4 sniði)
         </p>
         <form
           id="uploadForm"
