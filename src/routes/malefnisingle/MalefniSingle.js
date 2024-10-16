@@ -29,6 +29,13 @@ class MalefniSingle extends PureComponent {
                 party.statement ||
                 'Ekkert svar hefur borist við þessum málaflokki',
               image: getAssetUrl('party-icons', party.url),
+              //Need to get this from category
+              // extra: party.video
+              //   ? {
+              //       type: 'video',
+              //       url: party.video,
+              //     }
+              //   : null,
             }))
           }
         />

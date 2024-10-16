@@ -8,6 +8,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Collapse } from 'react-collapse';
 import history from '../../history';
 import styles from './Collapsable.scss';
+import VideoPlayer from '../VideoPlayer';
 
 class Collapsable extends React.Component {
   static propTypes = {
@@ -18,7 +19,11 @@ class Collapsable extends React.Component {
         title: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired,
         image: PropTypes.string,
-      }),
+        extra: PropTypes.shape({
+          type: PropTypes.string,
+          url: PropTypes.string,
+        }),
+      })
     ),
   };
   static defaultProps = {
@@ -84,7 +89,7 @@ class Collapsable extends React.Component {
         }}
         className={styles.root}
       >
-        {items.map(({ key, title, content, image }) => (
+        {items.map(({ key, title, content, image, extra }) => (
           <div className={styles.category} key={key}>
             <a
               href={`#${key}`}
@@ -102,12 +107,13 @@ class Collapsable extends React.Component {
               isOpened={open[key] === true}
               springConfig={Collapsable.spring}
             >
+              {extra && <VideoPlayer video={extra.url} />}
               <div
                 dangerouslySetInnerHTML={{
                   __html: content,
                 }}
                 className={cx(
-                  styles.content,
+                  styles.content
                   // category.statement === '' ? s.textNoReply : null
                 )}
               />

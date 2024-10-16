@@ -6,6 +6,7 @@ import Collapsable from '../../components/Collapsable';
 import PartyProfile from '../../components/PartyProfile';
 import { getAssetUrl } from '../../utils';
 import s from './PartySingle.scss';
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 
 class PartySingle extends PureComponent {
   render() {
@@ -21,16 +22,29 @@ class PartySingle extends PureComponent {
             alt="Logo"
           />
         </div>
+        {party.video && (
+          <div className={s.videoPlayer}>
+            <VideoPlayer video={party.video} />
+          </div>
+        )}
         <div className={s.topics}>
           <Collapsable
             items={
               categories &&
-              categories.map(({ name, category, statement }) => ({
+              categories.map(({ name, category, statement, video }) => ({
                 key: category,
                 title: name,
                 content:
                   statement ||
-                  `${party.name} hefur ekki skilað inn umfjöllun um ${name.toLowerCase()}.`,
+                  `${
+                    party.name
+                  } hefur ekki skilað inn umfjöllun um ${name.toLowerCase()}.`,
+                extra: video
+                  ? {
+                      type: 'video',
+                      url: video,
+                    }
+                  : null,
               }))
             }
           />

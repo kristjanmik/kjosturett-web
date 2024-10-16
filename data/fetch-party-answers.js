@@ -6,7 +6,6 @@ const writeFile = promisify(fs.writeFile);
 const { decodeAnswersToken } = require('../src/utils');
 
 const partyMap = require('./party-answer-map.json');
-const { val } = require('cheerio/lib/api/attributes');
 
 let redis;
 
@@ -20,8 +19,8 @@ if (process.env.REDIS_URL) {
     process.env.REDIS_URL.includes('rediss://')
       ? {
           tls: {
-            rejectUnauthorized: false
-          }
+            rejectUnauthorized: false,
+          },
         }
       : {}
   );
@@ -56,7 +55,7 @@ function tokenToParty(token) {
     if (!out[token] || out[token].timestamp < timestamp) {
       out[token] = {
         timestamp,
-        reply
+        reply,
       };
     }
   });

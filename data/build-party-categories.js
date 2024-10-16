@@ -15,18 +15,37 @@ const parties = require('./build/parties.json');
   categories.forEach(async category => {
     const out = await Promise.all(
       parties.map(async party => {
-        const key = `./parties/${party.url}/${category.url}.md`;
+        const statementFile = `./parties/${party.url}/${category.url}.md`;
+        const categoryVideoFile = `./parties/${party.url}/category-videos.json`;
 
-        let data = '';
+        let markdownStatement = '';
         try {
-          data = await readFile(key);
-          data = data.toString();
+          markdownStatement = await readFile(statementFile);
+          if (markdownStatement) {
+            markdownStatement = marked(markdownStatement.toString());
+          }
         } catch (e) {
-          console.error('Could not load key', key, process.cwd());
+          console.error(
+            'Could not load statement video file',
+            statementFile,
+            process.cwd()
+          );
         }
+
+        let categoryVideos = {};
+        //Try to load the category videos file, not required
+        try {
+          categoryVideos = await readFile(categoryVideoFile);
+          categoryVideos = JSON.parse(categoryVideos);
+        } catch (e) {}
+
+        //Video comes from the category itself
+        const p = { ...party };
+        delete p.video;
         return {
-          ...party,
-          statement: data ? marked(data) : ''
+          ...p,
+          video: categoryVideos[category.url] || undefined,
+          statement: markdownStatement || '',
         };
       })
     );
@@ -41,19 +60,35 @@ const parties = require('./build/parties.json');
   parties.forEach(async party => {
     const out = await Promise.all(
       categories.map(async category => {
-        const key = `./parties/${party.url}/${category.url}.md`;
+        const statementFile = `./parties/${party.url}/${category.url}.md`;
+        const categoryVideoFile = `./parties/${party.url}/category-videos.json`;
 
-        let data = '';
+        let markdownStatement = '';
         try {
-          data = await readFile(key);
-          data = data.toString();
+          markdownStatement = await readFile(statementFile);
+          if (markdownStatement) {
+            markdownStatement = marked(markdownStatement.toString());
+          }
         } catch (e) {
-          console.error('Could not load key', key, process.cwd());
+          console.error(
+            'Could not load statement video file',
+            statementFile,
+            process.cwd()
+          );
         }
+
+        let categoryVideos = {};
+        //Try to load the category videos file, not required
+        try {
+          categoryVideos = await readFile(categoryVideoFile);
+          categoryVideos = JSON.parse(categoryVideos);
+        } catch (e) {}
+
         return {
           category: category.url,
           name: category.name,
-          statement: data ? marked(data) : ''
+          statement: markdownStatement || '',
+          video: categoryVideos[category.url] || undefined,
         };
       })
     );

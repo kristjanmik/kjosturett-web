@@ -5,7 +5,7 @@ import questions from '../../../data/poll/questions.json';
 import answers from '../../../data/poll/answers.json';
 
 export default ({ params, url, query }) => {
-  const { token, upload } = query;
+  const { token, uploadImage, uploadVideo } = query;
 
   return {
     chunks: ['prof'],
@@ -17,10 +17,12 @@ export default ({ params, url, query }) => {
           answers={answers}
           questions={questions}
           token={token}
-          uploadSuccess={upload === 'success'}
-          uploadFailure={upload === 'failure'}
+          uploadImageSuccess={uploadImage === 'success'}
+          uploadImageFailure={uploadImage === 'failure'}
+          uploadVideoSuccess={uploadVideo === 'success'}
+          uploadVideoFailure={uploadVideo === 'failure'}
         />
       </Layout>
-    )
+    ),
   };
 };

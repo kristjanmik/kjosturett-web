@@ -22,6 +22,8 @@ export default ({ params, url }) => {
     title: `${category.name} - Kjóstu Rétt`,
     path: url,
     description: `Svör stjórnmálaflokkanna í ${category.name.toLowerCase()}um fyrir Alþingiskosningarnar 2024`,
+    styles: ['https://vjs.zencdn.net/8.16.1/video-js.css'],
+    scripts: ['https://vjs.zencdn.net/8.16.1/video.min.js'],
     component: (
       <Layout page="malefni" title={category.name}>
         <MalefniSingle

@@ -10,14 +10,14 @@ const fields = [
   'kjordaemi',
   'sveitafelag',
   'kjorstadur',
-  'kjordeild'
+  'kjordeild',
 ];
 
 module.exports = async function(kt) {
   if (!isPerson(kt)) {
     return {
       success: false,
-      message: 'Kennitala not valid'
+      message: `Kennitala not valid: ${kt}`,
     };
   }
 
@@ -31,7 +31,7 @@ module.exports = async function(kt) {
   res = await requestAsync({
     url: 'https://kjorskra.skra.is/kjorskra/',
     method: 'GET',
-    gzip: true
+    gzip: true,
   });
   $ = cheerio.load(res.body);
   $('form input').each((i, v) => {
@@ -46,7 +46,7 @@ module.exports = async function(kt) {
     url: 'https://kjorskra.skra.is/kjorskra/',
     method: 'POST',
     gzip: true,
-    form
+    form,
   });
 
   $ = cheerio.load(res.body);
@@ -60,19 +60,19 @@ module.exports = async function(kt) {
         return p;
       },
       {
-        success: true
+        success: true,
       }
     );
 
   if (!response.kennitala)
     return {
       success: false,
-      message: 'Kennitala not found'
+      message: 'Kennitala not found',
     };
   else return response;
 };
 
 if (!module.parent) {
   if (!process.argv[2]) console.log('CLI usage: node kjorskra [kennitala]');
-  else module.exports(process.argv[2]).then(console.log, console.log);
+  // else module.exports(process.argv[2]).then(console.log, console.log);
 }

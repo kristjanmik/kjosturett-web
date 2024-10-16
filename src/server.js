@@ -43,43 +43,73 @@ if (process.env.REDIS_URL) {
 }
 
 let s3;
-let upload;
+let uploadImage;
+let uploadVideo;
 
-if (process.env.NODE_ENV === 'production') {
-  s3 = new aws.S3({
-    accessKeyId: process.env.S3_ACCESS_KEY,
-    secretAccessKey: process.env.S3_SECRET_KEY,
-  });
-  upload = multer({
-    storage: multerS3({
-      s3: s3,
-      bucket: process.env.S3_BUCKET,
-      acl: 'public-read',
-      key: async function(req, file, cb) {
-        if (!['image/png', 'image/jpg', 'image/jpeg'].includes(file.mimetype))
-          return cb(new Error('Wrong filetype'));
+//if (process.env.NODE_ENV === 'production') {
+s3 = new aws.S3({
+  accessKeyId: process.env.S3_ACCESS_KEY,
+  secretAccessKey: process.env.S3_SECRET_KEY,
+});
+uploadImage = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: process.env.S3_BUCKET,
+    acl: 'public-read',
+    key: async function(req, file, cb) {
+      if (!['image/png', 'image/jpg', 'image/jpeg'].includes(file.mimetype))
+        return cb(new Error('Wrong filetype'));
 
-        const token = req.query.token;
-        if (!uuid.validate(token))
-          throw Error(
-            'Rangt auðkenni. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
-          );
-        const ssn = await redis.get(`candidate-token:${token}`);
+      const token = req.query.token;
+      if (!uuid.validate(token))
+        throw Error(
+          'Rangt auðkenni. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+        );
+      const ssn = await redis.get(`candidate-token:${token}`);
 
-        if (!ssn)
-          return cb(
-            new Error(
-              'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
-            )
-          );
+      if (!ssn)
+        return cb(
+          new Error(
+            'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+          )
+        );
 
-        cb(null, `candidates/${ssn}.jpg`);
-      },
-    }),
-  });
-} else {
-  upload = multer({ dest: 'uploads/' });
-}
+      // const ssn = '1234567890';
+      cb(null, `candidates/${ssn}.jpg`);
+    },
+  }),
+});
+uploadVideo = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: process.env.S3_BUCKET,
+    acl: 'public-read',
+    key: async function(req, file, cb) {
+      if (!['video/mp4'].includes(file.mimetype))
+        return cb(new Error('Wrong filetype'));
+
+      const token = req.query.token;
+      if (!uuid.validate(token))
+        throw Error(
+          'Rangt auðkenni. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+        );
+      const ssn = await redis.get(`candidate-token:${token}`);
+
+      if (!ssn)
+        return cb(
+          new Error(
+            'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+          )
+        );
+
+      // const ssn = '1234567890';
+      cb(null, `candidates/${ssn}.mp4`);
+    },
+  }),
+});
+//} else {
+//  uploadImage = multer({ dest: 'uploads/' });
+//}
 
 const app = express();
 
@@ -113,21 +143,32 @@ app.get('/kjorskra-lookup/:kennitala', (req, res, next) => {
 /**
  * Used to candidate profile upload
  */
-app.post('/candidate/avatar', (req, res) => {
-  return res.status(500).json({
-    success: false,
-    error: 'Kosningarnar eru búnar',
-  });
-});
-// app.post('/candidate/avatar', upload.single('avatar'), (req, res) => {
-//   if (!req.query.token)
-//     return res.json({
-//       success: false,
-//       error: 'Failed to upload photo, missing token',
-//     });
-
-//   res.redirect(`/svar?token=${req.query.token}&upload=success`);
+// app.post('/candidate/avatar', (req, res) => {
+//   return res.status(500).json({
+//     success: false,
+//     error: 'Kosningarnar eru búnar',
+//   });
 // });
+
+app.post('/candidate/avatar', uploadImage.single('avatar'), (req, res) => {
+  if (!req.query.token)
+    return res.json({
+      success: false,
+      error: 'Failed to upload photo, missing token',
+    });
+
+  res.redirect(`/svar?token=${req.query.token}&uploadImage=success`);
+});
+
+app.post('/candidate/video', uploadVideo.single('video'), (req, res) => {
+  if (!req.query.token)
+    return res.json({
+      success: false,
+      error: 'Failed to upload video, missing token',
+    });
+
+  res.redirect(`/svar?token=${req.query.token}&uploadVideo=success`);
+});
 
 // Used to gather replies from candidates and parties
 app.post('/konnun/replies', async (req, res) => {

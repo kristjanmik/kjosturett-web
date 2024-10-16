@@ -19,19 +19,19 @@ const defaultAnswer = '3';
 
 class UploadCandidateImage extends PureComponent {
   render() {
-    const { token, uploadSuccess, uploadFailure } = this.props;
+    const { token, uploadImageSuccess, uploadImageFailure } = this.props;
 
-    if (uploadSuccess) {
+    if (uploadImageSuccess) {
       return <p className={s.uploadSuccess}>Innsending á mynd tókst!</p>;
     }
-    if (uploadFailure) {
+    if (uploadImageFailure) {
       return <p className={s.uploadFailure}>Innsending á mynd tókst ekki.</p>;
     }
     return (
       <div className={s.uploadForm}>
-        <h3>Breyta um mynd</h3>
+        <h3>Hlaða upp mynd</h3>
         <p>
-          Hérna getur þú hlaðið upp nýrri mynd af þér sem verður notuð í
+          Hérna getur þú hlaðið upp mynd af þér sem verður notuð í
           kosningaprófinu
         </p>
         <form
@@ -45,6 +45,44 @@ class UploadCandidateImage extends PureComponent {
           <input
             type="submit"
             value="Senda inn mynd"
+            className={s.uploadSubmit}
+          />
+        </form>
+      </div>
+    );
+  }
+}
+
+class UploadCandidateVideo extends PureComponent {
+  render() {
+    const { token, uploadVideoSuccess, uploadVideoFailure } = this.props;
+
+    if (uploadVideoSuccess) {
+      return <p className={s.uploadSuccess}>Innsending á myndbandi tókst!</p>;
+    }
+    if (uploadVideoFailure) {
+      return (
+        <p className={s.uploadFailure}>Innsending á myndbandi tókst ekki.</p>
+      );
+    }
+    return (
+      <div className={s.uploadForm}>
+        <h3>Hlaða upp myndbandi</h3>
+        <p>
+          Hérna getur þú hlaðið upp myndbandi sem birtist í kosningaprófinu
+          (hámark 60 sek og með .mp4 sniði)
+        </p>
+        <form
+          id="uploadForm"
+          action={`/candidate/video?token=${token}`}
+          method="post"
+          encType="multipart/form-data"
+        >
+          <input type="file" name="video" />
+          <input type="hidden" name="token" value={token} />
+          <input
+            type="submit"
+            value="Senda inn myndband"
             className={s.uploadSubmit}
           />
         </form>
@@ -109,7 +147,6 @@ class Kosningaprof extends PureComponent {
     });
   };
   async onSend() {
-    console.log('this is', this);
     const { answers, token } = this.state;
 
     await this.context.fetch(`/konnun/replies?timestamp=${Date.now()}`, {
@@ -127,15 +164,29 @@ class Kosningaprof extends PureComponent {
     this.setState({ finished: true });
   }
   render() {
-    const { questions, token, uploadSuccess, uploadFailure } = this.props;
+    const {
+      questions,
+      token,
+      uploadImageSuccess,
+      uploadImageFailure,
+      uploadVideoSuccess,
+      uploadVideoFailure,
+    } = this.props;
     const { answers, started, finished } = this.state;
     return (
       <div className={s.root}>
         {!finished && (
           <UploadCandidateImage
             token={token}
-            uploadSuccess={uploadSuccess}
-            uploadFailure={uploadFailure}
+            uploadImageSuccess={uploadImageSuccess}
+            uploadImageFailure={uploadImageFailure}
+          />
+        )}
+        {!finished && (
+          <UploadCandidateVideo
+            token={token}
+            uploadVideoSuccess={uploadVideoSuccess}
+            uploadVideoFailure={uploadVideoFailure}
           />
         )}
         {finished && <h3>Takk fyrir þátttökuna!</h3>}
