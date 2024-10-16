@@ -1,9 +1,0 @@
-Verðtryggingu verði hætt á húsnæðislánum og mönnum auðveldað að skipta úr verðtryggðum húsnæðislánum í óverðtryggð lán, sem þýðir að einstaklingar þurfi ekki að fara á ný í greiðslumat.
-
-Lánardrottinn og skuldunautur verða að leita lausna saman. Engin eign fari á uppboð nema lánardrottinn og skuldunautur skipti söluverðinu eftir lánshlutfalli þ.e. upprunlegri prósentu. Sala eingöngu leyfð til þriðja aðila, sem þýðir að lánardrottinn getur aldrei boðið í eign sem hann lánaði til, þó svo að hann sé á fyrsta veðrétti. Vernda þarf fjölskyldur samfélagsins.
-
-Viðskipta- og neyslulán, yfirdráttur og lausaskuldir einstaklinga og fyrirtækja sem eru komin á endastöð verði eingöngu hægt að rukka inn með að hámarki 50% álagi og ekki krónu meira. Dæmi: A skuldar 10.000 kr. og fer í vanskil, hámarks innheimtukrafa gæti þá numið 15.000 krónum með lögfræðikostnaði, vöxtum, verðbótum og dráttarvöxtum.
-
-Frjálslyndi lýðræðisflokkurinn tekur áskorun Helga í Góu:
-
-“Það á enginn að þurfa að búa fjarri maka sínum á efri árum jafnvel þó annar aðilinn þurfi umönnun en hinn ekki. Engu að síður er það veruleiki margra eldri hjóna á Íslandi. Þrátt fyrir að lífeyrissjóðunum hafi verið heimilt að fjárfesta í íbúðarhúsnæði síðan 2011 hefur enn enginn sjóður fjárfest í húsnæði fyrir aldraða. Ávallt er borið við kröfu um ávöxtun lífeyrissjóðsgjalda. Staðreyndin er að ekki þyrfti nema brot af vaxtatekjum þeirra í þetta verkefni. Fasteignir eru góð fjárfesting með mikla arðsemi. En mikilvægasta arðsemi lífeyrissjóðs ætti að vera sú að sjóðfélagar búi við öryggi á ævikvöldinu. Við skorum á lífeyrissjóðina að fjárfesta í byggingu mannsæmandi húsnæðis fyrir aldraða sem uppfyllir sanngjarnar kröfur um þægindi og einkalíf.”
