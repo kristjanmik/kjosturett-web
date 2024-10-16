@@ -1,3 +1,0 @@
-Allar tekjutengingar og aðrar skerðingar eftirlaunabóta  verði aflagðar. Það er ekki sæmandi velmegandi þjóð eins og Íslandi að ört vaxandi hópur eldri borgara þurfi að kvíða ævikvöldinu. Örorkulaunakerfið verði endurskoðað frá grunni.
-
-Örorkulaun skulu aldrei verða lægri en sem nemur framfærsluviðmiði Velferðarráðuneytis. Þó skal bæta við þau laun, útreiknuðum kostnaði sem hver einstaklingur hefur vegna sinnar fötlunar umfram heilbrigðan einstakling sem er mjög misjafn. Þar færi því fram aðal endurskoðunin á kerfinu, þ.e meta raunkostnað hvers og eins vegna fötlunar eða skerðingar. Atvinnutekjur skulu því aldrei skerða þann hlut launa einstaklings sem telst vera kostnaður vegna fötlunar eða skerðingar viðkomandi.

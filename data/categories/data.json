@@ -8,6 +8,10 @@
     "url": "byggdarmal"
   },
   {
+    "name": "Efnahagsmál",
+    "url": "efnahagsmal"
+  },
+  {
     "name": "Evrópumál",
     "url": "evropumal"
   },
@@ -42,10 +46,6 @@
   {
     "name": "Skattamál",
     "url": "skattamal"
-  },
-  {
-    "name": "Sóttvarnarmál",
-    "url": "sottvarnarmal"
   },
   {
     "name": "Stjórnarskrármál",

@@ -1,1 +1,0 @@
-Frjálslyndi lýðræðisflokkurimn trúir á jöfnuð meðal landa sinna og eiga engir forréttindahópar heimtingu á sérkjörum umfram meðbræður sína, þar eigum við sérstaklega um alþingismenn og embættismenn. Ef við náum að uppræta eitthvað af spillingunni geta allir staðið við loforð sín um aukinn jöfnuð.
