@@ -14,7 +14,6 @@ const partyMap = {
   P: 'piratar',
   S: 'samfylkingin',
   V: 'vinstri-graen',
-  Y: 'abyrg-framtid'
 };
 
 const kjordaemiMap = {
