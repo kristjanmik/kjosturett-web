@@ -14,6 +14,7 @@ const partyMap = {
   P: 'piratar',
   S: 'samfylkingin',
   V: 'vinstri-graen',
+  Y: 'abyrg-framtid',
 };
 
 const kjordaemiMap = {
@@ -22,7 +23,7 @@ const kjordaemiMap = {
   SUÐURKJÖRDÆMI: 'sudurkjordaemi',
   SUÐVESTURKJÖRDÆMI: 'sudvesturkjordaemi',
   'REYKJAVÍKURKJÖRDÆMI SUÐUR': 'reykjavik-sudur',
-  'REYKJAVÍKURKJÖRDÆMI NORÐUR': 'reykjavik-nordur'
+  'REYKJAVÍKURKJÖRDÆMI NORÐUR': 'reykjavik-nordur',
 };
 
 const kjordaemiList = Object.keys(kjordaemiMap);
@@ -65,7 +66,7 @@ const results = {};
           .trim()
           .replace('.', ''),
         ssn: split[1].trim(),
-        street: split[split.length - 2].trim()
+        street: split[split.length - 2].trim(),
       };
 
       if (split.length === 2) {
@@ -112,7 +113,7 @@ const results = {};
         ...parties[party],
         ...results[constituency][party].map(d => {
           return { ...d, constituency, party, ssn: d.ssn.replace('-', '') };
-        })
+        }),
       ];
       console.log(parties[party]);
     }
