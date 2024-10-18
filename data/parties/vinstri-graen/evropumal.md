@@ -1,1 +1,0 @@
-Vinstrihreyfingin – grænt framboð leggur ríka áherslu á samstarf við önnur Evrópulönd en telur ekki að Ísland eigi að ganga í ESB enda er  hagsmunum Íslands betur borgið utan Evrópusambandsins en innan.

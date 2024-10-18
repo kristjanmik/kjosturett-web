@@ -1,1 +1,0 @@
-Við lofum lækkun skatta – í þágu heimila og fyrirtækja. Skattakerfisbreytingar sem Sjálfstæðisflokkurinn hefur haft forystu um allt frá 2013 hafa miðað að því að létta byrðar launafólks og auka kaupmátt, styrkja afkomu fyrirtækja, hvetja þau til fjárfestinga og byggja undir nýsköpun og þróun.

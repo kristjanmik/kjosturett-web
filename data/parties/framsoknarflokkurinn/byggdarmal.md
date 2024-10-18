@@ -1,6 +1,0 @@
-- Framsókn vill beita fjárhagslegum hvötum til að bæta aðgengi að opinberri þjónustu við íbúa á á skilgreindum brothættum svæðum, til að jafna aðstöðumun.
-- Framsókn vill auka fjármagn til byggðaáætlunar. Grundvallarendurskoðun hefur átt sér stað á byggðamálum síðustu ár með nýrri byggðaáætlun. Nýta þarf betur þau tæki sem hún býr yfir.
-- Framsókn vill auka við eigið fé Byggðastofnunar til að auka möguleika stofnunarinnar við að styðja við atvinnuuppbyggingu og nýsköpun á landsbyggðinni.
-- Framsókn vill að byggðir verði klasar í samstarfi ríkis, sveitarfélaga og atvinnulífs út um landið til að tryggja betur framgang hugmyndafræðinnar um störf án staðsetningar. Sett verði í forgang því tengt að þróa skattalega hvata til að flýta þeirri uppbyggingu. Aðstöðuleysi má ekki koma í veg fyrir að störf á vegum hins opinbera og einkaaðila verði til á landsbyggðinni.
-- Framsókn vill efla smærri þorp sem standa höllum fæti.
-- Nú þegar hillir undir að verkefnið Ísland ljóstengt, sem Framsókn var í forystu um, ljúki með því að dreifbýlið um landið hafi aðgang að ljósleiðaratengingu þá þurfum við að stíga það næsta. Ísland fulltengt verður forgangsmál hjá Framsókn þannig að minni þéttbýlisstaðir fái ljósleiðaratengingu og íbúar þeirra búi við sömu lífsgæði og aðrir íbúar landsins sem felast í góðum fjarskiptum.

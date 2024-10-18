@@ -1,7 +1,0 @@
-Samgöngur eru grunnþjónusta sem allir eiga að hafa góðan aðgang að hvort heldur landfræðilega eða efnahagslega svo fólk komist leiðar sinnar innan lands, innan borgar, bæja og á landsbyggðinni.
-
-Sósíalistaflokkur Íslands vill að öll helstu samgöngumannvirki á landinu séu í eigu þjóðarinnar en ekki einkarekin eða rekstri þeirra útvistað. Þannig skal vegagerðin sem slík vera í eigu almennings og fjármögnun vega og allra samgöngumannvirkja ávallt vera í lagi. Þá sé tryggt að skattar sem eyrnamerktir eru vegagerðinni skili sér í þann málaflokk og ekki lögð veggjöld eða önnur gjöld á göng eða brýr.
-
-Samgöngukerfið skal byggt upp með samgönguöryggi allra að leiðarljósi hvort sem er með hjólastígum, göngustígum, eða sérakreinum fyrir strætó og aðra sérumferð innan borgar, bæja eða milli staða á landsbyggðinni. Þá sé hugað að almannavörnum um allt land og öllum gefinn kostur á gjaldfrjálsum öryggisbúnaði eins og endurskinsmerkjum eða borðum.
-
-Þá sé mismunandi samgöngum ekki stillt upp sem andstæðum pólum heldur hafi fólk frelsi til að velja sér samgöngumáta innan þeirra marka sem samfélagið setur sér þegar kemur að umhverfisvernd og loftslagsmálum. Stefnt sé markvisst að umhverfisvænum lausnum eins og stefna sósíalista í umhverfis- og loftslagsmálum segir til um en einnig skal stefnt að því að jafna kjör fólks þegar kemur að samgöngum með tilliti til búsetu og eða möguleikum á að nota umhverfisvænan samgöngumáta. [Sjá nánar](https://sosialistaflokkurinn.is/malefnaflokkar/samgongumal/)

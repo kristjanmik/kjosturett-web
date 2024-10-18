@@ -1,7 +1,0 @@
-Á Íslandi er velferð lögbundin og skal vera aðgengileg öllum án skilyrða, óháð kyni, uppruna, aldri, trú, fötlun eða kynhneigð einnig þeim sem hingað koma vegalausir. Velferðarkerfið snýst um að skapa þær aðstæður sem þarf til að fólk finni til öryggis og líði vel, tryggja að grunnþörfum allra sé mætt svo fólk geti lifað með reisn og notið almennra mannréttinda í samræmi við ákvæði íslenskra laga og alþjóðlegra skuldbindinga.
-
-Tryggja skal samstarf milli ríkis og sveitarfélaga svo grunnþjónusta velferðarmála sé ávallt áreiðanleg. Þá skal vera lögbundið að sveitarfélög veiti þjónustu í velferðarmálum hvort heldur er um húsnæði eða aðra grunnþjónustu að ræða. Þá skal ríkið sem og sveitarfélög reikna út og birta raunhæf neysluviðmið sem opinberar stofnanir og aðrir geta notast við í útreikningum sínum.
-
-Opinberar stofnanir í þjónustu almennings skal ekki einkavæða og skal ríkið ekki styrkja hagnaðardrifna velferðarþjónustu. Þá skulu gilda ströng lög um hvaða eignar- og rekstrarform verði heimilt að nota í slíkri þjónustu og eftirlit haft þar með.
-
-Notendur eiga að hafa virka og gilda aðild að stjórn velferðarkerfis í gegnum hagsmunahópa notenda. Þá sé hlustað á kröfur og ályktanir slíkra hópa en einnig sé hlustað á þarfir og vilja barna og í tilfelli barnaverndar sé einnig hlustað á fólk sem hafði reynslu af kerfinu á barnsaldri. [Sjá nánar](https://sosialistaflokkurinn.is/malefnaflokkar/velferdarmal/)

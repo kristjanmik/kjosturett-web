@@ -1,6 +1,0 @@
-- Framsókn vill fara í þjóðarátak í lýðheilsutengdum forvörnum til að efla einstaklinga til virkni og velgengni í íslensku samfélagi.
-- Framsókn vill að skoðað verði hvort frekari tilefni sé til aukins einkareksturs innan heilbrigðisgeirans. Það þarf einfaldlega að nota þær aðferðir sem skila bestum árangri á sem skjótasta máta.
-- Framsókn leggur áherslu á að gæði heilbrigðisþjónustunnar séu ávallt eins og best verður á kosið. Vitanlega þarf ávallt að leita hagkvæmra og skilvirkra lausna því að um 60% útgjalda ríkisins fara til heilbrigðis- og velferðarmála, en markmið Framsóknar er og verður alltaf að tryggja öllum íbúum landsins þjónustu óháð búsetu og efnahag. Það skiptir meira máli en hvort að hið opinbera veiti alla þjónustuna sjálft eða kaupi hana af öðrum.
-- Framsókn vill efla geðheilbrigðisþjónustu í forvarnaskyni. Það er skynsamlegt eins og á öðrum sviðum heilbrigðisþjónustunnar til að fyrirbyggja frekari vanda með því að bregðast snemma við. Ekki síst þarf að auka geðheilbrigðisþjónustu fyrir börn og félagslega veika hópa.
-- Framsókn vill stórefla heilbrigðisþjónustu utan sjúkrastofnana, sérstaklega fyrir eldra fólk. Hugsa þarf  þjónustuna í samræmi við aðstæður, möguleika og vilja hvers og eins.
-- Framsókn vill nýta tæknilausnir eins og kostur er til að efla heilbrigðisþjónustu á landsbyggðinni þar sem þjónusta hefur minnkað.

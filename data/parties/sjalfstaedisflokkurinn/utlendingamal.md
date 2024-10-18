@@ -1,1 +1,0 @@
-Innflytjendur auðga bæði menningu og efnahag. Auðvelda ætti fólki utan Evrópska efnahagssvæðisins, sem getur fengið starf hér á landi, að koma hingað og starfa. Stytta þarf og einfalda alla ferla og kerfi er varða umsækjendur um alþjóðlega vernd. Útlendingalöggjöfina þarf að þróa áfram af ábyrgð, raunsæi og mannúð.

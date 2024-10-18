@@ -1,7 +1,0 @@
-Það ríkir þjóðarsátt um nauðsyn þess að byggja upp betri heilbrigðisþjónustu fyrir okkur öll, óháð efnahag og búsetu, og nú verður ekki lengur beðið eftir brýnum aðgerðum. Það þarf bæði að leysa brýnustu vandamálin og byggja upp þjónustuna til lengri tíma. Á bak við hvert nafn á biðlista eftir nauðsynlegum aðgerðum, heimsóknum til sérfræðinga og viðtölum við sálfræðinga og geðlækna eru fjölskyldur sem þurfa lausn á sínum vanda. Samfylkingin telur tíma til kominn að hlusta á raddir heilbrigðisstarfsfólks sem hefur lengi kallað eftir umbótum. Í samvinnu við það þurfum við að bæta heilbrigðisþjónustuna með öllum ráðum. 
-
-Samfylkingin ætlar snúa við blaðinu í heilbrigðismálum. Meðal helstu áherslumála okkar er að:
--	<ins>Auka fjármagn</ins> til opinberrar heilbrigðisþjónustu, og ráðast í aðgerðir gegn undirmönnun og stytta biðlista eftir brýnum aðgerðum
--	Ráðast í <ins>þjóðarátak í geðheilbrigðisþjónustu</ins> um allt land. Gera geðheilbrigðisþjónustu að hluta af almenna heilbrigðiskerfinu. Byggja nútímalegar geðdeildir og vinna markvisst niður biðlista barna og ungmenna eftir nauðsynlegri þjónustu. <ins>Innleiða gjaldfrjálsa sálfræðiþjónustu fyrir börn og ungmenni.</ins>
--	Létta álagi af Landspítala með kerfisbreytingum, nýjum búsetu- og þjónustuúrræðum fyrir eldra fólk, aukinni heimaþjónustu og markvissri fjölgun hjúkrunarrýma. 
--	Styrkja forvarnir. Bæta strax úr fyrirkomulagi <ins>skimana fyrir legháls- og brjóstakrabbameini</ins> og taka upp skimanir fyrir fleiri gerðum krabbameins.

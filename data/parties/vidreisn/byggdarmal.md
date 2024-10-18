@@ -1,5 +1,0 @@
-Fólk þarf að hafa raunhæfa valkosti um hvar það býr sér heimili og ekki vera mismunað á grundvelli búsetu. Blómleg og öflug byggð landið um kring er forsenda velsældar í íslensku samfélagi. Tryggja þarf góðar samgöngur, öfluga nettengingu og öruggt rafmagn um allt land. Það er forsenda fjölbreyttrar atvinnuuppbyggingar og fjölgunar tækifæra á Íslandi.
-
-Rafræn stjórnsýsla bætir aðgengi að þjónustu og skapar tækifæri til hagræðingar og framleiðniaukningar í opinberum rekstri. Viðreisn vill að litið sé til nýrra lausna við að skapa störf og tækifæri. Uppbygging fjarvinnukjarna víða um land leika þar lykilhlutverk. Hið opinbera á að tryggja að þeir verði sem víðast um landið og bjóða þannig upp á fjölbreyttari atvinnumöguleika. Huga þarf sérstaklega að stuðningi við menningartengda starfsemi um allt land.
-
-Viðreisn styður sameiningu og stækkun sveitarfélaga með það fyrir augum að draga úr yfirbyggingu og efla nærþjónustu á hagkvæman hátt. Tryggja þarf að fjármagn fylgi tilfærslu verkefna og auka á aðkomu íbúa á landsbyggðinni að lykilákvörðunum um uppbyggingu í heimabyggð þeirra.

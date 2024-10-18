@@ -1,3 +1,0 @@
-Löngu er orðið ljóst að heimsfaraldurinn er ekki tímabundið verkefni og lausnirnar geta ekki lengur verið nýtt regluverk á nokkurra vikna fresti. Við þurfum nálgun sem lítur á heimsfaraldurinn sem langtímaverkefni. Nálgun sem sem byggð er á vísindum og markmiðum um að lágmarka takmarkanir að daglegu lífi fólks og atvinnulífi. Nálgun sem byggir á virðingu fyrir frelsi fólks og meðalhófi. Við þurfum að lifa með veirunni, hvort sem okkur líkar betur eða verr. 
-
-Það er mikilvægt að hlúa að heilbrigðiskerfinu og gera því kleift að takast á við stöðuna. Ótækt er að sóttvarnaraðgerðir séu óhóflega íþyngjandi vegna fjárskorts heilbrigðiskerfisins. Skólaganga barna og ungmenna verður að fá að vera tryggð. Létta þarf á takmörkunum með stórauknu aðgengi að hraðprófum.

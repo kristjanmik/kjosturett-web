@@ -1,3 +1,0 @@
-Í velferðarmálum leggur Miðflokkurinn sérstaka áherslu á að koma til móts við þarfir eldri borgara en sá hópur getur ekki beðið lengur eftir réttlæti. Miðflokkurinn leggur áherslu á að núverandi fyrirkomulag skerðinga verði afnumið og þess í stað komi sanngjarnt kerfi þar sem ævistarf fólks sé virt og komið á jákvæðum hvötum sem stuðla að vinnu, verðmætasköpun og sparnaði. Þeir sem vilja vinna lengur eiga að hafa rétt á því. Það er réttlátt og hagkvæmt fyrir ríkissjóð, lífeyriskerfið og samfélagið allt.
-
-Í málefnum öryrkja vil Miðflokkurinn horfa til sömu viðmiða um sanngirni, eðlilegt lífsviðurværi og jákvæð hvata.

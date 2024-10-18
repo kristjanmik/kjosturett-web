@@ -1,7 +1,0 @@
-Eyðilegging náttúru af mannavöldum, loftslagsbreytingar og mengun eru afleiðing kapítalismans, þess að auðvaldið hefur fengið að ráða ferðinni og farið sínu fram. Umhverfisváin á því sömu rót og sú hætta sem vofir yfir samfélögunum, sem er alræði auðvaldsins. Eina leiðin til að byggja upp gott samfélag og verja náttúrugæðin er að almenningur taki völdin af auðvaldinu.
-
-Auðvaldið er hin ríku sem lifa ofan við samfélag alþýðu manna og telja sig ekkert hafa að sækja í þau grunnkerfi sem byggð voru upp á síðustu öld til að bæta lífskjör og réttindi almennings. Þau telja sig heldur ekki bundin af reglum samfélagsins, starfa eftir því eina boðorði að það sem þau græða á hljóti að vera rétt.
-
-Og hin ríku telja sig einnig geta varist náttúruhamförum og loftslagsbreytingum, keypt sér herragarða á svæðum þar sem minni líkur eru á afleiðing loftslagsbreytinga valdi skaða. Kaupa sér jafnvel jarðir á Íslandi til að eiga hér skjól fyrir þeim skaða sem þau sjálf valda.
-
-Það er því óhugsandi að lausn finnist á eyðileggingu umhverfis og samfélags án þess að að breyta valdajafnvæginu í samfélögunum. Undir alræðisvöldum auðvaldsins munu samfélögin verða brotin og náttúrugæðin eyðilögð. Frumforsenda þess að vinna gegn loftslagsbreytingum og stöðva eyðileggingu náttúrugæða er því að taka völdin af auðvaldinu. Það er stærsta aðgerðin í loftslagsmálum. [Sjá nánar](https://sosialistaflokkurinn.is/2021/08/24/kerfisbreytingar-ekki-loftslagsbreytingar/)

@@ -1,3 +1,0 @@
-Í baráttunni við COVID-19 hefur Samfylkingin haft það að leiðarljósi að fylgja fyrirmælum sóttvarnarlæknis og hlusta á raddir sérfræðinga. Nú er stór hluti þjóðarinnar bólusettur sem minnkar líkur á dauðsföllum og smitum en smit berast áfram milli einstaklinga. Sá litli hópur sem er óbólusettur er ásamt viðkvæmum hópum ennþá útsettur fyrir veikindum en ljóst er að grípa þarf til aðgerða sem eru til þess fallnar að hægt sé að lifa með þeim til lengri tíma.
-
-Ungt fólk og sérstaklega framhaldsskólanemar hafa fundið hvað mest fyrir afleiðingum harðra aðgerða og við viljum því að gripið sé til úrræða sem eru til þess fallin að tryggja að nám og félagslíf ungs fólks og framhaldsskólanema geti farið fram með sem eðlilegustum hætti.

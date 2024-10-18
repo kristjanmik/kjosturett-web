@@ -1,8 +1,0 @@
-- Menntastefna til ársins 2030 er leiðarljós Framsóknar í menntamálum, enda er hún lögð fyrir Alþingi af núverandi mennta- og menningarmálaráðherra.
-- Framsókn vill áfram leggja áherslu á skólaþróun með þátttöku skólanna sjálfra, enn frekari eflingu kennarastéttarinnar og mikilvægi þess að halda menntuðum kennurum í starfi.
-- Framsókn vill bæta þjónustu hins opinbera við skólana, uppfæra námsgagnakost og virkja fleiri aðila í námsgagnagerð.
-- Framsókn vill leggja ríka áherslu á snemmtæka íhlutun og samþættingu ólíkra stuðningskerfa svo skólakerfið bregðist skjótt við ef barn glímir við erfiðleika.
-- Framsókn ætlar áfram að auka vægi iðn- og tæknimenntunar og tryggja enn frekar aukið jafnræði bók- og verknáms.
-- Framsókn vill tryggja öllum menntun og kennslu sem tekur mið af þeirra þörfum og aðstæðum. Við ætlum að sýna lestrarvanda drengja sérstaka athygli.
-- Framsókn vill að áfram verði lögð áhersla á að styðja kröftuglega við íslenska tungu í sífellt alþjóðlegri og stafrænni heimi.
-- Framsókn vill tryggja öllum sem eru af erlendu bergi brotnir sem flytja hingað til lands tækifæri til að læra íslensku.
