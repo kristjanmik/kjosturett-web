@@ -110,6 +110,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 } else {
   uploadImage = multer({ dest: 'uploads/' });
+  uploadVideo = multer({ dest: 'uploads/' });
 }
 
 const app = express();
