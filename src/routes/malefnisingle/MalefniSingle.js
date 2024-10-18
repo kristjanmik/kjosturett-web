@@ -27,7 +27,7 @@ class MalefniSingle extends PureComponent {
               title: party.name,
               content:
                 party.statement ||
-                'Ekkert svar hefur borist við þessum málaflokki',
+                'Ekkert svar hefur borist við þessum málaflokki.<br/><a href="https://2021.kjosturett.is"> Hér</a> er hægt að nálgast svör úr alþingiskosningunum 2021.',
               image: getAssetUrl('party-icons', party.url),
               //Need to get this from category
               // extra: party.video

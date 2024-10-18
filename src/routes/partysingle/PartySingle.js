@@ -38,7 +38,7 @@ class PartySingle extends PureComponent {
                   statement ||
                   `${
                     party.name
-                  } hefur ekki skilað inn umfjöllun um ${name.toLowerCase()}.`,
+                  } hefur ekki skilað inn umfjöllun um ${name.toLowerCase()}.<br/><a href="https://2021.kjosturett.is"> Hér</a> er hægt að nálgast svör úr alþingiskosningunum 2021.`,
                 extra: video
                   ? {
                       type: 'video',
