@@ -46,70 +46,71 @@ let s3;
 let uploadImage;
 let uploadVideo;
 
-//if (process.env.NODE_ENV === 'production') {
-s3 = new aws.S3({
-  accessKeyId: process.env.S3_ACCESS_KEY,
-  secretAccessKey: process.env.S3_SECRET_KEY,
-});
-uploadImage = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: process.env.S3_BUCKET,
-    acl: 'public-read',
-    key: async function(req, file, cb) {
-      if (!['image/png', 'image/jpg', 'image/jpeg'].includes(file.mimetype))
-        return cb(new Error('Wrong filetype'));
+if (process.env.NODE_ENV === 'production') {
+  s3 = new aws.S3({
+    accessKeyId: process.env.S3_ACCESS_KEY,
+    secretAccessKey: process.env.S3_SECRET_KEY,
+  });
 
-      const token = req.query.token;
-      if (!uuid.validate(token))
-        throw Error(
-          'Rangt auðkenni. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
-        );
-      const ssn = await redis.get(`candidate-token:${token}`);
+  uploadImage = multer({
+    storage: multerS3({
+      s3: s3,
+      bucket: process.env.S3_BUCKET,
+      acl: 'public-read',
+      key: async function(req, file, cb) {
+        if (!['image/png', 'image/jpg', 'image/jpeg'].includes(file.mimetype))
+          return cb(new Error('Wrong filetype'));
 
-      if (!ssn)
-        return cb(
-          new Error(
-            'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
-          )
-        );
+        const token = req.query.token;
+        if (!uuid.validate(token))
+          throw Error(
+            'Rangt auðkenni. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+          );
+        const ssn = await redis.get(`candidate-token:${token}`);
 
-      // const ssn = '1234567890';
-      cb(null, `candidates/${ssn}.jpg`);
-    },
-  }),
-});
-uploadVideo = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: process.env.S3_BUCKET,
-    acl: 'public-read',
-    key: async function(req, file, cb) {
-      if (!['video/mp4'].includes(file.mimetype))
-        return cb(new Error('Wrong filetype'));
+        if (!ssn)
+          return cb(
+            new Error(
+              'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+            )
+          );
 
-      const token = req.query.token;
-      if (!uuid.validate(token))
-        throw Error(
-          'Rangt auðkenni. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
-        );
-      const ssn = await redis.get(`candidate-token:${token}`);
+        // const ssn = '1234567890';
+        cb(null, `candidates/${ssn}.jpg`);
+      },
+    }),
+  });
+  uploadVideo = multer({
+    storage: multerS3({
+      s3: s3,
+      bucket: process.env.S3_BUCKET,
+      acl: 'public-read',
+      key: async function(req, file, cb) {
+        if (!['video/mp4'].includes(file.mimetype))
+          return cb(new Error('Wrong filetype'));
 
-      if (!ssn)
-        return cb(
-          new Error(
-            'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
-          )
-        );
+        const token = req.query.token;
+        if (!uuid.validate(token))
+          throw Error(
+            'Rangt auðkenni. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+          );
+        const ssn = await redis.get(`candidate-token:${token}`);
 
-      // const ssn = '1234567890';
-      cb(null, `candidates/${ssn}.mp4`);
-    },
-  }),
-});
-//} else {
-//  uploadImage = multer({ dest: 'uploads/' });
-//}
+        if (!ssn)
+          return cb(
+            new Error(
+              'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
+            )
+          );
+
+        // const ssn = '1234567890';
+        cb(null, `candidates/${ssn}.mp4`);
+      },
+    }),
+  });
+} else {
+  uploadImage = multer({ dest: 'uploads/' });
+}
 
 const app = express();
 
