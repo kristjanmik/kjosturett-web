@@ -7967,6 +7967,11 @@
   dependencies:
     "yallist" "^3.0.2"
 
+"lzjs@^1.3.1":
+  "integrity" "sha512-GaG2+jehuwso7b4eIIKOY6pMDKmLbUcm+YuuX7caTheDnEd4NE8De+sou7Ue0fA24847glcvFFT0j7KmZGb00g=="
+  "resolved" "https://registry.npmjs.org/lzjs/-/lzjs-1.3.1.tgz"
+  "version" "1.3.1"
+
 "make-dir@^1.0.0":
   "integrity" "sha512-2w31R7SJtieJJnQtGc7RVL2StM2vGYVfqUOvUDxH6bC6aJTxPxTF0GnIgCyu7tjockiUWAYQRbxa7vKn34s5sQ=="
   "resolved" "https://registry.npmjs.org/make-dir/-/make-dir-1.3.0.tgz"

@@ -19,9 +19,15 @@ const initialAnswers = questions =>
   }, {});
 
 const marks = {
-  1: 'Mjög ósammála',
+  0: 'Mjög ósammála',
   3: 'Hlutlaus',
-  5: 'Mjög sammála',
+  4: 'Mjög sammála',
+};
+
+const IMPORTANT_SYMBOL = '!';
+
+const isImportant = answer => {
+  return answer.includes(IMPORTANT_SYMBOL);
 };
 
 class Kosningaprof extends PureComponent {
@@ -83,7 +89,7 @@ class Kosningaprof extends PureComponent {
     this.setState(({ answers }) => {
       const newAnswers = {
         ...answers,
-        [id]: value,
+        [id]: value ? value.toString() : value,
       };
 
       return {
@@ -150,6 +156,7 @@ class Kosningaprof extends PureComponent {
     const { isEmbedded, questions } = this.props;
     const isLastQuestion = currentQuestionIndex === questions.length - 1;
     const hasAnswer = answers[id] !== null;
+    const isImportantQuestion = hasAnswer && isImportant(answers[id]);
     const hasSomeAnswers = Object.values(answers).some(value => value !== null);
 
     const skipQuestion = () => {
@@ -159,14 +166,32 @@ class Kosningaprof extends PureComponent {
         this.changeQuestion(1);
       }
     };
+
+    const _cleanAnswer = () => {
+      return hasAnswer ? answers[id].replace(/\!/g, '') : null;
+    };
+
+    const importantQuestion = () => {
+      const currentValue = answers[id];
+      if (isImportant(currentValue)) {
+        const newValue = _cleanAnswer();
+        this.onChange(id)(newValue);
+      } else {
+        this.onChange(id)(`${currentValue}!`);
+      }
+    };
+    // The slider doesn't accept the importance value (!) so we need to clean it up and only
+    // keep the numerical value
+    const cleanAnswer = _cleanAnswer();
+
     return (
       <div key={id} id={id} className={cx(s.question, extraStyle)}>
         <h3 className={s.questionText}>{question}</h3>
         <Slider
           dots
-          min={1}
-          max={5}
-          value={answers[id]}
+          min={0}
+          max={4}
+          value={cleanAnswer}
           marks={marks}
           onChange={this.onChange(id)}
           dotStyle={{
@@ -187,11 +212,20 @@ class Kosningaprof extends PureComponent {
             backgroundColor: 'transparent',
           }}
         />
-        <div className={s.questionControls}>
+        <div>
           {!isEmbedded && hasAnswer && (
-            <button className={s.skip} onClick={skipQuestion}>
-              <i>Sleppa spurningu</i>
-            </button>
+            <div className={s.questionControls}>
+              <button className={s.skip} onClick={skipQuestion}>
+                <i>Sleppa spurningu</i>
+              </button>
+              <button className={s.skip} onClick={importantQuestion}>
+                <i>
+                  {isImportantQuestion
+                    ? 'Hreinsa mikilvægi'
+                    : 'Mikilvæg spurning fyrir mig'}
+                </i>
+              </button>
+            </div>
           )}
           {isEmbedded && (
             <div className={s.questionEmbedControls}>

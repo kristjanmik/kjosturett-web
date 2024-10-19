@@ -5,21 +5,21 @@ import { parseAnswers, match } from 'election-compass-match';
 const sortByRating = (a, b) => b.score - a.score;
 
 function parseAnswerToSVT(answers) {
-  const test = answers
+  const rangeSVTAnswer = answers
     .map(answer => {
       if (answer === '6') {
         return '_';
       }
-      return `${answer - 1}/5`;
+      return `${answer}/5`;
     })
     .join(';');
-  return parseAnswers(test);
+  return parseAnswers(rangeSVTAnswer);
 }
 
 function parsePoliticalAnswerToSVT(answers) {
   return answers
     .split('')
-    .slice(0, 37)
+    .slice(0, 37) // this is only here temporarily to test old answers compared to the 37 new questions
     .map(answer => {
       // 6 means the user skipped it or didnt answer it
       if (answer === '6') {
@@ -27,6 +27,10 @@ function parsePoliticalAnswerToSVT(answers) {
       }
       // SVT uses 4-level Likert scale by default while we use 5 level
       // To make it work with the 5-level scale we need to set the type as range
+      if (Math.random() < 0.5) {
+        // Used to test out the scale
+        return { selectedIndex: answer - 1, isImportant: true, type: 'RANGE' };
+      }
       return { selectedIndex: answer - 1, isImportant: false, type: 'RANGE' };
     });
 }
