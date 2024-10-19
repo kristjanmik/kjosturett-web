@@ -21,7 +21,7 @@ const partyDeflections = {
   P: 'Pírata',
   S: 'Samfylkingarinnar',
   O: 'Frjálslynda Lýðræðisflokksins',
-  V: 'Vinstri grænna'
+  V: 'Vinstri grænna',
 };
 
 const partyDeflectionsB = {
@@ -37,7 +37,7 @@ const partyDeflectionsB = {
   S: 'Samfylkinguna',
   T: 'Dögun',
   O: 'Frjálslynda Lýðræðisflokkinn',
-  V: 'Vinstri græn'
+  V: 'Vinstri græn',
 };
 
 const valueMap = {
@@ -46,7 +46,7 @@ const valueMap = {
   3: 0,
   4: 0.8,
   5: 1,
-  6: null
+  6: null,
 };
 
 export default ({ url, params }) => {
@@ -132,6 +132,6 @@ export default ({ url, params }) => {
           url={url}
         />
       </Layout>
-    )
+    ),
   };
 };
