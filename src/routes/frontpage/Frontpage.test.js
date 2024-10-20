@@ -15,8 +15,8 @@ describe('Frontpage', () => {
             store: {
               subscribe: () => {},
               dispatch: () => {},
-              getState: () => {}
-            }
+              getState: () => {},
+            },
           }}
         >
           <Frontpage />
@@ -35,8 +35,8 @@ describe('Frontpage', () => {
           store: {
             subscribe: () => {},
             dispatch: () => {},
-            getState: () => {}
-          }
+            getState: () => {},
+          },
         }}
       >
         <Frontpage />

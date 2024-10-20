@@ -8,7 +8,7 @@ describe('ProcessPoliticsTest: Candiate match ', () => {
   it('should calculate correct rating', () => {
     const candidates = getResultsByScore(
       decodeAnswersToken(answers),
-      ruvCandidates,
+      ruvCandidates
     );
     expect(candidates).toMatchSnapshot();
   });

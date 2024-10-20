@@ -18,7 +18,7 @@ describe('answers token', () => {
     const correctDecodedAnswer = '3333333333333333333333333333333333334';
 
     expect(decodeAnswersToken(encodedAnswers).join('')).toEqual(
-      correctDecodedAnswer,
+      correctDecodedAnswer
     );
   });
 });

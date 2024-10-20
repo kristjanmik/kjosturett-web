@@ -23,7 +23,7 @@ export default ({ params, url }) => {
         kjorstadur,
         kjordeild,
         kjordaemi,
-        coordinates
+        coordinates,
       ] = nidurstada;
 
       if (coordinates) {
@@ -36,7 +36,7 @@ export default ({ params, url }) => {
         fornafn,
         kjorstadur,
         kjordeild,
-        kjordaemi
+        kjordaemi,
       };
     } catch (e) {}
   }
@@ -59,6 +59,6 @@ export default ({ params, url }) => {
           loadingElement={<div style={{ height: `100%` }} />}
         />
       </Layout>
-    )
+    ),
   };
 };

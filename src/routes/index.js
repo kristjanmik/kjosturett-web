@@ -49,7 +49,7 @@ const routes = {
     },
     {
       path: '/svar',
-      load: () => import(/* webpackChunkName: 'prof' */ './prof')
+      load: () => import(/* webpackChunkName: 'prof' */ './prof'),
     },
     {
       path: '/kosningaprof',

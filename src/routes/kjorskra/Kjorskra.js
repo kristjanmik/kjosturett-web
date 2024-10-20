@@ -20,7 +20,7 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
-  InfoWindow
+  InfoWindow,
 } from 'react-google-maps';
 
 const Map = withGoogleMap(({ mapOptions, kjorstadur }) => {
@@ -43,26 +43,26 @@ const getItineryInfo = ({ duration, distance, type, from, to }) => {
       text: 'að labba',
       icon: walkingIcon,
       link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=WALKING`,
-      linkText: 'Google Maps'
+      linkText: 'Google Maps',
     },
     driving: {
       text: 'að keyra',
       icon: drivingIcon,
       link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=DRIVING`,
-      linkText: 'Google Maps'
+      linkText: 'Google Maps',
     },
     bicycling: {
       text: 'að hjóla',
       icon: bicyclingIcon,
       link: `https://www.google.com/maps/dir/?api=1&origin=${from.lat},${from.lng}&destination=${to.lat},${to.lng}&travelmode=BICYCLING`,
-      linkText: 'Google Maps'
+      linkText: 'Google Maps',
     },
     bussing: {
       text: 'með strætó',
       icon: busIcon,
       link: `https://straeto.is`,
-      linkText: 'Strætó.is'
-    }
+      linkText: 'Strætó.is',
+    },
   }[type];
 };
 
@@ -92,7 +92,7 @@ class Itinery extends PureComponent {
 
 class Kjorskra extends PureComponent {
   static contextTypes = {
-    fetch: PropTypes.func.isRequired
+    fetch: PropTypes.func.isRequired,
   };
   state = {
     kennitala: '',
@@ -101,13 +101,13 @@ class Kjorskra extends PureComponent {
     fetchError: '',
     mapOptions: {
       zoom: 13,
-      center: { lat: 65.7, lng: -19.6 }
+      center: { lat: 65.7, lng: -19.6 },
     },
     currentAddress: null,
     driving: {},
     walking: {},
     bicycling: {},
-    bussing: {} //Stupid, but consistency
+    bussing: {}, //Stupid, but consistency
   };
   constructor(props) {
     super(props);
@@ -157,13 +157,13 @@ class Kjorskra extends PureComponent {
       locations: [
         {
           lat: from.lat(),
-          lon: from.lng()
+          lon: from.lng(),
         },
         {
           lat: to.lat(),
-          lon: to.lng()
-        }
-      ]
+          lon: to.lng(),
+        },
+      ],
     };
 
     console.log('json', json);
@@ -173,13 +173,13 @@ class Kjorskra extends PureComponent {
     console.log('sending', {
       origin: from,
       destination: to,
-      travelMode: costing.toUpperCase()
+      travelMode: costing.toUpperCase(),
     });
 
     const response = await directionsService.route({
       origin: from,
       destination: to,
-      travelMode: costing.toUpperCase()
+      travelMode: costing.toUpperCase(),
     });
 
     if (
@@ -190,7 +190,7 @@ class Kjorskra extends PureComponent {
     ) {
       return {
         distance: null,
-        duration: null
+        duration: null,
       };
     }
 
@@ -198,7 +198,7 @@ class Kjorskra extends PureComponent {
 
     return {
       distance: response.routes[0].legs[0].distance.value,
-      duration: response.routes[0].legs[0].duration.value
+      duration: response.routes[0].legs[0].duration.value,
     };
 
     // const url = [
@@ -247,15 +247,15 @@ class Kjorskra extends PureComponent {
       timestamp,
       '&date=',
       date,
-      '&mode=TRANSIT,WALK&arriveBy=false&wheelchair=false&showIntermediateStops=false&numItineraries=1&locale=is'
+      '&mode=TRANSIT,WALK&arriveBy=false&wheelchair=false&showIntermediateStops=false&numItineraries=1&locale=is',
     ].join('');
 
     console.log('bus url', url);
 
     const response = await this.context.fetch(url, {
       headers: {
-        Accept: 'application/json'
-      }
+        Accept: 'application/json',
+      },
     });
     const data = await response.json();
     console.log('bus data', data);
@@ -265,7 +265,7 @@ class Kjorskra extends PureComponent {
       console.error('Error fetching bus data', response.status, response);
       return {
         distance: null,
-        duration: null
+        duration: null,
       };
     }
 
@@ -282,7 +282,7 @@ class Kjorskra extends PureComponent {
 
     return {
       distance,
-      duration
+      duration,
     };
   }
   async locationFromPlace(place) {
@@ -290,8 +290,8 @@ class Kjorskra extends PureComponent {
       return {
         center: {
           lat: place.geometry.location.lat(),
-          lng: place.geometry.location.lng()
-        }
+          lng: place.geometry.location.lng(),
+        },
       };
     }
     return this.locationFromAddress(place.name);
@@ -305,8 +305,8 @@ class Kjorskra extends PureComponent {
       return {
         center: {
           lat: 64,
-          lng: -21
-        }
+          lng: -21,
+        },
       };
     }
 
@@ -315,8 +315,8 @@ class Kjorskra extends PureComponent {
     return {
       center: {
         lat: coords.lat(),
-        lng: coords.lng()
-      }
+        lng: coords.lng(),
+      },
     };
   }
   onAutocompleteMounted = ref => {
@@ -324,7 +324,7 @@ class Kjorskra extends PureComponent {
   };
   onInputChange(type, e) {
     this.setState({
-      [type]: e.target.value
+      [type]: e.target.value,
     });
   }
   async submit(event) {
@@ -340,7 +340,7 @@ class Kjorskra extends PureComponent {
 
     this.setState({
       isFetching: true,
-      fetchError: ''
+      fetchError: '',
     });
 
     let data;
@@ -367,7 +367,7 @@ class Kjorskra extends PureComponent {
 
       const newState = {
         isFetching: false,
-        fetchError: 'Villa kom upp!'
+        fetchError: 'Villa kom upp!',
       };
 
       if (e.success === false && e.message === 'Kennitala not found') {
@@ -380,7 +380,7 @@ class Kjorskra extends PureComponent {
 
     this.setState({
       isFetching: false,
-      data
+      data,
     });
 
     const options = await this.locationFromAddress(
@@ -390,8 +390,8 @@ class Kjorskra extends PureComponent {
     this.setState({
       mapOptions: {
         zoom: 13,
-        ...options
-      }
+        ...options,
+      },
     });
 
     if (options.invalidLocation === true) {
@@ -420,24 +420,24 @@ class Kjorskra extends PureComponent {
 
     this.setState({
       isFetching: true,
-      fetchError: ''
+      fetchError: '',
     });
 
     const location = await this.locationFromPlace(lookupPlace);
 
     this.setState({
-      isFetching: false
+      isFetching: false,
     });
 
     if (location.invalidLocation) {
       this.setState({
-        fetchError: 'Heimilisfang fannst ekki!'
+        fetchError: 'Heimilisfang fannst ekki!',
       });
       return;
     }
 
     this.setState({
-      currentAddress: location.center
+      currentAddress: location.center,
     });
 
     const position = {
@@ -448,27 +448,27 @@ class Kjorskra extends PureComponent {
       to: new window.google.maps.LatLng(
         mapOptions.center.lat,
         mapOptions.center.lng
-      )
+      ),
     };
 
     //Look up all the itineries and emit them asynchronous
     this.getDistance({
       ...position,
-      costing: 'walking'
+      costing: 'walking',
     }).then(data => this.setState({ walking: data }));
 
     this.getDistance({
       ...position,
-      costing: 'bicycling'
+      costing: 'bicycling',
     }).then(data => this.setState({ bicycling: data }));
 
     this.getDistance({
       ...position,
-      costing: 'driving'
+      costing: 'driving',
     }).then(data => this.setState({ driving: data }));
 
     this.getBusDistance({
-      ...position
+      ...position,
     }).then(data => this.setState({ bussing: data }));
   }
   getItineriesByDistance({ from, to, types }) {
@@ -477,7 +477,7 @@ class Kjorskra extends PureComponent {
         type,
         data: types[type],
         from,
-        to
+        to,
       })
     );
 
@@ -502,7 +502,7 @@ class Kjorskra extends PureComponent {
       walking,
       driving,
       bicycling,
-      bussing
+      bussing,
     } = this.state;
 
     return (
@@ -590,8 +590,8 @@ class Kjorskra extends PureComponent {
                         walking,
                         bicycling,
                         driving,
-                        bussing
-                      }
+                        bussing,
+                      },
                     }).map(itinery => (
                       <Itinery
                         key={itinery.type}

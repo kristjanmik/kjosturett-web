@@ -63,7 +63,7 @@ class ListResponsive extends React.Component {
               key={href}
               className={cx(
                 styles.link,
-                href === current ? styles.linkActive : null,
+                href === current ? styles.linkActive : null
               )}
               href={href}
             >

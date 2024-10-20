@@ -23,7 +23,7 @@ class Autocomplete extends React.PureComponent {
     this.changeListener = google.maps.event.addListener(
       autocomplete,
       'place_changed',
-      this.onChange,
+      this.onChange
     );
     this.setState({
       autocomplete,
@@ -52,7 +52,14 @@ class Autocomplete extends React.PureComponent {
 
   render() {
     const { onChange, ...props } = this.props;
-    return <input ref={input => { this.input = input }} {...props} />;
+    return (
+      <input
+        ref={input => {
+          this.input = input;
+        }}
+        {...props}
+      />
+    );
   }
 }
 

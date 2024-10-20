@@ -32,7 +32,7 @@
   $betweenValues: ();
   $toValues: ();
 
-  @for $i from 1 through length( $fromValue ) {
+  @for $i from 1 through length($fromValue) {
     $fv: nth($fromValue, $i);
     $tv: nth($toValue, $i);
 
@@ -44,13 +44,13 @@
     $betweenValues: append($betweenValues, $bv);
     $toValues: append($toValues, $tv);
 
-    @if (type-of( $fv ) == 'number' and not unitless( $fv ) and unit( $fv ) != '%') {
-      $fv: if(unit($fv) != 'px',  ($fv / ($fv * 0 + 1) * 16) * 1px, $fv);
+    @if (type-of($fv) == 'number' and not unitless($fv) and unit($fv) != '%') {
+      $fv: if(unit($fv) != 'px', ($fv / ($fv * 0 + 1) * 16) * 1px, $fv);
       $bvf: $fv;
     }
 
-    @if (type-of( $tv ) == 'number' and not unitless( $tv ) and unit( $tv ) != '%') {
-      $tv: if(unit($tv) != 'px',  ($tv / ($tv * 0 + 1) * 16) * 1px, $tv);
+    @if (type-of($tv) == 'number' and not unitless($tv) and unit($tv) != '%') {
+      $tv: if(unit($tv) != 'px', ($tv / ($tv * 0 + 1) * 16) * 1px, $tv);
       $bvt: $tv;
     }
 
@@ -82,7 +82,7 @@
   $betweenValues: ();
   $toValues: ();
 
-  @for $i from 1 through length( $fromValue ) {
+  @for $i from 1 through length($fromValue) {
     $fv: nth($fromValue, $i);
     $tv: nth($toValue, $i);
 
@@ -94,15 +94,15 @@
     $betweenValues: append($betweenValues, $bv);
     $toValues: append($toValues, $tv);
 
-    @if (type-of( $fv ) == 'number' and not unitless( $fv ) and unit( $fv ) != '%') {
+    @if (type-of($fv) == 'number' and not unitless($fv) and unit($fv) != '%') {
       //Same as above but we are multiplying by two
-      $fv: if(unit($fv) != 'px',  ($fv / ($fv * 0 + 1) * 16) * 1px, $fv * 2);
+      $fv: if(unit($fv) != 'px', ($fv / ($fv * 0 + 1) * 16) * 1px, $fv * 2);
       $bvf: $fv;
     }
 
-    @if (type-of( $tv ) == 'number' and not unitless( $tv ) and unit( $tv ) != '%') {
+    @if (type-of($tv) == 'number' and not unitless($tv) and unit($tv) != '%') {
       //Same as above but we are multiplying by two
-      $tv: if(unit($tv) != 'px',  ($tv / ($tv * 0 + 1) * 16) * 2px, $tv * 2);
+      $tv: if(unit($tv) != 'px', ($tv / ($tv * 0 + 1) * 16) * 2px, $tv * 2);
       $bvt: $tv;
     }
 
@@ -122,22 +122,24 @@
   #{$property}: calc(100% - #{$fromValues});
 }
 
-@mixin responsive-property-width(
-  $fromValue,
-  $toValue,
-  $fromBp,
-  $toBp
-) {
-  @include responsive-property-calc('width',$fromValue,$toValue,$fromBp,$toBp);
+@mixin responsive-property-width($fromValue, $toValue, $fromBp, $toBp) {
+  @include responsive-property-calc(
+    'width',
+    $fromValue,
+    $toValue,
+    $fromBp,
+    $toBp
+  );
 }
 
-@mixin responsive-property-height(
-  $fromValue,
-  $toValue,
-  $fromBp,
-  $toBp
-) {
-  @include responsive-property-calc('height',$fromValue,$toValue,$fromBp,$toBp);
+@mixin responsive-property-height($fromValue, $toValue, $fromBp, $toBp) {
+  @include responsive-property-calc(
+    'height',
+    $fromValue,
+    $toValue,
+    $fromBp,
+    $toBp
+  );
 }
 
 @mixin button {
