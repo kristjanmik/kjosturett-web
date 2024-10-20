@@ -48,11 +48,8 @@ class Html extends React.Component {
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <title>{title}</title>
-          {/* <meta name="description" content={description} /> */}
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 
           <meta property="og:locale" content="is_IS" />
           <meta name="description" content={description} />
