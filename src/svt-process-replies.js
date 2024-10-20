@@ -27,11 +27,12 @@ function parsePoliticalAnswerToSVT(answers) {
       }
       // SVT uses 4-level Likert scale by default while we use 5 level
       // To make it work with the 5-level scale we need to set the type as range
-      if (Math.random() < 0.5) {
+      return { 
+        selectedIndex: answer - 1,
         // Used to test out the scale
-        return { selectedIndex: answer - 1, isImportant: true, type: 'RANGE' };
-      }
-      return { selectedIndex: answer - 1, isImportant: false, type: 'RANGE' };
+        isImportant: Math.random() < 0.5,
+        type: 'RANGE' 
+      };
     });
 }
 

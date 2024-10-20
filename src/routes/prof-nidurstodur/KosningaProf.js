@@ -24,10 +24,8 @@ const marks = {
   4: 'Mjög sammála',
 };
 
-const IMPORTANT_SYMBOL = '!';
-
 const isImportant = answer => {
-  return answer.includes(IMPORTANT_SYMBOL);
+  return answer.includes('!');
 };
 
 class Kosningaprof extends PureComponent {
