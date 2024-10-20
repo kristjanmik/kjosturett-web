@@ -20,7 +20,7 @@ const initialAnswers = questions =>
 
 const marks = {
   0: 'Mjög ósammála',
-  3: 'Hlutlaus',
+  2: 'Hlutlaus',
   4: 'Mjög sammála',
 };
 
