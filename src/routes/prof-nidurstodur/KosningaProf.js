@@ -25,7 +25,7 @@ const marks = {
 };
 
 const isImportant = answer => {
-  return answer.includes('!');
+  return answer && answer.includes('!');
 };
 
 class Kosningaprof extends PureComponent {
