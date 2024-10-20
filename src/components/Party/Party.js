@@ -13,7 +13,7 @@ const Container = ({
   isFaded,
   letter,
   name,
-  leader
+  leader,
 }) => {
   const Wrap = href ? Link : 'button';
   return (

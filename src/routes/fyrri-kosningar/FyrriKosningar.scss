@@ -32,7 +32,6 @@
 
   @include between-property('font-size', 28px, 16px, 1200px, 500px);
   @include between-property('padding-bottom', 28px, 16px, 1200px, 500px);
-
 }
 
 .election:not(:last-child) {

@@ -14,11 +14,10 @@
   line-height: 1;
   padding: 0;
   position: relative;
-  text-align: left ;
+  text-align: left;
   text-decoration: none;
   transition: filter 400ms;
   width: 100%;
-
 
   &:hover {
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
