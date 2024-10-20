@@ -103,7 +103,7 @@ class Html extends React.Component {
           <meta name="twitter:description" content={description} />
 
           <link
-            href="https://fonts.googleapis.com/css?family=Lora|Roboto:300,400,500,900"
+            href="https://fonts.googleapis.com/css?family=Lora|Roboto:300,400,500,900&display=swap"
             rel="stylesheet"
           />
 
