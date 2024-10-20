@@ -17,23 +17,20 @@ function parseAnswerToSVT(answers) {
 }
 
 function parsePoliticalAnswerToSVT(answers) {
-  return answers
-    .split('')
-    .slice(0, 37) // this is only here temporarily to test old answers compared to the 37 new questions
-    .map(answer => {
-      // 6 means the user skipped it or didnt answer it
-      if (answer === '6') {
-        return null;
-      }
-      // SVT uses 4-level Likert scale by default while we use 5 level
-      // To make it work with the 5-level scale we need to set the type as range
-      return { 
-        selectedIndex: answer - 1,
-        // Used to test out the scale
-        isImportant: Math.random() < 0.5,
-        type: 'RANGE' 
-      };
-    });
+  return answers.split('').map(answer => {
+    // 6 means the user skipped it or didnt answer it
+    if (answer === '6') {
+      return null;
+    }
+    // SVT uses 4-level Likert scale by default while we use 5 level
+    // To make it work with the 5-level scale we need to set the type as range
+    return {
+      selectedIndex: answer - 1,
+      // Used to test out the scale
+      isImportant: Math.random() < 0.5,
+      type: 'RANGE',
+    };
+  });
 }
 
 export default function getResultsBySVTScore(userAnswer, politialEntityAnswer) {
