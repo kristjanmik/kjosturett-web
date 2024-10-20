@@ -254,7 +254,8 @@
   h3 {
     font-family: 'Lora', serif;
     line-height: 1.7;
-    margin: 0 -40px 2em;
+    margin: 0 -40px 0.5em;
+    text-align: left;
   }
 
   img {
@@ -302,8 +303,28 @@
   }
 }
 
+.importantQuestion {
+  display: flex;
+  margin-left: -40px;
+  margin-bottom: 1em;
+  input {
+    opacity: 1;
+    position: relative;
+  }
+  input:checked + label {
+    background: #fff;
+    color: #333;
+  }
+  label {
+    background-color: #fff;
+    padding: 0;
+  }
+}
+
 .questionControls {
   padding-top: 4rem;
+  display: flex;
+  justify-content: space-around;
 }
 
 .questionEmbedControls {

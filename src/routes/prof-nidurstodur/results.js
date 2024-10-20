@@ -5,7 +5,7 @@ import questionsBase from '../../../data/poll/questions.json';
 import answers from '../../../data/poll/answers.json';
 import candidateReplies from '../../../data/build/replies-candidates2.json';
 import partyReplies from '../../../data/build/parties.json';
-import getResultsByScore from '../../process-replies';
+import getResultsBySVTScore from '../../svt-process-replies';
 import { decodeAnswersToken } from '../../utils';
 
 function questionAnswer(reply = []) {
@@ -18,11 +18,11 @@ function questionAnswer(reply = []) {
 export default ({ params, url }) => {
   const replies = decodeAnswersToken(params.nidurstodur);
   const myAnswers = questionAnswer(replies);
-  const parties = getResultsByScore(replies, partyReplies).map(party => {
+  const parties = getResultsBySVTScore(replies, partyReplies).map(party => {
     party.reply = questionAnswer((party.reply || '').split(''));
     return party;
   });
-  const candidates = getResultsByScore(replies, candidateReplies);
+  const candidates = getResultsBySVTScore(replies, candidateReplies);
   const questions = questionsBase.map(({ id, question }) => ({
     id,
     question,

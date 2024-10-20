@@ -1,10 +1,10 @@
 {
   "default": "6",
   "textMap": {
-    "1": "Mjög ósammála",
-    "2": "Frekar ósammála",
-    "3": "Hlutlaus",
-    "4": "Frekar sammála",
-    "5": "Mjög sammála"
+    "0": "Mjög ósammála",
+    "1": "Frekar ósammála",
+    "2": "Hlutlaus",
+    "3": "Frekar sammála",
+    "4": "Mjög sammála"
   }
 }
