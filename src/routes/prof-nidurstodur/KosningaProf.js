@@ -185,6 +185,16 @@ class Kosningaprof extends PureComponent {
     return (
       <div key={id} id={id} className={cx(s.question, extraStyle)}>
         <h3 className={s.questionText}>{question}</h3>
+        <div className={s.importantQuestion}>
+          <input
+            type="checkbox"
+            id={`importan-question-${id}`}
+            name={`importan-question-${id}`}
+            onClick={importantQuestion}
+            checked={isImportantQuestion}
+          />
+          <label htmlFor={`importan-question-${id}`}>Mikilvægt fyrir mig</label>
+        </div>
         <Slider
           dots
           min={0}
@@ -215,13 +225,6 @@ class Kosningaprof extends PureComponent {
             <div className={s.questionControls}>
               <button className={s.skip} onClick={skipQuestion}>
                 <i>Sleppa spurningu</i>
-              </button>
-              <button className={s.skip} onClick={importantQuestion}>
-                <i>
-                  {isImportantQuestion
-                    ? 'Hreinsa mikilvægi'
-                    : 'Mikilvæg spurning fyrir mig'}
-                </i>
               </button>
             </div>
           )}
