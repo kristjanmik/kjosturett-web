@@ -101,7 +101,7 @@ class Header extends PureComponent {
             <div className={s.wrap}>
               <div className={s.leftWrap}>
                 <Link afterClick={() => this.toggle(false)} href="/">
-                  <img src={logo} className={s.logo} />
+                  <img src={logo} className={s.logo} alt="Kjóstu rétt" />
                 </Link>
                 <div className={cx(s.countdown)}>
                   <Countdown />
