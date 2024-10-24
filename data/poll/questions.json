@@ -35,7 +35,10 @@
   },
   { "id": 11, "question": "Setja ætti lög um leiguþak á húsnæðismarkaði." },
   { "id": 12, "question": "Afnema ætti verðtryggingu húsnæðislána." },
-  { "id": 13, "question": "Auka þarf hlutfall félagslegra íbúða." },
+  {
+    "id": 13,
+    "question": "Hið obinbera á að koma að byggingu og rekstri íbúðarhúsnæðis"
+  },
   {
     "id": 14,
     "question": "Ríkið ætti að koma að uppbyggingu nýs þjóðarleikvangs á komandi kjörtímabili."
