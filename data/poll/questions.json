@@ -74,7 +74,10 @@
     "id": 24,
     "question": "Einkavæða ætti orkuframleiðslu á Íslandi í auknu mæli."
   },
-  { "id": 25, "question": "Auka ætti vindorkuframleiðslu á Íslandi." },
+  {
+    "id": 25,
+    "question": "Vindorkuverk eru fýsilegur valkostur til að auka raforkuframleiðslu hér á landi."
+  },
   {
     "id": 26,
     "question": "Borgarlínan er jákvætt framlag til samgöngumála á stórhöfuðborgarsvæðinu."
