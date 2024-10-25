@@ -87,7 +87,10 @@ class Kosningaprof extends PureComponent {
     this.setState(({ answers }) => {
       const newAnswers = {
         ...answers,
-        [id]: value ? value.toString() : value,
+        // We want to use strings here in order to simplify the calculation using SVT.
+        // When we click "clear" we get null
+        // As 0 is evaluated to false we need to check if the value is explicitly null
+        [id]: value !== null ? value.toString() : value,
       };
 
       return {
