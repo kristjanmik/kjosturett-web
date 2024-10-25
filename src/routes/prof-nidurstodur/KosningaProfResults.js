@@ -205,17 +205,17 @@ class KosningaprofResults extends PureComponent {
                   {answeredQuestions
                     .map(question => ({
                       ...question,
-                      myAnswer: question.myAnswer !== null ? question.myAnswer : 3,
-                      partyAnswer: party.reply[question.id] || 3,
+                      myAnswer: question.myAnswer !== null ? question.myAnswer : 2,
+                      partyAnswer: party.reply[question.id] || 2,
                     }))
                     .sort((a, b) => {
                       const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
                       const bAgree = Math.abs(b.myAnswer - b.partyAnswer);
-                      if (a.myAnswer === 3 || a.myAnswer === 6) {
+                      if (a.myAnswer === 2 || a.myAnswer === 6) {
                         return 1;
                       }
                       if (
-                        b.myAnswer === 3 ||
+                        b.myAnswer === 2 ||
                         b.myAnswer === 6 ||
                         isNaN(aAgree) ||
                         isNaN(bAgree)
@@ -225,10 +225,10 @@ class KosningaprofResults extends PureComponent {
                       return aAgree - bAgree;
                     })
                     .map(({ id, myAnswer, question, partyAnswer }) => {
-                      const iAmIndiffrent = !(myAnswer !== 3 && myAnswer !== 6);
+                      const iAmIndiffrent = !(myAnswer !== 2 && myAnswer !== 6);
                       const pluralParty = party.name === 'Píratar';
                       const partyIndiffrent = !(
-                        partyAnswer !== 3 && partyAnswer !== 6
+                        partyAnswer !== 2 && partyAnswer !== 6
                       );
                       const difference = Math.abs(myAnswer - partyAnswer);
 
