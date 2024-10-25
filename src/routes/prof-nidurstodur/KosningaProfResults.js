@@ -120,7 +120,7 @@ class KosningaprofResults extends PureComponent {
     const { isEmbedded, questions, answers, parties } = this.props;
     const { kjordaemiFilter, topFilter, candidateCount } = this.state;
     const answeredQuestions = questions.filter(
-      ({ myAnswer }) => myAnswer && myAnswer !== 6
+      ({ myAnswer }) => myAnswer !== null && myAnswer !== 6
     );
     const candidates = this.props.candidates
       .filter(c => {
@@ -205,7 +205,7 @@ class KosningaprofResults extends PureComponent {
                   {answeredQuestions
                     .map(question => ({
                       ...question,
-                      myAnswer: question.myAnswer || 3,
+                      myAnswer: question.myAnswer !== null ? question.myAnswer : 3,
                       partyAnswer: party.reply[question.id] || 3,
                     }))
                     .sort((a, b) => {
