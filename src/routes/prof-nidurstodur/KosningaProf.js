@@ -177,9 +177,12 @@ class Kosningaprof extends PureComponent {
       if (isImportant(currentValue)) {
         const newValue = _cleanAnswer();
         this.onChange(id)(newValue);
+      } else if(currentValue) {
+         this.onChange(id)(`${currentValue}!`);
       } else {
-        this.onChange(id)(`${currentValue}!`);
+        this.onChange(id)(`2!`);
       }
+
     };
     // The slider doesn't accept the importance value (!) so we need to clean it up and only
     // keep the numerical value
