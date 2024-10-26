@@ -156,7 +156,7 @@ class Kosningaprof extends PureComponent {
     const { answers, currentQuestionIndex } = this.state;
     const { isEmbedded, questions } = this.props;
     const isLastQuestion = currentQuestionIndex === questions.length - 1;
-    const hasAnswer = answers[id] !== null;
+    const hasAnswer = answers[id] !== null && answers[id] !== undefined;
     const isImportantQuestion = hasAnswer && isImportant(answers[id]);
     const hasSomeAnswers = Object.values(answers).some(value => value !== null);
 
@@ -169,7 +169,7 @@ class Kosningaprof extends PureComponent {
     };
 
     const _cleanAnswer = () => {
-      return hasAnswer ? answers[id].replace(/\!/g, '') : null;
+      return hasAnswer ? parseInt(answers[id].replace(/\!/g, ''), 10) : null;
     };
 
     const importantQuestion = () => {
