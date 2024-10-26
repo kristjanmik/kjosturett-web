@@ -65,14 +65,14 @@ class Header extends PureComponent {
       // >
       //   Kjörstaðir
       // </Link>,
-      // <Link
-      //   afterClick={() => this.toggle(false)}
-      //   href="/kosningaprof"
-      //   key="/kosningaprof"
-      //   className={cx(page === 'kosningaprof' ? s.active : null)}
-      // >
-      //   Kosningapróf
-      // </Link>,
+      <Link
+        afterClick={() => this.toggle(false)}
+        href="/kosningaprof"
+        key="/kosningaprof"
+        className={cx(page === 'kosningaprof' ? s.active : null)}
+      >
+        Kosningapróf
+      </Link>,
       <Link
         afterClick={() => this.toggle(false)}
         href="/flokkar/bera-saman"
