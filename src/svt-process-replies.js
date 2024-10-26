@@ -14,31 +14,17 @@ const numberToPropositionAnswer = {
   '3': 'D',
   '3!': 'D!',
   '6': '_',
+  '6!': '_',
 };
 
-function parseAnswerToSVT(answers) {
-  const rangeSVTAnswer = answers
-    .map(answer => {
-      if (answer === '6') {
-        return '_';
-      }
-      return `${answer}/5`;
-    })
-    .join(';');
-  return parseAnswers(rangeSVTAnswer);
+function mapNumberToPropositionAnswer(answer) {
+  // Default to '_' while we switch the old test for the new
+  return numberToPropositionAnswer[answer] || '_';
 }
 
-function parsePoliticalAnswerToSVT(answers) {
-  return answers.split('').map(answer => {
-    // 6 means the user skipped it or didnt answer it
-    if (answer === '6') {
-      return null;
-    }
-    return {
-      selectedIndex: answer - 1,
-      type: 'RANGE',
-    };
-  });
+function parseAnswerToSVT(answers) {
+  const svtAnswer = answers.map(mapNumberToPropositionAnswer).join(';');
+  return parseAnswers(svtAnswer);
 }
 
 export default function getResultsBySVTScore(userAnswer, politialEntityAnswer) {
@@ -46,7 +32,7 @@ export default function getResultsBySVTScore(userAnswer, politialEntityAnswer) {
   return politialEntityAnswer
     .map(data => {
       if (data.reply) {
-        const politialEntityAnswerSVT = parsePoliticalAnswerToSVT(data.reply);
+        const politialEntityAnswerSVT = parseAnswerToSVT(data.reply.split(''));
         return {
           ...data,
           score: match(userAnswerSVT, politialEntityAnswerSVT) * 100,
