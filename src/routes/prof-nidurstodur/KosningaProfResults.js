@@ -120,7 +120,7 @@ class KosningaprofResults extends PureComponent {
     const { isEmbedded, questions, answers, parties } = this.props;
     const { kjordaemiFilter, topFilter, candidateCount } = this.state;
     const answeredQuestions = questions.filter(
-      ({ myAnswer }) => myAnswer && myAnswer !== 6
+      ({ myAnswer }) => myAnswer !== null && myAnswer !== 6
     );
     const candidates = this.props.candidates
       .filter(c => {
@@ -205,31 +205,25 @@ class KosningaprofResults extends PureComponent {
                   {answeredQuestions
                     .map(question => ({
                       ...question,
-                      myAnswer: question.myAnswer || 3,
-                      partyAnswer: party.reply[question.id] || 3,
+                      myAnswer: question.myAnswer,
+                      partyAnswer: party.reply[question.id],
                     }))
                     .sort((a, b) => {
                       const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
                       const bAgree = Math.abs(b.myAnswer - b.partyAnswer);
-                      if (a.myAnswer === 3 || a.myAnswer === 6) {
+                      console.log('a', a.myAnswer, b.myAnswer);
+                      if (a.myAnswer === 6) {
                         return 1;
                       }
-                      if (
-                        b.myAnswer === 3 ||
-                        b.myAnswer === 6 ||
-                        isNaN(aAgree) ||
-                        isNaN(bAgree)
-                      ) {
+                      if (b.myAnswer === 6 || isNaN(aAgree) || isNaN(bAgree)) {
                         return -1;
                       }
                       return aAgree - bAgree;
                     })
                     .map(({ id, myAnswer, question, partyAnswer }) => {
-                      const iAmIndiffrent = !(myAnswer !== 3 && myAnswer !== 6);
+                      const iAmIndiffrent = myAnswer === 6;
                       const pluralParty = party.name === 'Píratar';
-                      const partyIndiffrent = !(
-                        partyAnswer !== 3 && partyAnswer !== 6
-                      );
+                      const partyIndiffrent = partyAnswer === 6;
                       const difference = Math.abs(myAnswer - partyAnswer);
 
                       return (
