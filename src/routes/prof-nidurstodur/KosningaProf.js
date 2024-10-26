@@ -23,8 +23,9 @@ const initialAnswers = questions =>
 
 const marks = {
   0: 'Mjög ósammála',
-  2: 'Hlutlaus',
-  4: 'Mjög sammála',
+  1: 'Ósammála',
+  2: 'Sammála',
+  3: 'Mjög sammála',
 };
 
 const isImportant = answer => {
@@ -140,7 +141,7 @@ class Kosningaprof extends PureComponent {
   loadAnswers() {
     const answers = JSON.parse(localStorage.getItem(answersKey));
     const currentQuestionIndex = Number(localStorage.getItem(indexKey));
-
+    // TODO make sure it matches the length
     if (answers != null) {
       this.setState({ answers, currentQuestionIndex, showReset: true });
     }
@@ -202,7 +203,7 @@ class Kosningaprof extends PureComponent {
         <Slider
           dots
           min={0}
-          max={4}
+          max={3}
           value={cleanAnswer}
           marks={marks}
           onChange={this.onChange(id)}
