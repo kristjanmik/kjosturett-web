@@ -4,6 +4,18 @@ import { parseAnswers, match } from 'election-compass-match';
 
 const sortByRating = (a, b) => b.score - a.score;
 
+const numberToPropositionAnswer = {
+  '0': 'A',
+  '0!': 'A!',
+  '1': 'B',
+  '1!': 'B!',
+  '2': 'C',
+  '2!': 'C!',
+  '3': 'D',
+  '3!': 'D!',
+  '6': '_',
+};
+
 function parseAnswerToSVT(answers) {
   const rangeSVTAnswer = answers
     .map(answer => {
@@ -22,8 +34,6 @@ function parsePoliticalAnswerToSVT(answers) {
     if (answer === '6') {
       return null;
     }
-    // SVT uses 4-level Likert scale by default while we use 5 level
-    // To make it work with the 5-level scale we need to set the type as range
     return {
       selectedIndex: answer - 1,
       type: 'RANGE',
