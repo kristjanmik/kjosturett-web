@@ -1,5 +1,5 @@
 import ruvCandidates from '../data/build/replies-candidates.json';
-import getResultsByScore from './process-replies';
+import getResultsBySVTScore from './svt-process-replies';
 import { decodeAnswersToken } from './utils';
 
 describe('ProcessPoliticsTest: Candiate match ', () => {
