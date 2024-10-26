@@ -32,7 +32,7 @@ export default function getResultsBySVTScore(userAnswer, politialEntityAnswer) {
   return politialEntityAnswer
     .map(data => {
       if (data.reply) {
-        const politialEntityAnswerSVT = parseAnswerToSVT(data.reply.split(''));
+        const politialEntityAnswerSVT = parseAnswerToSVT(data.reply.split(','));
         return {
           ...data,
           score: match(userAnswerSVT, politialEntityAnswerSVT) * 100,
