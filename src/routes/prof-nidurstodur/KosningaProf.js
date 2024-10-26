@@ -303,6 +303,12 @@ class Kosningaprof extends PureComponent {
     return (
       <div className={s.lead}>
         <p>
+          <strong>
+            Við erum að vinna í að uppfæra prófið fyrir kosningarnar 2024 en
+            þangað til geturu tekið prófið frá árinu 2021
+          </strong>
+        </p>
+        <p>
           Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá hvaða
           flokkur passar best við þínar skoðanir. Því fleiri spurningum sem þú
           svarar, því nákvæmari niðurstöður færðu.
