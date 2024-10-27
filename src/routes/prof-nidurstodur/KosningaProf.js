@@ -12,6 +12,8 @@ import Checkbox from '../../components/Checkbox';
 const answersKey = 'prof:answers';
 const indexKey = 'prof:answers:index';
 
+const disableTest = true;
+
 const initialAnswers = questions =>
   questions.reduce((all, { id }) => {
     // eslint-disable-next-line
@@ -299,6 +301,22 @@ class Kosningaprof extends PureComponent {
     const { isEmbedded } = this.props;
     const { showReset } = this.state;
 
+    if (disableTest) {
+      return (
+        <div className={s.lead}>
+          <p>
+            <strong>
+              Við erum að vinna í að uppfæra prófið fyrir kosningarnar 2024.
+              Nýtt kosningapróf kemur innan skamms. Þangað til getur þú tekið{' '}
+              <a href="https://2021.kjosturett.is/kosningaprof">
+                prófið frá 2021
+              </a>
+            </strong>
+          </p>
+        </div>
+      );
+    }
+
     return (
       <div className={s.lead}>
         <p>
@@ -368,13 +386,15 @@ class Kosningaprof extends PureComponent {
     return (
       <div className={cx(s.root, s.questions)}>
         {this.renderIntroText()}
-        <div
-          ref={element => {
-            this.questionsEl = element;
-          }}
-        >
-          {this.renderAllQuestions()}
-        </div>
+        {!disableTest && (
+          <div
+            ref={element => {
+              this.questionsEl = element;
+            }}
+          >
+            {this.renderAllQuestions()}
+          </div>
+        )}
       </div>
     );
   }
