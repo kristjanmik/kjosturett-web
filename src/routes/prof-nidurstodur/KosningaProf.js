@@ -12,7 +12,7 @@ import Checkbox from '../../components/Checkbox';
 const answersKey = 'prof:answers';
 const indexKey = 'prof:answers:index';
 
-const disableTest = true;
+const disableTest = false;
 
 const initialAnswers = questions =>
   questions.reduce((all, { id }) => {
