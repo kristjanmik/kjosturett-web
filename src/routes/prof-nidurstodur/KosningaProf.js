@@ -7,6 +7,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './styles.scss';
 import history from '../../history';
+import Checkbox from '../../components/Checkbox';
 
 const answersKey = 'prof:answers';
 const indexKey = 'prof:answers:index';
@@ -189,14 +190,12 @@ class Kosningaprof extends PureComponent {
       <div key={id} id={id} className={cx(s.question, extraStyle)}>
         <h3 className={s.questionText}>{question}</h3>
         <div className={s.importantQuestion}>
-          <input
-            type="checkbox"
+          <Checkbox
             id={`importan-question-${id}`}
-            name={`importan-question-${id}`}
+            text="Mikilvægt fyrir mig"
             onClick={importantQuestion}
             checked={isImportantQuestion}
           />
-          <label htmlFor={`importan-question-${id}`}>Mikilvægt fyrir mig</label>
         </div>
         <Slider
           dots
