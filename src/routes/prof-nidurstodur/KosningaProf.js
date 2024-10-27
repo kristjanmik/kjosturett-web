@@ -305,7 +305,7 @@ class Kosningaprof extends PureComponent {
         <p>
           <strong>
             Við erum að vinna í að uppfæra prófið fyrir kosningarnar 2024 en
-            þangað til geturu tekið prófið frá árinu 2021
+            þangað til getur þú tekið prófið frá árinu 2021
           </strong>
         </p>
         <p>
