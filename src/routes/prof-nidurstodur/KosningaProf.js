@@ -21,9 +21,8 @@ const initialAnswers = questions =>
 
 const marks = {
   0: 'Mjög ósammála',
-  1: 'Ósammála',
-  2: 'Sammála',
-  3: 'Mjög sammála',
+  2: 'Hlutlaus',
+  4: 'Mjög sammála',
 };
 
 const isImportant = answer => {
@@ -139,7 +138,7 @@ class Kosningaprof extends PureComponent {
   loadAnswers() {
     const answers = JSON.parse(localStorage.getItem(answersKey));
     const currentQuestionIndex = Number(localStorage.getItem(indexKey));
-    // TODO make sure it matches the length
+
     if (answers != null) {
       this.setState({ answers, currentQuestionIndex, showReset: true });
     }
@@ -190,13 +189,9 @@ class Kosningaprof extends PureComponent {
     return (
       <div key={id} id={id} className={cx(s.question, extraStyle)}>
         <h3 className={s.questionText}>{question}</h3>
-        <div
-          className={cx(s.importantQuestion, {
-            [s.hideElement]: !hasAnswer,
-          })}
-        >
+        <div className={s.importantQuestion}>
           <Checkbox
-            id={id}
+            id={`importan-question-${id}`}
             text="Mikilvægt fyrir mig"
             onClick={importantQuestion}
             checked={isImportantQuestion}
@@ -205,7 +200,7 @@ class Kosningaprof extends PureComponent {
         <Slider
           dots
           min={0}
-          max={3}
+          max={4}
           value={cleanAnswer}
           marks={marks}
           onChange={this.onChange(id)}
