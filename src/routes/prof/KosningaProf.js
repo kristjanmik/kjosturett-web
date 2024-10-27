@@ -4,6 +4,7 @@ import queryString from 'query-string';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './KosningaProf.scss';
+import Checkbox from '../../components/Checkbox';
 
 const answerMap = {
   '0': 'Mjög ósammála',
@@ -147,13 +148,36 @@ class Kosningaprof extends PureComponent {
       };
     });
   };
+
+  _cleanAnswer(id) {
+    const { answers } = this.state;
+    return answers[id] !== null && answers[id].replace(/\!/g, '');
+  }
+
+  isImportant(answer) {
+    return answer !== null && answer.includes('!');
+  }
+
+  setImportantQuestion(id) {
+    const { answers } = this.state;
+
+    const currentValue = answers[id];
+    if (this.isImportant(currentValue)) {
+      const newValue = this._cleanAnswer(id);
+      this.onChange(id)({ target: { value: `${newValue}` } });
+    } else {
+      this.onChange(id)({ target: { value: `${currentValue}!` } });
+    }
+  }
+
   async onSend() {
     const { answers, token } = this.state;
 
     const hasNotFinishedAllQuestions = Object.keys(answers).some(
       id => answers[id] === null
     );
-
+    // const test = Object.keys(answers).map(x => answers[x]);
+    // console.log('test', test);
     if (hasNotFinishedAllQuestions) {
       this.setState({ error: true });
       return;
@@ -215,6 +239,14 @@ class Kosningaprof extends PureComponent {
           questions.map(({ question, id }) => (
             <div key={id} className={s.question}>
               <h3>{question}</h3>
+              {answers[id] !== null && answers[id] !== '6' && (
+                <Checkbox
+                  id={id}
+                  text="Mikilvægt spurning fyrir mig"
+                  onClick={() => this.setImportantQuestion(id)}
+                  checked={this.isImportant(answers[id])}
+                />
+              )}
               {Object.keys(answerMap).map(value => {
                 const name = `${id}_${value}`;
                 return (
@@ -224,7 +256,7 @@ class Kosningaprof extends PureComponent {
                       name={name}
                       value={value}
                       type="radio"
-                      checked={answers[id] === value}
+                      checked={this._cleanAnswer(id) === value}
                       onChange={this.onChange(id)}
                     />
                     <label htmlFor={name}>{answerMap[value]}</label>
