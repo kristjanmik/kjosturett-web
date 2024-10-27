@@ -211,7 +211,6 @@ class KosningaprofResults extends PureComponent {
                     .sort((a, b) => {
                       const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
                       const bAgree = Math.abs(b.myAnswer - b.partyAnswer);
-                      console.log('a', a.myAnswer, b.myAnswer);
                       if (a.myAnswer === 6) {
                         return 1;
                       }
