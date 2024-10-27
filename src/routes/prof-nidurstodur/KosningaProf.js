@@ -180,7 +180,7 @@ class Kosningaprof extends PureComponent {
       const currentValue = answers[id];
       if (isImportant(currentValue)) {
         const newValue = _cleanAnswer();
-        this.onChange(id)(newValue);
+        this.onChange(id)(`${newValue}`);
       } else {
         this.onChange(id)(`${currentValue}!`);
       }
@@ -192,7 +192,11 @@ class Kosningaprof extends PureComponent {
     return (
       <div key={id} id={id} className={cx(s.question, extraStyle)}>
         <h3 className={s.questionText}>{question}</h3>
-        <div className={s.importantQuestion}>
+        <div
+          className={cx(s.importantQuestion, {
+            [s.hideElement]: !hasAnswer,
+          })}
+        >
           <Checkbox
             id={`importan-question-${id}`}
             text="Mikilvægt fyrir mig"

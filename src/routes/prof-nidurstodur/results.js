@@ -17,7 +17,9 @@ function questionAnswer(reply = []) {
 
 export default ({ params, url }) => {
   const replies = decodeAnswersToken(params.nidurstodur);
+  console.log('here!!!', replies);
   const myAnswers = questionAnswer(replies);
+  console.log('here!!!', myAnswers);
   const parties = getResultsBySVTScore(replies, partyReplies).map(party => {
     party.reply = questionAnswer((party.reply || '').split(''));
     return party;
