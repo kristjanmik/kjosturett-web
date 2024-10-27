@@ -307,7 +307,10 @@ class Kosningaprof extends PureComponent {
           <p>
             <strong>
               Við erum að vinna í að uppfæra prófið fyrir kosningarnar 2024.
-              Nýtt kosningapróf kemur innan skamms
+              Nýtt kosningapróf kemur innan skamms. Þangað til getur þú tekið{' '}
+              <a href="https://2021.kjosturett.is/kosningaprof">
+                prófið frá 2021
+              </a>
             </strong>
           </p>
         </div>
