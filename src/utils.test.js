@@ -14,7 +14,8 @@ describe('answers token', () => {
   });
 
   it('should decode answers correctly', () => {
-    const encodedAnswers = '494q2639:494q2639:16jb8lowm';
+    const encodedAnswers =
+      'MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzNA==';
     const correctDecodedAnswer = '3333333333333333333333333333333333334';
 
     expect(decodeAnswersToken(encodedAnswers).join('')).toEqual(
