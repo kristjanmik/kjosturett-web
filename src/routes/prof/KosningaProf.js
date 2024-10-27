@@ -176,8 +176,6 @@ class Kosningaprof extends PureComponent {
     const hasNotFinishedAllQuestions = Object.keys(answers).some(
       id => answers[id] === null
     );
-    // const test = Object.keys(answers).map(x => answers[x]);
-    // console.log('test', test);
     if (hasNotFinishedAllQuestions) {
       this.setState({ error: true });
       return;
