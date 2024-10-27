@@ -26,7 +26,7 @@ describe('Frontpage', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
-  test('has 11 parties', () => {
+  test('has 10 parties', () => {
     const wrapper = mount(
       <App
         context={{
@@ -45,6 +45,6 @@ describe('Frontpage', () => {
 
     const partyCount = wrapper.find('.party').length;
 
-    expect(partyCount).toBe(11);
+    expect(partyCount).toBe(10);
   });
 });
