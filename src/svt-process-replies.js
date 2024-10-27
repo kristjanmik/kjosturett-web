@@ -26,8 +26,6 @@ function parsePoliticalAnswerToSVT(answers) {
     // To make it work with the 5-level scale we need to set the type as range
     return {
       selectedIndex: answer - 1,
-      // Used to test out the scale
-      isImportant: Math.random() < 0.5,
       type: 'RANGE',
     };
   });
