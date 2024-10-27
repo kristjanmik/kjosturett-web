@@ -151,10 +151,12 @@ class Kosningaprof extends PureComponent {
     const { answers, token } = this.state;
 
     const hasNotFinishedAllQuestions = Object.keys(answers).some(
-      x => answers[x] === null
+      id => answers[id] === null
     );
+
     if (hasNotFinishedAllQuestions) {
       this.setState({ error: true });
+      return;
     }
 
     await this.context.fetch(`/konnun/replies?timestamp=${Date.now()}`, {
