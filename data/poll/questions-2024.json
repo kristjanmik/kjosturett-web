@@ -1,0 +1,126 @@
+[
+  {
+    "id": 1,
+    "question": "Öðrum en ríkinu ætti að vera heimilt að reka áfengisverslun á Íslandi"
+  },
+  {
+    "id": 2,
+    "question": "Stjórnvöld eiga að standa vörð um stöðu Þjóðkirkjunnar í íslensku samfélagi."
+  },
+  {
+    "id": 3,
+    "question": "Þyngja ætti refsingar í kynferðis- og heimilisofbeldismálum."
+  },
+  {
+    "id": 4,
+    "question": "Efna á til þjóðaratkvæðagreiðslu um hvort hefja eigi að nýju aðildarviðræður við ESB."
+  },
+  {
+    "id": 5,
+    "question": "Skipta ætti út íslensku krónunni fyrir annan erlendan gjaldmiðil."
+  },
+  { "id": 6, "question": "Afnema ætti tekjutengingu á örorku og ellilífeyri." },
+  {
+    "id": 7,
+    "question": "Hækka þarf örorkulífeyri svo hann samsvari lægstu launum hverju sinni."
+  },
+  { "id": 8, "question": "Ríkið ætti að niðurgreiða sálfræðiþjónustu." },
+  {
+    "id": 9,
+    "question": "Afglæpavæða ætti neysluskammta fíkniefna á kjörtímabilinu."
+  },
+  {
+    "id": 10,
+    "question": "Leyfa ætti aukinn einkarekstur í heilbrigðiskerfinu."
+  },
+  { "id": 11, "question": "Setja ætti lög um leiguþak á húsnæðismarkaði." },
+  { "id": 12, "question": "Afnema ætti verðtryggingu húsnæðislána." },
+  {
+    "id": 13,
+    "question": "Hið opinbera á að beita sér fyrir að aukið hlutfall nýs húsnæðis séu félagslegar íbúðir"
+  },
+  {
+    "id": 14,
+    "question": "Ríkið ætti að koma að uppbyggingu nýs þjóðarleikvangs á komandi kjörtímabili."
+  },
+  {
+    "id": 15,
+    "question": "Reykjavíkurflugvöllur á að vera áfram í Vatnsmýri."
+  },
+  {
+    "id": 16,
+    "question": "Leggja ætti áherslu á að niðurgreiða skuldir ríkissjóðs áður en farið í auknar fjárfestingar í innviðum landsins."
+  },
+  {
+    "id": 17,
+    "question": "Hið opinbera ætti leysi vanda sauðfjárbænda vegna búvörusamninga með fjárframlögum."
+  },
+  {
+    "id": 18,
+    "question": "Fjármagna ætti uppbyggingu vegakerfisins í nágrenni höfuðborgarsvæðisins með vegatollum."
+  },
+  { "id": 19, "question": "Flytja ætti fleiri opinberar stofnanir út á land." },
+  {
+    "id": 20,
+    "question": "Auka ætti einkarekstur í leik- og grunnskólaþjónustu."
+  },
+  { "id": 21, "question": "Ríkið ætti að selja hlut sinn í orkufyrirtækjum." },
+  {
+    "id": 22,
+    "question": "Hagsmunir náttúrunnar eiga að vega þyngra en fjárhagslegir hagsmunir við ákvarðanatöku stjórnvalda í atvinnuuppbyggingu."
+  },
+  {
+    "id": 23,
+    "question": "Stofna ætti hálendisþjóðgarð til að vernda náttúru Íslands."
+  },
+  {
+    "id": 24,
+    "question": "Einkavæða ætti orkuframleiðslu á Íslandi í auknu mæli."
+  },
+  {
+    "id": 25,
+    "question": "Vindorkuverk eru fýsilegur valkostur til að auka raforkuframleiðslu hér á landi."
+  },
+  {
+    "id": 26,
+    "question": "Borgarlínan er jákvætt framlag til samgöngumála á stórhöfuðborgarsvæðinu."
+  },
+  { "id": 27, "question": "Banna ætti hvalveiðar við Ísland." },
+  { "id": 28, "question": "Banna ætti sjókvíaeldi á Íslandi." },
+  {
+    "id": 29,
+    "question": "Hækka þarf veiðigjald af fiskveiðiauðlindum Íslands á næsta kjörtímabili."
+  },
+  { "id": 30, "question": "Hækka ætti skattleysismörk á Íslandi." },
+  { "id": 31, "question": "Lækka ætti tekjuskatt" },
+  {
+    "id": 32,
+    "question": "Ríkið ætti að eiga og reka að minnsta kosti einn banka á Íslandi."
+  },
+  {
+    "id": 33,
+    "question": "Auka ætti framlög Íslands til þróunarsamvinnu og hjálparstarfsemi í fátækari ríkjum heims."
+  },
+  {
+    "id": 34,
+    "question": "Fjöldi fólks sem fær hæli á Íslandi sem hælisleitendur eða flóttamenn er of mikill."
+  },
+  {
+    "id": 35,
+    "question": "Ísland ætti að beita Ísraelsríki viðskiptaþvingunum vegna framgöngu þeirra gagnvart Palestínumönnum."
+  },
+  { "id": 36, "question": "Lækka ætti tolla á innflutt matvæli." },
+  {
+    "id": 37,
+    "question": "Hið opinbera ætti að innkalla fiskveiðikvóta í skrefum og bjóða upp á markaði."
+  },
+  { "id": 38, "question": "Hækka ætti fjármagnstekjuskatt á Íslandi." },
+  {
+    "id": 39,
+    "question": "Gera þarf stórátak í geðheilbrigðismálum á Íslandi, m.a. með stórauknum útgjöldum hins opinbera til geðheilbrigðiskerfisins."
+  },
+  {
+    "id": 40,
+    "question": "Ísland ætti að taka upp nýja stjórnarskrá í skrefum á næstu kjörtímabilum."
+  }
+]

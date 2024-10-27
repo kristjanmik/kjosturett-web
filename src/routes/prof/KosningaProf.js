@@ -6,16 +6,15 @@ import { encodeAnswersToken } from '../../utils';
 import s from './KosningaProf.scss';
 
 const answerMap = {
-  1: 'Mjög ósammála',
-  2: 'Frekar ósammála',
-  3: 'Hlutlaus',
-  4: 'Frekar sammála',
-  5: 'Mjög sammála',
-  6: 'Vil ekki svara',
+  '0': 'Mjög ósammála',
+  '1': 'Frekar ósammála',
+  '2': 'Frekar sammála',
+  '3': 'Mjög sammála',
+  '6': 'Sleppa Spurningu',
 };
 const areYouSure =
   'Ertu viss um að þú viljir yfirgefa síðuna núna? Öll svörin munu týnast.';
-const defaultAnswer = '3';
+const defaultAnswer = null;
 
 class UploadCandidateImage extends PureComponent {
   render() {
@@ -106,6 +105,7 @@ class Kosningaprof extends PureComponent {
   state = {
     started: false,
     token: null,
+    error: false,
     finished: false,
     answers: this.props.questions.reduce((all, { id }) => {
       // eslint-disable-next-line
@@ -138,6 +138,7 @@ class Kosningaprof extends PureComponent {
         };
       }
       return {
+        error: false,
         started: true,
         answers: {
           ...answers,
@@ -148,6 +149,15 @@ class Kosningaprof extends PureComponent {
   };
   async onSend() {
     const { answers, token } = this.state;
+
+    const hasNotFinishedAllQuestions = Object.keys(answers).some(
+      id => answers[id] === null
+    );
+
+    if (hasNotFinishedAllQuestions) {
+      this.setState({ error: true });
+      return;
+    }
 
     await this.context.fetch(`/konnun/replies?timestamp=${Date.now()}`, {
       method: 'POST',
@@ -172,7 +182,7 @@ class Kosningaprof extends PureComponent {
       uploadVideoSuccess,
       uploadVideoFailure,
     } = this.props;
-    const { answers, started, finished } = this.state;
+    const { answers, started, finished, error } = this.state;
     return (
       <div className={s.root}>
         {!finished && (
@@ -224,6 +234,11 @@ class Kosningaprof extends PureComponent {
             </div>
           ))}
         {started && !finished && <button onClick={this.onSend}>Senda</button>}
+        {error && (
+          <div>
+            <strong>Ekki öllum spurningum hefur verið svarað</strong>
+          </div>
+        )}
       </div>
     );
   }
