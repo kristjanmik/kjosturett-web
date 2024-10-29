@@ -233,7 +233,7 @@ class Kosningaprof extends PureComponent {
             backgroundColor: 'transparent',
           }}
         />
-        <div>
+        <div className={s.relative}>
           {!isEmbedded && hasAnswer && (
             <div className={s.questionControls}>
               <button className={s.skip} onClick={skipQuestion}>
