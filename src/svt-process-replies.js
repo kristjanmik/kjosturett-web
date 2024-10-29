@@ -4,31 +4,27 @@ import { parseAnswers, match } from 'election-compass-match';
 
 const sortByRating = (a, b) => b.score - a.score;
 
-function parseAnswerToSVT(answers) {
-  const rangeSVTAnswer = answers
-    .map(answer => {
-      if (answer === '6') {
-        return '_';
-      }
-      return `${answer}/5`;
-    })
-    .join(';');
-  return parseAnswers(rangeSVTAnswer);
+const numberToPropositionAnswer = {
+  '0': 'A',
+  '0!': 'A!',
+  '1': 'B',
+  '1!': 'B!',
+  '2': 'C',
+  '2!': 'C!',
+  '3': 'D',
+  '3!': 'D!',
+  '6': '_',
+  '6!': '_',
+};
+
+function mapNumberToPropositionAnswer(answer) {
+  // Default to '_' while we switch the old test for the new
+  return numberToPropositionAnswer[answer] || '_';
 }
 
-function parsePoliticalAnswerToSVT(answers) {
-  return answers.split('').map(answer => {
-    // 6 means the user skipped it or didnt answer it
-    if (answer === '6') {
-      return null;
-    }
-    // SVT uses 4-level Likert scale by default while we use 5 level
-    // To make it work with the 5-level scale we need to set the type as range
-    return {
-      selectedIndex: answer - 1,
-      type: 'RANGE',
-    };
-  });
+function parseAnswerToSVT(answers) {
+  const svtAnswer = answers.map(mapNumberToPropositionAnswer).join(';');
+  return parseAnswers(svtAnswer);
 }
 
 export default function getResultsBySVTScore(userAnswer, politialEntityAnswer) {
@@ -36,7 +32,7 @@ export default function getResultsBySVTScore(userAnswer, politialEntityAnswer) {
   return politialEntityAnswer
     .map(data => {
       if (data.reply) {
-        const politialEntityAnswerSVT = parsePoliticalAnswerToSVT(data.reply);
+        const politialEntityAnswerSVT = parseAnswerToSVT(data.reply.split(','));
         return {
           ...data,
           score: match(userAnswerSVT, politialEntityAnswerSVT) * 100,

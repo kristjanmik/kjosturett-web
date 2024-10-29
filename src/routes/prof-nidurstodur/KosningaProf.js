@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import Slider from 'rc-slider';
+import queryString from 'query-string';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './styles.scss';
@@ -11,8 +12,6 @@ import Checkbox from '../../components/Checkbox';
 
 const answersKey = 'prof:answers';
 const indexKey = 'prof:answers:index';
-
-const disableTest = true;
 
 const initialAnswers = questions =>
   questions.reduce((all, { id }) => {
@@ -23,8 +22,9 @@ const initialAnswers = questions =>
 
 const marks = {
   0: 'Mjög ósammála',
-  2: 'Hlutlaus',
-  4: 'Mjög sammála',
+  1: 'Ósammála',
+  2: 'Sammála',
+  3: 'Mjög sammála',
 };
 
 const isImportant = answer => {
@@ -69,10 +69,15 @@ class Kosningaprof extends PureComponent {
 
     this.onReset = this.onReset.bind(this);
     this.onSend = this.onSend.bind(this);
+    this.seeTest = false;
     this.changeQuestion = this.changeQuestion.bind(this);
   }
   componentDidMount() {
     this.loadAnswers();
+    const { seeTest } = queryString.parse(window.location.search);
+    if (seeTest) {
+      this.seeTest = true;
+    }
   }
   onReset() {
     // eslint-disable-next-line
@@ -140,7 +145,7 @@ class Kosningaprof extends PureComponent {
   loadAnswers() {
     const answers = JSON.parse(localStorage.getItem(answersKey));
     const currentQuestionIndex = Number(localStorage.getItem(indexKey));
-
+    // TODO make sure it matches the length
     if (answers != null) {
       this.setState({ answers, currentQuestionIndex, showReset: true });
     }
@@ -179,7 +184,7 @@ class Kosningaprof extends PureComponent {
       const currentValue = answers[id];
       if (isImportant(currentValue)) {
         const newValue = _cleanAnswer();
-        this.onChange(id)(newValue);
+        this.onChange(id)(`${newValue}`);
       } else {
         this.onChange(id)(`${currentValue}!`);
       }
@@ -191,7 +196,11 @@ class Kosningaprof extends PureComponent {
     return (
       <div key={id} id={id} className={cx(s.question, extraStyle)}>
         <h3 className={s.questionText}>{question}</h3>
-        <div className={s.importantQuestion}>
+        <div
+          className={cx(s.importantQuestion, {
+            [s.hideElement]: !hasAnswer,
+          })}
+        >
           <Checkbox
             id={`importan-question-${id}`}
             text="Mikilvægt fyrir mig"
@@ -202,7 +211,7 @@ class Kosningaprof extends PureComponent {
         <Slider
           dots
           min={0}
-          max={4}
+          max={3}
           value={cleanAnswer}
           marks={marks}
           onChange={this.onChange(id)}
@@ -224,7 +233,7 @@ class Kosningaprof extends PureComponent {
             backgroundColor: 'transparent',
           }}
         />
-        <div>
+        <div className={s.relative}>
           {!isEmbedded && hasAnswer && (
             <div className={s.questionControls}>
               <button className={s.skip} onClick={skipQuestion}>
@@ -301,7 +310,7 @@ class Kosningaprof extends PureComponent {
     const { isEmbedded } = this.props;
     const { showReset } = this.state;
 
-    if (disableTest) {
+    if (!this.seeTest) {
       return (
         <div className={s.lead}>
           <p>
@@ -386,7 +395,7 @@ class Kosningaprof extends PureComponent {
     return (
       <div className={cx(s.root, s.questions)}>
         {this.renderIntroText()}
-        {!disableTest && (
+        {this.seeTest && (
           <div
             ref={element => {
               this.questionsEl = element;
