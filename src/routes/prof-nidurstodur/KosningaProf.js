@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import Slider from 'rc-slider';
+import queryString from 'query-string';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './styles.scss';
@@ -11,8 +12,6 @@ import Checkbox from '../../components/Checkbox';
 
 const answersKey = 'prof:answers';
 const indexKey = 'prof:answers:index';
-
-const disableTest = false;
 
 const initialAnswers = questions =>
   questions.reduce((all, { id }) => {
@@ -70,10 +69,15 @@ class Kosningaprof extends PureComponent {
 
     this.onReset = this.onReset.bind(this);
     this.onSend = this.onSend.bind(this);
+    this.seeTest = false;
     this.changeQuestion = this.changeQuestion.bind(this);
   }
   componentDidMount() {
     this.loadAnswers();
+    const { seeTest } = queryString.parse(window.location.search);
+    if (seeTest) {
+      this.seeTest = true;
+    }
   }
   onReset() {
     // eslint-disable-next-line
@@ -306,7 +310,7 @@ class Kosningaprof extends PureComponent {
     const { isEmbedded } = this.props;
     const { showReset } = this.state;
 
-    if (disableTest) {
+    if (!this.seeTest) {
       return (
         <div className={s.lead}>
           <p>
@@ -391,7 +395,7 @@ class Kosningaprof extends PureComponent {
     return (
       <div className={cx(s.root, s.questions)}>
         {this.renderIntroText()}
-        {!disableTest && (
+        {this.seeTest && (
           <div
             ref={element => {
               this.questionsEl = element;
