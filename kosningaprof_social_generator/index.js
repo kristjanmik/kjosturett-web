@@ -5,9 +5,10 @@ const path = require('path');
 const partiesImport = require('./parties');
 
 exports.handler = (event, context, callback) => {
-  const payload = decodeURIComponent(event.pathParameters.text);
+  let payload = decodeURIComponent(event.queryStringParameters.r);
+  // let payload = 'C:68|D:67|F:58|M:38|P:34';
 
-  const parties = payload.split('|').map(raw => {
+  let parties = payload.split('|').map(raw => {
     const [letter, score] = raw.split(':');
 
     let finalScore = 0;
@@ -86,7 +87,7 @@ exports.handler = (event, context, callback) => {
 
 if (process.env.NODE_ENV === 'development') {
   exports.handler(
-    { pathParameters: { text: 'J:68|D:67|F:58|M:38|P:34' } },
+    { queryStringParameters: { r: 'J:68|D:67|F:58|M:38|P:34' } },
     {},
     console.log
   );
