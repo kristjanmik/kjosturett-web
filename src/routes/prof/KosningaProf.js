@@ -109,7 +109,7 @@ class Kosningaprof extends PureComponent {
     error: false,
     finished: false,
     //Submission by a party or a candidate
-    partyMode: false,
+    partyMode: true,
     answers: this.props.questions.reduce((all, { id }) => {
       // eslint-disable-next-line
       all[id] = defaultAnswer;
