@@ -74,6 +74,18 @@ if (process.env.NODE_ENV === 'production') {
               'Rangur hlekkur. Hafðu samband við kjosturett@kjosturett.is ef þetta er röng villa.'
             )
           );
+        cb(null, `candidates/${token}.jpg`);
+      },
+    }),
+  });
+  uploadVideo = multer({
+    storage: multerS3({
+      s3: s3,
+      bucket: process.env.S3_BUCKET,
+      acl: 'public-read',
+      key: async function(req, file, cb) {
+        if (!['video/mp4'].includes(file.mimetype))
+          return cb(new Error('Wrong filetype'));
 
         // const ssn = '1234567890';
         cb(null, `candidates/${ssn}.jpg`);
@@ -174,10 +186,10 @@ app.post('/candidate/video', uploadVideo.single('video'), (req, res) => {
 
 // Used to gather replies from candidates and parties
 app.post('/konnun/replies', async (req, res) => {
-  return res.status(500).json({
-    success: false,
-    error: 'Kosningarnar eru búnar',
-  });
+  // return res.status(500).json({
+  //   success: false,
+  //   error: 'Kosningarnar eru búnar',
+  // });
 
   const { token, reply } = req.body;
 
@@ -189,10 +201,10 @@ app.post('/konnun/replies', async (req, res) => {
 
 // Used to gather replies from voters in an anonymous way
 app.post('/konnun/replies/all', async (req, res) => {
-  return res.status(500).json({
-    success: false,
-    error: 'Kosningarnar eru búnar',
-  });
+  // return res.status(500).json({
+  //   success: false,
+  //   error: 'Kosningarnar eru búnar',
+  // });
   const { reply } = req.body;
 
   const token = uuid.v4();

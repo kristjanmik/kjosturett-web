@@ -108,6 +108,8 @@ class Kosningaprof extends PureComponent {
     token: null,
     error: false,
     finished: false,
+    //Submission by a party or a candidate
+    partyMode: false,
     answers: this.props.questions.reduce((all, { id }) => {
       // eslint-disable-next-line
       all[id] = defaultAnswer;
@@ -119,12 +121,12 @@ class Kosningaprof extends PureComponent {
     this.onSend = this.onSend.bind(this);
   }
   componentDidMount() {
-    const { token } = queryString.parse(window.location.search);
+    const { token, t } = queryString.parse(window.location.search);
     if (!token) {
       window.location = '/';
     }
     // eslint-disable-next-line
-    this.setState({ token });
+    this.setState({ token, partyMode: t === 'p' });
   }
   componentWillUnmount() {
     window.onbeforeunload = null;
@@ -204,17 +206,18 @@ class Kosningaprof extends PureComponent {
       uploadVideoSuccess,
       uploadVideoFailure,
     } = this.props;
-    const { answers, started, finished, error } = this.state;
+    const { answers, started, finished, error, partyMode } = this.state;
+
     return (
       <div className={s.root}>
-        {!finished && (
+        {!finished && !partyMode && (
           <UploadCandidateImage
             token={token}
             uploadImageSuccess={uploadImageSuccess}
             uploadImageFailure={uploadImageFailure}
           />
         )}
-        {!finished && (
+        {!finished && !partyMode && (
           <UploadCandidateVideo
             token={token}
             uploadVideoSuccess={uploadVideoSuccess}
@@ -229,7 +232,12 @@ class Kosningaprof extends PureComponent {
             <p>
               Svörin við prófinu birtast í niðurstöðusíðu kosningaprófsins fyrir
               almenning. Það getur tekið allt að 30 mínútur fyrir svörin að
-              uppfærast. Nýjasta svarið gildir.
+              uppfærast. Nýjasta svarið gildir.{' '}
+              <b>
+                Athugið að með hverri spurningu sem er sleppt er dregið úr vægi
+                annarra innsendra svara og því er ólíklegra að fá þú eða
+                flokkurinn komi upp þegar aðrir taka prófið.
+              </b>
             </p>
           </div>
         )}
@@ -240,7 +248,7 @@ class Kosningaprof extends PureComponent {
               {answers[id] !== null && answers[id] !== '6' && (
                 <Checkbox
                   id={id}
-                  text="Mikilvægt spurning fyrir mig"
+                  text="Mikilvægt spurning fyrir mig/flokkinn"
                   onClick={() => this.setImportantQuestion(id)}
                   checked={this.isImportant(answers[id])}
                 />
@@ -266,7 +274,10 @@ class Kosningaprof extends PureComponent {
         {started && !finished && <button onClick={this.onSend}>Senda</button>}
         {error && (
           <div>
-            <strong>Ekki öllum spurningum hefur verið svarað</strong>
+            <strong>
+              Vinsamlegast kláraðu að svara öllum spurningum, eða hakaðu við
+              sleppa spurningu.
+            </strong>
           </div>
         )}
       </div>
