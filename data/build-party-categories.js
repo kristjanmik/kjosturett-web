@@ -24,13 +24,7 @@ const parties = require('./build/parties.json');
           if (markdownStatement) {
             markdownStatement = marked(markdownStatement.toString());
           }
-        } catch (e) {
-          console.error(
-            'Could not load statement video file',
-            statementFile,
-            process.cwd()
-          );
-        }
+        } catch (e) {}
 
         let categoryVideos = {};
         //Try to load the category videos file, not required
@@ -69,13 +63,7 @@ const parties = require('./build/parties.json');
           if (markdownStatement) {
             markdownStatement = marked(markdownStatement.toString());
           }
-        } catch (e) {
-          console.error(
-            'Could not load statement video file',
-            statementFile,
-            process.cwd()
-          );
-        }
+        } catch (e) {}
 
         let categoryVideos = {};
         //Try to load the category videos file, not required

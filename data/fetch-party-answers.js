@@ -5,7 +5,7 @@ const globby = require('globby');
 const writeFile = promisify(fs.writeFile);
 const { decodeAnswersToken } = require('../src/utils');
 
-const partyMap = require('./party-answer-map.json');
+const partyMap = require('../.party-answer-map.json');
 
 let redis;
 
@@ -49,7 +49,7 @@ function tokenToParty(token) {
     let reply = '';
 
     if (values[index]) {
-      reply = (decodeAnswersToken(values[index]) || []).join('');
+      reply = (decodeAnswersToken(values[index]) || []).join(',');
     }
 
     if (!out[token] || out[token].timestamp < timestamp) {
@@ -62,16 +62,19 @@ function tokenToParty(token) {
 
   const paths = await globby(['./parties/**/data.json']);
 
-  paths.forEach(async path => {
-    const data = require(path);
-    if (out[data.url]) {
-      data.reply = out[data.url].reply || '';
-      console.log(`-- ${data.name} has responded`);
-    } else {
-      data.reply = '';
-    }
-    await writeFile(path, JSON.stringify(data, null, 2));
-  });
+  await Promise.all(
+    paths.map(async path => {
+      const data = await require(path);
+      if (out[data.url]) {
+        data.reply = out[data.url].reply || '';
+        console.log(`-- ${data.name} has responded`);
+      } else {
+        data.reply = '';
+      }
+      await writeFile(path, JSON.stringify(data, null, 2));
+    })
+  );
 
   console.log('Fetch:Party Answers - Done');
+  process.exit(0);
 })();

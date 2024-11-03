@@ -4,7 +4,13 @@ const globby = require('globby');
 const slugify = require('slugify');
 
 const writeFile = promisify(fs.writeFile);
-const statFile = promisify(fs.stat);
+
+let mappings;
+try {
+  mappings = require('./candidate-public.json');
+} catch (e) {
+  console.error('Build:Candidates - Failed to load candidate mappings');
+}
 
 (async () => {
   console.log('Build:Candidates - Building');
@@ -20,24 +26,11 @@ const statFile = promisify(fs.stat);
 
   out = await Promise.all(
     out.map(async candidate => {
-      let hasImage = false;
-      let hasVideo = false;
       const slug = slugify(candidate.name).toLowerCase();
-      try {
-        const fileInfo = await statFile(`./candidates-images/jpg/${slug}.jpg`);
-        hasImage = fileInfo.isFile();
-      } catch (e) {}
 
-      try {
-        const fileInfo = await statFile(`./candidates-videos/mp4/${slug}.mp4`);
-        hasVideo = fileInfo.isFile();
-      } catch (e) {}
-
-      //@TODO compress variables to save space
       return {
         ...candidate,
-        hasImage,
-        hasVideo,
+        assets: mappings[candidate.ssn],
       };
     })
   );
