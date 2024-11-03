@@ -4,21 +4,16 @@ import questionsBase from '../../../../data/poll/questions.json';
 import answers from '../../../../data/poll/answers.json';
 import candidateReplies from '../../../../data/build/replies-candidates2.json';
 import partyReplies from '../../../../data/build/parties.json';
+import getResultsBySVTScore from '../../../svt-process-replies';
 import { decodeAnswersToken } from '../../../utils';
+import questionAnswer from '../../../question-utils';
 import Layout from '../../../components/Layout';
-
-function questionAnswer(reply = []) {
-  return reply.reduce((all, answer, index) => {
-    all[index + 1] = parseInt(answer, 10);
-    return all;
-  }, {});
-}
 
 export default ({ params, url }) => {
   const replies = decodeAnswersToken(params.nidurstodur);
   const myAnswers = questionAnswer(replies);
   const parties = getResultsBySVTScore(replies, partyReplies).map(party => {
-    party.reply = questionAnswer((party.reply || '').split(''));
+    party.reply = questionAnswer((party.reply || '').split(','));
     return party;
   });
   const candidates = getResultsBySVTScore(replies, candidateReplies);
