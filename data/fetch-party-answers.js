@@ -69,7 +69,7 @@ function tokenToParty(token) {
         data.reply = out[data.url].reply || '';
         console.log(`-- ${data.name} has responded`);
       } else {
-        data.reply = '';
+        data.reply = data.reply || '';
       }
       await writeFile(path, JSON.stringify(data, null, 2));
     })
