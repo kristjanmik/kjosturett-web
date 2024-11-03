@@ -39,3 +39,5 @@ data/candidate-numbers-map.json
 data/get_candidate_numbers.js
 data/send_candidate_sms.js
 data/generate_candidate_upload_secrets.js
+.candidate-secret.json
+.party-answer-map.json
