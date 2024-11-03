@@ -21,55 +21,33 @@ module.exports = async function(kt) {
     };
   }
 
-  let res, $;
-  let form = {};
-
   // Ensure hyphen is in the right place
   const kt_cleaned = clean(kt);
-  const kt_formatted = kt_cleaned.slice(0, 6) + '-' + kt_cleaned.slice(6);
 
-  res = await requestAsync({
-    url: 'https://kjorskra.skra.is/kjorskra/',
+  const response = await requestAsync({
+    url:
+      'https://svc.skra.is/hvarkyseg/Kosning/1000106/HvarKysEg/' + kt_cleaned,
     method: 'GET',
-    gzip: true,
-  });
-  $ = cheerio.load(res.body);
-  $('form input').each((i, v) => {
-    form[$(v).attr('name')] = $(v).attr('value');
   });
 
-  form.txtKennitala_Raw = kt_formatted;
-  form.txtKennitala = kt_formatted;
-  form.ASPxGridView1$DXKVInput = kt_cleaned;
+  let data = {};
 
-  res = await requestAsync({
-    url: 'https://kjorskra.skra.is/kjorskra/',
-    method: 'POST',
-    gzip: true,
-    form,
-  });
+  try {
+    data = JSON.parse(response.body);
+    data.kjordaemi = data.sveitarfelag;
+    data.success = true;
+  } catch (e) {
+    console.error(response.body);
+  }
 
-  $ = cheerio.load(res.body);
+  console.log(data);
 
-  const response = $('#ASPxGridView1_DXDataRow0 td')
-    .map((i, v) => $(v).text())
-    .toArray()
-    .reduce(
-      (p, d, i) => {
-        p[fields[i]] = d.trim();
-        return p;
-      },
-      {
-        success: true,
-      }
-    );
-
-  if (!response.kennitala)
+  if (!data.kennitala)
     return {
       success: false,
       message: 'Kennitala not found',
     };
-  else return response;
+  else return data;
 };
 
 if (!module.parent) {

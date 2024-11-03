@@ -23,6 +23,8 @@ import {
   InfoWindow,
 } from 'react-google-maps';
 
+const HIDE_TRANSPORTATION = true;
+
 const Map = withGoogleMap(({ mapOptions, kjorstadur }) => {
   return (
     <GoogleMap defaultZoom={mapOptions.zoom} center={mapOptions.center}>
@@ -561,7 +563,7 @@ class Kjorskra extends PureComponent {
                 í <i>kjördæminu</i> <b>{data.kjordaemi}</b>.
               </p>
               <OpeningHours sveitafelag={data.sveitafelag} />
-              {!currentAddress && (
+              {!HIDE_TRANSPORTATION && !currentAddress && (
                 <div className={s.currentAddressBox}>
                   <h3>Nú þurfum við bara að koma þér á kjörstað!</h3>
                   <form onSubmit={this.submitCurrentAddress}>
@@ -635,7 +637,7 @@ class Kjorskra extends PureComponent {
             <p>
               Uppflettingar eru gerðar í{' '}
               <a
-                href="https://www.skra.is/folk/kjorskra-og-kosningar/hvar-a-eg-ad-kjosa/"
+                href="https://www.skra.is/folk/kjorskra-og-kosningar/hvar-a-eg-ad-kjosa/althingiskosningar-2024/"
                 target="_blank"
               >
                 Kjörskrá
