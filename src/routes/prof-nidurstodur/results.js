@@ -33,7 +33,7 @@ export default ({ params, url }) => {
     .map(party => `${party.letter}:${Math.ceil(party.score)}`)
     .join('|');
 
-  const ogImage = `https://3t4zkdq6qr6llg66jfm7gaeog40fbpty.lambda-url.eu-west-1.on.aws/${encodeURIComponent(
+  const ogImage = `https://3t4zkdq6qr6llg66jfm7gaeog40fbpty.lambda-url.eu-west-1.on.aws/?r=${encodeURIComponent(
     socialPayload
   )}`;
 
