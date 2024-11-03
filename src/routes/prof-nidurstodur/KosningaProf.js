@@ -177,7 +177,9 @@ class Kosningaprof extends PureComponent {
     };
 
     const _cleanAnswer = () => {
-      return hasAnswer ? parseInt(answers[id].replace(/\!/g, ''), 10) : null;
+      return hasAnswer
+        ? parseInt(answers[id].toString().replace(/\!/g, ''), 10)
+        : null;
     };
 
     const importantQuestion = () => {

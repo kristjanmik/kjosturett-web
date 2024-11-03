@@ -31,7 +31,7 @@ export default function getResultsBySVTScore(userAnswer, politialEntityAnswer) {
   const userAnswerSVT = parseAnswerToSVT(userAnswer);
   return politialEntityAnswer
     .map(data => {
-      if (data.reply) {
+      if (data.reply && data.reply.length > 0) {
         const politialEntityAnswerSVT = parseAnswerToSVT(data.reply.split(','));
         return {
           ...data,
