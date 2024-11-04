@@ -245,14 +245,6 @@ class Kosningaprof extends PureComponent {
           questions.map(({ question, id }) => (
             <div key={id} className={s.question}>
               <h3>{question}</h3>
-              {answers[id] !== null && answers[id] !== '6' && (
-                <Checkbox
-                  id={id}
-                  text="Mikilvægt spurning fyrir mig/flokkinn"
-                  onClick={() => this.setImportantQuestion(id)}
-                  checked={this.isImportant(answers[id])}
-                />
-              )}
               {Object.keys(answerMap).map(value => {
                 const name = `${id}_${value}`;
                 return (
@@ -269,6 +261,17 @@ class Kosningaprof extends PureComponent {
                   </div>
                 );
               })}
+              {answers[id] !== null && answers[id] !== '6' && (
+                <div className={s.checkbox}>
+                  <Checkbox
+                    style={{ marginBottom: '0' }}
+                    id={id}
+                    text="Mikilvæg spurning fyrir mig/flokkinn"
+                    onClick={() => this.setImportantQuestion(id)}
+                    checked={this.isImportant(answers[id])}
+                  />
+                </div>
+              )}
             </div>
           ))}
         {started && !finished && <button onClick={this.onSend}>Senda</button>}

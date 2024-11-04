@@ -22,9 +22,16 @@
     margin-top: 3rem;
   }
 }
+.question {
+  position: relative;
+}
+.checkbox {
+  position: absolute;
+  bottom: -3em;
+}
 
 .question + .question {
-  padding-top: 4rem;
+  margin-top: 4rem;
 }
 
 .intro {
