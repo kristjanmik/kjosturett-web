@@ -116,8 +116,48 @@ class KosningaprofResults extends PureComponent {
     );
   }
 
+  renderAgreementText(difference, party, myAnswer, partyAnswer) {
+    const { answers } = this.props;
+    const pluralParty = party.name === 'Píratar';
+    const partyIndiffrent = partyAnswer === 6;
+    if (difference === 0) {
+      return (
+        <div>
+          Bæði ég og {party.name} erum{' '}
+          <strong>{answers.textMap[myAnswer].toLowerCase()}</strong> þessari
+          staðhæfingu.
+        </div>
+      );
+    }
+    if (partyIndiffrent) {
+      return (
+        <div>
+          Ég er{' '}
+          <strong>
+            {(answers.textMap[myAnswer] || 'hlutlaus').toLowerCase()}
+          </strong>{' '}
+          en {party.name}
+          <strong> svaraði ekki spurningunni</strong>{' '}
+        </div>
+      );
+    }
+    return (
+      <div>
+        Ég er{' '}
+        <strong>
+          {(answers.textMap[myAnswer] || 'hlutlaus').toLowerCase()}
+        </strong>{' '}
+        en {party.name} {pluralParty ? 'eru ' : 'er '}
+        <strong>
+          {(answers.textMap[partyAnswer] || 'á eftir að svara').toLowerCase()}
+          {(partyIndiffrent && pluralParty && 'ir ') || ' '}
+        </strong>{' '}
+      </div>
+    );
+  }
+
   render() {
-    const { isEmbedded, questions, answers, parties } = this.props;
+    const { isEmbedded, questions, parties } = this.props;
     const { kjordaemiFilter, topFilter, candidateCount } = this.state;
     const answeredQuestions = questions.filter(
       ({ myAnswer }) => myAnswer !== null && myAnswer !== 6
@@ -211,18 +251,22 @@ class KosningaprofResults extends PureComponent {
                     .sort((a, b) => {
                       const aAgree = Math.abs(a.myAnswer - a.partyAnswer);
                       const bAgree = Math.abs(b.myAnswer - b.partyAnswer);
-                      if (a.myAnswer === 6) {
+                      if (a.partyAnswer === 6) {
                         return 1;
                       }
-                      if (b.myAnswer === 6 || isNaN(aAgree) || isNaN(bAgree)) {
+                      if (
+                        b.partyAnswer === 6 ||
+                        isNaN(aAgree) ||
+                        isNaN(bAgree)
+                      ) {
                         return -1;
                       }
                       return aAgree - bAgree;
                     })
                     .map(({ id, myAnswer, question, partyAnswer }) => {
                       const iAmIndiffrent = myAnswer === 6;
-                      const pluralParty = party.name === 'Píratar';
                       const partyIndiffrent = partyAnswer === 6;
+
                       const difference = Math.abs(myAnswer - partyAnswer);
 
                       return (
@@ -231,40 +275,18 @@ class KosningaprofResults extends PureComponent {
                             <i
                               className={cx(
                                 s.dot,
-                                !iAmIndiffrent && s[`dot${difference}`]
+                                !iAmIndiffrent &&
+                                  !partyIndiffrent &&
+                                  s[`dot${difference}`]
                               )}
                             />
                             {question}
                           </h4>
-
-                          {difference === 0 ? (
-                            <div>
-                              Bæði ég og {party.name} erum{' '}
-                              <strong>
-                                {answers.textMap[myAnswer].toLowerCase()}
-                              </strong>{' '}
-                              {iAmIndiffrent && 'gagnvart '} þessari
-                              staðhæfingu.
-                            </div>
-                          ) : (
-                            <div>
-                              Ég er{' '}
-                              <strong>
-                                {(
-                                  answers.textMap[myAnswer] || 'hlutlaus'
-                                ).toLowerCase()}
-                              </strong>{' '}
-                              en {party.name} {pluralParty ? 'eru ' : 'er '}
-                              <strong>
-                                {(
-                                  answers.textMap[partyAnswer] || 'hlutlaus'
-                                ).toLowerCase()}
-                                {(partyIndiffrent && pluralParty && 'ir ') ||
-                                  ' '}
-                              </strong>{' '}
-                              {partyIndiffrent && 'gagnvart '} þessari
-                              staðhæfingu.
-                            </div>
+                          {this.renderAgreementText(
+                            difference,
+                            party,
+                            myAnswer,
+                            partyAnswer
                           )}
                         </div>
                       );
