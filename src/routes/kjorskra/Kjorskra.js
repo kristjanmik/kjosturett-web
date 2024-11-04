@@ -640,7 +640,7 @@ class Kjorskra extends PureComponent {
                 href="https://www.skra.is/folk/kjorskra-og-kosningar/hvar-a-eg-ad-kjosa/althingiskosningar-2024/"
                 target="_blank"
               >
-                Kjörskrá
+                gegnum vef Þjóðskrár
               </a>
               . Gögn eru ekki geymd.
             </p>
