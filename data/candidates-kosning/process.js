@@ -1,5 +1,6 @@
 //https://www.landskjor.is/media/althingiskosningar/Auglysing-frambjodenda-2021.pdf
-//Super fast hack to process the random pdf of all candidates
+//https://assets.ctfassets.net/8k0h54kbe6bj/1gtENqhJYNkfpbwfGjCMnv/7678c549ba1093e4d051a53abd20b71e/Augl_sing_frambo_slista_til_Al_ingis_2024.pdf
+//Process the pdf of all candidates from landskjörstjórn
 const fs = require('fs');
 const raw = fs.readFileSync('./candidates_raw.txt').toString();
 
@@ -9,7 +10,7 @@ const partyMap = {
   D: 'sjalfstaedisflokkurinn',
   F: 'flokkur-folksins',
   J: 'sosialistaflokkurinn',
-  O: 'frjalslyndi-lydraedisflokkurinn',
+  L: 'lydraedisflokkurinn',
   M: 'midflokkurinn',
   P: 'piratar',
   S: 'samfylkingin',
@@ -72,16 +73,8 @@ const results = {};
       if (split.length === 2) {
         obj.street = '';
       } else if (split.length === 4) {
-        //edge cases from the bad data source
-        if (
-          ['100263-4919', '100379-3419', '040891-2429', '130392-2539'].includes(
-            obj.name
-          )
-        ) {
-          obj.occupation = obj.ssn;
-          obj.ssn = obj.name;
-          obj.name = '';
-        }
+        obj.occupation = obj.street;
+        obj.street = '';
       } else if (split.length === 5) {
         //Normal length
         obj.occupation = split[2].trim();
@@ -93,13 +86,13 @@ const results = {};
         throw Error('Could not parse candidate');
       }
 
-      obj.ssn = (obj.ssn || '').replace('-', '');
+      obj.ssn = (obj.ssn || '').replace('-', '').replace('kt. ', '');
 
       results[kjordaemi][party].push(obj);
     }
   });
 
-  fs.writeFile(`./candidates.json`, JSON.stringify(results, null, 1), error => {
+  fs.writeFile(`./candidates.json`, JSON.stringify(results, null, 0), error => {
     if (error) return console.error(error);
   });
 
@@ -115,7 +108,6 @@ const results = {};
           return { ...d, constituency, party, ssn: d.ssn.replace('-', '') };
         }),
       ];
-      console.log(parties[party]);
     }
   }
 
