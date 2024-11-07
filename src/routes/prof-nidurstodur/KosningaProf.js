@@ -220,16 +220,16 @@ class Kosningaprof extends PureComponent {
           dotStyle={{
             borderColor: '#e9e9e9',
             marginBottom: -5,
-            width: 18,
-            height: 18,
+            width: 22,
+            height: 22,
           }}
           handleStyle={{
             backgroundColor: '#333',
             borderColor: '#999',
-            marginLeft: 4,
-            marginTop: -7,
-            width: 18,
-            height: 18,
+            marginLeft: 7,
+            marginTop: -9,
+            width: 20,
+            height: 20,
           }}
           trackStyle={{
             backgroundColor: 'transparent',
