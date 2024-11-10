@@ -61,6 +61,7 @@ class Kosningaprof extends PureComponent {
       finished: false,
       visible: {},
       showReset: false,
+      seeTest: false,
       currentQuestionIndex: -1,
       answers: initialAnswers(props.questions),
     };
@@ -69,14 +70,13 @@ class Kosningaprof extends PureComponent {
 
     this.onReset = this.onReset.bind(this);
     this.onSend = this.onSend.bind(this);
-    this.seeTest = false;
     this.changeQuestion = this.changeQuestion.bind(this);
   }
   componentDidMount() {
     this.loadAnswers();
     const { seeTest } = queryString.parse(window.location.search);
     if (seeTest) {
-      this.seeTest = true;
+      this.setState({ seeTest: true });
     }
   }
   onReset() {
@@ -310,9 +310,9 @@ class Kosningaprof extends PureComponent {
 
   renderIntroText() {
     const { isEmbedded } = this.props;
-    const { showReset } = this.state;
+    const { showReset, seeTest } = this.state;
 
-    if (!this.seeTest) {
+    if (seeTest) {
       return (
         <div className={s.lead}>
           <p>
@@ -359,7 +359,7 @@ class Kosningaprof extends PureComponent {
 
   render() {
     const { isEmbedded, questions } = this.props;
-    const { currentQuestionIndex } = this.state;
+    const { currentQuestionIndex, seeTest } = this.state;
 
     if (isEmbedded) {
       if (currentQuestionIndex === -1) {
@@ -397,7 +397,7 @@ class Kosningaprof extends PureComponent {
     return (
       <div className={cx(s.root, s.questions)}>
         {this.renderIntroText()}
-        {this.seeTest && (
+        {seeTest && (
           <div
             ref={element => {
               this.questionsEl = element;
