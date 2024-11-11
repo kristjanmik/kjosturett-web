@@ -6,6 +6,8 @@ const partiesImport = require('./parties');
 
 exports.handler = (event, context, callback) => {
   let payload = decodeURIComponent(event.queryStringParameters.r);
+  let type = decodeURIComponent(event.queryStringParameters.t);
+  const IS_VISIR = type === 'v';
   // let payload = 'C:68|D:67|F:58|M:38|P:34';
 
   let parties = payload.split('|').map(raw => {
@@ -32,35 +34,29 @@ exports.handler = (event, context, callback) => {
     return 0;
   });
 
-  parties = parties.slice(0, 5);
+  parties = parties.slice(0, 3);
 
   let image = gm()
     .in('-page', '+0+0')
-    .in('./prof.png')
-    .fontSize(44)
+    .in(IS_VISIR ? './visir.jpg' : './prof.png')
+    .fontSize(52)
     .fill('#000000')
     .font(path.join(__dirname, './Roboto-Bold.ttf'));
 
   parties.forEach((party, index) => {
     let pos = [0, 0];
     if (index === 0) {
-      //Left pos
-      pos = [680, 85];
+      pos = [250, 180];
     } else if (index === 1) {
-      //Left pos
-      pos = [900, 85];
+      pos = [600, 180];
     } else if (index === 2) {
-      pos = [590, 342];
-    } else if (index === 3) {
-      pos = [800, 342];
-    } else if (index === 4) {
-      pos = [1000, 342];
+      pos = [950, 180];
     }
 
     image
       .in('-page', '+' + pos[0] + '+' + pos[1])
       .in('./party-icons/' + party.slug + '.png')
-      .drawText(pos[0] + 55, pos[1] + 225, party.score + '%');
+      .drawText(pos[0] + 112, pos[1] + 356, party.score + '%');
   });
 
   if (process.env.NODE_ENV === 'development') {
@@ -87,7 +83,7 @@ exports.handler = (event, context, callback) => {
 
 if (process.env.NODE_ENV === 'development') {
   exports.handler(
-    { queryStringParameters: { r: 'J:68|D:67|F:58|M:38|P:34' } },
+    { queryStringParameters: { r: 'B:68|S:67|M:58|M:38|P:34|B:10' } },
     {},
     console.log
   );
