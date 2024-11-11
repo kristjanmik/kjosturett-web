@@ -1,7 +1,7 @@
 import React from 'react';
 import KosningaProf from './KosningaProf';
 import Layout from '../../components/Layout';
-import questions from '../../../data/poll/questions-2024.json';
+import questions from '../../../data/poll/questions.json';
 import answers from '../../../data/poll/answers.json';
 
 export default ({ params, url, query }) => {
