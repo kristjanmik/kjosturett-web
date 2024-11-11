@@ -261,6 +261,14 @@ class KosningaprofResults extends PureComponent {
                       ) {
                         return -1;
                       }
+                      // secondary sorting by how strongly the user feels
+                      if (aAgree - bAgree === 0) {
+                        if (a.myAnswer < b.myAnswer) {
+                          return 1;
+                        } else {
+                          return -1;
+                        }
+                      }
                       return aAgree - bAgree;
                     })
                     .map(({ id, myAnswer, question, partyAnswer }) => {
