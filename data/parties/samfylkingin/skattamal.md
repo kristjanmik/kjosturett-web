@@ -1,0 +1,5 @@
+Samfylkingin vill koma á réttlátara skattkerfi á Íslandi. Tilgangur skattkerfisins er annars vegar að skapa svigrúm til sameiginlegra útgjalda og hins vegar að draga úr ójöfnuði og aðstöðumun í íslensku samfélagi. Til að hvort tveggja takist með sem minnstum tilkostnaði er mikilvægt að skattkerfið sé skilvirkt.
+
+Grundvallarafstaða jafnaðarfólks í skattamálum er sú að öll greiði til samfélagsins eftir getu þannig að þau sem bera mest úr býtum leggi hlutfallslega mest af mörkum. Reynslan sýnir að það er ekki aðeins réttlátt heldur einnig sú aðferð sem hefur gefist best í farsælustu samfélögum heims.
+
+Samfylkingin vill halda aftur af skattbyrði almenns launafólks og auka þess í stað hlutdeild skattlagningar á fjármagn. Við viljum draga úr hlutfallslegu vægi flatra skatta og gjalda sem leggjast þyngra á fólk eftir því sem það hefur lægri tekjur en innheimta gjöld fyrir nýtingu náttúruauðlinda í þjóðareign. Síðast en ekki síst kallar réttlátara og skilvirkara skattkerfi á að tekið sé á skattaundanskotum af alvöru og að við skrúfum fyrir skattaglufur þannig að allir sitji við sama borð. Til þess þarf pólitískan vilja.
