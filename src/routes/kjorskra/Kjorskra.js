@@ -491,6 +491,28 @@ class Kjorskra extends PureComponent {
 
     return itineries;
   }
+
+  renderThjodskra() {
+    return (
+      <div className={s.lookupContainer}>
+        <h3>Finnum út úr því hvar þú átt að kjósa!</h3>
+        <p>
+          Hver er kjörstaðurinn þinn? Á síðu Þjóðskrá getur þú flett upp hvort
+          og hvar þú eru á kjörskrá í Alþingiskosningum 2024. Kjósendur eru á
+          kjörskrá í því sveitarfélagi þar sem þeir eiga skráð lögheimili á
+          viðmiðunardegi þann 29 október 2024.
+        </p>
+
+        <a
+          href="https://www.skra.is/folk/kjorskra-og-kosningar/hvar-a-eg-ad-kjosa/althingiskosningar-2024/"
+          target="_blank"
+        >
+          Finndu út hvar þú átt að kjósa hér
+        </a>
+      </div>
+    );
+  }
+
   render() {
     const { nidurstada } = this.props;
 
@@ -510,7 +532,8 @@ class Kjorskra extends PureComponent {
     return (
       <div className={s.root}>
         <div className={`${s.background} ${data ? s.backgroundgone : null}`} />
-        {!data && (
+        {this.renderThjodskra()}
+        {/* {!data && (
           <div>
             <div className={s.lookupContainer}>
               {nidurstada && (
@@ -623,8 +646,8 @@ class Kjorskra extends PureComponent {
               </div>
             )}
           </div>
-        )}
-        {
+        )} */}
+        {/* {
           <div className={s.disclaimer}>
             {isFetching && (
               <div className={`${s.errormsg} ${s.fetching}`}>Næ í gögn</div>
@@ -645,7 +668,7 @@ class Kjorskra extends PureComponent {
               . Gögn eru ekki geymd.
             </p>
           </div>
-        }
+        } */}
       </div>
     );
   }
