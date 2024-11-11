@@ -1,0 +1,1 @@
+Flokkur fólksins vill hækka skattleysismörk í 450.000 kr. með upptöku fallandi persónuafsláttar. Við viljum afnema virðisaukaskatt af hjálpartækjum, hvort heldur hjólastólum eða heyrnatækjum. Við munum aldrei skattleggja fátækt. Við viljum alls ekki hækka nefskatta og krónutölugjöld þegar við erum í baráttu við verðbólgu og reynum að ná niður okurvöxtum.

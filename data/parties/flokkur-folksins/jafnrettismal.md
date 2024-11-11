@@ -1,0 +1,1 @@
+Flokkur fólksins telur mikilvægt að stjórnvöld hugi ávallt að jafnrétti kynjanna og stuðli að því að útrýma kynbundnum launamun. 

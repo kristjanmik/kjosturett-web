@@ -1,0 +1,1 @@
+Flokkur fólksins vill fá auðlindaákvæði inn í stjórnarskránna sem tryggir að greiða þurfi fullt verð fyrir aðgang að auðlindinni. Flokkur fólksins vill virða niðurstöður þjóðaratkvæðagreiðslunnar um nýja stjórnarskrá og að lagt verði fram frumvarp þess efnis af næstu ríkisstjórn.

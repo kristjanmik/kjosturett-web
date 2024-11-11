@@ -1,0 +1,1 @@
+Flokkur fólksins vill tryggja að Landsvirkjun verði ævarandi þjóðareign. Við viljum ráðast í enn frekari uppbyggingu á flutnings- og dreifikerfinu svo að landið allt fái notið okkar grænu orku. Við viljum virkja meira, en við viljum ekki að hér spretti upp, eins og gorkúlur, vindmyllugarðar í eigu einkafjárfesta. 

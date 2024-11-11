@@ -1,0 +1,1 @@
+Við erum ekki hrifin af loftslagssköttum. Ísland er með sérstöðu á heimsvísu þegar kemur að hlutfalli grænnar orku af orkunotkun þjóðarinnar. 

@@ -1,0 +1,1 @@
+Flokkur fólksins vill að stórútgerðirnar greiði fullt verð fyrir aðgang að sjávarauðlindinni. Við viljum gefa handfæraveiðar frjálsar og endurskoða byggðakvótakerfið. Við viljum tryggja að allur fiskur fari á markað. Við viljum efla okkar yndislegu sjávarbyggðir í stað þess að brjóta þær niður. 
