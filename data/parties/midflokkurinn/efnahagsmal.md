@@ -1,0 +1,5 @@
+Ný ríkisstjórn þarf að einsetja sér að skila hallalausum fjárlögum og gefa þannig væntingar um trausta stjórn efnahagsmála. Nauðsynlegt er að taka strax á hallarekstri og skuldasöfnun ríkisins. Þannig er unnt að sigrast á verðbólgunni. Miðflokkurinn leggur áherslu á mikilvægi fjölbreyttrar atvinnustarfsemi um land allt. Miðflokkurinn styður hvers konar framþróun og nýsköpun til að efla fjölbreytta atvinnustarfsemi byggða á gæðum landsins og þekkingu landsmanna. Það ásamt öflugu menntakerfi mun tryggja áframhaldandi útflutning hátæknivara en þar hafa Íslendingar nú þegar náð eftirtektarverðum árangri. 
+
+Afstaða Miðflokksins til annarra málaflokka sýnir að í verki styður flokkurinn fjölbreytt og kraftmikið atvinnulíf, hvort sem litið er til stefnu í einstökum málaflokkum eða í afstöðunni til ríkisvaldsins eða skattheimtu. Mikilvægt er að tryggja sköpunar- og framtakskraft einstaklinganna til að halda áfram að efla þjóðarhag.  
+
+Miðflokkurinn telur mikilvægt að stjórnvöld sinni því hlutverki sínu að tryggja fyrirtækjum stöðugt og gott rekstrarumhverfi, þannig að verðmætasköpun í samfélaginu geti aukist jafnt og þétt.

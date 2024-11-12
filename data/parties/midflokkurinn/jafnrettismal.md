@@ -1,0 +1,2 @@
+Miðflokkurinn bendir á að ekkert samfélag eða lýðræðisríki getur talið sig vera fullkomlega þróað án jafnrétti kynjanna. Ísland hefur verið í fararbroddi í jafnréttismálum til margra ára en alltaf er hægt að gera betur. Mikilvægt er að karlmenn séu virkir þátttakendur í því að ná fram jafnrétti kynjanna enda skiptir jafnrétti alla máli.
+Miðflokkurinn telur að launamun sem ekki er hægt að skýra af öðrum ástæðum en kyni vera óásættanlegan.

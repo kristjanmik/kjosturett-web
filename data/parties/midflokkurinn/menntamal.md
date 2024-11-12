@@ -1,0 +1,7 @@
+Skólakerfið er í höndum hins opinbera og því þarf að tryggja nægt fjármagn til allra menntastofnana í opinberum rekstri. Miðflokkurinn leggur áherslu á að íslenskukennsla barna og unglinga verði efld.
+
+Skólinn skal vera stéttlaus og tryggja verður að þeir efnaminni hafi sömu tækifæri og aðrir á öllum skólastigum. Þá sé spornað gegn allri aðgreiningu sem leitt geti til jaðarsetningar svo sem aðgreiningu fátækra og ríkra, fólks af ólíkum uppruna, á grundvelli fötlunar, aldurs eða kyngervis. Þá er mikilvægt að minnka aðstöðumun þeirra sem búa á landsbyggðinni til að stunda t.d. iðn- og verknám sem eingöngu er kennt á höfuðborgarsvæðinu með framboði á heimavist eða námsíbúðum. Þá skal einnig tryggja fullorðnu fólki sem ekki hefur klárað framhaldsskólanám á tilsettum tíma skólavist og auka námsúrræði fyrir þann hóp.
+
+Áhersla skal lögð á að nauðsynleg stoðþjónusta verði aðgengileg bæði kennurum, foreldrum og nemendum. Styrkja þarf samvinnu milli allra skólastiga um leið og styrkja þarf stöðu allra einstaklinga í skólaumhverfinu, svo að sérstaða hvers og eins fái notið sín. Sérstaklega þarf að horfa til stöðu drengja í skólakerfinu. Skólum ber að tryggja öllum nemendum félagslegt, andlegt og líkamlegt öryggi á skólatíma. Miðflokkurinn leggur áherslu á að stórefla verknám. 
+
+Miðflokkurinn vill að öllum sé gert kleift að stunda íþróttir óháð efnahag. Til þess að það sé unnt leggur Miðflokkurinn áherslu á að ríki og sveitarfélög styðji vel við skipulagða starfsemi íþróttahreyfingarinnar.
