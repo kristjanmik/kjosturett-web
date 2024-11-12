@@ -1,0 +1,1 @@
+Sósíalistaflokkur Íslands lagði fram tillögu undir heitinu Stóra húsnæðisbyltingin fyrir síðustu Alþingiskosningar, sú nálgun gildir enn og mikilvægt að framtíðaruppbygging verði unnin á þeim forsendum þar sem m.a. er gert ráð fyrir stofnun húsnæðissjóðs almennings. 
