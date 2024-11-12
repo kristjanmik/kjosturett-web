@@ -1,0 +1,11 @@
+Framsókn vill inngildandi nálgun í málefnum útlendinga, sem snýr að því að virkja allt fólk til þátttöku, viðurkenna og virða fjölbreytileikann og gera alltaf ráð fyrir honum. Inngilding er samvinnuverkefni alls samfélagsins. Það kallar á vinnu að inngildingu á flestum sviðum samfélagsins til að stuðla að virkri þátttöku fólks af erlendu bergi brotnu jafnt í samfélaginu sem og á vinnumarkaði. Framsókn leggur áherslu á að lykill að inngildingu er betra aðgengi að íslensku og samfélagsfræðslu fyrir innflytjendur á öllum aldri og á öllum skólastigum, sem og viðurkenning á þekkingu og reynslu innflytjenda.
+
+Framsókn vill innleiða hvata til íslenskunáms og tryggja rétt innflytjenda til íslenskunáms á vinnutíma, þeim að kostnaðarlausu. Þá vill Framsókn að ríkið leggi áherslu á að styðja við tækniframþróun sem auðveldar fólki að læra íslensku.
+
+Framsókn leggur áherslu á stuðning við börn af erlendum uppruna, með móðurmálskennslu og stuðning við leik- og grunnskóla. Markmiðið er að tryggja samræmda þjónustu og viðeigandi stuðning fyrir alla.
+
+Huga þarf að farsæld barna sem hingað flytja. Framsókn leggur áherslu á að tryggja börnum af erlendum uppruna nauðsynlegan stuðning til virkar þátttöku í samfélaginu, hvort sem er í skólakerfinu, tómstundastarfi eða á öðrum sviðum samfélagsins. Framsókn vill tryggja aukna þátttöku barna af erlendum uppruna í íþrótta- og tómstundastarfi, enda gegnir það mikilvægu hlutverki hvað varðar aðlögun að samfélaginu.
+
+Framsókn vill bæta móttöku og þjónustu við umsækjendur um alþjóðlega vernd með auknu samráði við sveitarfélög til að dreifa álagi á innviði þeirra. Flokkurinn vill einnig auðvelda innflytjendum að fá menntun sína erlendis frá viðurkennda með raunfærnimati. Jafnframt á náms- og starfsráðgjöf að standa fullorðnum innflytjendum til boða.
+
+Framsókn vill herða eftirlit á landamærunum og samræma heimildir til brottvísana á einstaklingum sem hafa fengið dvalarleyfi á Íslandi og hafa framið alvarleg afbrot sem ógna allsherjarreglu, almannaöryggi eða almannaheilbrigði.

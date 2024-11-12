@@ -1,0 +1,11 @@
+Framsókn leggur áherslu á að byggja upp fjölbreytt og sjálfbært atvinnulíf með nýsköpun, græna atvinnusköpun og öflugt innviðakerfi í fyrirrúmi. Flokkurinn vill tryggja jafna dreifingu atvinnutækifæra um landið, stuðla að betri tengingu menntunar og atvinnulífs og skapa hagstætt skattaumhverfi fyrir fyrirtæki. Framsókn styður einnig sjálfbæra ferðaþjónustu, sterkan landbúnað og aðgengi að fjármagni fyrir sprotafyrirtæki, með það að markmiði að efla efnahagslífið í öllum landshlutum.
+
+Framsókn vill stuðla að einföldu og hagkvæmu skattaumhverfi sem hvetur fyrirtæki til vaxtar og nýráðninga.
+
+Framsókn vill styðja nýsköpun og þróun í atvinnulífinu með skattaívilnunum, fjárhagslegum stuðningi og þjálfun fyrir nýsköpunarfyrirtæki og frumkvöðla. Flokkurinn leggur áherslu á öflugt atvinnulíf í öllum landshlutum og fjölgun atvinnutækifæra á landsbyggðinni fyrir ungt fólk. Til þess þarf m.a. að fjárfesta í grunninnviðum eins og samgöngum, fjarskiptum og orkuframleiðslu og - dreifingu, en betri innviðir styðja atvinnulíf á landsbyggðinni og bæta samkeppnishæfni landsins í heild.
+
+Við viljum tryggja áframhaldandi vöxt í ferðaþjónustu og markmiðið er að ferðaþjónustan skapi arð fyrir samfélagið án þess að raska náttúrunni. Flokkurinn vill efla lítil og meðalstór ferðaþjónustufyrirtæki, markaðssetja Ísland sem áfangastað fyrir sjálfbærar ferðir, og þróa innviði til að mæta auknum ferðamannastraumi.
+
+Framsókn vill efla sjálfbæran íslenskan landbúnað og styðja við bændur til að tryggja matvælaöryggi landsins og fjölbreytt atvinnulíf á landsbyggðinni. Landbúnaður er mikilvægur hluti af sjálfstæði landsins og velferð samfélagsins. Bændur eiga að geta aukið arðsemi sína með því að framleiða hágæða matvæli og nýta afurðir sínar á skilvirkari hátt. Framsókn vill setja upp hvata fyrir framleiðendur sem hyggja á framleiðslu matvöru sem skortur er á hér á landi. Þetta getur falið í sér fjárhagslegan stuðning eða aðstoð við að þróa nýjar vörur.
+
+Framsókn leggur áherslu á mikilvægi hugverkaverndar, þar sem það er grundvöllur fyrir nýsköpun og sköpun verðmæta. Flokkurinn vill tryggja að íslenskt hugvit, hönnun og framleiðsla njóti verndar bæði innanlands og á alþjóðamarkaði.

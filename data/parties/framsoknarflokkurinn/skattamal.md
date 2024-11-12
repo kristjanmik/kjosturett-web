@@ -1,0 +1,9 @@
+Framsókn leggur þunga áherslu á að auka tekjuöflun ríkisins með auknum vexti og verðmætasköpun í stað þess að auka skattheimtu á fólk og fyrirtæki. Í því samhengi skiptir meðal annars máli að fyrirsjáanleg, fjármögnuð og skilvirk hvatakerfi til aukinnar verðmætasköpunar verði fest í sessi, má þar nefna endurgreiðslur vegna rannsókna, þróunar og kvikmyndagerðar og fjármunum til markaðssetningar á Íslandi sem áfangastaðar verði tryggðir.
+
+Framsókn leggur áherslu á að skattkerfið sé skýrt, réttlátt og samkeppnishæft ásamt því að það sé nýtt til að tryggja öflugt velferðarkerfi og jöfn tækifæri fyrir alla í samfélaginu.
+
+Flokkurinn vill skapa hagstætt skattaumhverfi fyrir fyrirtæki með frekari stuðningi við nýsköpun og þróun í atvinnulífinu með skattaívilnunum, fjárhagslegum stuðningi og þjálfun fyrir nýsköpunarfyrirtæki og frumkvöðla. Markmiðið er að skapa ný störf og styrkja samkeppnishæfni Íslands. Flokkurinn vill stuðla að einföldu og hagkvæmu skattaumhverfi sem hvetur fyrirtæki til vaxtar og nýráðninga. Þetta felur í sér skattaívilnanir fyrir smærri fyrirtæki og frumkvöðlastarfsemi.
+
+Framsókn styður þrepaskipt tekjuskattkerfi einstaklinga til þess að stuðla að sanngjarnri tekju- og eignaskiptingu líkt og tíðkast í helstu samanburðarlöndum Íslands. Þá styður Framsókn að skattkerfið og fyrirkomulag persónuafsláttar sé áfram nýtt til tekjujöfnunar. Skattaumhverfi þarf að vera skýrt, réttlátt og samkeppnishæft við nágrannalönd. Mikilvægt er að skattkerfið vinni með hagsveiflunni.
+
+Efla þarf skilvirkt skattaeftirlit til að draga úr svarti atvinnustarfsemi og stuðla að eðlilegri samkeppni og þátttöku í uppbyggingu samfélagsins. Mikilvægt er að endurskoða tekjustofna sveitarfélaga og Jöfnunarsjóð sveitarfélaga með það að markmiði að auka fjárhagslega sjálfbærni þeirra.

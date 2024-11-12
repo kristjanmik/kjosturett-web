@@ -1,0 +1,5 @@
+Framsókn telur hagsmunum Íslands best borgið með því að vera áfram sjálfstæð og fullvalda þjóð utan Evrópusambandsins. Stefnumótun í utanríkismálum skal ætíð taka mið af hagsmunum lands og þjóðar hverju sinni.
+
+Framtíðarskipulag Evrópu mun taka breytingum á næstu misserum og stefnumótun í utanríkismálum skal miðast að þessum breytta heimi. Flokkurinn vill efla hagsmunagæslu Íslands gagnvart Evrópusambandinu til að fylgjast betur með umræðu og hafa áhrif á komandi EES-gerðir á fyrri stigum.
+
+EES-samningurinn er mikilvægasti og umfangsmesti efnahagssamningur Íslands og því þarf að tryggja skilvirka framkvæmd hans í aukinni samvinnu við löggjafarvaldið. Þau tækifæri sem Íslendingum hafa opnast með tilkomu EES-samningsins eru ótvíræð. Framsókn telur að Ísland eigi að vera áfram aðili að EES-samstarfinu, en með aðild að því njótum við þegar allra þeirra kosta sem Evrópusambandið hefur upp á að bjóða.

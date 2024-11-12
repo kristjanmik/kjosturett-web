@@ -1,0 +1,9 @@
+Orkuöryggi er ein grunnstoða samfélagsins. Framsókn leggur mikla áherslu á að við séum sjálfum okkur nóg þegar það kemur að orkuframleiðslu og að mæta eftirspurn heimila og atvinnulífs. Það gerum við með aukinni orkuframleiðslu, bættu dreifikerfi orkunnar og sjálfbærri nýtingu hennar. Flokkurinn vill auka framleiðslu á endurnýjanlegri orku, svo sem vatns- og vindorku, til að tryggja orkuöryggi og draga úr innflutningi á jarðefnaeldsneyti. Markmiðið er að Ísland verði sjálfbært í orkuframleiðslu og geti mætt fjölbreytilegum þörfum samfélagsins um allt land.
+
+Framsókn styður orkuskipti í samgöngum og atvinnulífi með því að hvetja til notkunar á rafmagns- og vetnisbílum og efla innviði fyrir hleðslu og dreifingu grænna orkugjafa. Flokkurinn vill sjá Ísland ná sínum metnaðarfullu markmiðum um kolefnishlutlaust Ísland, eigi síðar en árið 2040.
+
+Framsókn leggur einnig áherslu á að nýta innlenda, hagkvæma og græna orkugjafa og tryggja að nauðsynlegir flutningsinnviðir séu til staðar. Framsókn vill stuðla að nýsköpun og fjárfestingu á sviði endurnýjanlegrar orku, sem er grundvöllur hagvaxtar í jafnvægi við umhverfið.
+
+Vindorkan á að vera viðbót við í sameiginlegum orkuauðlindum landsmanna, en beislun vindsins þýðir ekki að við þurfum ekki að virkja meira hvað varðar hefðbundna orkukosti, þ.e. vatnsafl og jarðvarmi. Vindorkuna þarf t.d. að sveiflujafna með stöðugum orkukostum, sem getur reynst erfitt skv. umfjöllun Landsvirkjunar. Mikilvægt er að vindorku sé búið gott lagaumhverfi sem liðki fyrir hagnýtingu vinds í þágu samfélagsins en horfi um leið til umhverfisins og framtíðarþróunar. Samhliða því þarf að vinna áfram að skýrari stefnu um eignarhald og auðlindagjald í vindorku. Mikilvægt er að skýra hvar á landinu verði heimilt að koma fyrir vindorkuveri.
+
+Tryggja þarf að auðlindir okkar séu nýttar á skynsaman og sanngjarnan hátt og að ábati þeirra renni til samfélagsins.

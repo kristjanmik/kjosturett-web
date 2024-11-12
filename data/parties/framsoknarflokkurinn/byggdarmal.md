@@ -1,0 +1,11 @@
+Framsókn hefur alltaf lagt mikla áherslu á byggðamál og vill tryggja jafna stöðu og tækifæri fyrir alla landsmenn, óháð búsetu. Flokkurinn vill jafna búsetuskilyrði með fjölbreyttum aðgerðum og viðurkenna að hagsæld þjóðarinnar til lengri tíma litið sé háð því að viðhalda fjölbreyttum samfélögum í bæði dreifbýli og þéttbýli um land allt.
+
+Í því felst að m.a. tryggja aðgengi að nauðsynlegri heilbrigðisþjónustu, óháð búsetu og fjölbreytt menntunar- og atvinnutækifæri um allt land.
+
+Framsókn leggur áherslu á að efla samgöngukerfi landsins, bæði á landi og í lofti, með því að bæta aðgengi að dreifbýli og tryggja öruggar og skilvirkar samgöngur fyrir alla. Mæta þarf auknu umferðarálagi með uppbyggingu og viðhaldi vega, bæta umferðaröryggi, halda áfram að bæta tengivegi og bora ný jarðgöng hringinn í kringum landið og útrýma einbreiðum brúm. Flokkurinn vill auka fjárfestingu í innviðum, svo sem vegum, brúm, flugvöllum og öðrum samgöngukerfum, til að tryggja að þau séu í góðu ástandi og geti mætt þörfum landsins alls.
+
+Framsókn vill tryggja aðgengi að háhraðaneti og öðrum fjarskiptalausnum um allt land, sérstaklega í dreifbýli, til að stuðla að jafnrétti í menntun, atvinnu og þjónustu. Flokkurinn vill stuðla að uppbyggingu sveigjanlegs náms og fjarnáms til að auka aðgengi að menntun fyrir alla, óháð búsetu.
+
+Framsókn vill styrkja innviði heilbrigðis- og menntakerfisins, með því að auka fjárveitingar til sjúkrahúsa, heilsugæslustöðva og menntastofnana, svo að allir hafi aðgang að nauðsynlegri þjónustu, óháð búsetu.
+
+Flokkurinn vill jafna tækifæri fólks á landsbyggðinni og í þéttbýli með því að skapa fjölbreytt störf víða um land. Flokkurinn vill tryggja jafna dreifingu atvinnutækifæra um landið. Markmiðið er að tryggja öflugt atvinnulíf í öllum landshlutum og stuðla að því að ungt fólk sjái sér fært að búa og starfa á landsbyggðinni. Framsókn styður einnig sjálfbæra ferðaþjónustu, sterkan landbúnað og aðgengi að fjármagni fyrir sprotafyrirtæki, með það að markmiði að efla efnahagslífið í öllum landshlutum.

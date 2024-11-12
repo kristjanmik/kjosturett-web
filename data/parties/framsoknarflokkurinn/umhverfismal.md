@@ -1,0 +1,7 @@
+Grunnstef í stefnu Framsóknar er virðing fyrir náttúrunni. Íslendingar byggja sína tilveru á skynsamlegri og sjálfbærri nýtingu náttúruauðlinda í eigu þjóðarinnar. Mikilvægt er að arður af nýtingu auðlindanna renni til samfélagsins og að nýting sé ávallt út frá viðmiðum hringrásarhagkerfisins. Hreint loft, land og haf, ásamt fjölbreytni íslenskrar náttúru, ber að vernda til framtíðar. Framsókn leggur mikla áherslu á umhverfismál og sjálfbæra þróun.
+
+Framsókn telur veruleg tækifæri liggja í útflutningi á þekkingu í formi ráðgjafar og fjárfestinga á erlendum vettvangi þar sem menntun og þekking á hlutum eins og endurnýjanlegri orku skipta miklu máli.
+
+Framsókn styður aðgerðir gegn loftslagsbreytingum og vill að Ísland taki virkan þátt í alþjóðlegum aðgerðum á þessu sviði. Framsókn hvetur til samstarfs við atvinnulífið um aðgerðir sem draga úr losun gróðurhúsalofttegunda og stuðla að sjálfbærni í framleiðsluferlum.
+
+Framsókn vill einnig efla innviði, svo sem flutningskerfi fyrir orku, til að tryggja nýtingu innlendra, grænna orkugjafa. Flokkurinn leggur áherslu á samfélagslega ábyrgð og vill að bæði einstaklingar og fyrirtæki taki þátt í að vernda náttúruna og draga úr umhverfisáhrifum. Framsókn vill að innviðir séu hannaðir með umhverfisvernd í huga, þar sem sjálfbærni og græn orka eru í forgrunni. Þetta felur í sér að nýta endurnýjanlega orku og draga úr kolefnislosun.
