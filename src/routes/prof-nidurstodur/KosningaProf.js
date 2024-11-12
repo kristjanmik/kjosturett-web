@@ -61,7 +61,6 @@ class Kosningaprof extends PureComponent {
       finished: false,
       visible: {},
       showReset: false,
-      seeTest: false,
       currentQuestionIndex: -1,
       answers: initialAnswers(props.questions),
     };
@@ -74,10 +73,6 @@ class Kosningaprof extends PureComponent {
   }
   componentDidMount() {
     this.loadAnswers();
-    const { seeTest } = queryString.parse(window.location.search);
-    if (seeTest) {
-      this.setState({ seeTest: true });
-    }
   }
   onReset() {
     // eslint-disable-next-line
@@ -310,9 +305,11 @@ class Kosningaprof extends PureComponent {
 
   renderIntroText() {
     const { isEmbedded } = this.props;
-    const { showReset, seeTest } = this.state;
+    const { showReset } = this.state;
 
-    if (seeTest) {
+    const isTestDisabled = false;
+
+    if (isTestDisabled) {
       return (
         <div className={s.lead}>
           <p>
@@ -331,15 +328,11 @@ class Kosningaprof extends PureComponent {
     return (
       <div className={s.lead}>
         <p>
-          <strong>
-            Við erum að vinna í að uppfæra prófið fyrir kosningarnar 2024 en
-            þangað til getur þú tekið prófið frá árinu 2021
-          </strong>
-        </p>
-        <p>
           Taktu kosningarpróf <strong>Kjóstu rétt</strong> til þess að sjá hvaða
-          flokkur passar best við þínar skoðanir. Því fleiri spurningum sem þú
-          svarar, því nákvæmari niðurstöður færðu.
+          flokkur passar best við þínar skoðanir. Ef þú hakar við
+          <i> Mikilvægt fyrir mig</i>, fær sú spurning meira vægi en þegar
+          niðurstöðurnar eru reiknaðar. Því fleiri spurningum sem þú svarar, því
+          nákvæmari niðurstöður færðu.
         </p>
         {showReset && (
           <p>
@@ -359,7 +352,7 @@ class Kosningaprof extends PureComponent {
 
   render() {
     const { isEmbedded, questions } = this.props;
-    const { currentQuestionIndex, seeTest } = this.state;
+    const { currentQuestionIndex } = this.state;
 
     if (isEmbedded) {
       if (currentQuestionIndex === -1) {
@@ -397,15 +390,13 @@ class Kosningaprof extends PureComponent {
     return (
       <div className={cx(s.root, s.questions)}>
         {this.renderIntroText()}
-        {seeTest && (
-          <div
-            ref={element => {
-              this.questionsEl = element;
-            }}
-          >
-            {this.renderAllQuestions()}
-          </div>
-        )}
+        <div
+          ref={element => {
+            this.questionsEl = element;
+          }}
+        >
+          {this.renderAllQuestions()}
+        </div>
       </div>
     );
   }
