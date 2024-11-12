@@ -1,0 +1,5 @@
+Stærstu áskoranir samtímans eru á sviði umhverfismála. Ísland á að vera í fremstu röð í baráttunni gegn loftslagsbreytingum og því neyðarástandi sem vofir yfir heimsbyggðinni. Leið Viðreisnar í ríkisstjórn er að koma á hvötum þannig að þeir borgi sem menga. Sjálfbær og ábyrg umgengni við náttúruauðlindir, þar sem náttúruvernd helst í hendur við nýtingu, er lykillinn að grænni framtíð. Öll mál eru umhverfismál.
+ 
+Móta þarf heildstæða stefnu, í samráði við sérfræðinga, um sjálfbæra landnýtingu sem byggir á vernd vistkerfa- og jarðminja, tekur tillit til bættrar vatnsverndar, og rýrir ekki náttúrugæði landsins. Draga þarf almennt úr losun frá landi og stórauka bindingu í jarðvegi og gróðri.
+
+Náttúra Íslands, með sína líffræðilegu og jarðfræðilegu fjölbreytni, er ein okkar dýrmætasta auðlind. Okkur ber því skylda til að vernda villta íslenskra náttúru og fjölbreytni landslagsins fyrir komandi kynslóðir. Besta leiðin til að halda utan um vernd og nýtingu villtrar náttúru er markviss auðlindastjórnun.

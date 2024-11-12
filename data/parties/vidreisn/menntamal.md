@@ -1,0 +1,9 @@
+Menntun er undirstaða jafnréttis, tækifæra og velferðar í samfélagi okkar og er um leið forsenda framþróunar. Eitt aðal verkefni stjórnvalda hvers tíma er að tryggja að hér sé öflugt menntakerfi sem undirbýr fólk fyrir verkefni framtíðarinnar.
+
+Til þess að hér þrífist öflugt menntakerfi þá þurfa skólar og kennarar að hafa burði til þess að sinna mismunandi þörfum nemenda. Borið hefur á því á undanförnum árum að skólar hafa ekki verið studdir nægjanlega til að sinna hlutverki sínu. Sem dæmi þurfa kennarar í auknum mæli að sinna námsgagnagerð fremur en að fá að nýta tíma sinn í kennslu og undirbúning og úrvinnslu hennar. Við þessu þarf að bregðast. Það þarf að veita kennurum og öðru starfsfólki gott starfsumhverfi, með áherslu á starfsþróun og tæknivætt starfsumhverfi. Það þarf einnig að efla stuðning við nemendur og kennara innan skóla til að mæta þörfum nemenda með öflugu teymissamstarfi fagfólks á sviðum velferðar, heilbrigðis og menntastofnanna, líkt og þroskaþjálfa, stuðningsfulltrúa og talmeinafræðinga. Stoðþjónusta innan menntakerfis er nauðsynleg nemendum og því vill Viðreisn tryggja gott aðgengi að sálfræðiþjónustu og náms- og starfsráðgjöf á öllum skólastigum. Sérstaklega þarf að huga að því að auka stuðning við kennara vegna nemenda með litla færni í íslensku og útbúa handa þeim námsgögn.
+
+Viðreisn vill gera það eftirsóknarvert að sinna kennslu á öllum skólastigum og við vitum að til þess þarf að skapa gott starfsumhverfi og góð starfskjör en líka að það sé hvati að fara í kennaranám.
+
+Nám fer fram alla ævi og því er mikilvægt að byggja brýr milli allra skólastiga og tryggja frelsi einstaklinga til að stunda nám sem hentar hverjum og einum.
+
+Námslán og skólagjöld taki mið af því að öll hafi jöfn tækifæri til framhalds- og háskólanáms, óháð efnahag og búsetu. Viðreisn vill efla enn frekar styrkja- og lágvaxtalánakerfi námslána.

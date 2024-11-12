@@ -1,0 +1,5 @@
+Ísland á að vera í fremstu röð í baráttunni gegn loftslagsbreytingum og því neyðarástandi sem vofir yfir heimsbyggðinni. Við verðum að taka stór skref strax og koma á hvötum þannig að þeir borgi sem menga. 
+
+Loftslagsvá af mannavöldum og hnignun vistkerfa er raunverulegt  ástand. Við eigum að virða alþjóðlegar skuldbindingar Íslands í loftslagsmálum og setja okkur mælanleg markmið.
+
+Það þarf að stuðla að hröðum orkuskiptum á öllum sviðum. Öflugasta og skilvirkasta verkfæri stjórnvalda til þess eru hagrænir hvatar á borð við kolefnisgjald sem leggist á alla losun og græn áhersla í skipulagsmálum. Viðreisn leggur áherslu á tekjuhlutleysi í stað aukinnar skattheimtu þannig að kolefnisgjöldum verði mætt með samsvarandi lækkun á öðrum sköttum og gjöldum. Þannig verði hægt að ná mikilvægri sátt um loftslagsaðgerðir og tryggja að þeir borgi sem mengi.

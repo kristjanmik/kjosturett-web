@@ -1,0 +1,7 @@
+Ísland á að vera  fjölbreytt og opið samfélag þar sem að fólk, óháð uppruna á að njóta jafnræðis og tækifæra. Á undanförnum árum hefur töluverður fjöldi fólks af erlendum uppruna flust til Íslands, til að vinna og finna ný tækifæri til að blómstra í góðu samfélagi. Við eigum að njóta góðs af menningarlegum fjölbreytilega landsins. Viðreisn vill auðvelda fólki utan EES, sem hingað vill koma, að fá atvinnuleyfi að kanadískri fyrirmynd. 
+
+Tilvera fólks af erlendum uppruna á ekki að vera pólitískt þrætuefni og Viðreisn tekur ekki þátt í þeim harkalega málflutningi sem tíðkast í auknum mæli um fólk af erlendum uppruna. Viðreisn telur mikilvægt að stjórnmálaflokkar á Íslandi myndi sér sameiginlega stefnu sem allir geti sætt sig við og hefur ekki í för með sér að fólk í mjög viðkvæmri stöðu verði ítrekað skotspónn í harkalegri pólitískri umræðu.
+
+Ísland getur hvorki verið galopið né algerlega lokað. Við þurfum að geta tekið vel á móti þeim sem þurfa vernd og vilja koma hingað og verða hluti af íslensku samfélagi.  Af því leiðir að fjöldinn verður því að vera viðráðanlegur og málsmeðferð má ekki taka of langan tíma. 
+
+Mikilvægt er að útlendingum sé auðveldað að læra íslenskuog hafa skal íslenskunámið aðgengilegt og á forsendum hvers og eins. Þetta gerir nútímatækni vel mögulegt. Kunnátta í tungumálinu er lykill að virkri og helbrigðri þáttöku í samfélaginu. Við eigum að læra af reynslu annara þjóða, bæði þeirra sem gert hafa mistök og þeirra sem gert hafa vel í innflytjendamálum. 
