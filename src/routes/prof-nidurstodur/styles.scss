@@ -61,6 +61,7 @@
   }
 
   .lead {
+    margin-top: 2em;
     font-size: 1.2em;
     text-align: center;
   }
@@ -230,8 +231,14 @@
   }
 }
 
+.ogImageContainer {
+  text-align: center;
+}
 .resultImage {
   width: 100%;
+  @media (min-width: 600px) {
+    width: 75%;
+  }
 }
 
 .question + .question {

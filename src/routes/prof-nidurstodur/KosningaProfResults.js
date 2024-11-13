@@ -54,41 +54,16 @@ class KosningaprofResults extends PureComponent {
       </Link>
     );
   }
-
   renderIntro() {
-    if (this.props.isEmbedded) {
-      return (
-        <div>
-          <p className={s.lead}>Niðurstöður úr kosningaprófi</p>
-          <p style={{ textAlign: 'center' }}>
-            Þú getur nálgast ýtarefni um flokkana og frambjóðendur á{' '}
-            <strong>
-              <a href="https://kjosturett.is/" target="_blank">
-                www.kjosturett.is
-              </a>
-            </strong>
-          </p>
-        </div>
-      );
-    }
-
-    const { ogImage, url } = this.props;
+    const { ogImage, url, isEmbedded } = this.props;
 
     return (
       <div>
-        <p className={s.lead}>
-          Niðurstöður úr kosningaprófi <strong>Kjóstu rétt</strong>. Þú getur
-          lesið {this.renderLink('/malefni/atvinnumal', 'stefnumál flokkana')} í
-          þeim málefnum sem þér þykir mikilvæg.
-        </p>
-
-        <p className={s.buttons}>
-          {this.renderLink('/kosningaprof', 'Taka kosningaprófið', {
-            className: s.takeTest,
-          })}
-        </p>
-
-        {ogImage && <img src={ogImage} className={s.resultImage} />}
+        {ogImage && (
+          <div className={s.ogImageContainer}>
+            <img src={ogImage} className={s.resultImage} />
+          </div>
+        )}
 
         <p className={s.buttons}>
           <Link
@@ -111,6 +86,24 @@ class KosningaprofResults extends PureComponent {
           >
             Deila niðurstöðum á Twitter
           </Link>
+        </p>
+        <p className={s.lead}>
+          {isEmbedded ? (
+            <span>
+              Þú getur nálgast ýtarefni um flokkana og frambjóðendur á{' '}
+              <strong>
+                <a href="https://kjosturett.is/" target="_blank">
+                  www.kjosturett.is
+                </a>{' '}
+              </strong>
+            </span>
+          ) : (
+            <span>
+              Þú getur lesið{' '}
+              {this.renderLink('/malefni/atvinnumal', 'stefnumál flokkana')} í
+              þeim málefnum sem þér þykir mikilvæg.
+            </span>
+          )}
         </p>
       </div>
     );

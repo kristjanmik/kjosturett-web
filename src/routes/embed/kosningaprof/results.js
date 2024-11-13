@@ -23,6 +23,14 @@ export default ({ params, url }) => {
     myAnswer: myAnswers[id],
   }));
 
+  const socialPayload = parties
+    .map(party => `${party.letter}:${Math.ceil(party.score)}`)
+    .join('|');
+
+  const ogImage = `https://3t4zkdq6qr6llg66jfm7gaeog40fbpty.lambda-url.eu-west-1.on.aws/?r=${encodeURIComponent(
+    socialPayload
+  )}`;
+
   return {
     chunks: ['embed-prof'],
     title: `Kjóstu Rétt - Kosningapróf`,
@@ -38,6 +46,7 @@ export default ({ params, url }) => {
           url={`https://kjosturett.is/embed/kosningaprof/${encodeURIComponent(
             params.nidurstodur
           )}`}
+          ogImage={ogImage}
         />
       </Layout>
     ),
