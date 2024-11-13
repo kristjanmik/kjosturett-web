@@ -45,6 +45,6 @@ describe('Frontpage', () => {
 
     const partyCount = wrapper.find('.party').length;
 
-    expect(partyCount).toBe(10);
+    expect(partyCount).toBe(11);
   });
 });
