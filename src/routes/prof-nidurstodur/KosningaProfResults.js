@@ -90,7 +90,7 @@ class KosningaprofResults extends PureComponent {
         <p className={s.lead}>
           {isEmbedded ? (
             <span>
-              Þú getur nálgast ýtarefni um flokkana og frambjóðendur á{' '}
+              Þú getur nálgast ítarefni um flokkana og frambjóðendur á{' '}
               <strong>
                 <a href="https://kjosturett.is/" target="_blank">
                   www.kjosturett.is
