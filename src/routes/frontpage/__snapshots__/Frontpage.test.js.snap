@@ -3,19 +3,6 @@
 exports[`Frontpage renders frontpage correctly 1`] = `
 <div>
   <div
-    className="voteCTA"
-  >
-    <p
-      className="maintainance"
-    >
-      Kæru landsmenn. 
-      <br />
-       Við vinnum hörðum höndum að koma síðunni í gang fyrir kosningarnar 2024. 
-      <br />
-      Þangað til birtast hér gögn úr alþingiskosningunum 2021.
-    </p>
-  </div>
-  <div
     className="grid"
   >
     <a
@@ -27,7 +14,7 @@ exports[`Frontpage renders frontpage correctly 1`] = `
         className="imgWrap"
       >
         <img
-          alt="Framsóknarflokkurinn's logo"
+          alt="Framsókn's logo"
           className="image"
           src="https://assets.kjosturett.is/party-icons/framsoknarflokkurinn.png"
         />
@@ -38,7 +25,7 @@ exports[`Frontpage renders frontpage correctly 1`] = `
         <h3
           className="name"
         >
-          Framsóknarflokkurinn
+          Framsókn
         </h3>
         <p
           className="leader"
@@ -200,6 +187,43 @@ exports[`Frontpage renders frontpage correctly 1`] = `
             x
           </span>
           J
+        </span>
+      </span>
+    </a>
+    <a
+      className="party"
+      href="/flokkur/lydraedisflokkurinn"
+      onClick={[Function]}
+    >
+      <span
+        className="imgWrap"
+      >
+        <img
+          alt="Lýðræðisflokkurinn's logo"
+          className="image"
+          src="https://assets.kjosturett.is/party-icons/lydraedisflokkurinn.png"
+        />
+      </span>
+      <span
+        className="info"
+      >
+        <h3
+          className="name"
+        >
+          Lýðræðisflokkurinn
+        </h3>
+        <p
+          className="leader"
+        >
+          Arnar Þór Jónsson
+        </p>
+        <span
+          className="letter"
+        >
+          <span>
+            x
+          </span>
+          L
         </span>
       </span>
     </a>
