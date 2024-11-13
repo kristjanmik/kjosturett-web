@@ -61,7 +61,9 @@ export default ({ url, params }) => {
     letter => parties.filter(party => party.letter === letter)[0]
   );
 
-  const replies = filterParties.map(party => party.reply.split(''));
+  const replies = filterParties.map(party => party.reply.split(','));
+
+  console.log('replies', replies);
 
   const minReplies = [];
   const maxReplies = [];

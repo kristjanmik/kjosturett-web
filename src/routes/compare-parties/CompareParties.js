@@ -190,18 +190,18 @@ class CompareParties extends PureComponent {
                     </h4>
                     {distance === 0 && filterParties.length === 2 && (
                       <div>
-                        {`Báðir flokkarnir eru ${answers.textMap[
-                          replies[0]
-                        ].toLowerCase()}${
+                        {`Báðir flokkarnir eru ${(
+                          answers.textMap[replies[0]] || `axel 1 ${replies[0]}`
+                        ).toLowerCase()}${
                           ['3', '6'].includes(replies[0]) ? 'ir gagnvart' : ''
                         } fullyrðingunni`}
                       </div>
                     )}
                     {distance === 0 && filterParties.length > 2 && (
                       <div>
-                        {`Allir flokkarnir eru ${answers.textMap[
-                          replies[0]
-                        ].toLowerCase()}${
+                        {`Allir flokkarnir eru ${(
+                          answers.textMap[replies[0]] || 'axel 2'
+                        ).toLowerCase()}${
                           ['3', '6'].includes(replies[0]) ? 'ir gagnvart' : ''
                         } fullyrðingunni`}
                       </div>
@@ -218,9 +218,10 @@ class CompareParties extends PureComponent {
                                   : 'er'
                               } `}
                               <b>
-                                {answers.textMap[
-                                  party.reply[id - 1]
-                                ].toLowerCase()}
+                                {(
+                                  answers.textMap[party.reply[id - 1]] ||
+                                  `axel3 -- ${party.reply[id - 1]}`
+                                ).toLowerCase()}
                               </b>
                             </p>
                           </div>
