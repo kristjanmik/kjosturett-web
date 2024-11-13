@@ -43,9 +43,9 @@ export default ({ params, url }) => {
           questions={questions}
           candidates={candidates}
           parties={parties}
-          url={`https://kjosturett.is/embed/kosningaprof/${encodeURIComponent(
+          url={`https://kjosturett.is/kosningaprof/${encodeURIComponent(
             params.nidurstodur
-          )}`}
+          )}?t=v`}
           ogImage={ogImage}
         />
       </Layout>
