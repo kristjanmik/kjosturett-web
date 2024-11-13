@@ -1,0 +1,5 @@
+Stefna Sjálfstæðisflokksins í atvinnumálum byggir á frelsi einstaklinga til að nýta hæfileika sína, ásamt ábyrgð á eigin athöfnum. Öflugt atvinnulíf er forsenda framfara og stoð velferðarkerfisins. Flokkurinn leggur áherslu á að stjórnvöld skapi heilbrigt og hvetjandi umhverfi fyrir atvinnulífið, sérstaklega fyrir lítil og meðalstór fyrirtæki sem eru burðarás íslensks hagkerfis.
+
+Áhersla er lögð á einfalt og sanngjarnt skatta- og regluverk til að bæta samkeppnisstöðu þessara fyrirtækja. Undir forystu Sjálfstæðisflokksins hafa verið tekin markviss skref til að einfalda regluverk, efla samkeppnishæfni og stuðla að nýsköpun, þó enn sé verk að vinna.
+
+Þannig eigi að vera einfalt að stofna og reka fyrirtæki, ráða starfsfólk og tryggja jafnræði í opinberri gjaldtöku milli atvinnugreina. Stjórnvöld skulu styðja stöðugleika í rekstrarumhverfinu og hvetja til nýsköpunar, sem er forsenda aukinnar framleiðni og hagvaxtar. Einfalt og skilvirkt eftirlit, auk bættra leyfisveitinga, er einnig lykilatriði til að ýta undir frekari framþróun atvinnulífsins.

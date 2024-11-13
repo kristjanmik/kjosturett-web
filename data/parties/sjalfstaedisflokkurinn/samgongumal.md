@@ -1,0 +1,9 @@
+Sjálfstæðisflokkurinn leggur ríka áherslu á að bæta samgöngur með hraðari uppbyggingu og skynsamlegri nýtingu fjármuna, meðal annars í samstarfi við einkaaðila. Með þessu stuðlum við að auknu öryggi, bættu loftslagi, sterkari byggðum, atvinnusköpun og auknum hagvexti. Við viljum auka frelsi fólks í vali á samgöngumáta—hvort sem um er að ræða almenningssamgöngur, einkabíla, gangandi eða hjólandi—án þess að einn samgöngumáti þrengi að öðrum.
+
+Mikilvægt er að tryggja arðbæra nýtingu fjármuna til að ná markmiðum um greiðari samgöngur, aukin lífsgæði og valfrelsi í samgöngum. Aukin áhersla verður lögð á uppbyggingu stofn- og tengivega um land allt. Móta skal áætlun um gerð jarðganga til lengri tíma, styrkingu ferjuleiða og viðhald flugvalla, auk uppbyggingar varaflugvalla. Greiðar og öruggar samgöngur eru mikilvægar undirstöður atvinnulífs og styrkja samkeppnishæfni byggðarlaga landsins.
+
+Sjálfstæðisflokkurinn kallar eftir skýrari framkvæmd samgöngusáttmálans. Áhersla er lögð á verkefni eins og nýjar ljósastýringar, mislæg gatnamót á Bústaðavegi og Reykjanesbraut, Arnarnesveg og tengingu við Breiðholtsbraut. Ráðast þarf í flýtiframkvæmdir með fjölbreyttri fjármögnun og samstarfi við einkaaðila, til dæmis við Sundabraut sem er forgangsverkefni.
+
+Til að auðvelda orkuskipti í samgöngum þarf að skapa raunverulega skattalega hvata fyrir einstaklinga og fyrirtæki og tryggja raforkuöryggi og -framboð um land allt. Endurskoða þarf vegalög og innleiða alþjóðlega staðla í vegagerð til að mæta aukinni umferð og stuðla að bættum umhverfisáhrifum.
+
+Reykjavíkurflugvöllur gegnir mikilvægu öryggishlutverki fyrir allt landið, og því er brýnt að hann verði óbreyttur í Vatnsmýri þar til annar jafn góður eða betri kostur er tilbúinn til notkunar. Öruggar flugsamgöngur eru lífsnauðsynlegar fyrir landsbyggðina, og því þarf að efla sjúkraflug og tryggja áætlunarflug til og frá Vestmannaeyjum. 
