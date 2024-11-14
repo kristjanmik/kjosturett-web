@@ -7,14 +7,13 @@ import answers from '../../../data/poll/answers.json';
 import Link from '../../Link';
 import Party from '../../components/Party';
 import PartyGrid from '../../components/PartyGrid';
+import { cleanAnswer } from '../../utils';
 
 const distanceValueMap = {
   '0': 0,
-  '0.2': 1,
-  '0.8': 1,
+  '0.5': 1,
   '1': 2,
-  '1.6': 4,
-  '1.8': 4,
+  '1.5': 4,
   '2': 4,
 };
 
@@ -23,81 +22,99 @@ class CompareParties extends PureComponent {
     selected: [],
     isEditing: false,
   };
-  render() {
-    const {
-      questions,
-      parties,
-      filterParties,
-      replyDistance,
-      score,
-      url,
-    } = this.props;
 
-    if (this.state.isEditing || filterParties.length < 2) {
-      return (
-        <div className={s.root}>
-          <h1 className={s.heading}>
-            Veldu stjórnmálaflokka til að bera saman
-          </h1>
-          <div className={s.chooseContainer}>
-            <PartyGrid>
-              {parties.map(party => {
-                const isSelected = this.state.selected.includes(party.letter);
-                return (
-                  <Party
-                    {...party}
-                    key={party.letter}
-                    isSelected={isSelected}
-                    isFaded={this.state.selected.length && !isSelected}
-                    onClick={() => {
-                      this.setState(({ selected }) => {
-                        if (selected.includes(party.letter)) {
-                          return {
-                            selected: selected.filter(x => x !== party.letter),
-                          };
-                        }
-
+  renderSelectParty() {
+    const { parties } = this.props;
+    return (
+      <div className={s.root}>
+        <h1 className={s.heading}>Veldu stjórnmálaflokka til að bera saman</h1>
+        <div className={s.chooseContainer}>
+          <PartyGrid>
+            {parties.map(party => {
+              const isSelected = this.state.selected.includes(party.letter);
+              return (
+                <Party
+                  {...party}
+                  key={party.letter}
+                  isSelected={isSelected}
+                  isFaded={this.state.selected.length && !isSelected}
+                  onClick={() => {
+                    this.setState(({ selected }) => {
+                      if (selected.includes(party.letter)) {
                         return {
-                          selected: [...selected, party.letter],
+                          selected: selected.filter(x => x !== party.letter),
                         };
-                      });
-                    }}
-                  />
+                      }
+
+                      return {
+                        selected: [...selected, party.letter],
+                      };
+                    });
+                  }}
+                />
+              );
+            })}
+          </PartyGrid>
+        </div>
+        {this.state.selected.length === 1 && (
+          <p style={{ textAlign: 'center', marginTop: '20px' }}>
+            Veldu amk. einn flokk til viðbótar.
+          </p>
+        )}
+        {this.state.selected.length > 1 && (
+          <div className={s.buttonContainer}>
+            <button
+              className={s.edit}
+              onClick={() => {
+                this.setState({ selected: [] });
+                history.replace(`/flokkar/bera-saman/`);
+              }}
+            >
+              Hreinsa val
+            </button>
+            <button
+              className={s.edit}
+              onClick={() => {
+                this.setState({ isEditing: false });
+                history.push(
+                  `/flokkar/bera-saman/${this.state.selected.join('')}`
                 );
-              })}
-            </PartyGrid>
+              }}
+            >
+              Bera Saman
+            </button>
           </div>
-          {this.state.selected.length === 1 && (
-            <p style={{ textAlign: 'center', marginTop: '20px' }}>
-              Veldu amk. einn flokk til viðbótar.
-            </p>
-          )}
-          {this.state.selected.length > 1 && (
-            <div className={s.buttonContainer}>
-              <button
-                className={s.edit}
-                onClick={() => {
-                  this.setState({ selected: [] });
-                  history.replace(`/flokkar/bera-saman/`);
-                }}
-              >
-                Hreinsa val
-              </button>
-              <button
-                className={s.edit}
-                onClick={() => {
-                  this.setState({ isEditing: false });
-                  history.push(
-                    `/flokkar/bera-saman/${this.state.selected.join('')}`
-                  );
-                }}
-              >
-                Bera Saman
-              </button>
-            </div>
-          )}
+        )}
+      </div>
+    );
+  }
+
+  renderZeroDistanceText(replies) {
+    const { filterParties } = this.props;
+
+    // all parties skipped the question
+    if (replies[0] === '6') {
+      return <div>Flokkarnir slepptu spurningunni</div>;
+    }
+    if (filterParties.length === 2) {
+      return (
+        <div>
+          {`Allir flokkarnir eru ${answers.textMap[replies[0]].toLowerCase()}`}
         </div>
       );
+    }
+    return (
+      <div>
+        {`Báðir flokkarnir eru ${answers.textMap[replies[0]].toLowerCase()}`}
+      </div>
+    );
+  }
+
+  render() {
+    const { questions, filterParties, replyDistance, score, url } = this.props;
+
+    if (this.state.isEditing || filterParties.length < 2) {
+      return this.renderSelectParty();
     }
 
     return (
@@ -161,7 +178,9 @@ class CompareParties extends PureComponent {
             {questions
               .map(question => ({
                 ...question,
-                replies: filterParties.map(p => p.reply[question.id - 1]),
+                replies: filterParties.map(p =>
+                  cleanAnswer(p.reply[question.id - 1])
+                ),
                 distance: replyDistance[question.id - 1],
               }))
               .sort((a, b) => {
@@ -188,24 +207,7 @@ class CompareParties extends PureComponent {
                       />
                       {question}
                     </h4>
-                    {distance === 0 && filterParties.length === 2 && (
-                      <div>
-                        {`Báðir flokkarnir eru ${(
-                          answers.textMap[replies[0]] || `axel 1 ${replies[0]}`
-                        ).toLowerCase()}${
-                          ['3', '6'].includes(replies[0]) ? 'ir gagnvart' : ''
-                        } fullyrðingunni`}
-                      </div>
-                    )}
-                    {distance === 0 && filterParties.length > 2 && (
-                      <div>
-                        {`Allir flokkarnir eru ${(
-                          answers.textMap[replies[0]] || 'axel 2'
-                        ).toLowerCase()}${
-                          ['3', '6'].includes(replies[0]) ? 'ir gagnvart' : ''
-                        } fullyrðingunni`}
-                      </div>
-                    )}
+                    {distance === 0 && this.renderZeroDistanceText(replies)}
                     {distance > 0 && (
                       <div>
                         {filterParties.map(party => (
@@ -219,8 +221,9 @@ class CompareParties extends PureComponent {
                               } `}
                               <b>
                                 {(
-                                  answers.textMap[party.reply[id - 1]] ||
-                                  `axel3 -- ${party.reply[id - 1]}`
+                                  answers.textMap[
+                                    cleanAnswer(party.reply[id - 1])
+                                  ] || 'svöruðu ekki spurningunni'
                                 ).toLowerCase()}
                               </b>
                             </p>
