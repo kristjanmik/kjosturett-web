@@ -5,6 +5,7 @@ import CompareParties from './CompareParties';
 import Layout from '../../components/Layout';
 import questions from '../../../data/poll/questions.json';
 import parties from '../../../data/build/replies-parties.json';
+import { cleanAnswer } from '../../utils';
 
 parties.sort(function(a, b) {
   if (a.letter > b.letter) return 1;
@@ -82,7 +83,7 @@ export default ({ url, params }) => {
     let min = Infinity;
     let max = -Infinity;
     replies.forEach(reply => {
-      const part = valueMap[reply[i]];
+      const part = valueMap[cleanAnswer(reply[i])];
       if (part < min) min = part;
       if (part > max) max = part;
     });

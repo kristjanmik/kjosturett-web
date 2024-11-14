@@ -99,13 +99,13 @@ class CompareParties extends PureComponent {
     if (filterParties.length === 2) {
       return (
         <div>
-          {`Allir flokkarnir eru ${answers.textMap[replies[0]].toLowerCase()}`}
+          {`Báðir flokkarnir eru ${answers.textMap[replies[0]].toLowerCase()}`}
         </div>
       );
     }
     return (
       <div>
-        {`Báðir flokkarnir eru ${answers.textMap[replies[0]].toLowerCase()}`}
+        {`Allir flokkarnir eru ${answers.textMap[replies[0]].toLowerCase()}`}
       </div>
     );
   }
