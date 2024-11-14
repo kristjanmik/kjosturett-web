@@ -34,11 +34,12 @@ if (process.env.REDIS_URL) {
     const token = split[2];
 
     if (values[index]) {
-      reply = (decodeAnswersToken(values[index]) || []).join('');
+      reply = (decodeAnswersToken(values[index]) || []).join(',');
       out.push(reply);
     }
   });
 
-  await writeFile('replies.json', JSON.stringify(out, null, 2));
+  await writeFile('./poll/replies-2024.json', JSON.stringify(out, null, 0));
   console.log('done');
+  process.exit(0);
 })();
