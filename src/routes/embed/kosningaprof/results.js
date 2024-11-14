@@ -27,9 +27,11 @@ export default ({ params, url }) => {
     .map(party => `${party.letter}:${Math.ceil(party.score)}`)
     .join('|');
 
-  const ogImage = `https://3t4zkdq6qr6llg66jfm7gaeog40fbpty.lambda-url.eu-west-1.on.aws/?t=v&r=${encodeURIComponent(
-    socialPayload
-  )}`;
+  const encodedSocial = encodeURIComponent(socialPayload);
+  const encodedResults = encodeURIComponent(params.nidurstodur);
+
+  const ogImage = `https://3t4zkdq6qr6llg66jfm7gaeog40fbpty.lambda-url.eu-west-1.on.aws/?t=v&r=${encodedSocial}`;
+  const visirUrl = `https://visir.is/kjosturett?s=${encodedResults}&r=${encodedSocial}`;
 
   return {
     chunks: ['embed-prof'],
@@ -43,9 +45,7 @@ export default ({ params, url }) => {
           questions={questions}
           candidates={candidates}
           parties={parties}
-          url={`https://kjosturett.is/kosningaprof/${encodeURIComponent(
-            params.nidurstodur
-          )}?t=v`}
+          url={visirUrl}
           ogImage={ogImage}
         />
       </Layout>
