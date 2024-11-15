@@ -5,6 +5,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { encodeAnswersToken } from '../../utils';
 import s from './KosningaProf.scss';
 import Checkbox from '../../components/Checkbox';
+import { cleanAnswer } from '../../utils';
 
 const answerMap = {
   '0': 'Mjög ósammála',
@@ -151,11 +152,6 @@ class Kosningaprof extends PureComponent {
     });
   };
 
-  _cleanAnswer(id) {
-    const { answers } = this.state;
-    return answers[id] !== null && answers[id].replace(/\!/g, '');
-  }
-
   isImportant(answer) {
     return answer !== null && answer.includes('!');
   }
@@ -165,7 +161,7 @@ class Kosningaprof extends PureComponent {
 
     const currentValue = answers[id];
     if (this.isImportant(currentValue)) {
-      const newValue = this._cleanAnswer(id);
+      const newValue = cleanAnswer(currentValue);
       this.onChange(id)({ target: { value: `${newValue}` } });
     } else {
       this.onChange(id)({ target: { value: `${currentValue}!` } });
@@ -254,7 +250,7 @@ class Kosningaprof extends PureComponent {
                       name={name}
                       value={value}
                       type="radio"
-                      checked={this._cleanAnswer(id) === value}
+                      checked={this._cleanAnswer(answers[id]) === value}
                       onChange={this.onChange(id)}
                     />
                     <label htmlFor={name}>{answerMap[value]}</label>

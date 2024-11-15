@@ -1,9 +1,11 @@
 import React from 'react';
-import { match } from '../../process-replies';
+import { match } from 'election-compass-match';
+import { parseAnswerToSVT } from '../../svt-process-replies';
 import CompareParties from './CompareParties';
 import Layout from '../../components/Layout';
 import questions from '../../../data/poll/questions.json';
 import parties from '../../../data/build/replies-parties.json';
+import { cleanAnswer } from '../../utils';
 
 parties.sort(function(a, b) {
   if (a.letter > b.letter) return 1;
@@ -41,11 +43,10 @@ const partyDeflectionsB = {
 };
 
 const valueMap = {
-  1: -1,
-  2: -0.8,
-  3: 0,
-  4: 0.8,
-  5: 1,
+  0: -1,
+  1: -0.5,
+  2: 0.5,
+  3: 1,
   6: null,
 };
 
@@ -57,32 +58,38 @@ export default ({ url, params }) => {
   letters = letters.split('').filter(letter => !!partyDeflections[letter]);
 
   //Begin calculations
-  let filterParties = letters.map(
-    letter => parties.filter(party => party.letter === letter)[0]
-  );
-
-  const replies = filterParties.map(party => party.reply.split(''));
-
-  const minReplies = [];
-  const maxReplies = [];
-  const replyDistance = [];
-  for (let i = 0; i <= questions.length - 1; i++) {
-    let max;
-    let min;
-    replies.forEach(reply => {
-      let part = valueMap[reply[i]];
-
-      if (max < part || (!max && max !== 0)) max = part;
-      if (min > part || (!min && min !== 0)) min = part;
+  let filterParties = letters
+    .map(letter => parties.filter(party => party.letter === letter)[0])
+    .map(party => {
+      return { ...party, reply: party.reply.split(',') };
     });
 
-    minReplies.push(min);
-    maxReplies.push(max);
+  const replies = filterParties.map(party => party.reply);
+  const SVTreplies = filterParties.map(party => parseAnswerToSVT(party.reply));
 
-    replyDistance.push(Math.abs(min - max));
-  }
+  const replyScore = SVTreplies.reduce((scores, partyReply, index) => {
+    for (
+      let innerIndex = index + 1;
+      innerIndex < SVTreplies.length;
+      innerIndex++
+    ) {
+      const partyTwoReply = SVTreplies[innerIndex];
+      scores.push(match(partyReply, partyTwoReply) * 100);
+    }
+    return scores;
+  }, []);
 
-  const score = match(minReplies, maxReplies);
+  const replyDistance = questions.map((_, i) => {
+    let min = Infinity;
+    let max = -Infinity;
+    replies.forEach(reply => {
+      const part = valueMap[cleanAnswer(reply[i])];
+      if (part < min) min = part;
+      if (part > max) max = part;
+    });
+    return Math.abs(max - min);
+  });
+  const score = Math.min(...replyScore);
   const percentage = `${score.toFixed(0)}%`;
 
   let title = 'Hversu líkir eru flokkarnir?';
@@ -127,7 +134,6 @@ export default ({ url, params }) => {
           questions={questions}
           filterParties={filterParties}
           score={score}
-          replies={replies}
           replyDistance={replyDistance}
           url={url}
         />
