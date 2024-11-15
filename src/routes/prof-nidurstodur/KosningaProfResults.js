@@ -256,6 +256,13 @@ class KosningaprofResults extends PureComponent {
                       }
                       // secondary sorting by how strongly the user feels
                       if (aAgree - bAgree === 0) {
+                        // Going from agree to not agree should be the color red and be lower on the scale
+                        const crossesAgreement =
+                          (a.myAnswer === 1 && a.partyAnswer === 2) ||
+                          (a.myAnswer === 2 && a.partyAnswer === 1);
+                        if (crossesAgreement) {
+                          return 1;
+                        }
                         if (a.myAnswer < b.myAnswer) {
                           return 1;
                         } else {
@@ -267,6 +274,9 @@ class KosningaprofResults extends PureComponent {
                     .map(({ id, myAnswer, question, partyAnswer }) => {
                       const iAmIndiffrent = myAnswer === 6;
                       const partyIndiffrent = partyAnswer === 6;
+                      const crossesAgreement =
+                        (myAnswer === 1 && partyAnswer === 2) ||
+                        (myAnswer === 2 && partyAnswer === 1);
 
                       const difference = Math.abs(myAnswer - partyAnswer);
 
@@ -278,7 +288,10 @@ class KosningaprofResults extends PureComponent {
                                 s.dot,
                                 !iAmIndiffrent &&
                                   !partyIndiffrent &&
-                                  s[`dot${difference}`]
+                                  s[`dot${difference}`],
+                                {
+                                  [s.dotCrossesAgreement]: crossesAgreement,
+                                }
                               )}
                             />
                             {question}
