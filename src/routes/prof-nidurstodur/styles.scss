@@ -483,7 +483,6 @@
     left: -35px;
     width: 9px;
   }
-
   .dot0 {
     background-color: #7ed321;
     box-shadow: 0 0 4px 0 #7ed321;
@@ -495,13 +494,18 @@
   }
 
   .dot2 {
+    background-color: #c21716;
+    box-shadow: 0 0 4px 0 #c21716;
+  }
+  
+  .dotCrossesAgreement {
     background-color: #d39537;
     box-shadow: 0 0 4px 0 #d39537;
   }
 
   .dot3 {
-    background-color: #c21716;
-    box-shadow: 0 0 4px 0 #c21716;
+    background-color: #7e0505;
+    box-shadow: 0 0 4px 0 #7e0505;
   }
 
   @media (min-width: 600px) {

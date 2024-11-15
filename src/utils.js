@@ -23,3 +23,7 @@ exports.decodeAnswersToken = token => {
     .toString('utf8')
     .split(',');
 };
+
+exports.cleanAnswer = answer => {
+  return answer !== null && answer.replace(/\!/g, '');
+};

@@ -22,7 +22,7 @@ function mapNumberToPropositionAnswer(answer) {
   return numberToPropositionAnswer[answer] || '_';
 }
 
-function parseAnswerToSVT(answers) {
+export function parseAnswerToSVT(answers) {
   const svtAnswer = answers.map(mapNumberToPropositionAnswer).join(';');
   return parseAnswers(svtAnswer);
 }
