@@ -1,0 +1,3 @@
+Lýðræðisflokkurinn vill stuðla að bættum samgöngum í lofti, á láði og á legi.
+
+Með uppbyggingu stofnbrauta, mislægra gatnamóta og ljósastýringum. Sundabraut fái forgang í ljósi öryggis og dreifingar á umferð. Hafnað er áformum um tugmilljarða fjársóun vegna svonefndrar borgarlínu. Samgöngusáttmálinn verið tekinn til endurskoðunar. Nýta ber kosti einkaframkvæmdar við gerð umferðarmannvirkja, eins og Hvalfjarðargöngin eru gott dæmi um. Innheimta má veggjöld fyrir notkun umferðarmannvirkja með rafrænum hætti. Skattlagning vegna vegaframkvæmda skili sér á réttan stað.

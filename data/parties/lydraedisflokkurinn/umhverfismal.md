@@ -1,0 +1,5 @@
+Einungis íslenskir ríkisborgarar eða lögaðilar hafi heimild til að eiga jarðir og kvóta á Íslandi. Þeir skulu eiga heimilisfesti hér á landi og greiða skatta og skyldur á Íslandi.
+
+Alþingi setji í krafti sjálfsákvörðunarréttar síns lög um að nýtanlegar náttúruauðlindir innan íslenskrar lögsögu, sem ekki eru í einkaeigu, séu eign íslenska ríkisins.
+
+Lýðræðisflokkurinn vill verja íslenska náttúru, landið okkar, við viljum verja íslenskar auðlindir. Við viljum lækka skatta og draga úr þessari útþenslu ríkisins og síðast en ekki síst viljum við verja frelsi einstaklinganna fyrir ásókn ríkisvalds, ásókn stórfyrirtækja og ásókn sem sannarlega dynur á okkur utan frá þar sem stórveldi og ríkjasambönd og alls konar erlendar stofnanir vilja hafa áhrif á það hvernig Íslendingar lifa sínu lífi. Hver og einn maður á að fá að ráða því fyrst og fremst.

@@ -1,0 +1,1 @@
+Kolefnisskattar verði felldir niður í ljósi þess að Ísland hefur skilað sínu framlagi nú þegar.

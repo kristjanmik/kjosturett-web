@@ -1,0 +1,3 @@
+Lýðræðisflokkurinn stendur fyrir frelsi í menntamálum og stendur vörð um íslenska tungu og menningu.
+
+Auka ber valfrelsi á öllum sviðum menntunar. Góðir kennarar geti fengið greidd laun til samræmis við frammistöðu. Opnað verði fyrir fjölbreyttari rekstrarform á öllum skólastigum með upptöku ávísanakerfis. Skólanámskrá verði einfölduð og einstaka skólum og  kennurum verði gefið meira frjálsræði til að setja sínar áherslur. Efla þarf iðnmenntun á Íslandi og auðvelda hæfileikafólki og verkmönnum sem ekki hafa hlotið formlega skólagöngu að hljóta viðurkenningu í sinni starfsgrein. Skólastarf efli gagnrýna hugsun og miði ekki að innrætingu.

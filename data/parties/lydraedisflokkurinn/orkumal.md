@@ -1,0 +1,1 @@
+Landsvirkjun og Landsnet verði áfram í eigu þjóðarinnar. Virkjunarkostir jarðvarma og fallvatna verði nýttir til fulls í jafnvægi við náttúruna áður en aðrir kostir verði skoðaðir. Íslenskum heimilum og almennri atvinnustarfsemi sé tryggður forgangur að raforku umfram stóriðju. Kolefnisskattar verði felldir niður í ljósi þess að Ísland hefur skilað sínu framlagi nú þegar.

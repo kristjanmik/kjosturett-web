@@ -1,0 +1,1 @@
+Leiðrétta þarf valdaójafnvægi milli stórútgerðar og almannahagsmuna. Búa sjávarútvegi skilyrði til að sækja fram, á jafnræðisgrunni. Allur fiskur sem veiddur er á Íslandsmiðum verði seldur á fiskmarkaði.

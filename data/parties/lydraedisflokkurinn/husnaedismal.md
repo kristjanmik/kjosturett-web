@@ -1,0 +1,1 @@
+Sjá efnahagsmál. Einnig verður að einfalda byggingarreglugerð. Fólk getur ekki byggt sér hús sjálft í dag eins og áður fyrr vegna íþyngjandi reglugerða. Sveitarfélög verða að tryggja nægjanlegt lóðaframboð. 2,2 milljónir ferðamanna hafa hleypt upp húsnæðisverði og því má fækka ferðamönnum með því að setja á þá komugjöld, sem nýtt verða til að styrkja innviði.

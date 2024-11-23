@@ -1,0 +1,1 @@
+Áhersla skal vera á jafnræði allra fyrir lögum.

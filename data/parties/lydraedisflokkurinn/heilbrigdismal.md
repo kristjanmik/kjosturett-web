@@ -1,0 +1,3 @@
+Heilbrigðisþjónusta verði betur tryggð með skynsamlegri blöndu opinbers rekstrar og einkarekstrar. Framfarir, fagmennska, samkeppni, hagsýni og skynsamlegt aðhald eru hornsteinar góðrar heilbrigðisþjónustu. Við teljum að nýta megi betur það fjármagn sem nú fer í heilbrigðiskerfið með markvissum aðgerðum til að bæta aðgengi og þjónustu heilbrigðiskerfisins um allt land.
+
+Aðeins íslenskir ríkisborgarar njóti sjúkratrygginga og eigi kost á almannatryggingum og atvinnuleysistryggingum.  Styrkja þarf sjúkraflugið og strax fara að huga að byggingu nýs þjóðarsjúkrahúss. Endurreisa þarf fjórðungssjúkrahúsin svo þau geti þjónað betur landsbyggðinni.
